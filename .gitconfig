@@ -1,0 +1,20 @@
+[user]
+	name = kazu
+	email = nkz0914ssk@gmail.com
+[core]
+	editor = nvim
+	ignorecase = false
+[push]
+	default = current
+[color]
+	ui = true
+[alias]
+	st = status
+	df = diff
+	co = commit
+	br = branch
+	ps = push
+	pl = pull
+	ck = checkout
+	tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
+
