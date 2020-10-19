@@ -1,8 +1,12 @@
 #!/bin/bash
 main () {
   SCRIPT_DIR=$(cd $(dirname $0); pwd)
-  ln -s $SCRIPT_DIR/.gitconfig ~/.gitconfig
-  ln -s $SCRIPT_DIR/.tmux.conf ~/.tmux.conf
+  DOT_FILES=(.gitconfig .tmux.conf)
+
+  for file in ${DOT_FILES[@]}
+  do
+    ln -sfnv $SCRIPT_DIR/$file $HOME/$file
+  done
 }
 
 
