@@ -18,6 +18,8 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'
+autoload -Uz compinit && compinit
+
 alias act="oj t -c 'pypy3 main.py'"
 alias acs="acc s main.py -- --guess-python-interpreter pypy"
 
