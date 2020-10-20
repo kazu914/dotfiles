@@ -29,12 +29,15 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:/usr/local/go/bin
 
 # exa
-export PATH=$PATH:$HOME/.cargo/bin
+zinit ice as"program" from"gh-r" mv"exa* -> exa"
+zinit light ogham/exa
 alias ll="exa -l --icons"
 alias la="exa -aal --icons"
 alias ls="exa --icons"
 
 # bat
+zinit ice as"program" from"gh-r" mv"bat* -> bat" pick"bat/bat"
+zinit light sharkdp/bat
 alias cat="bat"
 
 # cd -> auto ls
