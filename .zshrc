@@ -45,10 +45,6 @@ zinit light sharkdp/bat
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 
-# history
-HISTFILE=$HOME/.zsh-history
-HISTSIZE=100000
-SAVEHIST=1000000
 
 
 
