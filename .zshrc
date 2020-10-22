@@ -11,8 +11,8 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
+SCRIPT_DIR=$HOME/dotfiles
 
-source ./zsh/config.zsh
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -22,8 +22,6 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'
 autoload -Uz compinit && compinit
 
-alias act="oj t -c 'pypy3 main.py'"
-alias acs="acc s main.py -- --guess-python-interpreter pypy"
 
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -39,22 +37,13 @@ bindkey '^j' autosuggest-accept
 # exa
 zinit ice as"program" from"gh-r" mv"exa* -> exa"
 zinit light ogham/exa
-alias ll="exa -l --icons"
-alias la="exa -aal --icons"
-alias ls="exa --icons"
 
 # bat
 zinit ice as"program" from"gh-r" mv"bat* -> bat" pick"bat/bat"
 zinit light sharkdp/bat
-alias cat="bat"
 
-# cd -> auto ls
-cd (){
-    builtin cd "$@" && ls
-}
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
-alias open='xdg-open'
 
 # history
 HISTFILE=$HOME/.zsh-history
@@ -85,3 +74,5 @@ fadd() {
 }
 alias fa="fadd"
 
+source $SCRIPT_DIR/zsh/config.zsh
+source $SCRIPT_DIR/zsh/aliases.zsh
