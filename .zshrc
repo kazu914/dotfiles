@@ -12,6 +12,8 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
+source ./zsh/config.zsh
+
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -59,9 +61,6 @@ HISTFILE=$HOME/.zsh-history
 HISTSIZE=100000
 SAVEHIST=1000000
 
-# share .zshhistory
-setopt inc_append_history
-setopt share_history
 
 
 # for fzf
