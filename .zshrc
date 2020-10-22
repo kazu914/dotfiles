@@ -13,30 +13,8 @@ autoload -Uz _zinit
 ### End of Zinit's installer chunk
 SCRIPT_DIR=$HOME/dotfiles
 
-
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'
 autoload -Uz compinit && compinit
-
-zinit light zdharma/fast-syntax-highlighting
-zinit light zsh-users/zsh-autosuggestions
-bindkey '^j' autosuggest-accept
-
-# exa
-zinit ice as"program" from"gh-r" mv"exa* -> exa"
-zinit light ogham/exa
-
-# bat
-zinit ice as"program" from"gh-r" mv"bat* -> bat" pick"bat/bat"
-zinit light sharkdp/bat
-
-
-
-
 
 
 # for fzf
@@ -61,5 +39,6 @@ fadd() {
 }
 alias fa="fadd"
 
+source $SCRIPT_DIR/zsh/plugins.zsh
 source $SCRIPT_DIR/zsh/config.zsh
 source $SCRIPT_DIR/zsh/aliases.zsh
