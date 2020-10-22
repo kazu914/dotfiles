@@ -30,6 +30,9 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:/usr/local/go/bin
 
+
+zinit light zdharma/fast-syntax-highlighting
+
 # exa
 zinit ice as"program" from"gh-r" mv"exa* -> exa"
 zinit light ogham/exa
