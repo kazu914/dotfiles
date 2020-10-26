@@ -6,6 +6,8 @@ alias open='xdg-open'
 
 alias vim='nvim'
 
+alias loadzshrc='source $HOME/.zshrc'
+
 # cd -> auto ls
 cd (){
     builtin cd "$@" && ls
