@@ -19,3 +19,6 @@ autoload -Uz compinit && compinit
 source $SCRIPT_DIR/zsh/plugins.zsh
 source $SCRIPT_DIR/zsh/config.zsh
 source $SCRIPT_DIR/zsh/aliases.zsh
+if [ -e $HOME/.zshrc.local ]; then
+  source $HOME/.zshrc.local 
+fi
