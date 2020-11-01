@@ -9,5 +9,5 @@ main () {
   done
 }
 
-
+./nvim/install.sh
 main

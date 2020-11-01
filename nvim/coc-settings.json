@@ -1,0 +1,25 @@
+{
+  "diagnostic.errorSign": "🤬",
+  "diagnostic.warningSign": "🥺",
+   "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "python",
+    "dart"
+  ],
+ "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+ "python.autoComplete.addBrackets":true,
+ "languageserver": {
+   "golang":{
+     "command": "gopls",
+     "rootPatterns": ["go.mod",".vim/",".git/",".hg/"],
+     "filetypes": ["go"],
+     "initializationOptions": {
+       "usePlaceholders":true
+     }
+   }
+ }
+
+}
