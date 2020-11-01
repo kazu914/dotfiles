@@ -10,7 +10,7 @@ main () {
 }
 
 install_nvim () {
-  mkdir -p $HOME/.config/nvim 
+  mkdir -p $HOME/.config 
   ln -sfnv $SCRIPT_DIR/nvim $HOME/.config/nvim 
 } 
 
