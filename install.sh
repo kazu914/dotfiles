@@ -1,6 +1,6 @@
 #!/bin/bash
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
 main () {
-  SCRIPT_DIR=$(cd $(dirname $0); pwd)
   DOT_FILES=(.gitconfig .tmux.conf .zshrc .p10k.zsh)
 
   for file in ${DOT_FILES[@]}
@@ -9,5 +9,10 @@ main () {
   done
 }
 
-./nvim/install.sh
+install_nvim () {
+  mkdir -p $HOME/.config/nvim 
+  ln -sfnv $SCRIPT_DIR/nvim $HOME/.config/nvim 
+} 
+
 main
+install_nvim
