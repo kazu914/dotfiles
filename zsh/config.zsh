@@ -18,6 +18,9 @@ export PATH=$PATH:/usr/local/go/bin
 # Rust
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
+#Go
+export GOPATH=$HOME/.go
+
 #################################  HISTORY  #################################
 # history
 HISTFILE=$HOME/.zsh-history
