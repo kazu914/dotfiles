@@ -1,14 +1,3 @@
-#################################  SETOPT  #################################
-# share .zshhistory
-setopt inc_append_history
-setopt share_history
-
-# automatically change directory when dir name is typed
-setopt auto_cd
-
-# disable ctrl+s, ctrl+q
-setopt no_flow_control
-
 #################################  EXPORT  #################################
 # Android
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -29,3 +18,21 @@ export GOPATH=$HOME/.go
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=100000
 SAVEHIST=1000000
+# share .zshhistory
+setopt inc_append_history
+setopt share_history
+
+#################################  COMPLEMENT  #################################
+# enable completion
+autoload -Uz compinit && compinit
+
+# 補完候補をそのまま探す -> 小文字を大文字に変えて探す -> 大文字を小文字に変えて探す
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'
+
+#################################  OTHERS  #################################
+# automatically change directory when dir name is typed
+setopt auto_cd
+
+# disable ctrl+s, ctrl+q
+setopt no_flow_control
+

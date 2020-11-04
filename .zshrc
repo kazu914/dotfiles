@@ -13,9 +13,6 @@ autoload -Uz _zinit
 ### End of Zinit's installer chunk
 SCRIPT_DIR=$HOME/dotfiles
 
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'
-autoload -Uz compinit && compinit
-
 source $SCRIPT_DIR/zsh/plugins.zsh
 source $SCRIPT_DIR/zsh/config.zsh
 source $SCRIPT_DIR/zsh/aliases.zsh
