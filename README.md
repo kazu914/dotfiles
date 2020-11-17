@@ -28,3 +28,5 @@ chmod +x ./install.sh
 
 ```
 
+# Others
+ - Using [HackGen](https://github.com/yuru7/HackGen) for console font
