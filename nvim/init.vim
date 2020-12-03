@@ -8,6 +8,7 @@ set tabstop=2                     " タブを何文字分の空白にするか
 set shiftwidth=2                  " 自動インデント時に入力する空白の数
 set cursorline                    " カーソルラインの表示
 set number                        " 行番号の表示
+set showtabline=2
 set showmatch
 set title
 set backspace=indent,eol,start
