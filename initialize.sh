@@ -9,5 +9,13 @@ install_tpm (){
   git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 }
 
+install_node (){
+  curl -L git.io/nodebrew | perl - setup
+  $HOME/.nodebrew/current/bin/nodebrew install v14.9.0
+  $HOME/.nodebrew/current/bin/nodebrew use v14.9.0
+
+}
+
 install_dein
 install_tpm
+install_node
