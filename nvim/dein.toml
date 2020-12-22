@@ -233,15 +233,16 @@ let g:undotree_SetFocusWhenToggle = 1
 nnoremap <leader>u :UndotreeToggle<CR>
 '''
 
-# icebergカラースキーム
+# カラースキーム
 [[plugins]]
-repo = "cocopon/iceberg.vim"
+repo = "mhartington/oceanic-next"
 hook_add = '''
   set background=dark
   " colorscheme 設定は source 後に行う必要があるので確実に読まれている VimEnter のタイミングで行う。
   " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-  autocmd VimEnter * nested colorscheme iceberg
+  autocmd VimEnter * nested colorscheme OceanicNext
 '''
+
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 hook_add='''
@@ -405,3 +406,15 @@ repo = "simeji/winresizer"
 [[plugins]]
 repo = "yuttie/comfortable-motion.vim"
 
+[[plugins]]
+repo = "nvim-treesitter/nvim-treesitter"
+hook_add = '''
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+  ensure_installed = {'python','typescript','toml','json'}, 
+}
+EOF
+'''
