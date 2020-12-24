@@ -418,3 +418,9 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 '''
+
+[[plugins]]
+repo="Shougo/deol.nvim"
+hook_add='''
+nnoremap <silent><C-o> :<C-u>Deol -split=floating<CR>
+'''
