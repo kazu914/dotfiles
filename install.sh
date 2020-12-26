@@ -1,7 +1,7 @@
 #!/bin/bash
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 main () {
-  DOT_FILES=(.gitconfig .tmux.conf .zshrc .p10k.zsh)
+  DOT_FILES=(.gitconfig .tmux.conf .zshrc .p10k.zsh .czrc)
 
   for file in ${DOT_FILES[@]}
   do
@@ -16,3 +16,4 @@ install_nvim () {
 
 main
 install_nvim
+sh npm/install_packages.sh
