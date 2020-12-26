@@ -151,13 +151,28 @@ build = './install --bin'
 merged = '0'
 
 [[plugins]]
-repo = 'junegunn/fzf.vim'
+repo = 'yuki-ycino/fzf-preview.vim'
 depends = 'fzf'
+rev = 'release'
 hook_add = '''
-    command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   'rg --line-number --no-heading '.shellescape(<q-args>), 0,
-      \   fzf#vim#with_preview({'options': '--exact --reverse'}, 'right:50%:wrap'))
+nmap <Leader>s [fzf-p]
+xmap <Leader>s [fzf-p]
+ 
+nnoremap <silent> [fzf-p]p     :<C-u>FzfPreviewFromResources project_mru git<CR>
+nnoremap <silent> [fzf-p]gs    :<C-u>FzfPreviewGitStatus<CR>
+nnoremap <silent> [fzf-p]ga    :<C-u>FzfPreviewGitActions<CR>
+nnoremap <silent> [fzf-p]b     :<C-u>FzfPreviewBuffers<CR>
+nnoremap <silent> [fzf-p]B     :<C-u>FzfPreviewAllBuffers<CR>
+nnoremap <silent> [fzf-p]o     :<C-u>FzfPreviewFromResources buffer project_mru<CR>
+nnoremap <silent> [fzf-p]<C-o> :<C-u>FzfPreviewJumps<CR>
+nnoremap <silent> [fzf-p]g;    :<C-u>FzfPreviewChanges<CR>
+nnoremap <silent> [fzf-p]/     :<C-u>FzfPreviewLines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+nnoremap <silent> [fzf-p]*     :<C-u>FzfPreviewLines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+nnoremap          [fzf-p]gr    :<C-u>FzfPreviewProjectGrep<Space>
+xnoremap          [fzf-p]gr    "sy:FzfPreviewProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
+nnoremap <silent> [fzf-p]t     :<C-u>FzfPreviewBufferTags<CR>
+nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFix<CR>
+nnoremap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationList<CR>
 '''
 
 # 閉じカッコ等の自動入力
