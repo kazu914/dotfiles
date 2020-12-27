@@ -439,3 +439,6 @@ repo="Shougo/deol.nvim"
 hook_add='''
 nnoremap <silent><C-o> :<C-u>Deol -split=floating<CR>
 '''
+
+[[plugins]]
+repo = "qpkorr/vim-renamer"
