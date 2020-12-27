@@ -87,6 +87,14 @@ fi
 zinit ice as"program" from"gh-r" mv"memo* -> memo" pick"memo/memo"
 zinit light mattn/memo
 
+#############################################################################################
+################################### efm-langserver ##########################################
+#############################################################################################
+zinit ice as"program" from"gh-r" mv"efm-langserver* -> efm-langserver" pick"efm-langserver/efm-langserver"
+zinit light mattn/efm-langserver
+
+mkdir -p $HOME/.config/efm-langserver
+ln -sfvn ./efm-langserver/config.yaml $HOME/.config/efm-langserver/
 
 #############################################################################################
 ####################################### fzf #################################################
