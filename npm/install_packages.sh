@@ -1,4 +1,5 @@
 #!/bin/bash
+NPM=${HOME}/.nodebrew/current/bin
 
 packages=(
   commitizen
@@ -8,8 +9,8 @@ packages=(
 
 
 function install_if_not_exist () {
-   if npm list --depth 0 -g $1 | grep empty >/dev/null ; then
-     npm install -g $1 > /dev/null
+   if ${NPM}/npm list --depth 0 -g $1 | grep empty >/dev/null ; then
+     ${NPM}/npm install -g $1 > /dev/null
      echo  npm: installed $1
    else
      echo  npm: already installed: $1
