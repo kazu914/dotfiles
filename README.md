@@ -16,16 +16,8 @@ git clone https://github.com/kazu914/dotfiles
 # Move to the repository
 mv dotfiles
 
-# Make scripts executable
-chmod +x ./initialize.sh
-chmod +x ./install.sh
-
 # Initialize some additional packages
-./initialize.sh
-
-# Make symbolic links 
-./install.sh
-
+make
 ```
 
 # Others
