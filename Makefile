@@ -27,7 +27,7 @@ ${NODE_BREW}:
 
 ${TPM_REPO}:
 	mkdir -p ${TPM_REPO} && \
-	git clone https://github.com/tmux-plugins/tpm ${TPM_REPO}; \
+	git clone https://github.com/tmux-plugins/tpm ${TPM_REPO}/tpm; \
 
 ${DEIN_REPO}:
 	mkdir -p ${DEIN_REPO} && \
