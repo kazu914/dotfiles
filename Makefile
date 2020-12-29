@@ -1,3 +1,5 @@
+SHELL=/bin/zsh
+
 DEIN_REPO  := ${HOME}/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 TPM_REPO   := ${HOME}/.tmux/plugins
 NODE_BREW  := ${HOME}/.nodebrew/current/bin
@@ -6,7 +8,7 @@ EXCLUSIONS := .git .gitignore
 CANDIDATES := ${wildcard .??*}
 DOTFILES   := ${filter-out ${EXCLUSIONS}, ${CANDIDATES}}
 
-.PHONY: deploy init all npm_install
+.PHONY: deploy init all npm_install load
 
 all: deploy init
 
@@ -15,7 +17,7 @@ deploy:
 	mkdir -p ${HOME}/.config && ln -sfnv ${PWD}/nvim ${HOME}/.config/nvim
 
 
-init: ${NODE_BREW} ${TPM_REPO} ${DEIN_REPO} npm_install
+init: ${NODE_BREW} ${TPM_REPO} ${DEIN_REPO} npm_install load
 
 
 ${NODE_BREW}:
@@ -35,3 +37,6 @@ ${DEIN_REPO}:
 
 npm_install: ${NODE_BREW}
 	${PWD}/npm/install_packages.sh
+
+load:
+	source ${HOME}/.zshrc
