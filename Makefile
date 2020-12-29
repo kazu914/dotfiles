@@ -1,4 +1,4 @@
-SHELL=/bin/bash
+SHELL=/bin/zsh
 
 DEIN_REPO  := ${HOME}/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 TPM_REPO   := ${HOME}/.tmux/plugins
@@ -23,7 +23,7 @@ init: ${NODE_BREW} ${TPM_REPO} ${DEIN_REPO} npm_install load
 ${NODE_BREW}:
 	curl -L git.io/nodebrew | perl - setup && \
 	${NODE_BREW}/nodebrew install v14.9.0 && \
-	${NODE_BREW}/nodebrew use v14.9.0 && \
+	${NODE_BREW}/nodebrew use v14.9.0
 
 ${TPM_REPO}:
 	mkdir -p ${TPM_REPO} && \
