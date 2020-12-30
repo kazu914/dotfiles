@@ -18,6 +18,8 @@ mv dotfiles
 
 # Initialize some additional packages
 make
+
+source ~/.zshrc
 ```
 
 # Others
