@@ -92,7 +92,7 @@
     # vi_mode               # vi mode (you don't need this if you've enabled prompt_char)
     # vpn_ip                # virtual private network indicator
     load                    # CPU load
-    # disk_usage            # disk usage
+    disk_usage            # disk usage
     ram                     # free RAM
     # swap                  # used swap
     todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
