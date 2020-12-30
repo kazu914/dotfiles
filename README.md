@@ -5,8 +5,6 @@ This repo includes dotfiles for
 - `tmux`
 - `git`
 
-![screen shot](https://github.com/kazu914/dotfiles/blob/figure/screen_shot1.png?raw=true)
-
 # How to install
 
 ```zsh
