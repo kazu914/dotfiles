@@ -74,3 +74,23 @@ hook_add = '''
           \ . 'wincmd _'
   endfunction
 '''
+
+# 閉じカッコ等の自動入力
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+on_event = 'InsertEnter'
+hook_add='''
+  autocmd FileType markdown let g:indentLine_enabled=0
+'''
+
+# yankした場所のハイライト
+[[plugins]]
+repo = "machakann/vim-highlightedyank"
+on_event = 'TextYankPost'
+hook_add='''
+let g:highlightedyank_highlight_duration = -1
+'''

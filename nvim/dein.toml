@@ -129,10 +129,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>et g:coc_start_at_startup = 1
 '''
 
-# 閉じカッコ等の自動入力
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
 # "囲い文字"の追加や変更
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -141,21 +137,9 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = "tpope/vim-commentary"
 
-# yankした場所のハイライト
-[[plugins]]
-repo = "machakann/vim-highlightedyank"
-hook_add='''
-let g:highlightedyank_highlight_duration = -1
-'''
 
 [[plugins]]
 repo = "tpope/vim-fugitive"
-
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-hook_add='''
-  autocmd FileType markdown let g:indentLine_enabled=0
-'''
 
 [[plugins]]
 repo = "itchyny/lightline.vim"
