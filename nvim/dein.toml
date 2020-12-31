@@ -129,19 +129,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>et g:coc_start_at_startup = 1
 '''
 
-[[plugins]]
-repo = 'easymotion/vim-easymotion'
-hook_add = '''
-map , <Plug>(easymotion-prefix)
-" s{char}{char} to move to {char}{char}
-map ,s <lug>(easymotion-bd-f2)
-nmap ,s <Plug>(easymotion-overwin-f2)
-" Move to line
-map ,l <Plug>(easymotion-bd-jk)
-nmap ,l <Plug>(easymotion-overwin-line)
-
-'''
-
 # 閉じカッコ等の自動入力
 [[plugins]]
 repo = 'cohama/lexima.vim'
