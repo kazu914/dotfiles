@@ -134,6 +134,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#begin('~/.config/nvim/dein')
 
   call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
+  call dein#load_toml('~/.config/nvim/lazy_dein.toml', {'lazy': 1})
 
   call dein#end()
   call dein#save_state()

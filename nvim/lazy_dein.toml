@@ -1,0 +1,76 @@
+[[plugins]]
+repo = 'chrisbra/csv.vim'
+on_ft = ['csv']
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown']
+hook_add='''
+    let g:vim_markdown_folding_disabled=1
+'''
+
+[[plugins]]
+repo = "mattn/vim-maketable"
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'ianks/vim-tsx'
+on_ft = ['typescriptreact']
+
+[[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+on_ft = ['typescriptreact','typescript']
+
+[[plugins]]
+repo = "rust-lang/rust.vim"
+on_ft = ['rust']
+hook_add="""
+let g:rustfmt_autosave = 1
+"""
+
+[[plugins]]
+repo = "cespare/vim-toml"
+on_ft = ['toml']
+
+[[plugins]]
+repo = "fatih/vim-go"
+on_ft = ['go']
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+on_ft = ['dart']
+
+[[plugins]]
+repo = 'thosakwe/vim-flutter'
+on_ft = ['dart']
+
+[[plugins]]
+repo = "lervag/vimtex"
+on_ft = ['tex']
+hook_add = '''
+  let g:tex_flavor = 'latex'
+  let g:vimtex_compiler_latexmk = {
+        \ 'background': 1,
+        \ 'build_dir': 'out/',
+        \ 'continuous': 1,
+        \ 'options': [
+        \    '-pdfdvi', 
+        \    '-verbose',
+        \    '-file-line-error',
+        \    '-synctex=1',
+        \    '-interaction=nonstopmode',
+        \],
+        \}
+
+  
+  " quickfixのウィンドウがでかくて邪魔なのを抑制する
+  augroup quickfix_autocmds
+    autocmd!
+    autocmd BufReadPost quickfix call AdjustWindowHeight(2, 30)
+  augroup END
+
+  function! AdjustWindowHeight(minheight, maxheight)
+    execute max([a:minheight, min([line('$') + 1, a:maxheight])])
+          \ . 'wincmd _'
+  endfunction
+'''
