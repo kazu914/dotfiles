@@ -338,3 +338,9 @@ let g:aerojump_keymaps = {
     \ "<C-l>": "AerojumpSelNext",
     \ }
 '''
+
+[[plugins]]
+repo = 'luochen1990/rainbow'
+hook_add = '''
+let g:rainbow_active = 1 
+'''
