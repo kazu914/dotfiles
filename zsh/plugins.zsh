@@ -51,7 +51,7 @@ zinit light neovim/neovim
 zinit ice wait lucid
 zinit light supercrabtree/k
 if builtin command -v k > /dev/null; then
-  alias k="k -Ah"
+  alias k="k -h"
 fi
 
 #############################################################################################
