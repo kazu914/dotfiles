@@ -317,7 +317,8 @@ EOF
 [[plugins]]
 repo="Shougo/deol.nvim"
 hook_add='''
-nnoremap <silent><C-o> :<C-u>Deol -split=floating<CR>
+nnoremap <silent><C-o> :<C-u>Deol -split=farright -start-insert=false -toggle<CR>
+tnoremap <silent><C-o> <C-\><C-n>:<C-u>Deol -split=farright -start-insert=false -toggle<CR>
 '''
 
 [[plugins]]
