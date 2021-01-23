@@ -58,9 +58,6 @@ inoremap <PageDown> <Nop>
 " pythonをF6で自動実行
 autocmd Filetype python nnoremap <buffer> <F6> :w<CR>:vs<CR><C-w>l:ter python3 "%"<CR>i
 
-" 左にターミナルを開いて入る
-nnoremap <Space>vt :vs<CR><C-w>l:term<CR>i
-
 " カーソル下の単語ハイライト
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 
