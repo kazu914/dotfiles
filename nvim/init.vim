@@ -86,13 +86,6 @@ tnoremap jj <C-\><C-n>
 " Esc2回押しでハイライト削除
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
-" Ctrl + j と Ctrl + k で 段落の前後に移動
-nnoremap <S-j> }
-nnoremap <S-k> {
-" visualモードでの連結はめったに使わないので上書き
-vnoremap <S-j> }
-vnoremap <S-k> {
-
 " 折り返し行移動
 nnoremap j gj
 nnoremap k gk
