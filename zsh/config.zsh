@@ -48,3 +48,9 @@ setopt auto_cd
 # disable ctrl+s, ctrl+q
 setopt no_flow_control
 
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
+export EDITOR=nvim
+export VISUAL=nvim
