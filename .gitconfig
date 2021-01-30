@@ -6,6 +6,7 @@
 [core]
 	editor = nvim -c \"set fenc=utf-8\"
 	ignorecase = false
+	filemode = false
 [push]
 	default = current
 [color]
