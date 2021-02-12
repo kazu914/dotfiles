@@ -71,9 +71,6 @@ endfunction
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -349,4 +346,17 @@ depends = ['fzf']
 repo = "airblade/vim-rooter"
 hook_add = '''
 let g:rooter_change_directory_for_non_project_files = 'current'
+'''
+
+[[plugins]]
+repo = "thinca/vim-quickrun"
+hook_add = '''
+if !exists("g:quickrun_config")
+  let g:quickrun_config={}
+endif
+
+augroup rust_quickrun
+  au!
+  autocmd BufNewFile,BufRead *.rs let g:quickrun_config.rust = {'exec' : 'cargo run'}
+augroup END
 '''
