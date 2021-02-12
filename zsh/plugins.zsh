@@ -109,7 +109,7 @@ fi
 ####################################### fzf #################################################
 #############################################################################################
 zinit ice wait lucid from"gh-r" as"program"
-zinit load junegunn/fzf-bin
+zinit load junegunn/fzf
 export FZF_DEFAULT_OPTS="--reverse --inline-info --height 70% --border"
 fadd() {
   local out q n addfiles
