@@ -7,6 +7,10 @@
 	editor = nvim -c \"set fenc=utf-8\"
 	ignorecase = false
 	filemode = false
+  pager = delta -n -s
+[delta]
+  plus-style = blue bold
+  minus-style = red bold
 [push]
 	default = current
 [color]
