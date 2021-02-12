@@ -292,6 +292,7 @@ hook_add = '''
 let g:ctrlp_map = '<Leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 '''
 
 
