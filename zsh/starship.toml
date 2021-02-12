@@ -1,0 +1,12 @@
+[git_status]
+conflicted = "${count}="
+behind = "${count}↓"
+untracked = "${count}?"
+stashed = "${count}$"
+modified = "${count}!"
+staged = '[++\($count\)](green)'
+renamed = "${count}»"
+deleted = "${count}✘"
+
+[directory]
+home_symbol = "${HOME}"

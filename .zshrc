@@ -20,3 +20,4 @@ source $SCRIPT_DIR/zsh/aliases.zsh
 if [ -e $HOME/.zshrc.local ]; then
   source $HOME/.zshrc.local 
 fi
+eval "$($HOME/.zinit/plugins/starship---starship/starship init zsh)"
