@@ -285,17 +285,6 @@ autocmd FileType defx call s:defx_my_settings()
 [[plugins]]
 repo = "wakatime/vim-wakatime"
 
-
-[[plugins]]
-repo = "ctrlpvim/ctrlp.vim"
-hook_add = '''
-let g:ctrlp_map = '<Leader>p'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-'''
-
-
 [[plugins]]
 repo = "simeji/winresizer"
 
@@ -345,4 +334,19 @@ let g:aerojump_keymaps = {
 repo = 'luochen1990/rainbow'
 hook_add = '''
 let g:rainbow_active = 1 
+'''
+
+[[plugins]]
+repo = "junegunn/fzf"
+build = "./install --bin"
+merged = "0"
+
+[[plugins]]
+repo = "junegunn/fzf.vim"
+depends = ['fzf']
+
+[[plugins]]
+repo = "airblade/vim-rooter"
+hook_add = '''
+let g:rooter_change_directory_for_non_project_files = 'current'
 '''
