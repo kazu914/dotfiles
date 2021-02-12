@@ -1,5 +1,6 @@
 [git_status]
 conflicted = "${count}="
+ahead = "${count}↑"
 behind = "${count}↓"
 untracked = "${count}?"
 stashed = "${count}$"
