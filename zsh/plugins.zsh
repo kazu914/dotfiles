@@ -111,7 +111,7 @@ zinit light mattn/efm-langserver
 
 mkdir -p $HOME/.config/efm-langserver
 if [[ ! -h $HOME/.config/efm-langserver/config.yaml ]]; then
-  ln -sv ./efm-langserver/config.yaml $HOME/.config/efm-langserver/
+  ln -sv ${CURRENT_DIR_PATH}/efm-langserver/config.yaml $HOME/.config/efm-langserver/
 fi
 
 #############################################################################################
