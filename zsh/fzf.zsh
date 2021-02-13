@@ -1,5 +1,12 @@
-
 export FZF_DEFAULT_OPTS="--reverse --inline-info --height 70% --border"
+#determines search program for fzf
+if type ag &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
+fi
+#refer rg over ag
+if type rg &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='rg --files --hidden'
+fi
 fadd() {
   local out q n addfiles
   while out=$(
