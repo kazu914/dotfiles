@@ -10,12 +10,11 @@ zinit light starship/starship
 #############################################################################################
 ####################################### exa #################################################
 #############################################################################################
-zinit ice wait lucid as"program" from"gh-r" mv"exa* -> exa"
-zinit light ogham/exa
-if builtin command -v exa > /dev/null; then
-  alias ll="exa -l --icons"
-  alias la="exa -aal --icons"
-  alias ls="exa --icons"
+zinit ice wait lucid as"program" from"gh-r" mv"lsd* -> lsd" pick"lsd/lsd"
+zinit light Peltoche/lsd
+if builtin command -v lsd > /dev/null; then
+  alias ls=lsd
+  alias la='lsd -al'
 fi
 
 #############################################################################################
