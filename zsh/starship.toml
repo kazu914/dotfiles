@@ -2,8 +2,9 @@
 conflicted = "${count}="
 ahead = "${count}↑"
 behind = "${count}↓"
+diverged = "${count}⇕"
 untracked = "${count}?"
-stashed = "${count}$"
+stashed = "${count}*"
 modified = "${count}!"
 staged = '[++\($count\)](green)'
 renamed = "${count}»"
