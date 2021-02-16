@@ -311,10 +311,6 @@ tnoremap <silent><C-o> <C-\><C-n>:<C-u>Deol -split=farright -toggle<CR>
 [[plugins]]
 repo = "qpkorr/vim-renamer"
 
-
-[[plugins]]
-repo = "mattn/efm-langserver"
-
 [[plugins]]
 repo = "ripxorip/aerojump.nvim"
 hook_add = '''

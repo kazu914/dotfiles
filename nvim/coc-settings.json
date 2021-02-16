@@ -19,12 +19,6 @@
      "initializationOptions": {
        "usePlaceholders":true
      }
-   },
-   "efm":{
-     "command": "efm-langserver",
-     "args": [],
-     "filetypes": ["markdown"]
    }
  }
-
 }
