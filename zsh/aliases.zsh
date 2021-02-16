@@ -15,5 +15,5 @@ alias loadzshrc='source $HOME/.zshrc'
 
 # cd -> auto ls
 cd (){
-    builtin cd "$@" && k
+    builtin cd "$@" && ls -al
 }
