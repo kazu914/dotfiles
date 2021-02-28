@@ -12,10 +12,15 @@
   default = current
 [color]
   ui = true
+[color "status"]
+  added = green
+  changed = red
+  untracked = blue
+  unmerged = yellow
 [interactive]
     diffFilter = delta --color-only
 [alias]
-  st = status
+  st = status --short --branch
   df = diff
   co = commit
   br = branch
