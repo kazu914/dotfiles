@@ -14,7 +14,10 @@ all: deploy init
 
 deploy:
 	@${foreach val, ${DOTFILES}, ln -sfv ${abspath ${val}} ${HOME}/${val};} \
-	mkdir -p ${HOME}/.config && ln -sfnv ${PWD}/nvim ${HOME}/.config/nvim && ln -sfnv ${PWD}/zsh/starship.toml ${HOME}/.config/
+	mkdir -p ${HOME}/.config && \
+	ln -sfnv ${PWD}/nvim ${HOME}/.config/nvim && \
+	ln -sfnv ${PWD}/zsh/starship.toml ${HOME}/.config/ && \
+	ln -sfnv ${PWD}/i3 ${HOME}/.config
 
 
 init: ${NODE_BREW} ${TPM_REPO} ${DEIN_REPO} npm_install
