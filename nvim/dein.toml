@@ -381,3 +381,9 @@ let g:quickrun_config = {
 let g:quickrun_no_default_key_mappings = 1
 nmap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 '''
+
+[[plugins]]
+repo = 'wfxr/minimap.vim'
+hook_add='''
+let g:minimap_auto_start = 1
+'''
