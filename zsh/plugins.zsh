@@ -97,23 +97,6 @@ if builtin command -v bat > /dev/null; then
 fi
 
 #############################################################################################
-####################################### memo ################################################
-#############################################################################################
-zinit ice wait lucid as"program" from"gh-r" mv"memo* -> memo" pick"memo/memo"
-zinit light mattn/memo
-
-#############################################################################################
-################################### efm-langserver ##########################################
-#############################################################################################
-zinit ice wait lucid as"program" from"gh-r" mv"efm-langserver* -> efm-langserver" pick"efm-langserver/efm-langserver"
-zinit light mattn/efm-langserver
-
-mkdir -p $HOME/.config/efm-langserver
-if [[ ! -h $HOME/.config/efm-langserver/config.yaml ]]; then
-  ln -sv ${CURRENT_DIR_PATH}/efm-langserver/config.yaml $HOME/.config/efm-langserver/
-fi
-
-#############################################################################################
 ####################################### fzf #################################################
 #############################################################################################
 zinit ice wait lucid from"gh-r" as"program"
