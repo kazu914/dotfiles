@@ -326,10 +326,8 @@ let g:aerojump_keymaps = {
 [[plugins]]
 repo = 'phaazon/hop.nvim'
 hook_add = '''
-lua <<EOF
-  vim.api.nvim_set_keymap('n', '<Leader>k', "<cmd>lua require'hop'.hint_words()<cr>", {})
-  vim.api.nvim_set_keymap('n', '<Leader>j', "<cmd>lua require'hop'.hint_lines()<cr>", {})
-EOF
+nnoremap <Leader>k :HopWord<cr>
+nnoremap <Leader>j :HopLine<cr>
 '''
 
 [[plugins]]
