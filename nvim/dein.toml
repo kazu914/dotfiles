@@ -383,5 +383,6 @@ nmap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 [[plugins]]
 repo = 'wfxr/minimap.vim'
 hook_add='''
-let g:minimap_auto_start = 1
+let g:minimap_auto_start = 0
+nnoremap <silent><Leader>m :MinimapToggle<CR>
 '''
