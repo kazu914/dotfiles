@@ -1,7 +1,4 @@
-" load general config
-source general/setting.vim
-" load general mapping
-source general/mapping.vim
+for f in sort(split(glob('~/.config/nvim/enabled/*.vim'),'\n'))
+	exe 'source' f
+endfor
 
-" load dein script
-source plugins/dein_init.vim
