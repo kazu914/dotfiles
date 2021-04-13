@@ -24,7 +24,6 @@ set conceallevel=0
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,ucs-2,cp932,sjis
-let mapleader = "\<Space>"
 set clipboard=unnamedplus         " クリップボード連携
 set mouse=
 

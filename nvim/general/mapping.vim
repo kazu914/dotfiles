@@ -1,3 +1,4 @@
+let mapleader = "\<Space>"
 " タブ関連
 " The prefix key.
 nnoremap    [Tag]   <Nop>
