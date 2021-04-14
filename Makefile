@@ -1,6 +1,5 @@
 SHELL=/bin/zsh
 
-TPM_REPO   := ${HOME}/.tmux/plugins
 NODE_BREW  := ${HOME}/.nodebrew/current/bin
 
 EXCLUSIONS := .git .gitignore
@@ -10,15 +9,16 @@ DOTFILES   := ${filter-out ${EXCLUSIONS}, ${CANDIDATES}}
 .PHONY: deploy init all npm_install 
 
 .PHONY: minimal
-minimal: nvim_minimal zsh_minimal
+minimal: nvim_minimal zsh_minimal tmux
 
 .PHONY: full
-full: nvim_full zsh_full
+full: nvim_full zsh_full tmux i3
 
 .PHONY: clean
 clean:
 	cd nvim && make clean && \
-	cd ../zsh && make clean
+	cd ../zsh && make clean && \
+	cd ../tmux && make clean
 
 .PHONY: nvim_minimal
 nvim_minimal:
@@ -40,25 +40,23 @@ zsh_full:
 i3: 
 	ln -sfnv ${PWD}/i3 ${HOME}/.config
 
+.PHONY: tmux
+tmux:
+	cd tmux && make
+
 all: deploy init
 
 deploy:
 	@${foreach val, ${DOTFILES}, ln -sfv ${abspath ${val}} ${HOME}/${val};} \
 
 
-init: ${NODE_BREW} ${TPM_REPO}  npm_install
+init: ${NODE_BREW}  npm_install
 
 
 ${NODE_BREW}:
 	curl -L git.io/nodebrew | perl - setup && \
 	${NODE_BREW}/nodebrew install v14.9.0 && \
 	${NODE_BREW}/nodebrew use v14.9.0
-
-${TPM_REPO}:
-	mkdir -p ${TPM_REPO} && \
-	git clone https://github.com/tmux-plugins/tpm ${TPM_REPO}/tpm; \
-
-
 
 npm_install: ${NODE_BREW}
 	${PWD}/npm/install_packages.sh
