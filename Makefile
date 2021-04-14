@@ -1,6 +1,5 @@
 SHELL=/bin/zsh
 
-NODE_BREW  := ${HOME}/.nodebrew/current/bin
 
 EXCLUSIONS := .git .gitignore
 CANDIDATES := ${wildcard .??*}
@@ -12,7 +11,7 @@ DOTFILES   := ${filter-out ${EXCLUSIONS}, ${CANDIDATES}}
 minimal: nvim_minimal zsh_minimal tmux
 
 .PHONY: full
-full: nvim_full zsh_full tmux i3 git
+full: nvim_full zsh_full tmux i3 git node
 
 .PHONY: clean
 clean:
@@ -20,7 +19,8 @@ clean:
 	cd ../zsh && make clean && \
 	cd ../tmux && make clean && \
 	cd ../i3 && make clean && \
-	cd ../git && make clean
+	cd ../git && make clean && \
+	cd ../node && make clean
 
 .PHONY: nvim_minimal
 nvim_minimal:
@@ -50,6 +50,10 @@ tmux:
 git:
 	cd git && make init
 
+.PHONY: node
+node:
+	cd node && make init
+
 all: deploy init
 
 deploy:
@@ -59,10 +63,6 @@ deploy:
 init: ${NODE_BREW}  npm_install
 
 
-${NODE_BREW}:
-	curl -L git.io/nodebrew | perl - setup && \
-	${NODE_BREW}/nodebrew install v14.9.0 && \
-	${NODE_BREW}/nodebrew use v14.9.0
 
 npm_install: ${NODE_BREW}
 	${PWD}/npm/install_packages.sh
