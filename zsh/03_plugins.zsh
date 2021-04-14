@@ -70,11 +70,9 @@ fi
 #############################################################################################
 zinit ice wait lucid from"gh-r" as"program"
 zinit load junegunn/fzf
-source ${CURRENT_DIR_PATH}/fzf.zsh
 
 #############################################################################################
 ################################## code-minimap #############################################
 #############################################################################################
 zinit ice wait lucid from"gh-r" as"program" mv"code-minimap* -> code-minimap" pick"code-minimap/code-minimap"
 zinit load wfxr/code-minimap
-source ${CURRENT_DIR_PATH}/fzf.zsh

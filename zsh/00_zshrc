@@ -13,7 +13,9 @@ autoload -Uz _zinit
 ### End of Zinit's installer chunk
 SCRIPT_DIR=$HOME/dotfiles
 
-source $SCRIPT_DIR/zsh/enabled/*.zsh
+for file in $SCRIPT_DIR/zsh/enabled/*.zsh; do
+  source "$file"
+done
 
 if [ -e $HOME/.zshrc.local ]; then
   source $HOME/.zshrc.local 
