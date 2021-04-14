@@ -18,4 +18,4 @@ ${TPM_REPO}:
 .PHONY: clean
 clean:
 	rm -rf ${TPM_REPO} || true && \
-	unlink ${HOME}/.tmux.conf
+	unlink ${HOME}/.tmux.conf || true
