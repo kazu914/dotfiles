@@ -2,16 +2,22 @@ GENERAL := $(PWD)/general
 ENABLED := $(PWD)/enabled
 PLUGINS := $(PWD)/plugins
 
+DEIN_REPO  := ${HOME}/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
 .PHONY: minimal
 minimal:
 	mkdir -p $(ENABLED) && \
-	cp -rsfv $(GENERAL)/*.vim $(ENABLED)
+	ln -sfv $(GENERAL)/00_setting.vim $(ENABLED)
+	ln -sfv $(GENERAL)/01_mapping.vim $(ENABLED)
 	
 
 .PHONY: full
-full: minimal
-	cp -rsfv $(PLUGINS)/90_dein_init.vim $(ENABLED)
+full: minimal ${DEIN_REPO}
+	ln -sfv $(PLUGINS)/90_dein_init.vim $(ENABLED)
+
+${DEIN_REPO}:
+	mkdir -p ${DEIN_REPO} && \
+	git clone https://github.com/Shougo/dein.vim.git ${DEIN_REPO}; \
 
 .PHONY: clean
 clean:
