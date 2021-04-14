@@ -1,12 +1,5 @@
 SHELL=/bin/zsh
 
-
-EXCLUSIONS := .git .gitignore
-CANDIDATES := ${wildcard .??*}
-DOTFILES   := ${filter-out ${EXCLUSIONS}, ${CANDIDATES}}
-
-.PHONY: deploy init all npm_install 
-
 .PHONY: minimal
 minimal: nvim_minimal zsh_minimal tmux
 
@@ -20,7 +13,8 @@ clean:
 	cd ../tmux && make clean && \
 	cd ../i3 && make clean && \
 	cd ../git && make clean && \
-	cd ../node && make clean
+	cd ../node && make clean && \
+	cd ../npm_install && make clean
 
 .PHONY: nvim_minimal
 nvim_minimal:
@@ -54,12 +48,6 @@ git:
 node:
 	cd node && make init
 
-all: deploy init
-
-deploy:
-	@${foreach val, ${DOTFILES}, ln -sfv ${abspath ${val}} ${HOME}/${val};} \
-
-init: npm_install
-
-npm_install: node
-	${PWD}/npm/install_packages.sh
+.PHONY: npm_install
+npm_install:
+	cd npm_install && make init
