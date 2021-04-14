@@ -59,10 +59,7 @@ all: deploy init
 deploy:
 	@${foreach val, ${DOTFILES}, ln -sfv ${abspath ${val}} ${HOME}/${val};} \
 
+init: npm_install
 
-init: ${NODE_BREW}  npm_install
-
-
-
-npm_install: ${NODE_BREW}
+npm_install: node
 	${PWD}/npm/install_packages.sh
