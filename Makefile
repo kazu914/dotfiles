@@ -12,14 +12,15 @@ DOTFILES   := ${filter-out ${EXCLUSIONS}, ${CANDIDATES}}
 minimal: nvim_minimal zsh_minimal tmux
 
 .PHONY: full
-full: nvim_full zsh_full tmux i3
+full: nvim_full zsh_full tmux i3 git
 
 .PHONY: clean
 clean:
 	cd nvim && make clean && \
 	cd ../zsh && make clean && \
 	cd ../tmux && make clean && \
-	cd ../i3 && make clean
+	cd ../i3 && make clean && \
+	cd ../git && make clean
 
 .PHONY: nvim_minimal
 nvim_minimal:
@@ -44,6 +45,10 @@ i3:
 .PHONY: tmux
 tmux:
 	cd tmux && make
+
+.PHONY: git
+git:
+	cd git && make init
 
 all: deploy init
 
