@@ -1,41 +1,53 @@
 SHELL=/bin/zsh
 
-DEIN_REPO  := ${HOME}/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-TPM_REPO   := ${HOME}/.tmux/plugins
-NODE_BREW  := ${HOME}/.nodebrew/current/bin
+.PHONY: minimal
+minimal: nvim_minimal zsh_minimal tmux
 
-EXCLUSIONS := .git .gitignore
-CANDIDATES := ${wildcard .??*}
-DOTFILES   := ${filter-out ${EXCLUSIONS}, ${CANDIDATES}}
+.PHONY: full
+full: nvim_full zsh_full tmux i3 git node
 
-.PHONY: deploy init all npm_install
+.PHONY: clean
+clean:
+	cd nvim && make clean && \
+	cd ../zsh && make clean && \
+	cd ../tmux && make clean && \
+	cd ../i3 && make clean && \
+	cd ../git && make clean && \
+	cd ../node && make clean && \
+	cd ../npm_install && make clean
 
-all: deploy init
+.PHONY: nvim_minimal
+nvim_minimal:
+	cd nvim && make minimal
 
-deploy:
-	@${foreach val, ${DOTFILES}, ln -sfv ${abspath ${val}} ${HOME}/${val};} \
-	mkdir -p ${HOME}/.config && \
-	ln -sfnv ${PWD}/nvim ${HOME}/.config/nvim && \
-	ln -sfnv ${PWD}/zsh/starship.toml ${HOME}/.config/ && \
-	ln -sfnv ${PWD}/i3 ${HOME}/.config
+.PHONY: nvim_full
+nvim_full:
+	cd nvim && make full
 
+.PHONY: zsh_minimal
+zsh_minimal:
+	cd zsh && make minimal
 
-init: ${NODE_BREW} ${TPM_REPO} ${DEIN_REPO} npm_install
+.PHONY: zsh_full
+zsh_full:
+	cd zsh && make full
 
+.PHONY: i3
+i3: 
+	cd i3 && make init
 
-${NODE_BREW}:
-	curl -L git.io/nodebrew | perl - setup && \
-	${NODE_BREW}/nodebrew install v14.9.0 && \
-	${NODE_BREW}/nodebrew use v14.9.0
+.PHONY: tmux
+tmux:
+	cd tmux && make
 
-${TPM_REPO}:
-	mkdir -p ${TPM_REPO} && \
-	git clone https://github.com/tmux-plugins/tpm ${TPM_REPO}/tpm; \
+.PHONY: git
+git:
+	cd git && make init
 
-${DEIN_REPO}:
-	mkdir -p ${DEIN_REPO} && \
-	git clone https://github.com/Shougo/dein.vim.git ${DEIN_REPO}; \
+.PHONY: node
+node:
+	cd node && make init
 
-
-npm_install: ${NODE_BREW}
-	${PWD}/npm/install_packages.sh
+.PHONY: npm_install
+npm_install:
+	cd npm_install && make init

@@ -280,13 +280,7 @@ autocmd FileType defx call s:defx_my_settings()
 '''
 
 [[plugins]]
-repo = "wakatime/vim-wakatime"
-
-[[plugins]]
 repo = "simeji/winresizer"
-
-# [[plugins]]
-# repo = "yuttie/comfortable-motion.vim"
 
 [[plugins]]
 repo = "nvim-treesitter/nvim-treesitter"
