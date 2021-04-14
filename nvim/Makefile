@@ -4,8 +4,13 @@ PLUGINS := $(PWD)/plugins
 
 DEIN_REPO  := ${HOME}/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
+.PHONY: init
+init:
+	mkdir -p ${HOME}/.config && \
+	ln -sfnv ${PWD} ${HOME}/.config/nvim
+
 .PHONY: minimal
-minimal:
+minimal: init
 	mkdir -p $(ENABLED) && \
 	ln -sfv $(GENERAL)/00_setting.vim $(ENABLED)
 	ln -sfv $(GENERAL)/01_mapping.vim $(ENABLED)
@@ -17,9 +22,9 @@ full: minimal ${DEIN_REPO}
 
 ${DEIN_REPO}:
 	mkdir -p ${DEIN_REPO} && \
-	git clone https://github.com/Shougo/dein.vim.git ${DEIN_REPO}; \
+	git clone https://github.com/Shougo/dein.vim.git ${DEIN_REPO}
 
 .PHONY: clean
 clean:
-	rm -rf $(ENABLED)
-
+	unlink ${HOME}/.config/nvim || true && \
+	rm -rf $(ENABLED) || true
