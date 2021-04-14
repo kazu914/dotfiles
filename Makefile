@@ -18,7 +18,8 @@ full: nvim_full zsh_full tmux i3
 clean:
 	cd nvim && make clean && \
 	cd ../zsh && make clean && \
-	cd ../tmux && make clean
+	cd ../tmux && make clean && \
+	cd ../i3 && make clean
 
 .PHONY: nvim_minimal
 nvim_minimal:
@@ -38,7 +39,7 @@ zsh_full:
 
 .PHONY: i3
 i3: 
-	ln -sfnv ${PWD}/i3 ${HOME}/.config
+	cd i3 && make init
 
 .PHONY: tmux
 tmux:
