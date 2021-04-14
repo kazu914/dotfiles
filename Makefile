@@ -10,10 +10,15 @@ DOTFILES   := ${filter-out ${EXCLUSIONS}, ${CANDIDATES}}
 .PHONY: deploy init all npm_install 
 
 .PHONY: minimal
-minimal: nvim_minimal
+minimal: nvim_minimal zsh_minimal
 
 .PHONY: full
-full: nvim_full
+full: nvim_full zsh_full
+
+.PHONY: clean
+clean:
+	cd nvim && make clean && \
+	cd ../zsh && make clean
 
 .PHONY: nvim_minimal
 nvim_minimal:
@@ -23,11 +28,18 @@ nvim_minimal:
 nvim_full:
 	cd nvim && make full
 
+.PHONY: zsh_minimal
+zsh_minimal:
+	cd zsh && make minimal
+
+.PHONY: zsh_full
+zsh_full:
+	cd zsh && make full
+
 all: deploy init
 
 deploy:
 	@${foreach val, ${DOTFILES}, ln -sfv ${abspath ${val}} ${HOME}/${val};} \
-	ln -sfnv ${PWD}/zsh/starship.toml ${HOME}/.config/ && \
 	ln -sfnv ${PWD}/i3 ${HOME}/.config
 
 
