@@ -36,11 +36,14 @@ zsh_minimal:
 zsh_full:
 	cd zsh && make full
 
+.PHONY: i3
+i3: 
+	ln -sfnv ${PWD}/i3 ${HOME}/.config
+
 all: deploy init
 
 deploy:
 	@${foreach val, ${DOTFILES}, ln -sfv ${abspath ${val}} ${HOME}/${val};} \
-	ln -sfnv ${PWD}/i3 ${HOME}/.config
 
 
 init: ${NODE_BREW} ${TPM_REPO}  npm_install
