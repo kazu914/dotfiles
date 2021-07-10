@@ -50,4 +50,4 @@ node:
 
 .PHONY: npm_install
 npm_install:
-	cd npm_install && make init
+	cd npm && make init
