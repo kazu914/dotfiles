@@ -26,5 +26,6 @@ set fileencoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,ucs-2,cp932,sjis
 set clipboard=unnamedplus         " クリップボード連携
 set mouse=
+set noswapfile
 
 hi Comment ctermfg=gray
