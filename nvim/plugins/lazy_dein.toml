@@ -94,3 +94,11 @@ on_event = 'TextYankPost'
 hook_add='''
 let g:highlightedyank_highlight_duration = -1
 '''
+
+[[plugins]]
+repo = "posva/vim-vue"
+on_ft = "vue"
+
+[[plugins]]
+repo = "mattn/emmet-vim"
+on_ft = "vue"
