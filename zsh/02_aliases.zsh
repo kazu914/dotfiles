@@ -54,7 +54,7 @@ fswitch() {
   if [ $# != 0 ]; then
     git switch $@
   else 
-    git switch `git for-each-ref refs/heads/ --format='%(refname:short)' | fzf --preview "git log --pretty=format:'%h  (%><(13,trunc)%cr)  %<(50,trunc)%s  <%an>' --abbrev-commit {}"`
+    git switch `git for-each-ref refs/heads/ --format='%(refname:short)' | fzf --preview "git log --graph --color --pretty=format:'%>|(20,trunc)%C(red)%h%C(reset) (%><(13,trunc)%C(blue)%cr%C(reset))  %<(50,trunc)%C(yellow)%s%C(reset)  %C(cyan)<%an>%C(reset)' --abbrev-commit {}"`
   fi
 
 }
