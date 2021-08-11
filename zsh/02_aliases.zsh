@@ -49,3 +49,13 @@ fadd() {
   done
 }
 alias fa="fadd"
+
+fswitch() {
+  if [ $# != 0 ]; then
+    git switch $@
+  else 
+    git switch `git for-each-ref refs/heads/ --format='%(refname:short)' | fzf --preview "git log --pretty=format:'%h  (%><(13,trunc)%cr)  %<(50,trunc)%s  <%an>' --abbrev-commit {}"`
+  fi
+
+}
+alias fs="fswitch"
