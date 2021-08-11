@@ -7,24 +7,6 @@ fi
 if type rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden'
 fi
-fadd() {
-  local out q n addfiles
-  while out=$(
-      git status --short |
-      awk '{if (substr($0,2,1) !~ / /) print $2}' |
-      fzf --multi --exit-0 --expect=ctrl-d); do
-    q=$(head -1 <<< "$out")
-    n=$[$(wc -l <<< "$out") - 1]
-    addfiles=(`echo $(tail "-$n" <<< "$out")`)
-    [[ -z "$addfiles" ]] && continue
-    if [ "$q" = ctrl-d ]; then
-      git diff --color=always $addfiles | less -R
-    else
-      git add $addfiles
-    fi
-  done
-}
-alias fa="fadd"
 __fzfcmd() {
   [ -n "$TMUX_PANE" ] && { [ "${FZF_TMUX:-0}" != 0 ] || [ -n "$FZF_TMUX_OPTS" ]; } &&
     echo "fzf-tmux ${FZF_TMUX_OPTS:--d${FZF_TMUX_HEIGHT:-40%}} -- " || echo "fzf"
