@@ -24,10 +24,21 @@ vim (){
 }
 
 cat (){
-  if [ $# != 0 ]; then
-    bat $@
-  else 
-    bat `fd -t f | fzf --preview "bat  --color=always --style=header,grid --line-range :100 {}"`
+  local selected
+  if [ $# = 0 ];then
+    selected=$(fd -t f | fzf --preview "bat  --color=always --style=header,grid --line-range :100 {}")
+  else
+    if [ -f $1 ]; then
+      selected=$1
+    else
+      selected=$(fd -t f | fzf --query "$1" --preview "bat  --color=always --style=header,grid --line-range :100 {}")
+    fi
+  fi
+
+  if [ -n "$selected" ];then
+    bat $selected
+  else
+    echo "No file is selected"
   fi
 }
 
