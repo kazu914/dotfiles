@@ -1,4 +1,4 @@
-export FZF_DEFAULT_OPTS="--reverse --inline-info --height 70% --border"
+export FZF_DEFAULT_OPTS="--reverse --inline-info --height 90% --border --preview-window=right:70%:rounded:cycle:wrap --bind=?:toggle-preview"
 #determines search program for fzf
 if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
