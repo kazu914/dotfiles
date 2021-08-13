@@ -79,3 +79,9 @@ zinit light mattn/memo
 #############################################################################################
 zinit ice wait lucid from"gh-r" as"program" mv"code-minimap* -> code-minimap" pick"code-minimap/code-minimap"
 zinit load wfxr/code-minimap
+
+#############################################################################################
+####################################### fd #################################################
+#############################################################################################
+zinit ice wait lucid as"program" from"gh-r" mv"fd* -> fd" pick"fd/fd"
+zinit light sharkdp/fd
