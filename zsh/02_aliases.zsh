@@ -16,10 +16,32 @@ cd (){
 }
 
 vim (){
-  if [ $# != 0 ]; then
-    nvim $@
-  else 
-    nvim `fd -t f | fzf --preview "bat  --color=always --style=header,grid --line-range :100 {}"`
+  local selected empty
+  local -a candidate
+  empty="(Empty)"
+
+  if [ $# = 0 ];then
+    candidate=`fd -t f`
+    candidate=($empty"\n"${candidate[@]})
+    selected=$(echo $candidate | fzf --preview "if [ {} = '$empty' ]; then echo 'Open Here'; else bat  --color=always --style=header,grid --line-range :100 {}; fi")
+  else
+    if [ -f $1 ]; then
+      selected=$1
+    else
+      candidate=`fd -t f`
+      candidate=($1"\n"${candidate[@]})
+      selected=$(echo $candidate | fzf --query "$1" --preview "if [ {} = '$1' ]; then echo 'Create new file: $1'; else bat  --color=always --style=header,grid --line-range :100 {}; fi")
+    fi
+  fi
+
+  if [ -n "$selected" ];then
+    if [ "$selected" = "$empty" ];then
+      nvim ./
+    else
+      nvim $selected
+    fi
+  else
+    echo "No file is selected"
   fi
 }
 
