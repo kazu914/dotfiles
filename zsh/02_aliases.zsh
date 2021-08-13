@@ -84,10 +84,17 @@ fadd() {
 alias fa="fadd"
 
 fswitch() {
+  local selected
   if [ $# != 0 ]; then
-    git switch $@
+    selected=$@
   else 
-    git switch `git for-each-ref refs/heads/ --format='%(refname:short)' | fzf --preview "git log --graph --color --pretty=format:'%>|(20,trunc)%C(red)%h%C(reset) (%><(13,trunc)%C(blue)%cr%C(reset))  %<(50,trunc)%C(yellow)%s%C(reset)  %C(cyan)<%an>%C(reset)' --abbrev-commit {}"`
+    selected=`git for-each-ref refs/heads/ --format='%(refname:short)' | fzf --preview "git log --graph --color --pretty=format:'%>|(20,trunc)%C(red)%h%C(reset) (%><(13,trunc)%C(blue)%cr%C(reset))  %<(50,trunc)%C(yellow)%s%C(reset)  %C(cyan)<%an>%C(reset)' --abbrev-commit {}"`
+  fi
+
+  if [ -n "$selected" ]; then
+    git switch $selected
+  else
+    echo "No bransh is selected"
   fi
 
 }
