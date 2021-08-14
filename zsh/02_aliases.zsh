@@ -1,3 +1,6 @@
+CURRENT_DIR_PATH=${0:a:h}
+PARENT_DIR_PATH=${CURRENT_DIR_PATH%/*}
+ROOT_DIR_PATH=${PARENT_DIR_PATH%/*}
 # for atcoder
 if builtin command -v oj > /dev/null && builtin command -v acc >/dev/null;then
   alias act="oj t -c 'pypy3 main.py'"
@@ -99,3 +102,15 @@ fswitch() {
 
 }
 alias fs="fswitch"
+
+fdot() {
+  local candidate selected
+  candidate=`fd -t f . ${ROOT_DIR_PATH}`
+  candidate=`for f in ${candidate};do echo $f | sed -e "s|${ROOT_DIR_PATH}/||g"; done`
+  selected=`echo ${candidate}| fzf --preview "bat  --color=always --style=header,grid --line-range :100 ${ROOT_DIR_PATH}/{}"`
+  if [ -n "$selected" ];then
+    nvim ${ROOT_DIR_PATH}/${selected}
+  else
+    echo "No file is selected"
+  fi
+}
