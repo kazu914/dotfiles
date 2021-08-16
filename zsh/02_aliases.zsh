@@ -80,7 +80,7 @@ fadd() {
     addfiles=(`echo $(tail "-$n" <<< "$out")`)
     [[ -z "$addfiles" ]] && continue
     if [ "$q" = ctrl-d ]; then
-      git diff --color=always $addfiles | less -R
+      ${EDITOR:-vim} $addfiles 
     else
       git add $addfiles
     fi
