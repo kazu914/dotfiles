@@ -106,7 +106,7 @@ fswitch() {
 alias fs="fswitch"
 
 freset() {
-  local basedir
+  local basedir out q n resetfiles file
   basedir=`git rev-parse --show-superproject-working-tree --show-toplevel | head -1`
   while out=$(git diff --staged --name-only | fzf --multi --exit-0 --expect=ctrl-d --preview "git diff --staged --color $basedir/{}"); do
     q=$(head -1 <<< "$out")
@@ -119,6 +119,24 @@ freset() {
       for file in $resetfiles;do
         git reset HEAD $basedir/$file
       done
+    fi
+  done
+}
+
+frestore() {
+  local out q n addfiles
+  while out=$(
+      git status --short |
+      awk '{if (substr($0,2,1) !~ / /) print $2}' |
+      fzf --multi --exit-0 --expect=ctrl-d --preview "git diff --color {}"); do
+    q=$(head -1 <<< "$out")
+    n=$[$(wc -l <<< "$out") - 1]
+    addfiles=(`echo $(tail "-$n" <<< "$out")`)
+    [[ -z "$addfiles" ]] && continue
+    if [ "$q" = ctrl-d ]; then
+      ${EDITOR:-vim} $addfiles 
+    else
+      git add $addfiles
     fi
   done
 }
