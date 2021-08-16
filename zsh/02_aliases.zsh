@@ -18,7 +18,7 @@ cd (){
   __zoxide_z "$@" && lsd -l
 }
 
-vim (){
+fvim (){
   local selected empty
   local -a candidate
   empty="(Empty)"
@@ -47,8 +47,9 @@ vim (){
     echo "No file is selected"
   fi
 }
+alias fim="fvim"
 
-cat (){
+fcat (){
   local selected
   if [ $# = 0 ];then
     selected=$(fd --color=always -t f | fzf --preview "bat  --color=always --style=header,grid --line-range :100 {}")
@@ -66,6 +67,7 @@ cat (){
     echo "No file is selected"
   fi
 }
+alias fat="fcat"
 
 fadd() {
   local out q n addfiles
