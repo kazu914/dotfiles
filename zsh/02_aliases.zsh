@@ -105,6 +105,24 @@ fswitch() {
 }
 alias fs="fswitch"
 
+freset() {
+  local basedir
+  basedir=`git rev-parse --show-superproject-working-tree --show-toplevel | head -1`
+  while out=$(git diff --staged --name-only | fzf --multi --exit-0 --expect=ctrl-d --preview "git diff --staged --color $basedir/{}"); do
+    q=$(head -1 <<< "$out")
+    n=$[$(wc -l <<< "$out") - 1]
+    resetfiles=(`echo $(tail "-$n" <<< "$out")`)
+    [[ -z "$resetfiles" ]] && continue
+    if [ "$q" = ctrl-d ]; then
+      ${EDITOR:-vim} $resetfiles 
+    else
+      for file in $resetfiles;do
+        git reset HEAD $basedir/$file
+      done
+    fi
+  done
+}
+
 fdot() {
   local candidate selected
   candidate=`fd -t f . ${ROOT_DIR_PATH}`
