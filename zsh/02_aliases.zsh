@@ -12,6 +12,7 @@ if builtin command -v xdg-open > /dev/null; then
 fi
 
 alias loadzshrc='source $HOME/.zshrc'
+alias vim="nvim"
 
 # cd -> auto ls
 cd (){
