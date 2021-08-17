@@ -124,19 +124,19 @@ freset() {
 }
 
 frestore() {
-  local out q n addfiles
+  local out q n restorefiles
   while out=$(
       git status --short |
       awk '{if (substr($0,2,1) !~ / /) print $2}' |
       fzf --multi --exit-0 --expect=ctrl-d --preview "git diff --color {}"); do
     q=$(head -1 <<< "$out")
     n=$[$(wc -l <<< "$out") - 1]
-    addfiles=(`echo $(tail "-$n" <<< "$out")`)
-    [[ -z "$addfiles" ]] && continue
+    restorefiles=(`echo $(tail "-$n" <<< "$out")`)
+    [[ -z "$restorefiles" ]] && continue
     if [ "$q" = ctrl-d ]; then
-      ${EDITOR:-vim} $addfiles 
+      ${EDITOR:-vim} $restorefiles 
     else
-      git add $addfiles
+      git restore $restorefiles
     fi
   done
 }
