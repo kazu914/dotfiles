@@ -10,6 +10,7 @@ fi
 
 alias loadzshrc='source $HOME/.zshrc'
 alias vim="nvim"
+alias rg="rg --smart-case"
 
 # cd -> auto ls
 cd (){

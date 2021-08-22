@@ -73,3 +73,22 @@ fdot() {
     echo "No file is selected"
   fi
 }
+
+#############################################################################################
+################################## fuzzy rg vim #############################################
+#############################################################################################
+frg() {
+  local candidate selected selected_file selected_line
+  candidate=`rg --hidden --line-number --no-heading --invert-match '^\s*$' 2>/dev/null`
+  selected=`echo ${candidate}  | fzf --select-1 --exit-0 -d ":" --preview "bat  --color=always --style=header,grid,numbers --theme='Solarized (dark)' --highlight-line {2} {1}"`
+  selected=${selected%:*}
+  selected_file=${selected%:*}
+  selected_line=${selected#*:}
+
+  if [ -n "$selected_line" -a -n "$selected_file" ]; then
+    nvim $selected_file +$selected_line
+  else
+    echo "No code is selected"
+  fi
+}
+
