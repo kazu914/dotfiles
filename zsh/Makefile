@@ -10,8 +10,8 @@ minimal: init
 	ln -svf ${PWD}/01_config.zsh ${ENABLED} && \
 	ln -svf ${PWD}/02_aliases.zsh ${ENABLED} && \
 	ln -svf ${PWD}/03_plugins.zsh ${ENABLED} && \
-	ln -svf ${PWD}/04_fzf.zsh ${ENABLED} && \
 	ln -svf ${PWD}/10_mac.zsh ${ENABLED} && \
+	ln -svf ${PWD}/20_fzf_basic.zsh ${ENABLED} && \
 	ln -svf ${PWD}/05_starship.toml ${HOME}/.config/starship.toml
 
 .PHONY: full
