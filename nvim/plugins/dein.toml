@@ -381,3 +381,6 @@ hook_add='''
 let g:minimap_auto_start = 0
 nnoremap <silent><Leader>m :MinimapToggle<CR>
 '''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
