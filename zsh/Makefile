@@ -13,6 +13,7 @@ minimal: init
 	ln -svf ${PWD}/10_mac.zsh ${ENABLED} && \
 	ln -svf ${PWD}/20_fzf_basic.zsh ${ENABLED} && \
 	ln -svf ${PWD}/21_fzf_git.zsh ${ENABLED} && \
+	ln -svf ${PWD}/29_fzf_others.zsh ${ENABLED} && \
 	ln -svf ${PWD}/05_starship.toml ${HOME}/.config/starship.toml
 
 .PHONY: full
