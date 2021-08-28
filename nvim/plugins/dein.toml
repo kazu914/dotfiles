@@ -1,6 +1,7 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 build = './install.sh nightly'
@@ -339,6 +340,12 @@ merged = "0"
 [[plugins]]
 repo = "junegunn/fzf.vim"
 depends = ['fzf']
+hook_add = '''
+nnoremap ,b :Buffers<CR>
+nnoremap ,f :Files<CR>
+nnoremap ,g :GFiles<CR>
+nnoremap ,r :Rg<CR>
+'''
 
 [[plugins]]
 repo = "airblade/vim-rooter"
