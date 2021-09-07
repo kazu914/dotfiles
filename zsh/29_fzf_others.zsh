@@ -92,3 +92,19 @@ frg() {
   fi
 }
 
+#############################################################################################
+#################################### fuzzy cd ###############################################
+#############################################################################################
+fcd() {
+  local candidate selected 
+  candidate=`fd -t d`
+  selected=`echo ${candidate}  | fzf --select-1 --exit-0 --preview "lsd -lA --icon always --color always --date relative {}"`
+
+  if [ -n "$selected" ];then
+    z $selected
+  else
+    echo "No file is selected"
+  fi
+
+}
+
