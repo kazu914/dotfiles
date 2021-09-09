@@ -186,10 +186,10 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 # カラースキーム
 [[plugins]]
-repo = "rafamadriz/neon"
+repo = "rakr/vim-one"
 hook_add = '''
-let g:neon_style = "doom"
-colorscheme neon
+colorscheme one
+set background=dark
 '''
 
 [[plugins]]
