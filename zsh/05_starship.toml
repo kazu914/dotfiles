@@ -12,6 +12,7 @@ deleted = "${count}✘"
 
 [directory]
 home_symbol = "${HOME}"
+truncation_length = 0
 
 [custom.gitmail]
 command = "git config user.email"
