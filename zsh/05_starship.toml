@@ -12,3 +12,8 @@ deleted = "${count}✘"
 
 [directory]
 home_symbol = "${HOME}"
+
+[custom.gitmail]
+command = "git config user.email"
+when = "[ -d .git ] && echo .git || git rev-parse --git-dir > /dev/null 2>&1"
+format = " | $output | "
