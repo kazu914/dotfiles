@@ -17,4 +17,4 @@ truncation_length = 0
 [custom.gitmail]
 command = "git config user.email"
 when = "[ -d .git ] && echo .git || git rev-parse --git-dir > /dev/null 2>&1"
-format = " | $output | "
+format = " | [$output](underline fg:blue) | "
