@@ -26,8 +26,10 @@ fvim (){
 
   if [ -n "$selected" ];then
     if [ "$selected" = "$empty" ];then
+      print -s "vim ./"
       nvim ./
     else
+      print -s "vim $selected"
       nvim $selected
     fi
   else
