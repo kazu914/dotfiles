@@ -54,6 +54,7 @@ fcat (){
   fi
 
   if [ -n "$selected" ];then
+    print -s "cat $selected"
     bat $selected
   else
     echo "No file is selected"
@@ -70,6 +71,7 @@ fdot() {
   candidate=`for f in ${candidate};do echo $f | sed -e "s|${ROOT_DIR_PATH}/||g"; done`
   selected=`echo ${candidate}| fzf --preview "bat  --color=always --style=header,grid --line-range :100 ${ROOT_DIR_PATH}/{}"`
   if [ -n "$selected" ];then
+    print -s "vim ${ROOT_DIR_PATH}/${selected}"
     nvim ${ROOT_DIR_PATH}/${selected}
   else
     echo "No file is selected"
@@ -88,6 +90,7 @@ frg() {
   selected_line=${selected#*:}
 
   if [ -n "$selected_line" -a -n "$selected_file" ]; then
+    print -s "vim $selected_file +$selected_line"
     nvim $selected_file +$selected_line
   else
     echo "No code is selected"
@@ -103,10 +106,10 @@ fcd() {
   selected=`echo ${candidate}  | fzf --select-1 --exit-0 --preview "lsd -lA --icon always --color always --date relative {}"`
 
   if [ -n "$selected" ];then
+    print -s "cd $selected"
     z $selected
   else
     echo "No file is selected"
   fi
-
 }
 
