@@ -69,5 +69,5 @@ nnoremap <C-l> <C-w>l
 " terminalからノーマルモードに戻る
 tnoremap <Esc> <C-\><C-n>
 
-" <C-l> で文末にジャンプ，すでに文末なら改行
-inoremap <expr> <C-l>  col(".") == col("$") ? '<C-j>' : '<ESC>A'
+" <C-j> で文末にジャンプ，すでに文末なら改行
+inoremap <expr> <C-j>  col(".") == col("$") ? '<C-j>' : '<ESC>A'
