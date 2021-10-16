@@ -29,5 +29,7 @@ set mouse=
 set noswapfile
 set pumblend=20
 set winblend=20
+set foldmethod=syntax
+set nofoldenable
 
 hi Comment ctermfg=gray

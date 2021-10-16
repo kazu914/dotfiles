@@ -1,0 +1,3 @@
+Host dev*
+  PermitLocalCommand=yes
+  LocalCommand="$HOME/dotfiles/ssh/_ssh_tmux_style" 'bg=colour80,fg=colour232'
