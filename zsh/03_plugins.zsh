@@ -87,9 +87,9 @@ zinit ice wait lucid as"program" from"gh-r" mv"fd* -> fd" pick"fd/fd"
 zinit light sharkdp/fd
 
 #############################################################################################
-####################################### neovim #################################################
+##################################### neovim #################################################
 #############################################################################################
-zinit ice wait lucid as"program" from"gh-r" mv"nvim* -> nvim" pick"nvim/bin/nvim"
+zinit ice wait lucid as"program" ver"nightly" from"gh-r" mv"nvim* -> nvim" pick"nvim/bin/nvim"
 zinit light neovim/neovim
 
 #############################################################################################
