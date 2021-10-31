@@ -360,7 +360,6 @@ on_source = 'nvim-lspconfig'
 repo = "jose-elias-alvarez/nvim-lsp-ts-utils"
 on_source = 'nvim-lspconfig'
 
-
 # for trouble
 [[plugins]]
 repo = "kyazdani42/nvim-web-devicons"
@@ -372,8 +371,8 @@ lua << EOF
     signs = {
         error = "🤬",
         warning = "🥺",
-        hint = "🤔",
-        information = "🥺",
+        hint = "💡",
+        information = "🤔",
         other = "﫠"
     },
   }
@@ -381,3 +380,17 @@ EOF
 nnoremap <leader>tr <cmd>TroubleToggle<cr>
 '''
 
+[[plugins]]
+repo = "tami5/lspsaga.nvim"
+
+[[plugins]]
+repo = "ray-x/lsp_signature.nvim"
+hook_add = '''
+lua << EOF
+  require "lsp_signature".setup({
+    floating_window = true,
+    use_lspsaga = true,
+    hint_prefix = "🐰 "
+    })
+EOF
+'''
