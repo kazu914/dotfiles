@@ -1,0 +1,75 @@
+[[plugins]]
+repo = "Shougo/ddc-around"
+[[plugins]]
+repo = "Shougo/ddc-matcher_head"
+[[plugins]]
+repo = "Shougo/ddc-sorter_rank"
+[[plugins]]
+repo = "Shougo/ddc-nvim-lsp"
+[[plugins]]
+repo = "Shougo/ddc-rg"
+[[plugins]]
+repo = "tani/ddc-fuzzy"
+[[plugins]]
+repo = "Shougo/ddc.vim"
+hook_add='''
+" Customize global settings
+" Use around source.
+call ddc#custom#patch_global('sources', ['nvim-lsp','around'])
+
+" Use matcher_head and sorter_rank.
+call ddc#custom#patch_global('sourceOptions', {
+      \  '_': {
+      \    'matchers': ['matcher_fuzzy'],
+      \    'sorters': ['sorter_fuzzy'],
+      \    'converters': ['converter_fuzzy']
+      \  },
+      \  'nvim-lsp': {
+      \    'mark': 'LSP',
+      \    'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+      \  },
+      \  'rg': {
+      \     'mark': "rg",
+      \     'minAutoCompletLength':4
+      \  },
+      \ })
+
+" Change source options
+call ddc#custom#patch_global('sourceOptions', {
+      \ 'around': {'mark': 'around'},
+      \ })
+call ddc#custom#patch_global('sourceParams', {
+      \ 'around': {'maxSize': 500},
+      \ })
+
+" Mappings
+" <TAB>: completion.
+inoremap <silent><expr> <TAB>
+\ pumvisible() ? '<C-n>' :
+\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+\ '<TAB>' : ddc#map#manual_complete()
+
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
+
+" Use ddc.
+call ddc#enable()
+'''
+
+[[plugins]]
+repo = 'matsui54/ddc-nvim-lsp-doc'
+on_source = 'ddc.vim'
+hook_source = '''
+ let g:ddc_nvim_lsp_doc_config = {
+      \ 'documentation': {
+      \   'enable': v:true,
+      \   'border': 'single',
+      \   'maxWidth': 60,
+      \   'maxHeight': 30,
+      \ },
+      \ 'signature': {
+      \   'maxHeight': 5,
+      \ },
+      \ }
+  call ddc_nvim_lsp_doc#enable()
+'''
