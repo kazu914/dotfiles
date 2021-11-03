@@ -10,40 +10,6 @@ repo = 'tpope/vim-surround'
 repo = "tpope/vim-commentary"
 
 [[plugins]]
-repo = "tpope/vim-fugitive"
-
-[[plugins]]
-repo = "itchyny/lightline.vim"
-hook_add = '''
-set showtabline=2               " タブラインの常時表示
-set noshowmode                  " モードの表示をオフ(タブラインに表示させるため)
-" ステータスラインの設定
-let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ 'active': {
-    \     'left': [
-    \         ['mode'],
-    \         ['readonly','cwd','filename','modified','coc'],
-    \     ],
-    \     'right': [['close'],['gitbranch']],
-    \     },
-    \ 'inactive': {
-    \     'left': [
-    \         ['mode'],
-    \         ['readonly','cwd','filename','modified'],
-    \     ],
-    \     'right': [['close'],['gitbranch']],
-    \     },
-    \ 'component_function': {
-    \     'cwd': 'getcwd',
-    \     'gitbranch': 'fugitive#head',
-    \     'coc': 'coc#status'
-    \     }
-    \ }
-
-'''
-
-[[plugins]]
 repo = "mbbill/undotree"
 hook_add = '''
 if has('persistent_undo')
@@ -64,9 +30,6 @@ hook_add = '''
 colorscheme one
 set background=dark
 '''
-
-[[plugins]]
-repo = 'mhinz/vim-signify'
 
 [[plugins]]
 repo ="kristijanhusak/defx-icons"
@@ -318,4 +281,26 @@ lua << EOF
     hint_prefix = "🐰 "
     })
 EOF
+'''
+
+[[plugins]]
+repo = "nvim-lualine/lualine.nvim"
+hook_add = '''
+lua << EOF
+  local options = {
+    theme = 'codedark'
+  }
+  require('lualine').setup {
+    options = options,
+  }
+EOF
+'''
+
+[[plugins]]
+repo = "lewis6991/gitsigns.nvim"
+hook_add = '''
+lua << EOF
+  require('gitsigns').setup()
+EOF
+nnoremap <leader>gs :Gitsigns setqflist<CR>
 '''
