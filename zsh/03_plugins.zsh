@@ -86,3 +86,14 @@ zinit load wfxr/code-minimap
 zinit ice wait lucid as"program" from"gh-r" mv"fd* -> fd" pick"fd/fd"
 zinit light sharkdp/fd
 
+#############################################################################################
+##################################### neovim #################################################
+#############################################################################################
+zinit ice wait lucid as"program" ver"nightly" from"gh-r" mv"nvim* -> nvim" pick"nvim/bin/nvim"
+zinit light neovim/neovim
+
+#############################################################################################
+####################################### deno #################################################
+#############################################################################################
+zinit ice wait lucid as"program" from"gh-r" mv"deno* -> deno" pick"deno/deno"
+zinit light denoland/deno

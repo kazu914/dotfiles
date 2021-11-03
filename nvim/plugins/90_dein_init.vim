@@ -21,3 +21,4 @@ if dein#check_install()
 endif
 "End dein Scripts-------------------------
 "
+source ~/.config/nvim/plugins/lsp_setting.lua

@@ -31,5 +31,6 @@ set pumblend=20
 set winblend=20
 set foldmethod=syntax
 set nofoldenable
+set signcolumn=yes:2
 
 hi Comment ctermfg=gray
