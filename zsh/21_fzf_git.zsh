@@ -84,3 +84,16 @@ frestore() {
     fi
   done
 }
+
+#############################################################################################
+################################### fuzzy git show ##########################################
+#############################################################################################
+fshow() {
+  local selected
+  selected=`git log --oneline --pretty=format:'%h [%cd] %d %s <%an>' --date=format:'%Y/%m/%d %H:%M' | fzf --preview='git show {1}' | cut -f 1 -d " "`
+  if [ -n "$selected" ]; then
+    git show $selected
+  else
+    echo "No hash is selected"
+  fi
+}
