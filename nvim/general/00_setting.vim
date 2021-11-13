@@ -28,7 +28,7 @@ set clipboard=unnamedplus         " クリップボード連携
 set mouse=
 set noswapfile
 set pumblend=20
-set winblend=20
+set winblend=10
 set foldmethod=syntax
 set nofoldenable
 set signcolumn=yes:2
