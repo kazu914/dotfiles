@@ -277,9 +277,13 @@ hook_add = '''
 lua << EOF
   require "lsp_signature".setup({
     floating_window = true,
-    use_lspsaga = true,
-    hint_prefix = "🐰 "
-    })
+    use_lspsaga = false,
+    hint_prefix = "🐰 ",
+    transpancy = nil,
+    handler_opts = {
+      border = "rounded"
+    }
+  })
 EOF
 '''
 
