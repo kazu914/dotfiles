@@ -9,8 +9,6 @@ repo = "Shougo/ddc-nvim-lsp"
 [[plugins]]
 repo = "Shougo/ddc-rg"
 [[plugins]]
-repo = "tani/ddc-fuzzy"
-[[plugins]]
 repo = "Shougo/ddc.vim"
 hook_add='''
 " Customize global settings
@@ -20,9 +18,8 @@ call ddc#custom#patch_global('sources', ['nvim-lsp','around'])
 " Use matcher_head and sorter_rank.
 call ddc#custom#patch_global('sourceOptions', {
       \  '_': {
-      \    'matchers': ['matcher_fuzzy'],
-      \    'sorters': ['sorter_fuzzy'],
-      \    'converters': ['converter_fuzzy']
+      \    'matchers': ['matcher_head'],
+      \    'sorters': ['sorter_rank'],
       \  },
       \  'nvim-lsp': {
       \    'mark': 'LSP',
@@ -32,14 +29,10 @@ call ddc#custom#patch_global('sourceOptions', {
       \     'mark': "rg",
       \     'minAutoCompletLength':4
       \  },
-      \ })
-
-" Change source options
-call ddc#custom#patch_global('sourceOptions', {
-      \ 'around': {'mark': 'around'},
-      \ })
-call ddc#custom#patch_global('sourceParams', {
-      \ 'around': {'maxSize': 500},
+      \ 'around': {
+      \     'mark': 'around',
+      \     'maxSize': 500
+      \  },
       \ })
 
 " Mappings
