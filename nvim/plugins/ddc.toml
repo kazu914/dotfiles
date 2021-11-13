@@ -55,21 +55,3 @@ inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
 " Use ddc.
 call ddc#enable()
 '''
-
-[[plugins]]
-repo = 'matsui54/ddc-nvim-lsp-doc'
-on_source = 'ddc.vim'
-hook_source = '''
- let g:ddc_nvim_lsp_doc_config = {
-      \ 'documentation': {
-      \   'enable': v:true,
-      \   'border': 'single',
-      \   'maxWidth': 60,
-      \   'maxHeight': 30,
-      \ },
-      \ 'signature': {
-      \   'maxHeight': 5,
-      \ },
-      \ }
-  call ddc_nvim_lsp_doc#enable()
-'''
