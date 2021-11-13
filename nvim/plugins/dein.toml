@@ -280,6 +280,7 @@ lua << EOF
     use_lspsaga = false,
     hint_prefix = "🐰 ",
     transpancy = nil,
+    zindex = 49,
     handler_opts = {
       border = "rounded"
     }

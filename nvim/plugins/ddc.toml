@@ -65,4 +65,11 @@ hook_source = '''
       \ },
       \ }
   call ddc_nvim_lsp_doc#enable()
+  set completeopt=menu,menuone,noselect
 '''
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip-integ'
