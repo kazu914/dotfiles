@@ -97,3 +97,9 @@ zinit light neovim/neovim
 #############################################################################################
 zinit ice wait lucid as"program" from"gh-r" mv"deno* -> deno" pick"deno/deno"
 zinit light denoland/deno
+
+#############################################################################################
+##################################### misspell ##############################################
+#############################################################################################
+zinit ice wait lucid as"program" from"gh-r" mv"misspell* -> misspell" pick"misspell/misspell"
+zinit light client9/misspell
