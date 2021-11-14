@@ -75,10 +75,6 @@ hook_add = '''
   endfunction
 '''
 
-# 閉じカッコ等の自動入力
-[[plugins]]
-repo = 'cohama/lexima.vim'
-on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'

@@ -9,6 +9,26 @@ repo = "Shougo/ddc-nvim-lsp"
 [[plugins]]
 repo = "Shougo/ddc-rg"
 [[plugins]]
+repo = "Shougo/pum.vim"
+on_source = "Shougo/ddc.vim"
+hook_add = '''
+inoremap <silent><expr> <TAB>
+      \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+      \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+      \ '<TAB>' : ddc#manual_complete()
+inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
+inoremap <expr><CR> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' :
+      \ "<CR>"
+
+inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+
+call ddc#custom#patch_global('completionMenu', 'pum.vim')
+call pum#set_option('border','rounded')
+'''
+
+[[plugins]]
 repo = "Shougo/ddc.vim"
 hook_add='''
 " Customize global settings
@@ -35,37 +55,15 @@ call ddc#custom#patch_global('sourceOptions', {
       \  },
       \ })
 
-" Mappings
-" <TAB>: completion.
-inoremap <silent><expr> <TAB>
-\ pumvisible() ? '<C-n>' :
-\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-\ '<TAB>' : ddc#map#manual_complete()
-
-" <S-TAB>: completion back.
-inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
-
 " Use ddc.
 call ddc#enable()
 '''
 
 [[plugins]]
-repo = 'matsui54/ddc-nvim-lsp-doc'
+repo = 'matsui54/denops-popup-preview.vim'
 on_source = 'ddc.vim'
 hook_source = '''
- let g:ddc_nvim_lsp_doc_config = {
-      \ 'documentation': {
-      \   'enable': v:true,
-      \   'border': 'single',
-      \   'maxWidth': 60,
-      \   'maxHeight': 30,
-      \ },
-      \ 'signature': {
-      \   'maxHeight': 5,
-      \ },
-      \ }
-  call ddc_nvim_lsp_doc#enable()
-  set completeopt=menu,menuone,noselect
+ call popup_preview#enable()
 '''
 
 [[plugins]]
