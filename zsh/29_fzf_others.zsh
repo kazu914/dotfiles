@@ -113,3 +113,15 @@ fcd() {
   fi
 }
 
+switch_session() {
+  local candidate selected
+  candidate=`tmux ls`
+  selected=`echo ${candidate} | fzf`
+  if [ -n "$selected" ];then
+    echo ${selected%%\:*}
+    print -s "tmux switch -t ${selected%%\:*}"
+    tmux switch -t ${selected%%\:*}
+  else
+    echo "No session is selected"
+  fi
+}
