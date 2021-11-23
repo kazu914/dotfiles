@@ -309,3 +309,6 @@ lua << EOF
 EOF
 nnoremap <leader>gs :Gitsigns setqflist<CR>
 '''
+
+[[plugins]]
+repo = "jiangmiao/auto-pairs"
