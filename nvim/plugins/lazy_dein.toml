@@ -98,33 +98,3 @@ on_ft = "vue"
 [[plugins]]
 repo = "mattn/emmet-vim"
 on_ft = "vue"
-
-[[plugins]]
-repo = 'gelguy/wilder.nvim'
-on_event = 'CmdlineEnter'
-hook_post_source = '''
-  call wilder#enable_cmdline_enter()
-  set wildcharm=<Tab>
-  cmap <expr> <C-j> wilder#in_context() ? wilder#next() : "\<Tab>"
-  cmap <expr> <C-k> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
-  call wilder#set_option('modes', ['/', '?', ':'])
-
-  call wilder#set_option('pipeline', [
-        \   wilder#branch(
-        \     wilder#python_file_finder_pipeline({
-        \       'file_command': ['fd', '-tf'],
-        \       'dir_command': ['fd', '-td'],
-        \       'filters': ['fuzzy_filter', 'difflib_sorter'],
-        \     }),
-        \     wilder#cmdline_pipeline(),
-        \     wilder#python_search_pipeline(),
-        \   ),
-        \ ])
-
-  call wilder#set_option('renderer', wilder#popupmenu_renderer({
-        \ 'highlighter': wilder#basic_highlighter(),
-        \ 'left': [
-        \   wilder#popupmenu_devicons(),
-        \ ],
-        \ }))
-'''

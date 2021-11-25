@@ -9,6 +9,8 @@ repo = "Shougo/ddc-nvim-lsp"
 [[plugins]]
 repo = "Shougo/ddc-rg"
 [[plugins]]
+repo = 'Shougo/neco-vim'
+[[plugins]]
 repo = "Shougo/pum.vim"
 on_source = "Shougo/ddc.vim"
 hook_add = '''
@@ -34,6 +36,7 @@ hook_add='''
 " Customize global settings
 " Use around source.
 call ddc#custom#patch_global('sources', ['nvim-lsp','around'])
+call ddc#custom#patch_filetype(['vim', 'toml'], 'sources', ['necovim'])
 
 " Use matcher_head and sorter_rank.
 call ddc#custom#patch_global('sourceOptions', {
@@ -53,6 +56,7 @@ call ddc#custom#patch_global('sourceOptions', {
       \     'mark': 'around',
       \     'maxSize': 500
       \  },
+      \  'necovim': {'mark': 'vim'},
       \ })
 
 " Use ddc.
