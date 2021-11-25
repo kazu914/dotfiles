@@ -312,3 +312,11 @@ nnoremap <leader>gs :Gitsigns setqflist<CR>
 
 [[plugins]]
 repo = "jiangmiao/auto-pairs"
+
+[[plugins]]
+repo = "jose-elias-alvarez/buftabline.nvim"
+hook_add = '''
+lua << EOF
+  require("buftabline").setup {}
+EOF
+'''
