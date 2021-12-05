@@ -12,6 +12,9 @@ alias loadzshrc='source $HOME/.zshrc'
 alias vim="nvim"
 alias rg="rg --smart-case"
 alias cat="bat"
+delombok () {
+  java -jar ~/.local/share/nvim/lsp_servers/jdtls/lombok.jar delombok -f pretty -p $1| bat -l java
+}
 
 # cd -> auto ls
 cd (){
