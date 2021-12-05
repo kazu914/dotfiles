@@ -103,7 +103,7 @@ frg() {
 fcd() {
   local candidate selected 
   candidate=`fd -t d`
-  selected=`echo ${candidate}  | fzf --select-1 --exit-0 --preview "lsd -lA --icon always --color always --date relative {}"`
+  selected=`echo ${candidate}  | fzf --select-1 --exit-0 --preview "lsd -1A --icon always --color always {}"`
 
   if [ -n "$selected" ];then
     print -s "cd $selected"
