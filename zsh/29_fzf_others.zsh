@@ -9,19 +9,14 @@ fvim (){
   local selected empty
   local -a candidate
   empty="(Empty)"
+  basedir=`git rev-parse --show-superproject-working-tree --show-toplevel | head -1`
+  candidate=`fd -t f . $basedir | sed "s|^$basedir||g"`
+  candidate=($empty"\n"${candidate[@]})
 
   if [ $# = 0 ];then
-    candidate=`fd --color=always -t f`
-    candidate=($empty"\n"${candidate[@]})
-    selected=$(echo $candidate | fzf --preview "if [ {} = '$empty' ]; then echo 'Open Here'; else bat  --color=always --style=header,grid --line-range :100 {}; fi")
+    selected=$(echo $candidate | fzf --preview-window=right:50%:rounded:cycle:wrap --preview "if [ {} = '$empty' ]; then echo 'Open Here'; else bat  --color=always --style=header,grid --line-range :100 $basedir{}; fi")
   else
-    if [ -f $1 ]; then
-      selected=$1
-    else
-      candidate=`fd --color=always -t f`
-      candidate=($1"\n"${candidate[@]})
-      selected=$(echo $candidate | fzf --query "$1" --preview "if [ {} = '$1' ]; then echo 'Create new file: $1'; else bat  --color=always --style=header,grid --line-range :100 {}; fi")
-    fi
+    selected=$(echo $candidate | fzf --preview-window=right:50%:rounded:cycle:wrap --query "$1" --preview "if [ {} = '$1' ]; then echo 'Create new file: $1'; else bat  --color=always --style=header,grid --line-range :100 $basedir{}; fi")
   fi
 
   if [ -n "$selected" ];then
@@ -29,8 +24,8 @@ fvim (){
       print -s "vim ./"
       nvim ./
     else
-      print -s "vim $selected"
-      nvim $selected
+      print -s "vim $basedir$selected"
+      nvim $basedir$selected
     fi
   else
     echo "No file is selected"
