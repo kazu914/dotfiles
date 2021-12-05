@@ -248,26 +248,6 @@ on_source = 'nvim-lspconfig'
 repo = "jose-elias-alvarez/nvim-lsp-ts-utils"
 on_source = 'nvim-lspconfig'
 
-# for trouble
-[[plugins]]
-repo = "kyazdani42/nvim-web-devicons"
-[[plugins]]
-repo = "folke/trouble.nvim"
-hook_add = '''
-lua << EOF
-  require("trouble").setup {
-    signs = {
-        error = "🤬",
-        warning = "🥺",
-        hint = "💡",
-        information = "🤔",
-        other = "﫠"
-    },
-  }
-EOF
-nnoremap <leader>tr <cmd>TroubleToggle<cr>
-'''
-
 [[plugins]]
 repo = "tami5/lspsaga.nvim"
 
