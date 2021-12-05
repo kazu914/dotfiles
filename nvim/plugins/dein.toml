@@ -300,3 +300,9 @@ lua << EOF
   require("buftabline").setup {}
 EOF
 '''
+
+[[plugins]]
+repo = "mhinz/vim-sayonara"
+hook_add = '''
+nnoremap <silent> <leader>q :Sayonara<CR>
+'''
