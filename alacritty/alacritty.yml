@@ -689,7 +689,7 @@ font:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-#key_bindings:
+key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -799,6 +799,10 @@ font:
   #- { key: F,              mods: Command|Control,            action: ToggleFullscreen      }
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
+  - { key: H,  mods: Alt,           chars: "\x1bh"                       }
+  - { key: J,  mods: Alt,           chars: "\x1bj"                       }
+  - { key: K,  mods: Alt,           chars: "\x1bk"                       }
+  - { key: L,  mods: Alt,           chars: "\x1bl"                       }
 
 #debug:
   # Display the time it takes to redraw each frame.
