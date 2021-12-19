@@ -1,7 +1,7 @@
 .PHONY: init
 init:
-	ln -svf ${PWD}/gitconfig ${HOME}/.gitconfig
+	cp ${PWD}/gitconfig ${HOME}/.gitconfig
 
 .PHONY: clean
 clean:
-	unlink ${HOME}/.gitconfig || true
+	rm ${HOME}/.gitconfig || true

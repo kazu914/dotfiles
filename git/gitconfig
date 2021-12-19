@@ -1,6 +1,3 @@
-[user]
-  name = Kazuaki Nomura
-  email = nkz0914ssk@gmail.com
 [core]
   editor = nvim -c \"set fenc=utf-8\"
   ignorecase = false
