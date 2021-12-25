@@ -47,7 +47,3 @@ git:
 .PHONY: node
 node:
 	cd node && make init
-
-.PHONY: npm_install
-npm_install:
-	cd npm && make init
