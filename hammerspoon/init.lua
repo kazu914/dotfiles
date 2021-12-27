@@ -24,3 +24,29 @@ hs.hotkey.bind({"cmd"}, "g", function()
     hs.application.launchOrFocus("/Applications/Google Chrome.app")
   end
 end)
+
+
+hs.hotkey.bind({"cmd"}, "d", function()
+  local choices = {}
+  local list = hs.execute('ls /Applications')
+  for token in string.gmatch(list, "[^\r\n]+") do
+    table.insert(choices,{
+      text = token,
+      subText = "/Applications/"..token,
+    })
+  end
+
+  local list = hs.execute('ls ~/Applications')
+  for token in string.gmatch(list, "[^\r\n]+") do
+    table.insert(choices,{
+      text = token,
+      subText = "~/Applications/"..token,
+    })
+  end
+
+  local chooser = hs.chooser.new(function (choice)
+    hs.application.launchOrFocus(choice.text)
+  end)
+  chooser:choices(choices)
+  chooser:show()
+end)
