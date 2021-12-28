@@ -62,30 +62,30 @@ hs.hotkey.bind('cmd','h',function()switcher:previous()end,nil,function()switcher
 -- Bookmark Opener
 hs.hotkey.bind({"cmd"}, "b", function()
   local bookmarks = hs.json.read("~/Library/Application Support/Google/Chrome/Default/Bookmarks")
-  local choices = extract_bookmarks(bookmarks["roots"]["bookmark_bar"]["children"])
+  local choices = extract_bookmarks(bookmarks["roots"]["bookmark_bar"]["children"], "")
   local chooser = hs.chooser.new(function (choice)
     hs.urlevent.openURL(choice.subText)
-  end)
+  end):searchSubText(true)
   chooser:choices(choices)
   chooser:show()
 end)
 
-function extract_bookmarks(items)
+function extract_bookmarks(items,path)
   if items == nil then
     return
   end
   local bookmarks = {}
 
   if items["children"] ~= nil then
-    return extract_bookmarks(items["children"])
+    return extract_bookmarks(items["children"], path)
   elseif items["type"] == "url" then
-    bookmarks.text = items["name"]
+    bookmarks.text = path
     bookmarks.subText = items["url"]
     return { bookmarks }
   else
     for _,v in pairs(items)do
       if type(v) == "table" then
-        for _, item in pairs(extract_bookmarks(v))do
+        for _, item in pairs(extract_bookmarks(v, path.." / "..v["name"]))do
           table.insert(bookmarks,item)
         end
       end
