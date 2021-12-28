@@ -10,7 +10,6 @@ minimal: init
 	ln -svf ${PWD}/01_config.zsh ${ENABLED} && \
 	ln -svf ${PWD}/02_aliases.zsh ${ENABLED} && \
 	ln -svf ${PWD}/03_plugins.zsh ${ENABLED} && \
-	ln -svf ${PWD}/10_mac.zsh ${ENABLED} && \
 	ln -svf ${PWD}/20_fzf_basic.zsh ${ENABLED} && \
 	ln -svf ${PWD}/21_fzf_git.zsh ${ENABLED} && \
 	ln -svf ${PWD}/29_fzf_others.zsh ${ENABLED} && \
