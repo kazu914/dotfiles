@@ -50,3 +50,10 @@ hs.hotkey.bind({"cmd"}, "d", function()
   chooser:choices(choices)
   chooser:show()
 end)
+
+-- Window Switcher
+local switcher = hs.window.switcher.new()
+switcher.ui.showSelectedThumbnail = false
+switcher.ui.showThumbnails = false
+hs.hotkey.bind('cmd','l',function()switcher:next()end,nil,function()switcher:next()end)
+hs.hotkey.bind('cmd','h',function()switcher:previous()end,nil,function()switcher:previous()end)
