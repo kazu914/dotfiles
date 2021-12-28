@@ -1,3 +1,6 @@
+-- [[
+-- open alacritty
+-- ]]
 hs.hotkey.bind({"cmd"}, "space", function()
   local alacritty = hs.application.find('alacritty')
   if alacritty:isFrontmost() then
@@ -7,6 +10,9 @@ hs.hotkey.bind({"cmd"}, "space", function()
   end
 end)
 
+-- [[
+-- open teams
+-- ]]
 hs.hotkey.bind({"cmd"}, "t", function()
   local teams = hs.application.find('teams')
   if teams:isFrontmost() then
@@ -16,6 +22,9 @@ hs.hotkey.bind({"cmd"}, "t", function()
   end
 end)
 
+-- [[
+-- open google chrome
+-- ]]
 hs.hotkey.bind({"cmd"}, "g", function()
   local chrome = hs.application.find('chrome')
   if chrome:isFrontmost() then
@@ -25,7 +34,9 @@ hs.hotkey.bind({"cmd"}, "g", function()
   end
 end)
 
-
+-- [[
+-- choose and open an Application
+-- ]]
 hs.hotkey.bind({"cmd"}, "d", function()
   local choices = {}
   local list = hs.execute('ls /Applications')
@@ -51,7 +62,9 @@ hs.hotkey.bind({"cmd"}, "d", function()
   chooser:show()
 end)
 
+-- [[
 -- Window Switcher
+-- ]]
 local switcher = hs.window.switcher.new(hs.window.filter.new():setSortOrder(hs.window.filter.sortByCreated):setDefaultFilter{})
 switcher.ui.showSelectedThumbnail = false
 switcher.ui.showThumbnails = false
@@ -59,7 +72,9 @@ hs.hotkey.bind('cmd','l',function()switcher:next()end,nil,function()switcher:nex
 hs.hotkey.bind('cmd','h',function()switcher:previous()end,nil,function()switcher:previous()end)
 
 
--- Bookmark Opener
+-- [[
+-- choose and open a bookmark
+-- ]]
 hs.hotkey.bind({"cmd"}, "b", function()
   local bookmarks = hs.json.read("~/Library/Application Support/Google/Chrome/Default/Bookmarks")
   local choices = extract_bookmarks(bookmarks["roots"]["bookmark_bar"]["children"], "")
