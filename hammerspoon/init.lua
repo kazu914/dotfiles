@@ -52,7 +52,7 @@ hs.hotkey.bind({"cmd"}, "d", function()
 end)
 
 -- Window Switcher
-local switcher = hs.window.switcher.new()
+local switcher = hs.window.switcher.new(hs.window.filter.new():setSortOrder(hs.window.filter.sortByCreated):setDefaultFilter{})
 switcher.ui.showSelectedThumbnail = false
 switcher.ui.showThumbnails = false
 hs.hotkey.bind('cmd','l',function()switcher:next()end,nil,function()switcher:next()end)
