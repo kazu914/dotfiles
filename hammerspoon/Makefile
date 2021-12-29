@@ -1,7 +1,7 @@
 .PHONY: init
 init:
-	ln -svf ${PWD}/init.lua ${HOME}/.hammerspoon/init.lua
+	ls *.lua | xargs -I{} ln -svf ${PWD}/{} ${HOME}/.hammerspoon/{}
 
 .PHONY: clean
 clean:
-	unlink ${HOME}/init.lua || true
+	ls *.lua | xargs -I{} unlink ${HOME}/.hammerspoon/{}
