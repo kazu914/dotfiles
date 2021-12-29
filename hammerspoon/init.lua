@@ -57,6 +57,7 @@ hs.hotkey.bind({"cmd"}, "d", function()
 
   local chooser = hs.chooser.new(function (choice)
     hs.application.launchOrFocus(choice.text)
+    hs.window.focusedWindow():maximize()
   end)
   chooser:choices(choices)
   chooser:show()
