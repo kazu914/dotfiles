@@ -1,4 +1,5 @@
 dofile("WindowManager.lua")
+dofile("ApplicationLaucher.lua")
 
 -- [[
 -- open alacritty
@@ -34,31 +35,6 @@ hs.hotkey.bind({"cmd"}, "g", function()
     else
         hs.application.launchOrFocus("/Applications/Google Chrome.app")
     end
-end)
-
--- [[
--- choose and open an Application
--- ]]
-hs.hotkey.bind({"cmd"}, "d", function()
-    local choices = {}
-    local list = hs.execute('ls /Applications')
-    for token in string.gmatch(list, "[^\r\n]+") do
-        table.insert(choices,
-                     {text = token, subText = "/Applications/" .. token})
-    end
-
-    local list = hs.execute('ls ~/Applications')
-    for token in string.gmatch(list, "[^\r\n]+") do
-        table.insert(choices,
-                     {text = token, subText = "~/Applications/" .. token})
-    end
-
-    local chooser = hs.chooser.new(function(choice)
-        hs.application.launchOrFocus(choice.text)
-        hs.window.focusedWindow():maximize()
-    end)
-    chooser:choices(choices)
-    chooser:show()
 end)
 
 -- [[
