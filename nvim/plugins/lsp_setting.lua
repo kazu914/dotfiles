@@ -63,6 +63,7 @@ local sources = {
   nullls.builtins.formatting.eslint_d,
   nullls.builtins.formatting.fixjson,
   nullls.builtins.formatting.rustfmt,
+  nullls.builtins.formatting.lua_format,
   nullls.builtins.diagnostics.write_good,
   nullls.builtins.diagnostics.misspell,
 }
