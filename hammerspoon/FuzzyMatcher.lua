@@ -18,4 +18,34 @@ local function fuzzyMatch(target, query)
     return query_idx == #query + 1 and matched_idx or {}
 end
 
-return {fuzzyMatch = fuzzyMatch}
+local function highlightMatched(text, matched_idxs)
+    local new_text = hs.styledtext.new(text)
+    for _, idx in pairs(matched_idxs) do
+        new_text = new_text:setStyle({color = hs.drawing.color.red}, idx, idx)
+    end
+    return new_text
+end
+
+local function filter(choices, query)
+    if string.len(query) == 0 then return choices end
+    local filtered_choices = {}
+    for _, app in pairs(choices) do
+        local matched_idxs = fuzzyMatch(app.text:getString(), query)
+        if #matched_idxs ~= 0 then
+            local new_app = {
+                text = highlightMatched(app.text:getString(), matched_idxs),
+                subText = app.subText
+            }
+            table.insert(filtered_choices, new_app)
+        end
+    end
+    return filtered_choices
+end
+
+local function setChoices(choices, chooser)
+    local filtered_choices = filter(choices, chooser:query())
+    chooser:choices(filtered_choices)
+    chooser:refreshChoicesCallback(true)
+end
+
+return {setChoices = setChoices}
