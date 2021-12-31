@@ -4,8 +4,10 @@ local function getAppsInPath(path)
     local apps = {}
     local list = hs.execute('ls ' .. path)
     for token in string.gmatch(list, "[^\r\n]+") do
-        table.insert(apps,
-                     {text = hs.styledtext.new(token), subText = path .. token})
+        table.insert(apps, {
+            text = hs.styledtext.new(token),
+            subText = hs.styledtext.new(path .. token)
+        })
     end
     return apps
 end
@@ -31,9 +33,9 @@ hs.hotkey.bind({"cmd"}, "d", function()
         hs.window.focusedWindow():maximize()
     end)
 
-    FuzzyMatcher.setChoices(apps, chooser)
+    FuzzyMatcher.setChoices(apps, chooser, true)
     chooser:queryChangedCallback(function()
-        FuzzyMatcher.setChoices(apps, chooser)
+        FuzzyMatcher.setChoices(apps, chooser, true)
     end)
     chooser:show()
 end)

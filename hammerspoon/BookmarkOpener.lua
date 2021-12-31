@@ -8,7 +8,7 @@ local function extractBookmarks(items, path)
         return extractBookmarks(items["children"], path)
     elseif items["type"] == "url" then
         bookmarks.text = hs.styledtext.new(path)
-        bookmarks.subText = items["url"]
+        bookmarks.subText = hs.styledtext.new(items["url"])
         return {bookmarks}
     else
         for _, v in pairs(items) do
@@ -35,12 +35,12 @@ end
 hs.hotkey.bind({"cmd"}, "b", function()
     local bookmarks = getBookmarks()
     local chooser = hs.chooser.new(function(choice)
-        hs.urlevent.openURL(choice.subText)
-    end):searchSubText(true)
+        hs.urlevent.openURL(choice.subText:getString())
+    end)
 
-    FuzzyMatcher.setChoices(bookmarks, chooser)
+    FuzzyMatcher.setChoices(bookmarks, chooser, false)
     chooser:queryChangedCallback(function()
-        FuzzyMatcher.setChoices(bookmarks, chooser)
+        FuzzyMatcher.setChoices(bookmarks, chooser, false)
     end)
     chooser:show()
 end)

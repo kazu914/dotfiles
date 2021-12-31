@@ -26,24 +26,35 @@ local function highlightMatched(text, matched_idxs)
     return new_text
 end
 
-local function filter(choices, query)
+local function filter(choices, query, ignore_sub_text)
     if string.len(query) == 0 then return choices end
     local filtered_choices = {}
-    for _, app in pairs(choices) do
-        local matched_idxs = fuzzyMatch(app.text:getString(), query)
-        if #matched_idxs ~= 0 then
-            local new_app = {
-                text = highlightMatched(app.text:getString(), matched_idxs),
-                subText = app.subText
-            }
+    for _, choice in pairs(choices) do
+        local text_matched_idxs = fuzzyMatch(choice.text:getString(), query)
+        local sub_text_matched_idxs = ignore_sub_text and {} or
+                                          fuzzyMatch(choice.subText:getString(),
+                                                     query)
+        local is_text_matched = #text_matched_idxs ~= 0
+        local is_sub_text_matched = #sub_text_matched_idxs ~= 0
+        if is_text_matched or is_sub_text_matched then
+            local new_text = is_text_matched and
+                                 highlightMatched(choice.text:getString(),
+                                                  text_matched_idxs) or
+                                 choice.text
+            local new_sub_text = is_sub_text_matched and
+                                     highlightMatched(
+                                         choice.subText:getString(),
+                                         sub_text_matched_idxs) or
+                                     choice.subText
+            local new_app = {text = new_text, subText = new_sub_text}
             table.insert(filtered_choices, new_app)
         end
     end
     return filtered_choices
 end
 
-local function setChoices(choices, chooser)
-    local filtered_choices = filter(choices, chooser:query())
+local function setChoices(choices, chooser, ignore_sub_text)
+    local filtered_choices = filter(choices, chooser:query(), ignore_sub_text)
     chooser:choices(filtered_choices)
     chooser:refreshChoicesCallback(true)
 end
