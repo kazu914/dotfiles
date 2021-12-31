@@ -56,22 +56,17 @@ lsp_installer.on_server_ready(function(server)
 end)
 
 -- for null-ls setting
-
-local nullls = require "null-ls"
-local sources = {
-  nullls.builtins.formatting.prettier,
-  nullls.builtins.formatting.eslint_d,
-  nullls.builtins.formatting.fixjson,
-  nullls.builtins.formatting.rustfmt,
-  nullls.builtins.formatting.lua_format,
-  nullls.builtins.diagnostics.write_good,
-  nullls.builtins.diagnostics.misspell,
-}
-
-nullls.config({
-  sources = sources,
-  })
-require("lspconfig")["null-ls"].setup({autostart = true})
+require("null-ls").setup({
+    sources = {
+  require("null-ls").builtins.formatting.prettier,
+  require("null-ls").builtins.formatting.eslint_d,
+  require("null-ls").builtins.formatting.fixjson,
+  require("null-ls").builtins.formatting.rustfmt,
+  require("null-ls").builtins.formatting.lua_format,
+  require("null-ls").builtins.diagnostics.write_good,
+  require("null-ls").builtins.diagnostics.misspell,
+},
+})
 
 -- for luasaga
 local lspsaga = require 'lspsaga'
