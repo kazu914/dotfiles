@@ -22,6 +22,10 @@ local function getApps()
     return apps
 end
 
+local function sorter(a, b)
+    return (string.len(a.text:getString()) < string.len(b.text:getString()))
+end
+
 -- [[
 -- choose and open an Application
 -- ]]
@@ -33,9 +37,11 @@ hs.hotkey.bind({"cmd"}, "d", function()
         hs.window.focusedWindow():maximize()
     end)
 
-    FuzzyMatcher.setChoices(apps, chooser, true)
+    FuzzyMatcher.setChoices(apps, chooser, true, function(a, b)
+        return (string.len(a.text:getString()) < string.len(b.text:getString()))
+    end)
     chooser:queryChangedCallback(function()
-        FuzzyMatcher.setChoices(apps, chooser, true)
+        FuzzyMatcher.setChoices(apps, chooser, true, sorter)
     end)
     chooser:show()
 end)

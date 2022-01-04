@@ -53,8 +53,9 @@ local function filter(choices, query, ignore_sub_text)
     return filtered_choices
 end
 
-local function setChoices(choices, chooser, ignore_sub_text)
+local function setChoices(choices, chooser, ignore_sub_text, sorter)
     local filtered_choices = filter(choices, chooser:query(), ignore_sub_text)
+    if sorter ~= nil then table.sort(filtered_choices, sorter) end
     chooser:choices(filtered_choices)
     chooser:refreshChoicesCallback(true)
 end
