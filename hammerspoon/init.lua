@@ -2,38 +2,32 @@ dofile("WindowManager.lua")
 dofile("ApplicationLaucher.lua")
 dofile("BookmarkOpener.lua")
 
+local function openApp(app, path)
+    local application = hs.application.find(app)
+    if application ~= nil and application:isFrontmost() then
+        application:hide()
+    else
+        hs.application.launchOrFocus(path)
+    end
+end
+
 -- [[
 -- open alacritty
 -- ]]
 hs.hotkey.bind({"cmd"}, "space", function()
-    local alacritty = hs.application.find('alacritty')
-    if alacritty:isFrontmost() then
-        alacritty:hide()
-    else
-        hs.application.launchOrFocus("/Applications/Alacritty.app")
-    end
+    openApp('alacritty', '/Applications/Alacritty.app')
 end)
 
 -- [[
 -- open teams
 -- ]]
 hs.hotkey.bind({"cmd"}, "t", function()
-    local teams = hs.application.find('teams')
-    if teams:isFrontmost() then
-        teams:hide()
-    else
-        hs.application.launchOrFocus("/Applications/Microsoft Teams.app")
-    end
+    openApp('teams', '/Applications/Microsoft Teams.app')
 end)
 
 -- [[
 -- open google chrome
 -- ]]
 hs.hotkey.bind({"cmd"}, "g", function()
-    local chrome = hs.application.find('chrome')
-    if chrome:isFrontmost() then
-        chrome:hide()
-    else
-        hs.application.launchOrFocus("/Applications/Google Chrome.app")
-    end
+    openApp("chrome", "/Applications/Google Chrome.app")
 end)
