@@ -105,6 +105,7 @@ gcd() {
   local basedir candidate selected
   basedir=`git rev-parse --show-superproject-working-tree --show-toplevel | head -1`
   candidate=`fd -t d . $basedir | sed "s|^$basedir||g"`
+  candidate=("/\n"${candidate[@]})
   selected=`echo ${candidate}  | fzf --select-1 --exit-0 --preview "lsd -1A --icon always --color always $basedir/{}"`
   if [ -n "$selected" ];then
     print -s "cd $basedir$selected"
