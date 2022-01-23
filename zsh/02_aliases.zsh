@@ -18,5 +18,5 @@ delombok () {
 
 # cd -> auto ls
 cd (){
-  __zoxide_z "$@" && lsd -l
+  __zoxide_z "$@" && pwd && lsd --tree -a --depth=1 
 }

@@ -15,6 +15,7 @@ zinit light Peltoche/lsd
 if builtin command -v lsd > /dev/null; then
   alias ls=lsd
   alias la='lsd -al'
+  alias tree='lsd --tree'
 fi
 
 #############################################################################################
