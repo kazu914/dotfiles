@@ -98,3 +98,9 @@ zinit light denoland/deno
 #############################################################################################
 zinit ice wait lucid as"program" from"gh-r" mv"misspell* -> misspell" pick"misspell/misspell"
 zinit light client9/misspell
+
+#############################################################################################
+##################################### lazygit ##############################################
+#############################################################################################
+zinit ice wait lucid as"program" from"gh-r" mv"lazygit* -> lazygit" pick"lazygit/lazygit"
+zinit light jesseduffield/lazygit
