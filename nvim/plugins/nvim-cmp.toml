@@ -12,7 +12,8 @@ repo = 'hrsh7th/cmp-cmdline'
 repo = 'hrsh7th/cmp-path'
 [[plugins]]
 repo = 'hrsh7th/cmp-vsnip'
-
+[[plugins]]
+repo = "onsails/lspkind-nvim"
 [[plugins]]
 repo = "hrsh7th/nvim-cmp"
 hook_add = '''
@@ -66,5 +67,15 @@ lua << EOF
       { name = 'cmdline' }
     })
   })
+
+local lspkind = require('lspkind')
+cmp.setup {
+  formatting = {
+    format = lspkind.cmp_format({
+      with_text = true,
+      maxwidth = 50,
+    })
+  }
+}
 EOF
 '''
