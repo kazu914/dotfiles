@@ -18,7 +18,6 @@ local on_attach = function(_, bufnr)
     buf_set_keymap('n', 'K', ':Lspsaga hover_doc<CR>', opts)
     buf_set_keymap('n', '[g', ':Lspsaga diagnostic_jump_next<CR>', opts)
     buf_set_keymap('n', ']g', ':Lspsaga diagnostic_jump_prev<CR>', opts)
-    buf_set_keymap('n', '<space>ca', ':Lspsaga code_action<CR>', opts)
     buf_set_keymap('v', '<space>ca', ':<C-U>Lspsaga code_action<CR>', opts)
     buf_set_keymap('n', 'gh', ':Lspsaga lsp_finder<CR>', opts)
 end

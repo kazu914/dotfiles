@@ -169,21 +169,6 @@ let g:rainbow_active = 1
 '''
 
 [[plugins]]
-repo = "junegunn/fzf"
-build = "./install --bin"
-merged = "0"
-
-[[plugins]]
-repo = "junegunn/fzf.vim"
-depends = ['fzf']
-hook_add = '''
-nnoremap ,b :Buffers<CR>
-nnoremap ,f :Files<CR>
-nnoremap ,g :GFiles<CR>
-nnoremap ,r :Rg<CR>
-'''
-
-[[plugins]]
 repo = "airblade/vim-rooter"
 hook_add = '''
 let g:rooter_change_directory_for_non_project_files = 'current'
@@ -306,3 +291,52 @@ repo = "mhinz/vim-sayonara"
 hook_add = '''
 nnoremap <silent> <leader>q :Sayonara<CR>
 '''
+[[plugins]]
+repo = 'nvim-telescope/telescope-fzf-native.nvim'
+build = 'make'
+
+[[plugins]]
+repo =  "nvim-telescope/telescope.nvim"
+hook_add = '''
+nnoremap ,f <cmd>Telescope find_files<cr>
+nnoremap ,g <cmd>Telescope git_files<cr>
+nnoremap ,b <cmd>Telescope buffers<cr>
+nnoremap ,r <cmd>Telescope live_grep<cr>
+nnoremap <leader>ca <cmd>Telescope lsp_code_actions<cr>
+
+lua << EOF
+  local actions = require "telescope.actions"
+
+  require('telescope').setup{
+    defaults = {
+      sorting_strategy = "ascending",
+      selection_caret = "> ",
+      layout_config = {
+        prompt_position = "top",
+      },
+      mappings = {
+        i = {
+          ["<C-j>"]   = actions.move_selection_next,
+          ["<C-k>"]   = actions.move_selection_previous,
+          ["<Tab>"]   = actions.move_selection_next,
+          ["<S-Tab>"] = actions.move_selection_previous,
+        },
+      },
+    },
+    extensions = {
+      fzf = {
+        fuzzy = true,                    -- false will only do exact matching
+        override_generic_sorter = false, -- override the generic sorter
+        override_file_sorter = true,     -- override the file sorter
+        case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                         -- the default case_mode is "smart_case"
+      }
+    }
+  }
+
+  require('telescope').load_extension('fzf')
+EOF
+'''
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
