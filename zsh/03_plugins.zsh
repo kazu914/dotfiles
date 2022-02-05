@@ -104,3 +104,9 @@ zinit light client9/misspell
 #############################################################################################
 zinit ice wait lucid as"program" from"gh-r" mv"lazygit* -> lazygit" pick"lazygit/lazygit"
 zinit light jesseduffield/lazygit
+
+#############################################################################################
+################################### todo_txt_cli ############################################
+#############################################################################################
+zinit ice wait lucid as"program" from"gh-r" mv"todo_txt* -> todo" pick"todo_txt_cli/todo"
+zinit light kazu914/todo_txt_cli
