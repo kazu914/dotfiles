@@ -20,3 +20,13 @@ delombok () {
 cd (){
   __zoxide_z "$@" && pwd && lsd --tree -a --depth=1 
 }
+
+
+tmp (){
+  if [ -z $1 ]; then
+    filename=${HOME}/tmp/`date +%Y_%m_%d_%H_%M_%S`.txt
+  else
+    filename=${HOME}/tmp/`date +%Y_%m_%d_%H_%M`_$1
+  fi
+  vim ${filename}
+}
