@@ -340,3 +340,6 @@ EOF
 
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'ntpeters/vim-better-whitespace'
