@@ -30,3 +30,7 @@ tmp (){
   fi
   vim ${filename}
 }
+
+if builtin command -v gsed > /dev/null; then
+  alias sed='gsed'
+fi
