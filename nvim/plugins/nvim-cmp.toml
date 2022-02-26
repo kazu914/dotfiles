@@ -45,8 +45,8 @@ lua << EOF
     },
     mapping = mapping,
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
       { name = 'vsnip' },
+      { name = 'nvim_lsp' },
       { name = 'path' },
       { name = 'buffer' },
     })
