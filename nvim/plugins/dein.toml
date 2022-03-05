@@ -343,3 +343,14 @@ repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'
+
+[[plugins]]
+repo = 'mvllow/modes.nvim'
+hook_add = '''
+lua << EOF
+    vim.opt.cursorline = true
+    require('modes').setup()
+
+EOF
+'''
+
