@@ -303,6 +303,7 @@ nnoremap ,g <cmd>Telescope git_files<cr>
 nnoremap ,b <cmd>Telescope buffers<cr>
 nnoremap ,r <cmd>Telescope live_grep<cr>
 nnoremap <leader>ca <cmd>Telescope lsp_code_actions<cr>
+nnoremap <leader>tr <cmd>Telescope diagnostics<cr>
 
 lua << EOF
   local actions = require "telescope.actions"
