@@ -370,3 +370,6 @@ lua << EOF
   require('fidget').setup{}
 EOF
 '''
+
+[[plugins]]
+repo = 'romgrk/nvim-treesitter-context'
