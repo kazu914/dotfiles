@@ -355,3 +355,10 @@ lua << EOF
 EOF
 '''
 
+[[plugins]]
+repo = 'rcarriga/nvim-notify'
+hook_add = '''
+lua << EOF
+  vim.notify = require('notify')
+EOF
+'''
