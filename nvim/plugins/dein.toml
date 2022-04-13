@@ -25,10 +25,9 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 # カラースキーム
 [[plugins]]
-repo = "rakr/vim-one"
+repo = "EdenEast/nightfox.nvim"
 hook_add = '''
-colorscheme one
-set background=dark
+colorscheme nordfox
 '''
 
 [[plugins]]
