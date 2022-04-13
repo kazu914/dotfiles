@@ -362,3 +362,11 @@ lua << EOF
   vim.notify = require('notify')
 EOF
 '''
+
+[[plugins]]
+repo = 'j-hui/fidget.nvim'
+hook_add = '''
+lua << EOF
+  require('fidget').setup{}
+EOF
+'''
