@@ -157,8 +157,11 @@ let g:aerojump_keymaps = {
 [[plugins]]
 repo = 'phaazon/hop.nvim'
 hook_add = '''
-nnoremap <Leader>k :HopWord<cr>
+nnoremap <Leader>l :HopWord<cr>
 nnoremap <Leader>j :HopLine<cr>
+lua << EOF
+  require'hop'.setup()
+EOF
 '''
 
 [[plugins]]
