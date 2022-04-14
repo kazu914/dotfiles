@@ -25,9 +25,9 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 # カラースキーム
 [[plugins]]
-repo = "EdenEast/nightfox.nvim"
+repo = "folke/tokyonight.nvim"
 hook_add = '''
-colorscheme nordfox
+colorscheme tokyonight
 '''
 
 [[plugins]]
@@ -375,3 +375,42 @@ EOF
 
 [[plugins]]
 repo = 'romgrk/nvim-treesitter-context'
+
+[[plugins]]
+repo = 'kevinhwang91/nvim-hlslens'
+hook_add = '''
+lua << EOF
+  local kopts = {noremap = true, silent = true}
+  vim.api.nvim_set_keymap('n', 'n',
+    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+  vim.api.nvim_set_keymap('n', 'N',
+    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+  vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+  vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+  vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+  vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+  vim.api.nvim_set_keymap('n', '<Leader>l', ':noh<CR>', kopts)
+EOF
+'''
+
+[[plugins]]
+repo = 'petertriho/nvim-scrollbar'
+hook_add = '''
+lua << EOF
+  local colors = require("tokyonight.colors").setup()
+  require("scrollbar").setup({ handle = {
+        color = colors.bg_highlight,
+    },
+    marks = {
+        Search = { color = colors.orange },
+        Error = { color = colors.error },
+        Warn = { color = colors.warning },
+        Info = { color = colors.info },
+        Hint = { color = colors.hint },
+        Misc = { color = colors.purple },
+    }})
+  require("scrollbar.handlers.search").setup()
+EOF
+'''
