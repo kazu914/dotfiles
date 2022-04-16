@@ -1,3 +1,4 @@
+vim.cmd([[
 let mapleader = "\<Space>"
 " タブ関連
 " The prefix key.
@@ -71,3 +72,4 @@ tnoremap <Esc> <C-\><C-n>
 
 " <C-j> で文末にジャンプ，すでに文末なら改行
 inoremap <expr> <C-j>  col(".") == col("$") ? '<C-j>' : '<ESC>A'
+]])

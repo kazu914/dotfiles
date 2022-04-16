@@ -1,3 +1,4 @@
+vim.cmd([[
 syntax on
 set t_Co=256
 
@@ -34,3 +35,4 @@ set nofoldenable
 set signcolumn=yes:2
 
 hi Comment ctermfg=gray
+]])
