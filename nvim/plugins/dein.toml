@@ -414,3 +414,14 @@ lua << EOF
   require("scrollbar.handlers.search").setup()
 EOF
 '''
+
+[[plugins]]
+repo = 'sidebar-nvim/sidebar.nvim'
+hook_add = '''
+lua << EOF
+  require('sidebar-nvim').setup({
+    open = true,
+    sections = { "datetime", "git", "diagnostics", "buffers", "files" }
+    })
+EOF
+'''
