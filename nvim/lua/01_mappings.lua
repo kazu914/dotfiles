@@ -72,4 +72,7 @@ tnoremap <Esc> <C-\><C-n>
 
 " <C-j> で文末にジャンプ，すでに文末なら改行
 inoremap <expr> <C-j>  col(".") == col("$") ? '<C-j>' : '<ESC>A'
+
+
+nnoremap <leader>f :Ntree<CR>
 ]])

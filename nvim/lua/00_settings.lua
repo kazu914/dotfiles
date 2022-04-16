@@ -35,4 +35,16 @@ set nofoldenable
 set signcolumn=yes:2
 
 hi Comment ctermfg=gray
+
+let g:netrw_liststyle=1
+let g:netrw_banner=0
+let g:netrw_sizestyle="H"
+let g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
+let g:netrw_preview=1
+
+if has('persistent_undo')
+    set undodir=~/.config/nvim/undo
+    set undofile
+endif
+
 ]])
