@@ -297,4 +297,8 @@ require 'packer'.startup(function(use)
   use { 'mattn/emmet-vim', ft = { 'vue' } }
 
   use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
+
+  use { 'airblade/vim-rooter', config = function ()
+    vim.g.rooter_change_directory_for_non_project_files = 'current'
+  end }
 end)
