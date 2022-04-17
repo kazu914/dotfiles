@@ -27,8 +27,12 @@ require 'packer'.startup(function(use)
     vim.g.highlightedyank_highlight_duration = -1
   end }
 
-  use { 'Yggdroot/indentLine', event = 'InsertEnter', config = function()
-    vim.cmd [[ autocmd FileType markdown let g:indentLine_enabled=0']]
+  use { "lukas-reineke/indent-blankline.nvim", config = function()
+    require("indent_blankline").setup {
+      space_char_blankline = " ",
+      show_current_context = true,
+      show_current_context_start = true,
+    }
   end }
 
   use { 'jose-elias-alvarez/buftabline.nvim',
