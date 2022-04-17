@@ -71,7 +71,16 @@ require 'packer'.startup(function(use)
   end }
 
   -- treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()
+    require 'nvim-treesitter.configs'.setup({
+      highlight = {
+        enable = true,
+      },
+      indent = {
+        enable = true,
+      }
+    })
+  end }
 
   use { 'romgrk/nvim-treesitter-context' }
 
