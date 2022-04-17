@@ -2,5 +2,6 @@ nvim/dein
 nvim/.netrwhist
 nvim/undo
 nvim/enabled
+nvim/plugin
 
 zsh/enabled
