@@ -128,6 +128,8 @@ require 'packer'.startup(function(use)
 
   use { 'neovim/nvim-lspconfig' }
 
+  use { 'folke/lsp-colors.nvim' }
+
   use { 'williamboman/nvim-lsp-installer' }
 
   use { 'onsails/lspkind-nvim' }
