@@ -300,6 +300,9 @@ require 'packer'.startup(function(use)
   use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
 
   use { 'airblade/vim-rooter', config = function ()
-    vim.g.rooter_change_directory_for_non_project_files = 'current'
+    vim.cmd([[
+      let g:rooter_change_directory_for_non_project_files = 'current'
+      let g:rooter_patterns = ['.git', '_darcs', '.hg', '.bzr', '.svn', 'package.json']
+    ]])
   end }
 end)
