@@ -163,60 +163,7 @@ require 'packer'.startup(function(use)
 
   use { 'hrsh7th/nvim-cmp',
     config = function()
-      vim.api.nvim_command('set completeopt=menu,menuone,noselect')
-      -- Setup nvim-cmp.
-      local cmp = require 'cmp'
-      local mapping = {
-        ['<Tab>'] = cmp.mapping.select_next_item({
-          behavior = cmp.SelectBehavior.Insert
-        }),
-        ['<S-Tab>'] = cmp.mapping.select_prev_item({
-          behavior = cmp.SelectBehavior.Insert
-        }),
-        ['<Down>'] = cmp.mapping.select_next_item({
-          behavior = cmp.SelectBehavior.Select
-        }),
-        ['<Up>'] = cmp.mapping.select_prev_item({
-          behavior = cmp.SelectBehavior.Select
-        }),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true
-        })
-      }
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-          end
-        },
-        mapping = mapping,
-        sources = cmp.config.sources({
-          { name = 'vsnip' }, { name = 'buffer' }, { name = 'nvim_lsp' },
-          { name = 'path' }
-        })
-      })
-      -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-      cmp.setup.cmdline('/', { sources = { { name = 'buffer' } } })
-      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-      cmp.setup.cmdline(':', {
-        sources = cmp.config
-            .sources({ { name = 'path' } }, { { name = 'cmdline' } })
-      })
-      local lspkind = require('lspkind')
-      cmp.setup {
-        formatting = {
-          format = lspkind.cmp_format({
-            with_text = true,
-            maxwidth = 50
-          })
-        }
-      }
-
+      require("plugins_config/nvim-cmp")
     end
   }
 
@@ -236,42 +183,7 @@ require 'packer'.startup(function(use)
   use { 'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
     config = function()
-
-      vim.keymap.set('n', ',f', require('telescope.builtin').find_files)
-      vim.keymap.set('n', ',g', require('telescope.builtin').git_files)
-      vim.keymap.set('n', ',b', require('telescope.builtin').buffers)
-      vim.keymap.set('n', ',r', require('telescope.builtin').live_grep)
-      vim.keymap.set('n', '<leader>ca',
-        require('telescope.builtin').lsp_code_actions)
-      vim.keymap.set('n', '<leader>tr',
-        require('telescope.builtin').diagnostics)
-
-      local actions = require "telescope.actions"
-      require('telescope').setup {
-        defaults = {
-          sorting_strategy = "ascending",
-          selection_caret = "> ",
-          layout_config = { prompt_position = "top" },
-          mappings = {
-            i = {
-              ["<C-j>"] = actions.move_selection_next,
-              ["<C-k>"] = actions.move_selection_previous,
-              ["<Tab>"] = actions.move_selection_next,
-              ["<S-Tab>"] = actions.move_selection_previous,
-              ["<esc>"] = actions.close,
-            }
-          }
-        },
-        extensions = {
-          fzf = {
-            fuzzy = true, -- false will only do exact matching
-            override_generic_sorter = false, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case" -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
-          }
-        }
-      }
+      require('plugins_config/telescope-nvim')
     end
   }
 
@@ -307,58 +219,6 @@ require 'packer'.startup(function(use)
   end }
 
   use { 'tamago324/lir.nvim', config = function()
-    local actions = require 'lir.actions'
-    local mark_actions = require 'lir.mark.actions'
-    local clipboard_actions = require 'lir.clipboard.actions'
-    local lir = require('lir')
-
-    vim.keymap.set('n', '<leader>f', function() require('lir.float').init(vim.fn.getcwd()) end)
-    lir.setup {
-      show_hidden_files = false,
-      devicons_enable = true,
-      mappings = {
-        ['l']     = actions.edit,
-        ['<CR>']  = actions.edit,
-        ['<C-s>'] = actions.split,
-        ['<C-v>'] = actions.vsplit,
-        ['<C-t>'] = actions.tabedit,
-
-        ['h'] = actions.up,
-        ['q'] = actions.quit,
-
-        ['K'] = actions.mkdir,
-        ['N'] = actions.newfile,
-        ['R'] = actions.rename,
-        ['@'] = actions.cd,
-        ['Y'] = actions.yank_path,
-        ['.'] = actions.toggle_show_hidden,
-        ['D'] = actions.delete,
-
-        ['i'] = function()
-          mark_actions.toggle_mark()
-          vim.cmd('normal! j')
-        end,
-        ['c'] = clipboard_actions.copy,
-        ['x'] = clipboard_actions.cut,
-        ['p'] = clipboard_actions.paste,
-      },
-      float = {
-        winblend = 0,
-        curdir_window = {
-          enable = false,
-          highlight_dirname = false
-        },
-      },
-      hide_cursor = false,
-    }
-
-    -- custom folder icon
-    require 'nvim-web-devicons'.set_icon({
-      lir_folder_icon = {
-        icon = "",
-        color = "#7ebae4",
-        name = "LirFolderNode"
-      }
-    })
+    require("plugins_config/lir-nvim")
   end }
 end)
