@@ -1,7 +1,10 @@
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost 02_plugins.lua
+    \ execute 'lua vim.notify("Compiling...")' |
+    \ source <afile> |
+    \ PackerCompile
   augroup end
 ]])
 require'00_settings'
