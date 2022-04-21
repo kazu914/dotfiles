@@ -299,10 +299,66 @@ require 'packer'.startup(function(use)
 
   use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
 
-  use { 'airblade/vim-rooter', config = function ()
+  use { 'airblade/vim-rooter', config = function()
     vim.cmd([[
       let g:rooter_change_directory_for_non_project_files = 'current'
       let g:rooter_patterns = ['.git', '_darcs', '.hg', '.bzr', '.svn', 'package.json']
     ]])
+  end }
+
+  use { 'tamago324/lir.nvim', config = function()
+    local actions = require 'lir.actions'
+    local mark_actions = require 'lir.mark.actions'
+    local clipboard_actions = require 'lir.clipboard.actions'
+    local lir = require('lir')
+
+    vim.keymap.set('n', '<leader>f', function() require('lir.float').init(vim.fn.getcwd()) end)
+    lir.setup {
+      show_hidden_files = false,
+      devicons_enable = true,
+      mappings = {
+        ['l']     = actions.edit,
+        ['<CR>']  = actions.edit,
+        ['<C-s>'] = actions.split,
+        ['<C-v>'] = actions.vsplit,
+        ['<C-t>'] = actions.tabedit,
+
+        ['h'] = actions.up,
+        ['q'] = actions.quit,
+
+        ['K'] = actions.mkdir,
+        ['N'] = actions.newfile,
+        ['R'] = actions.rename,
+        ['@'] = actions.cd,
+        ['Y'] = actions.yank_path,
+        ['.'] = actions.toggle_show_hidden,
+        ['D'] = actions.delete,
+
+        ['i'] = function()
+          mark_actions.toggle_mark()
+          vim.cmd('normal! j')
+        end,
+        ['c'] = clipboard_actions.copy,
+        ['x'] = clipboard_actions.cut,
+        ['p'] = clipboard_actions.paste,
+      },
+      float = {
+        winblend = 0,
+        curdir_window = {
+          enable = false,
+          highlight_dirname = false
+        },
+      },
+      hide_cursor = false,
+    }
+
+    -- custom folder icon
+    require 'nvim-web-devicons'.set_icon({
+      lir_folder_icon = {
+        icon = "",
+        color = "#7ebae4",
+        name = "LirFolderNode"
+      }
+    })
   end }
 end)
