@@ -2,7 +2,6 @@ vim.keymap.set('n', ',f', require('telescope.builtin').find_files)
 vim.keymap.set('n', ',g', require('telescope.builtin').git_files)
 vim.keymap.set('n', ',b', require('telescope.builtin').buffers)
 vim.keymap.set('n', ',r', require('telescope.builtin').live_grep)
-vim.keymap.set('n', '<leader>ca', require('telescope.builtin').lsp_code_actions)
 vim.keymap.set('n', '<leader>tr', require('telescope.builtin').diagnostics)
 
 local actions = require "telescope.actions"
