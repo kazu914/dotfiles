@@ -82,8 +82,6 @@ require 'packer'.startup(function(use)
     })
   end }
 
-  use { 'romgrk/nvim-treesitter-context' }
-
   use { 'petertriho/nvim-scrollbar',
     config = function()
       local colors = require("tokyonight.colors").setup()
