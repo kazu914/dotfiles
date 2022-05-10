@@ -23,40 +23,62 @@ local on_attach = function(_, bufnr)
   buf_set_keymap('n', 'gh', ':Lspsaga lsp_finder<CR>', opts)
 end
 
-local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.on_server_ready(function(server)
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
-  .protocol
-  .make_client_capabilities())
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
+.protocol
+.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-  local opts = { on_attach = on_attach, capabilities = capabilities }
+local lspconfig = require("lspconfig")
 
-  if server.name == "tsserver" then
-    opts.on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
-
-      local ts_utils = require("nvim-lsp-ts-utils")
-      ts_utils.setup {
-        enable_import_on_completion = true,
-        eslint_enable_diagnostics = true,
-        enable_formatting = true
+-- for lua
+lspconfig.sumneko_lua.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim', 'hs' }
       }
+    }
+  }
+}
 
-      ts_utils.setup_client(client)
+-- for typescript
+local ts_on_attach = function(client, bufnr)
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
 
-      on_attach(client, bufnr)
-    end
-    opts.settings = { format = { enable = true } }
-  end
-  if server.name == 'sumneko_lua' then
-    opts.settings = { Lua = { diagnostics = { globals = { 'vim' } } } }
-  end
+  local ts_utils = require("nvim-lsp-ts-utils")
+  ts_utils.setup {
+    enable_import_on_completion = true,
+    eslint_enable_diagnostics = true,
+    enable_formatting = true
+  }
 
-  server:setup(opts)
-  vim.cmd [[ do User LspAttachBuffers ]]
-end)
+  ts_utils.setup_client(client)
+
+  on_attach(client, bufnr)
+end
+
+lspconfig.tsserver.setup {
+  capabilities = capabilities,
+  on_attach = ts_on_attach,
+  settings = {
+    format = {
+      enable = true,
+    }
+  }
+}
+
+-- for other servers
+for _, server in ipairs { "cssls", "eslint", "graphql", "jdtls", "rust_analyzer"} do
+  lspconfig[server].setup {
+    capabilities = capabilities,
+    on_attach = on_attach
+  }
+end
+
+-- other lsp-related plugins settings
 
 -- for null-ls setting
 require("null-ls").setup({
