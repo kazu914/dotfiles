@@ -3,7 +3,13 @@ require 'packer'.startup(function(use)
   use { 'wbthomason/packer.nvim' }
 
   -- colorscheme
-  use { 'folke/tokyonight.nvim', config = 'vim.cmd[[colorscheme tokyonight]]' }
+  use { 'folke/tokyonight.nvim', config = function()
+    vim.g.tokyonight_style = "night"
+    vim.g.tokyonight_colors = {
+      comment= 'red'
+    }
+    vim.cmd[[colorscheme tokyonight]]
+  end }
 
   use { 'tpope/vim-surround' }
 
