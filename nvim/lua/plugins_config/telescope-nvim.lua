@@ -3,6 +3,7 @@ vim.keymap.set('n', ',g', require('telescope.builtin').git_files)
 vim.keymap.set('n', ',b', require('telescope.builtin').buffers)
 vim.keymap.set('n', ',r', require('telescope.builtin').live_grep)
 vim.keymap.set('n', '<leader>tr', require('telescope.builtin').diagnostics)
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
 
 local actions = require "telescope.actions"
 require('telescope').setup {
@@ -30,3 +31,5 @@ require('telescope').setup {
         }
     }
 }
+
+require("telescope").load_extension("ui-select")
