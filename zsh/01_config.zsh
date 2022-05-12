@@ -17,6 +17,9 @@ export GOPATH=$HOME/.go
 
 # nodebew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# jdtls
+export JDTLS_HOME=$HOME/.local/share/nvim/lsp_servers/jdtls
 #################################  HISTORY  #################################
 # history
 HISTFILE=$HOME/.zsh_history
