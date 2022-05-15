@@ -6,9 +6,9 @@ require 'packer'.startup(function(use)
   use { 'folke/tokyonight.nvim', config = function()
     vim.g.tokyonight_style = "night"
     vim.g.tokyonight_colors = {
-      comment= 'red'
+      comment = 'red'
     }
-    vim.cmd[[colorscheme tokyonight]]
+    vim.cmd [[colorscheme tokyonight]]
   end }
 
   use { 'tpope/vim-surround' }
@@ -184,7 +184,7 @@ require 'packer'.startup(function(use)
     })
   end }
 
-  use {'nvim-telescope/telescope-ui-select.nvim' }
+  use { 'nvim-telescope/telescope-ui-select.nvim' }
 
   use { 'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
@@ -228,13 +228,13 @@ require 'packer'.startup(function(use)
     require("plugins_config/lir-nvim")
   end }
 
-  use {"akinsho/toggleterm.nvim", config = function()
-    require("toggleterm").setup{
+  use { "akinsho/toggleterm.nvim", config = function()
+    require("toggleterm").setup {
       size = vim.o.columns * 0.4,
       direction = 'vertical',
       start_in_insert = false,
     }
     vim.keymap.set('n', '<C-o>', ':ToggleTerm<CR>', { noremap = true })
     vim.keymap.set('n', '<C-o>', ':ToggleTerm<CR>', { noremap = true })
-  end}
+  end }
 end)
