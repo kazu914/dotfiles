@@ -227,4 +227,13 @@ require 'packer'.startup(function(use)
   use { 'tamago324/lir.nvim', config = function()
     require("plugins_config/lir-nvim")
   end }
+
+  use {"akinsho/toggleterm.nvim", config = function()
+    require("toggleterm").setup{
+      size = vim.o.columns * 0.4,
+      direction = 'vertical',
+    }
+    vim.keymap.set('n', '<C-o>', ':ToggleTerm<CR>', { noremap = true })
+    vim.keymap.set('n', '<C-o>', ':ToggleTerm<CR>', { noremap = true })
+  end}
 end)
