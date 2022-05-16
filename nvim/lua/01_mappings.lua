@@ -44,7 +44,6 @@ xnoremap <expr> p 'pgv"'.v:register.'y`>'
 
 " jjでノーマルモードに戻って保存
 inoremap jj <Esc>:w<CR>
-tnoremap jj <C-\><C-n>
 
 " Esc2回押しでハイライト削除
 nnoremap <Esc><Esc> :nohlsearch<CR>
@@ -66,9 +65,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-" terminalからノーマルモードに戻る
-tnoremap <Esc> <C-\><C-n>
 
 " <C-j> で文末にジャンプ，すでに文末なら改行
 inoremap <expr> <C-j>  col(".") == col("$") ? '<C-j>' : '<ESC>A'
