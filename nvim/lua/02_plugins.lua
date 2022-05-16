@@ -229,12 +229,6 @@ require 'packer'.startup(function(use)
   end }
 
   use { "akinsho/toggleterm.nvim", config = function()
-    require("toggleterm").setup {
-      size = vim.o.columns * 0.4,
-      direction = 'vertical',
-      start_in_insert = false,
-    }
-    vim.keymap.set('n', '<C-o>', ':ToggleTerm<CR>', { noremap = true })
-    vim.keymap.set('n', '<C-o>', ':ToggleTerm<CR>', { noremap = true })
+    require("plugins_config.toggleterm-nvim")
   end }
 end)
