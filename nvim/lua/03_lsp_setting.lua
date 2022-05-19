@@ -31,17 +31,21 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lspconfig = require("lspconfig")
 
 -- for lua
-lspconfig.sumneko_lua.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim', 'hs' }
+local luadev = require("lua-dev").setup({
+  lspconfig = {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim', 'hs' }
+        }
       }
     }
-  }
-}
+  },
+})
+
+lspconfig.sumneko_lua.setup(luadev)
 
 -- for typescript
 local ts_on_attach = function(client, bufnr)

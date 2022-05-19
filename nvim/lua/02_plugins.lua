@@ -231,4 +231,7 @@ require 'packer'.startup(function(use)
   use { "akinsho/toggleterm.nvim", config = function()
     require("plugins_config.toggleterm-nvim")
   end }
+  -- lua development
+  use { "folke/lua-dev.nvim"  }
+
 end)
