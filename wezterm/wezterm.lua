@@ -2,25 +2,54 @@ local wezterm = require 'wezterm'
 local utils = require 'utils'
 
 wezterm.on("update-right-status", function(window)
-    -- Get Clipboard
-    local success, stdout = wezterm.run_child_process({
-        "pbpaste", "|", "cut", "-c1-40"
-    })
 
-    local clipboard = {
-        {Attribute = {Underline = "Single"}}, {Attribute = {Italic = true}},
-        {Text = stdout}
-    }
+    local cells = {}
+
+    -- divider
+    local divider = {{Foreground = {AnsiColor = "White"}}, {Text = " | "}}
+
+    -- Get Clipboard
+    local success, stdout = wezterm.run_child_process({"pbpaste"})
+
+    if (success) then
+        local line = wezterm.split_by_newlines(stdout)
+        local text = utils.concat_first_and_last_line(line)
+        text = wezterm.truncate_right(text, 50)
+        if #text == 50 then text = text .. " .." end
+
+        local clipboard = {
+            {Foreground = {AnsiColor = "Red"}},
+            {Text = wezterm.nerdfonts.mdi_clipboard_outline .. " " .. text}
+        }
+        table.insert(cells, clipboard)
+    end
 
     -- Date
     local date = {
-        {Attribute = {Underline = "Single"}}, {Attribute = {Italic = true}},
-        {Text = wezterm.strftime("%Y-%m-%d (%a) %H:%M:%S")}
+        {Foreground = {AnsiColor = "Red"}}, {
+            Text = wezterm.nerdfonts.mdi_clock .. " " ..
+                wezterm.strftime("%Y-%m-%d (%a) %H:%M:%S")
+        }
     }
 
-    local elements = utils.merge_tables(clipboard, date)
+    table.insert(cells, date)
+
+    -- local elements = utils.merge_tables(clipboard, date)
+    local elements = {}
+    for index, cell in ipairs(cells) do
+        for _, cell_item in ipairs(cell) do
+            table.insert(elements, cell_item)
+        end
+
+        if index ~= #cells then
+            for _, cell_item in ipairs(divider) do
+                table.insert(elements, cell_item)
+            end
+        end
+    end
 
     window:set_right_status(wezterm.format(elements));
+    -- window:set_right_status(wezterm.format(date));
 end)
 
 local key_bindings = {
@@ -105,6 +134,7 @@ return {
     }),
     adjust_window_size_when_changing_font_size = false,
     tab_bar_at_bottom = true,
+    use_fancy_tab_bar = false,
     -- Bindings
     disable_default_key_bindings = true,
     disable_default_mouse_bindings = true,
