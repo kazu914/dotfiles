@@ -144,5 +144,6 @@ return {
     mouse_bindings = mouse_bindings,
     -- Others
     use_ime = true,
-    skip_close_confirmation_for_processes_named = {''}
+    skip_close_confirmation_for_processes_named = {''},
+    exit_behavior = 'Close'
 }
