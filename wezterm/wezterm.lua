@@ -1,7 +1,12 @@
 local wezterm = require 'wezterm'
 local utils = require 'utils'
 
-wezterm.on("update-right-status", function(window)
+wezterm.on("update-right-status", function(window, pane)
+    if pane:get_user_vars().color_scheme ~= nil then
+        window:set_config_overrides({
+            value = {color_scheme = pane:get_user_vars().color_scheme}
+        })
+    end
 
     local cells = {}
 
