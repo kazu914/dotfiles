@@ -64,6 +64,10 @@ local key_bindings = {
         key = "x",
         mods = "LEADER",
         action = wezterm.action {CloseCurrentTab = {confirm = true}}
+    }, {
+        key = "[",
+        mods = "LEADER",
+        action = "ActivateCopyMode"
     },
     {key = "l", mods = "ALT", action = wezterm.action {ActivateTabRelative = 1}},
     {
