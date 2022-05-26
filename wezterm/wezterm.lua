@@ -34,7 +34,6 @@ wezterm.on("update-right-status", function(window)
 
     table.insert(cells, date)
 
-    -- local elements = utils.merge_tables(clipboard, date)
     local elements = {}
     for index, cell in ipairs(cells) do
         for _, cell_item in ipairs(cell) do
@@ -49,7 +48,6 @@ wezterm.on("update-right-status", function(window)
     end
 
     window:set_right_status(wezterm.format(elements));
-    -- window:set_right_status(wezterm.format(date));
 end)
 
 local key_bindings = {
