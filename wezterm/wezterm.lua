@@ -137,8 +137,15 @@ return {
     }),
     adjust_window_size_when_changing_font_size = false,
     tab_bar_at_bottom = true,
-    use_fancy_tab_bar = false,
     color_scheme = "Andromeda",
+    window_frame = {
+        font_size = 13,
+        font = wezterm.font("HackGen35Nerd Console", {
+            weight = "Bold",
+            stretch = "Normal",
+            style = "Normal"
+        })
+    },
     -- Bindings
     disable_default_key_bindings = true,
     disable_default_mouse_bindings = true,
