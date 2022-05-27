@@ -131,10 +131,17 @@ return {
     -- UI
     font_size = 13,
     font = wezterm.font("HackGen35Nerd Console", {
-        weight = "Regular",
-        stretch = "Normal",
         style = "Normal"
     }),
+    font_rules = {
+        -- Disable Italic
+        {
+            italic = true,
+            font = wezterm.font("HackGen35Nerd Console", {
+                italic = false
+            })
+        }
+    },
     adjust_window_size_when_changing_font_size = false,
     tab_bar_at_bottom = true,
     color_scheme = "Andromeda",
