@@ -145,6 +145,7 @@ return {
     adjust_window_size_when_changing_font_size = false,
     tab_bar_at_bottom = true,
     color_scheme = "Andromeda",
+    default_cursor_style = "SteadyBar",
     window_frame = {
         font_size = 13.0,
         font = wezterm.font("HackGen35Nerd Console", {
