@@ -39,6 +39,15 @@ wezterm.on("update-right-status", function(window, pane)
 
     table.insert(cells, date)
 
+    -- Leader
+    if window:leader_is_active() then
+        local leader = {{Foreground = {AnsiColor = "Blue"}}, {Text = "LEADER"}}
+        table.insert(cells, leader)
+    else
+        local leader = {{Foreground = {AnsiColor = "Red"}}, {Text = "NORMAL"}}
+        table.insert(cells, leader)
+    end
+
     local elements = {}
     for index, cell in ipairs(cells) do
         for _, cell_item in ipairs(cell) do
