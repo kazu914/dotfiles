@@ -1,6 +1,14 @@
 local wezterm = require 'wezterm'
 local utils = require 'utils'
 
+wezterm.on("format-window-title", function(_, pane)
+  local title = pane.title
+  if pane.domain_name then
+    title = title .. ' - (' .. pane.domain_name .. ')'
+  end
+  return title
+end)
+
 wezterm.on("update-right-status", function(window, pane)
     if pane:get_user_vars().color_scheme ~= nil then
         window:set_config_overrides({
