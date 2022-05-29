@@ -130,22 +130,16 @@ local mouse_bindings = {
 return {
     -- UI
     font_size = 13.0,
-    font = wezterm.font("HackGen35Nerd Console", {
-        style = "Normal"
-    }),
+    font = wezterm.font("HackGen35Nerd Console", {style = "Normal"}),
     font_rules = {
         -- Disable Italic
         {
             italic = true,
-            font = wezterm.font("HackGen35Nerd Console", {
-                italic = false
-            })
+            font = wezterm.font("HackGen35Nerd Console", {italic = false})
         }
     },
     adjust_window_size_when_changing_font_size = false,
     tab_bar_at_bottom = true,
-    color_scheme = "Andromeda",
-    default_cursor_style = "SteadyBar",
     window_frame = {
         font_size = 13.0,
         font = wezterm.font("HackGen35Nerd Console", {
@@ -153,6 +147,10 @@ return {
             stretch = "Normal",
             style = "Normal"
         })
+    },
+    colors = {
+        foreground = "#FFFFFF",
+        background = "#272739",
     },
     window_padding = {left = 0, right = 0, top = 0, bottom = 0},
     -- Bindings
