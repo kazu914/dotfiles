@@ -51,9 +51,9 @@ end)
 -- ]]
 hs.hotkey.bind({"cmd", "shift"}, "d", function()
     local choices = {}
-    for _, app in ipairs(hs.window.allWindows()) do
+    for _, window in ipairs(hs.window.allWindows()) do
         table.insert(choices,
-                     {text = hs.styledtext.new(app:title()), subText = ""})
+                     {text = hs.styledtext.new(window:title()), subText = hs.styledtext.new(window:application():name())})
     end
 
     local chooser = hs.chooser.new(function(choice)
@@ -61,9 +61,9 @@ hs.hotkey.bind({"cmd", "shift"}, "d", function()
         hs.window.focusedWindow():maximize()
     end)
 
-    FuzzyMatcher.setChoices(choices, chooser, true, nil)
+    FuzzyMatcher.setChoices(choices, chooser, false, nil)
     chooser:queryChangedCallback(function()
-        FuzzyMatcher.setChoices(choices, chooser, true, nil)
+        FuzzyMatcher.setChoices(choices, chooser, false, nil)
     end)
     chooser:show()
 end)
