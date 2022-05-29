@@ -45,3 +45,25 @@ hs.hotkey.bind({"cmd"}, "d", function()
     end)
     chooser:show()
 end)
+
+-- [[
+-- choose and focus an existing window
+-- ]]
+hs.hotkey.bind({"cmd", "shift"}, "d", function()
+    local choices = {}
+    for _, app in ipairs(hs.window.allWindows()) do
+        table.insert(choices,
+                     {text = hs.styledtext.new(app:title()), subText = ""})
+    end
+
+    local chooser = hs.chooser.new(function(choice)
+        hs.window.get(choice.text:getString()):focus()
+        hs.window.focusedWindow():maximize()
+    end)
+
+    FuzzyMatcher.setChoices(choices, chooser, true, nil)
+    chooser:queryChangedCallback(function()
+        FuzzyMatcher.setChoices(choices, chooser, true, nil)
+    end)
+    chooser:show()
+end)
