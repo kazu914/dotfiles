@@ -129,7 +129,7 @@ local mouse_bindings = {
 
 return {
     -- UI
-    font_size = 13,
+    font_size = 13.0,
     font = wezterm.font("HackGen35Nerd Console", {
         style = "Normal"
     }),
@@ -146,7 +146,7 @@ return {
     tab_bar_at_bottom = true,
     color_scheme = "Andromeda",
     window_frame = {
-        font_size = 13,
+        font_size = 13.0,
         font = wezterm.font("HackGen35Nerd Console", {
             weight = "Bold",
             stretch = "Normal",
