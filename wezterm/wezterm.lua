@@ -13,6 +13,9 @@ wezterm.on("update-right-status", function(window, pane)
     -- divider
     local divider = {{Foreground = {AnsiColor = "White"}}, {Text = " | "}}
 
+    -- trailing space
+    local ts = {{Foreground = {AnsiColor = "Red"}}, {Text = " "}}
+
     -- Get Clipboard
     local success, stdout = wezterm.run_child_process({"pbpaste"})
 
@@ -56,6 +59,10 @@ wezterm.on("update-right-status", function(window, pane)
 
         if index ~= #cells then
             for _, cell_item in ipairs(divider) do
+                table.insert(elements, cell_item)
+            end
+        else
+            for _, cell_item in ipairs(ts) do
                 table.insert(elements, cell_item)
             end
         end
