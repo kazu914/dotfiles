@@ -30,5 +30,5 @@ end)
 -- open google chrome
 -- ]]
 hs.hotkey.bind({"cmd"}, "g", function()
-    openApp("chrome", "/Applications/Sidekick.app")
+    openApp("chrome", "/Applications/Google Chrome.app")
 end)
