@@ -29,7 +29,7 @@ end
 -- [[
 -- choose and open an Application
 -- ]]
-hs.hotkey.bind({"cmd"}, "d", function()
+hs.hotkey.bind({"cmd", "shift"}, "d", function()
     local apps = getApps()
 
     local chooser = hs.chooser.new(function(app)
@@ -49,7 +49,7 @@ end)
 -- [[
 -- choose and focus an existing window
 -- ]]
-hs.hotkey.bind({"cmd", "shift"}, "d", function()
+hs.hotkey.bind({"cmd"}, "d", function()
     local choices = {}
     for _, window in ipairs(hs.window.allWindows()) do
         table.insert(choices,
