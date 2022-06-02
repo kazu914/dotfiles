@@ -12,11 +12,6 @@ zinit light starship/starship
 #############################################################################################
 zinit ice wait lucid as"program" from"gh-r" mv"lsd* -> lsd" pick"lsd/lsd"
 zinit light Peltoche/lsd
-if builtin command -v lsd > /dev/null; then
-  alias ls='lsd'
-  alias la='lsd -al'
-  alias tree='lsd --tree'
-fi
 
 #############################################################################################
 ##################################### delta #################################################
