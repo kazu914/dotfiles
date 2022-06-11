@@ -3,8 +3,14 @@
 -- ]]
 hs.hotkey.bind({'shift', 'cmd'}, 'h', function()
     local win = hs.window.focusedWindow()
-    local screen = win:screen()
-    win:move(win:frame():toUnitRect(screen:frame()), screen:previous(), true, 0)
+    local screens = hs.screen.allScreens()
+    if #screens ~= 1 then
+        local screen = win:screen()
+        win:move(win:frame():toUnitRect(screen:frame()), screen:previous(),
+                 true, 0)
+    else
+        win:moveToUnit(hs.layout.left50)
+    end
 end)
 
 -- [[
@@ -12,8 +18,13 @@ end)
 -- ]]
 hs.hotkey.bind({'shift', 'cmd'}, 'l', function()
     local win = hs.window.focusedWindow()
-    local screen = win:screen()
-    win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
+    local screens = hs.screen.allScreens()
+    if #screens ~= 1 then
+        local screen = win:screen()
+        win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
+    else
+        win:moveToUnit(hs.layout.right50)
+    end
 end)
 
 -- [[
@@ -49,4 +60,3 @@ hs.hotkey.bind({'cmd'}, 'h', function()
         end
     end
 end)
-
