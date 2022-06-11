@@ -60,3 +60,19 @@ hs.hotkey.bind({'cmd'}, 'h', function()
         end
     end
 end)
+
+-- [[
+-- maximize focused window
+-- ]]
+hs.hotkey.bind({'shift', 'cmd'}, 'f', function()
+    local win = hs.window.focusedWindow()
+    win:moveToUnit(hs.layout.maximized)
+end)
+
+-- [[
+-- centerize focused window
+-- ]]
+hs.hotkey.bind({'shift', 'cmd'}, 'c', function()
+    local win = hs.window.focusedWindow()
+    win:moveToUnit(hs.geometry(0.25, 0, 0.5, 1))
+end)
