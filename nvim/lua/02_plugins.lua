@@ -201,7 +201,7 @@ require 'packer'.startup(function(use)
   }
 
   use { "lewis6991/gitsigns.nvim", config = function()
-    require('gitsigns').setup()
+    require('plugins_config/gitsigns-nvim')
   end }
 
   use { 'kyazdani42/nvim-web-devicons' }
