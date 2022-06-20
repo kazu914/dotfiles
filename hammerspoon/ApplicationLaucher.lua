@@ -34,7 +34,6 @@ hs.hotkey.bind({"cmd", "shift"}, "d", function()
 
     local chooser = hs.chooser.new(function(app)
         hs.application.launchOrFocus(app.text:getString())
-        hs.window.focusedWindow():maximize()
     end)
 
     FuzzyMatcher.setChoices(apps, chooser, true, sorter)
@@ -56,7 +55,6 @@ hs.hotkey.bind({"cmd"}, "d", function()
 
     local chooser = hs.chooser.new(function(choice)
         hs.window.get(choice.text:getString()):focus()
-        hs.window.focusedWindow():maximize()
     end)
 
     FuzzyMatcher.setChoices(choices, chooser, false, nil)
