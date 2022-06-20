@@ -84,7 +84,23 @@ local key_bindings = {
         key = "c",
         mods = "LEADER",
         action = wezterm.action {SpawnTab = "CurrentPaneDomain"}
-    }, {
+    },
+    {
+        key="|",
+        mods="LEADER",
+        action=wezterm.action { SplitHorizontal = {}}
+    },
+    {
+        key="j",
+        mods="ALT",
+        action=wezterm.action { ActivatePaneDirection="Left" }
+    },
+    {
+        key="k",
+        mods="ALT",
+        action=wezterm.action { ActivatePaneDirection="Right" }
+    },
+    {
         key = "x",
         mods = "LEADER",
         action = wezterm.action {CloseCurrentTab = {confirm = true}}
