@@ -31,3 +31,7 @@ end)
 hs.hotkey.bind({"cmd"}, "g", function()
     openApp("chrome", "/Applications/Google Chrome.app")
 end)
+
+hs.hotkey.bind({"ctrl"}, "m", function()
+    hs.eventtap.keyStroke(nil, hs.keycodes.map["return"], 0)
+end)
