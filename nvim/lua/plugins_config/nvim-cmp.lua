@@ -2,6 +2,12 @@ vim.api.nvim_command('set completeopt=menu,menuone,noselect')
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
 local mapping = {
+  ['<C-p>'] = cmp.mapping.select_prev_item({
+    behavior = cmp.SelectBehavior.Select
+  }),
+  ['<C-n>'] = cmp.mapping.select_next_item({
+    behavior = cmp.SelectBehavior.Select
+  }),
   ['<Tab>'] = cmp.mapping.select_next_item({
     behavior = cmp.SelectBehavior.Select
   }),
@@ -114,7 +120,6 @@ local colors = {
 }
 for key, val in pairs(colors) do vim.api.nvim_set_hl(0, key, val) end
 
-
 -- for vsnip
 vim.cmd [[
 imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
@@ -122,4 +127,3 @@ smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab
 imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 ]]
-
