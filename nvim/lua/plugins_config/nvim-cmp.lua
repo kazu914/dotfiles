@@ -3,10 +3,10 @@ vim.api.nvim_command('set completeopt=menu,menuone,noselect')
 local cmp = require 'cmp'
 local mapping = {
   ['<Tab>'] = cmp.mapping.select_next_item({
-    behavior = cmp.SelectBehavior.Insert
+    behavior = cmp.SelectBehavior.Select
   }),
   ['<S-Tab>'] = cmp.mapping.select_prev_item({
-    behavior = cmp.SelectBehavior.Insert
+    behavior = cmp.SelectBehavior.Select
   }),
   ['<Down>'] = cmp.mapping.select_next_item({
     behavior = cmp.SelectBehavior.Select
@@ -26,6 +26,7 @@ local mapping = {
 cmp.setup({
   snippet = { expand = function(args) vim.fn["vsnip#anonymous"](args.body) end },
   mapping = mapping,
+  preselect = cmp.PreselectMode.None,
   sources = cmp.config.sources({
     { name = 'vsnip' }, { name = 'buffer' }, { name = 'nvim_lsp' },
     { name = 'path' }
@@ -34,13 +35,13 @@ cmp.setup({
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
   sources = { { name = 'buffer' } },
-  mapping = cmp.mapping.preset.cmdline({}),
+  mapping = cmp.mapping.preset.cmdline({})
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } }),
-  mapping = cmp.mapping.preset.cmdline({}),
+  mapping = cmp.mapping.preset.cmdline({})
 })
 
 local lspkind = require('lspkind')
