@@ -7,7 +7,7 @@ vim.cmd([[
     \ PackerCompile
   augroup end
 ]])
-require'00_settings'
-require'01_mappings'
-require'02_plugins'
-require'03_lsp_setting'
+require '00_settings'
+require '01_mappings'
+require '02_plugins'
+require '03_lsp_setting'

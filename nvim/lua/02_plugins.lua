@@ -232,6 +232,6 @@ require 'packer'.startup(function(use)
     require("plugins_config.toggleterm-nvim")
   end }
   -- lua development
-  use { "folke/lua-dev.nvim"  }
+  use { "folke/lua-dev.nvim" }
 
 end)
