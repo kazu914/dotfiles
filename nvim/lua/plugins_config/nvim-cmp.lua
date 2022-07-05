@@ -54,7 +54,7 @@ local lspkind = require('lspkind')
 cmp.setup {
   window = {
     completion = {
-      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
       col_offset = -3,
       side_padding = 0
     },
@@ -77,7 +77,7 @@ cmp.setup {
 }
 
 local colors = {
-  PmenuSel = { bg = "#282C34", fg = "NONE" },
+  PmenuSel = { fg = "NONE", bg = "#4D7096" },
   Pmenu = { fg = "#C5CDD9", bg = "#22252A" },
 
   CmpItemAbbrDeprecated = { fg = "#7E8294", bg = "NONE", strikethrough = true },

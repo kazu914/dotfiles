@@ -28,7 +28,7 @@ set fileencodings=utf-8,iso-2022-jp,euc-jp,ucs-2,cp932,sjis
 set clipboard=unnamedplus         " クリップボード連携
 set mouse=
 set noswapfile
-set pumblend=20
+set pumblend=10
 set winblend=10
 set foldmethod=syntax
 set nofoldenable

@@ -151,26 +151,6 @@ require 'packer'.startup(function(use)
 
   use { 'tami5/lspsaga.nvim' }
 
-  use { 'hrsh7th/cmp-nvim-lsp' }
-
-  use { 'hrsh7th/vim-vsnip' }
-
-  use { 'hrsh7th/vim-vsnip-integ' }
-
-  use { 'hrsh7th/cmp-buffer' }
-
-  use { 'hrsh7th/cmp-cmdline' }
-
-  use { 'hrsh7th/cmp-path' }
-
-  use { 'hrsh7th/cmp-vsnip' }
-
-  use { 'hrsh7th/nvim-cmp',
-    config = function()
-      require("plugins_config/nvim-cmp")
-    end
-  }
-
   use { 'ray-x/lsp_signature.nvim', config = function()
     require "lsp_signature".setup({
       floating_window = true,
@@ -234,4 +214,24 @@ require 'packer'.startup(function(use)
   -- lua development
   use { "folke/lua-dev.nvim" }
 
+  -- completion
+  use { 'hrsh7th/cmp-nvim-lsp' }
+
+  use { 'hrsh7th/vim-vsnip' }
+
+  use { 'hrsh7th/vim-vsnip-integ' }
+
+  use { 'hrsh7th/cmp-buffer' }
+
+  use { 'hrsh7th/cmp-cmdline' }
+
+  use { 'hrsh7th/cmp-path' }
+
+  use { 'hrsh7th/cmp-vsnip' }
+
+  use { 'hrsh7th/nvim-cmp',
+    config = function()
+      require("plugins_config/nvim-cmp")
+    end
+  }
 end)
