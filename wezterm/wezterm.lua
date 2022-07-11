@@ -9,6 +9,14 @@ wezterm.on("format-window-title", function(_, pane)
   return title
 end)
 
+wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
+  local title = wezterm.truncate_right(tab.active_pane.title, max_width-2)
+  while title:len() < max_width-2 do title = " " .. title .. " " end
+  return {
+    {Text=title},
+  }
+end)
+
 wezterm.on("update-right-status", function(window, pane)
     if pane:get_user_vars().color_scheme ~= nil then
         window:set_config_overrides({
