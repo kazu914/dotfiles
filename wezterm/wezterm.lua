@@ -37,7 +37,12 @@ wezterm.on("update-right-status", function(window, pane)
             {Foreground = {AnsiColor = "Red"}},
             {Text = wezterm.nerdfonts.mdi_clipboard_outline .. " " .. text}
         }
+        local lines = {
+            {Foreground = {AnsiColor = #line == 1 and "Red" or "Yellow"}},
+            {Text = tostring(#line)}
+        }
         table.insert(cells, clipboard)
+        table.insert(cells, lines)
     end
 
     -- Date
