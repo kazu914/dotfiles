@@ -21,4 +21,9 @@ M.concat_first_and_last_line = function(lists)
     return M.trim_whitespace(first) .. " .. " .. M.trim_whitespace(last)
 end
 
+M.padding_with_spaces = function (target_str, max_width)
+  while target_str:len() < max_width - 2 do target_str = " " .. target_str .. " " end
+  return target_str
+end
+
 return M

@@ -11,7 +11,7 @@ end)
 
 wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
   local title = wezterm.truncate_right(tab.active_pane.title, max_width-2)
-  while title:len() < max_width-2 do title = " " .. title .. " " end
+  title = utils.padding_with_spaces(title, max_width)
   return {
     {Text=title},
   }
