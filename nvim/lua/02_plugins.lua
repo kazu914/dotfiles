@@ -11,7 +11,9 @@ require 'packer'.startup(function(use)
     vim.cmd [[colorscheme tokyonight]]
   end }
 
-  use { 'tpope/vim-surround' }
+  use { 'kylechui/nvim-surround' ,  config = function()
+        require("nvim-surround").setup()
+    end}
 
   use { 'tpope/vim-commentary' }
 
