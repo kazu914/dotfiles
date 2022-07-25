@@ -153,6 +153,22 @@ require 'packer'.startup(function(use)
 
   use { 'tami5/lspsaga.nvim' }
 
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+      vim.diagnostic.config({
+        virtual_text = false,
+      })
+      vim.keymap.set(
+      "",
+      "<Leader>d",
+      require("lsp_lines").toggle,
+      { desc = "Toggle lsp_lines" }
+      )
+    end,
+  })
+
   use { 'ray-x/lsp_signature.nvim', config = function()
     require "lsp_signature".setup({
       floating_window = true,
