@@ -74,8 +74,15 @@ lspconfig.tsserver.setup {
   }
 }
 
+-- for java
+lspconfig.jdtls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  use_lombok_agent = true
+}
+
 -- for other servers
-for _, server in ipairs { "cssls", "eslint", "graphql", "jdtls", "rust_analyzer"} do
+for _, server in ipairs { "cssls", "eslint", "graphql", "rust_analyzer" } do
   lspconfig[server].setup {
     capabilities = capabilities,
     on_attach = on_attach
