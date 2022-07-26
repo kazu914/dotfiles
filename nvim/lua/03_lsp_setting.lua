@@ -133,3 +133,7 @@ lspsaga.setup { -- defaults ...
   rename_prompt_prefix = "➤",
   server_filetype_map = {}
 }
+
+vim.cmd [[
+  autocmd CursorMoved * Lspsaga show_cursor_diagnostics
+]]
