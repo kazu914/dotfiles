@@ -11,9 +11,9 @@ require 'packer'.startup(function(use)
     vim.cmd [[colorscheme tokyonight]]
   end }
 
-  use { 'kylechui/nvim-surround' ,  config = function()
-        require("nvim-surround").setup()
-    end}
+  use { 'kylechui/nvim-surround', config = function()
+    require("nvim-surround").setup()
+  end }
 
   use { 'tpope/vim-commentary' }
 
@@ -157,10 +157,10 @@ require 'packer'.startup(function(use)
         virtual_text = false,
       })
       vim.keymap.set(
-      "",
-      "<Leader>d",
-      require("lsp_lines").toggle,
-      { desc = "Toggle lsp_lines" }
+        "",
+        "<Leader>d",
+        require("lsp_lines").toggle,
+        { desc = "Toggle lsp_lines" }
       )
     end,
   })
