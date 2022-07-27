@@ -55,10 +55,6 @@ require 'packer'.startup(function(use)
     vim.keymap.set('n', '<leader>s', ':FuzzyMotion<CR>')
   end }
 
-  use { 'luochen1990/rainbow', config = function()
-    vim.g.rainbow_active = 1
-  end }
-
   use { 'ntpeters/vim-better-whitespace' }
 
   use { 'phaazon/hop.nvim', config = function()
