@@ -12,7 +12,7 @@ local on_attach = function(_, bufnr)
   buf_set_keymap('n', '<space>D',
     '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', 'F', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 
   buf_set_keymap('n', '<space>rn', ':Lspsaga rename<CR>', opts)
   buf_set_keymap('n', '<C-k>', ':Lspsaga signature_help<CR>', opts)
