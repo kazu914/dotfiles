@@ -24,8 +24,8 @@ local on_attach = function(_, bufnr)
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
-.protocol
-.make_client_capabilities())
+  .protocol
+  .make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require("lspconfig")
@@ -35,14 +35,8 @@ local luadev = require("lua-dev").setup({
   lspconfig = {
     capabilities = capabilities,
     on_attach = on_attach,
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { 'vim', 'hs' }
-        }
-      }
-    }
-  },
+    settings = { Lua = { diagnostics = { globals = { 'vim', 'hs' } } } }
+  }
 })
 
 lspconfig.sumneko_lua.setup(luadev)
@@ -67,11 +61,7 @@ end
 lspconfig.tsserver.setup {
   capabilities = capabilities,
   on_attach = ts_on_attach,
-  settings = {
-    format = {
-      enable = true,
-    }
-  }
+  settings = { format = { enable = true } }
 }
 
 -- for java
@@ -83,10 +73,7 @@ lspconfig.jdtls.setup {
 
 -- for other servers
 for _, server in ipairs { "cssls", "eslint", "graphql", "rust_analyzer" } do
-  lspconfig[server].setup {
-    capabilities = capabilities,
-    on_attach = on_attach
-  }
+  lspconfig[server].setup { capabilities = capabilities, on_attach = on_attach }
 end
 
 -- other lsp-related plugins settings
