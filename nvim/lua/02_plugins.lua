@@ -189,8 +189,21 @@ require 'packer'.startup(function(use)
 
   use { 'nvim-lualine/lualine.nvim',
     config = function()
-      local options = { theme = 'codedark' }
-      require('lualine').setup { options = options }
+      local options = {
+        theme = 'codedark',
+        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' }
+      }
+      local sections = {
+        lualine_a = {},
+        lualine_c = { { 'filename', path = 1 } },
+        lualine_z = { 'mode' }
+      }
+      local inactive_sections = {
+        lualine_c = { { 'filename', path = 1 } }
+      }
+
+      require('lualine').setup { options = options, sections = sections, inactive_sections = inactive_sections }
     end
   }
 
