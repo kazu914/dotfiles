@@ -97,8 +97,6 @@ require("null-ls").setup({
     require("null-ls").builtins.formatting.prettier,
     require("null-ls").builtins.formatting.eslint_d,
     require("null-ls").builtins.formatting.fixjson,
-    require("null-ls").builtins.formatting.rustfmt,
-    require("null-ls").builtins.formatting.lua_format,
     require("null-ls").builtins.diagnostics.write_good,
     require("null-ls").builtins.diagnostics.misspell
   }
