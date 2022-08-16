@@ -120,3 +120,18 @@ switch_session() {
     echo "No session is selected"
   fi
 }
+
+#############################################################################################
+################################# fuzzy kakisute ############################################
+#############################################################################################
+kk() {
+  local candidate selected
+  candidate=`kakisute list`
+  selected=`echo ${candidate}  | fzf --select-1 --exit-0 -d ":" --preview 'bat  --color=always --style=header,grid --line-range :100 "\`kakisute inspect {}\`"'`
+
+  if [ -n "$selected" ]; then
+    kakisute edit $selected
+  else
+    echo "No code is selected"
+  fi
+}
