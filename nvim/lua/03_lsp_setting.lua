@@ -71,8 +71,25 @@ lspconfig.jdtls.setup {
   use_lombok_agent = true
 }
 
+-- for rust
+require('lspconfig').rust_analyzer.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    ['rust-analyzer'] = {
+      checkOnSave = {
+        allFeatures = true,
+        overrideCommand = {
+          'cargo', 'clippy', '--workspace', '--message-format=json',
+          '--all-targets', '--all-features'
+        }
+      }
+    }
+  }
+}
+
 -- for other servers
-for _, server in ipairs { "cssls", "eslint", "graphql", "rust_analyzer" } do
+for _, server in ipairs { "cssls", "eslint", "graphql" } do
   lspconfig[server].setup { capabilities = capabilities, on_attach = on_attach }
 end
 
