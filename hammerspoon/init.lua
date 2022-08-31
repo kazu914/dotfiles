@@ -16,7 +16,7 @@ end
 -- open alacritty
 -- ]]
 hs.hotkey.bind({"cmd"}, "space",
-               function() openApp('wezterm', '/Applications/WezTerm.app') end)
+               function() openApp('alacritty', '/Applications/Alacritty.app') end)
 
 -- [[
 -- open teams
