@@ -1,7 +1,7 @@
 SHELL=/bin/zsh
 
 .PHONY: minimal
-minimal: nvim_minimal zsh_minimal tmux
+minimal: nvim_minimal zsh_minimal tmux alacritty
 
 .PHONY: full
 full: nvim_full zsh_full git node
@@ -12,7 +12,8 @@ clean:
 	cd ../zsh && make clean && \
 	cd ../git && make clean && \
 	cd ../node && make clean && \
-	cd ../tmux && make clean
+	cd ../tmux && make clean && \
+	cd ../alacritty && make clean
 
 .PHONY: nvim_minimal
 nvim_minimal:
@@ -41,3 +42,7 @@ node:
 .PHONY: tmux
 tmux:
 	cd tmux && make
+
+.PHONY: alacritty
+alacritty:
+	cd alacritty && make init
