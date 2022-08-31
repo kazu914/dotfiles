@@ -12,6 +12,7 @@ clean:
 	cd ../zsh && make clean && \
 	cd ../git && make clean && \
 	cd ../node && make clean && \
+	cd ../tmux && make clean
 
 .PHONY: nvim_minimal
 nvim_minimal:
@@ -36,3 +37,7 @@ git:
 .PHONY: node
 node:
 	cd node && make init
+
+.PHONY: tmux
+tmux:
+	cd tmux && make
