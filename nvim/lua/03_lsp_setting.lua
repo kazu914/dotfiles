@@ -1,7 +1,10 @@
-local on_attach = function(_, bufnr)
+local navic = require("nvim-navic")
+local on_attach = function(client, bufnr)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
+
+  navic.attach(client, bufnr)
 
   local opts = { noremap = true, silent = true }
   -- See `:help vim.lsp.*` for documentation on any of the below functions

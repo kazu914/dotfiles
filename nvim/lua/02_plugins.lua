@@ -126,6 +126,8 @@ require 'packer'.startup(function(use)
 
   use { 'neovim/nvim-lspconfig' }
 
+  use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
+
   use { 'folke/lsp-colors.nvim' }
 
   use { "williamboman/mason.nvim", config = function() require('mason').setup() end }
@@ -178,6 +180,7 @@ require 'packer'.startup(function(use)
 
   use { 'nvim-lualine/lualine.nvim',
     config = function()
+      local navic = require("nvim-navic")
       local options = {
         theme = 'codedark',
         section_separators = { left = '', right = '' },
@@ -185,7 +188,7 @@ require 'packer'.startup(function(use)
       }
       local sections = {
         lualine_a = {},
-        lualine_c = { { 'filename', path = 1 } },
+        lualine_c = { { 'filename', path = 1 }, { navic.get_location, cond = navic.is_available, color = {fg ='cyan'}} },
         lualine_z = { 'mode' }
       }
       local inactive_sections = {
