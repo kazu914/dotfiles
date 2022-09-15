@@ -254,4 +254,24 @@ require 'packer'.startup(function(use)
       require("plugins_config/nvim-cmp")
     end
   }
+
+  use { 'gen740/SmoothCursor.nvim',
+    config = function()
+      vim.cmd[[
+      highlight SmoothCursor guifg=cyan
+      ]]
+      require('smoothcursor').setup(
+        {
+          cursor = "▶", -- cursor shape
+          intervals = 35, -- tick interval
+          timeout = 3000,
+          speed = 25, -- max is 100 to stick to your current position
+          autostart = true,
+          texthl = "SmoothCursor", -- highlight group, default is { bg = nil, fg = "#FFD400" }
+          linehl = nil, -- highlight sub-cursor line like 'cursorline', "CursorLine" recommended
+          priority = 10, -- set marker priority
+        }
+      )
+    end
+  }
 end)
