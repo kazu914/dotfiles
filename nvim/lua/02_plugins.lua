@@ -188,7 +188,8 @@ require 'packer'.startup(function(use)
       }
       local sections = {
         lualine_a = {},
-        lualine_c = { { 'filename', path = 1 }, { navic.get_location, cond = navic.is_available, color = {fg ='cyan'}} },
+        lualine_c = { { 'filename', path = 1 },
+          { navic.get_location, cond = navic.is_available, color = { fg = 'cyan' } } },
         lualine_z = { 'mode' }
       }
       local inactive_sections = {
