@@ -47,19 +47,19 @@ require 'packer'.startup(function(use)
 
   use { 'mhinz/vim-sayonara',
     config = function()
-      vim.keymap.set('n', '<leader>q', ':Sayonara<CR>')
+      vim.keymap.set('n', '<leader>q', ':Sayonara<CR>', {})
     end
   }
 
   use { 'yuki-yano/fuzzy-motion.vim', config = function()
-    vim.keymap.set('n', '<leader>s', ':FuzzyMotion<CR>')
+    vim.keymap.set('n', '<leader>s', ':FuzzyMotion<CR>', {})
   end }
 
   use { 'ntpeters/vim-better-whitespace' }
 
   use { 'phaazon/hop.nvim', config = function()
-    vim.keymap.set('n', "<Leader>l", ':HopWord<CR>')
-    vim.keymap.set('n', "<Leader>j", ':HopLine<CR>')
+    vim.keymap.set('n', "<Leader>l", ':HopWord<CR>', {})
+    vim.keymap.set('n', "<Leader>j", ':HopLine<CR>', {})
     require 'hop'.setup()
   end }
 
