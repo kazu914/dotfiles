@@ -4,10 +4,12 @@ require 'packer'.startup(function(use)
 
   -- colorscheme
   use { 'folke/tokyonight.nvim', config = function()
-    vim.g.tokyonight_style = "night"
-    vim.g.tokyonight_colors = {
-      comment = 'red'
-    }
+    require("tokyonight").setup({
+      style = "moon",
+      on_colors = function(colors)
+        colors.comment = "pink"
+      end
+    })
     vim.cmd [[colorscheme tokyonight]]
   end }
 
