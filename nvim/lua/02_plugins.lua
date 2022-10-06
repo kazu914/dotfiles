@@ -3,14 +3,9 @@ require 'packer'.startup(function(use)
   use { 'wbthomason/packer.nvim' }
 
   -- colorscheme
-  use { 'folke/tokyonight.nvim', config = function()
-    require("tokyonight").setup({
-      style = "moon",
-      on_colors = function(colors)
-        colors.comment = "pink"
-      end
-    })
-    vim.cmd [[colorscheme tokyonight]]
+  use { 'EdenEast/nightfox.nvim', config = function()
+    require("nightfox").setup({ palettes = { all = { comment = "#E80F88" } } })
+    vim.cmd("colorscheme nightfox")
   end }
 
   use { 'kylechui/nvim-surround', config = function()
