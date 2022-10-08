@@ -24,6 +24,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']g', ':Lspsaga diagnostic_jump_prev<CR>', opts)
   buf_set_keymap('v', '<space>ca', ':<C-U>Lspsaga code_action<CR>', opts)
   buf_set_keymap('n', 'gh', ':Lspsaga lsp_finder<CR>', opts)
+  buf_set_keymap('n', '<leader>o', '<cmd>LSoutlineToggle<CR>', opts)
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
@@ -111,41 +112,26 @@ require("null-ls").setup({
 
 -- for luasaga
 local lspsaga = require 'lspsaga'
-lspsaga.setup { -- defaults ...
-  debug = false,
-  use_saga_diagnostic_sign = true,
-  -- diagnostic sign
-  error_sign = "🤬",
-  warn_sign = "🥺",
-  hint_sign = "💡",
-  infor_sign = "🤔",
-  diagnostic_header_icon = "   ",
-  -- code action title icon
-  code_action_icon = " ",
-  code_action_prompt = {
-    enable = true,
-    sign = true,
-    sign_priority = 40,
-    virtual_text = true
-  },
-  finder_definition_icon = "📝  ",
-  finder_reference_icon = "🔍  ",
-  max_preview_lines = 10,
+lspsaga.init_lsp_saga({
+  border_style = "rounded",
   finder_action_keys = {
     open = "<CR>",
-    vsplit = "v",
+    vsplit = "s",
+    split = "i",
+    tabe = "t",
     quit = "q",
-    scroll_down = "<C-f>",
-    scroll_up = "<C-b>"
   },
-  code_action_keys = { quit = "q", exec = "<CR>" },
-  rename_action_keys = { quit = "<C-c>", exec = "<CR>" },
-  definition_preview_icon = "  ",
-  border_style = "single",
-  rename_prompt_prefix = "➤",
-  server_filetype_map = {}
-}
+  diagnostic_header = { "🤬 ", "🥺", "💡", "🤔" },
+})
 
-vim.cmd [[
-  autocmd CursorMoved * Lspsaga show_cursor_diagnostics
-]]
+-- Set icons for sidebar.
+local diagnostic_icons = {
+  Error = "🤬",
+  Warn = "🥺",
+  Hint = "💡",
+  Info = "🤔",
+}
+for type, icon in pairs(diagnostic_icons) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl })
+end

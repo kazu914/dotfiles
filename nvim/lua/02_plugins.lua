@@ -134,23 +134,7 @@ require 'packer'.startup(function(use)
 
   use { 'jose-elias-alvarez/null-ls.nvim' }
 
-  use { 'tami5/lspsaga.nvim' }
-
-  use({
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-      vim.diagnostic.config({
-        virtual_text = false,
-      })
-      vim.keymap.set(
-        "",
-        "<Leader>d",
-        require("lsp_lines").toggle,
-        { desc = "Toggle lsp_lines" }
-      )
-    end,
-  })
+  use { 'glepnir/lspsaga.nvim' }
 
   use { 'ray-x/lsp_signature.nvim', config = function()
     require "lsp_signature".setup({
@@ -222,10 +206,6 @@ require 'packer'.startup(function(use)
 
   use { 'tamago324/lir.nvim', config = function()
     require("plugins_config/lir-nvim")
-  end }
-
-  use { "akinsho/toggleterm.nvim", config = function()
-    require("plugins_config.toggleterm-nvim")
   end }
   -- lua development
   use { "folke/lua-dev.nvim" }
