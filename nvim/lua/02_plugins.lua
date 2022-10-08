@@ -62,14 +62,6 @@ require 'packer'.startup(function(use)
 
   use { 'simeji/winresizer' }
 
-  use { 'mbbill/undotree', config = function()
-    vim.g.undotree_WindowLayout = 2
-    vim.g.undotree_ShortIndicators = 1
-    vim.g.undotree_SplitWidth = 30
-    vim.g.undotree_SetFocusWhenToggle = 1
-    vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })
-  end }
-
   use { 'machakann/vim-highlightedyank', event = 'TextYankPost', config = function()
     vim.g.highlightedyank_highlight_duration = -1
   end }
