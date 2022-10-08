@@ -2,11 +2,53 @@ require 'packer'.startup(function(use)
   -- packer itself
   use { 'wbthomason/packer.nvim' }
 
-  -- colorscheme
-  use { 'EdenEast/nightfox.nvim', config = function()
-    require("nightfox").setup({ palettes = { all = { comment = "#E80F88" } } })
-    vim.cmd("colorscheme nightfox")
-  end }
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin",
+    run = ":CatppuccinCompile",
+    config = function()
+      vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+      require("catppuccin").setup({
+        term_colors = false,
+        custom_highlights = {
+          Comment = { fg = "#E80F88" },
+        },
+        integrations = {
+          fidget = true,
+          cmp = true,
+          fern = true,
+          gitsigns = true,
+          hop = true,
+          lsp_saga = true,
+          notify = true,
+          treesitter = true,
+          treesitter_context = true,
+          telescope = true,
+          native_lsp = {
+            enabled = true,
+            virtual_text = {
+              errors = { "italic" },
+              hints = { "italic" },
+              warnings = { "italic" },
+              information = { "italic" },
+            },
+            underlines = {
+              errors = { "underline" },
+              hints = { "underline" },
+              warnings = { "underline" },
+              information = { "underline" },
+            },
+          },
+          navic = {
+            enabled = true,
+            custom_bg = "NONE",
+          },
+
+        }
+      })
+      vim.api.nvim_command "colorscheme catppuccin"
+    end
+  }
 
   use { 'kylechui/nvim-surround', config = function()
     require("nvim-surround").setup()
@@ -31,6 +73,10 @@ require 'packer'.startup(function(use)
   use { 'machakann/vim-highlightedyank', event = 'TextYankPost', config = function()
     vim.g.highlightedyank_highlight_duration = -1
   end }
+
+  require("indent_blankline").setup {
+    space_char_blankline = " ",
+  }
 
   use { "lukas-reineke/indent-blankline.nvim", config = function()
     require("indent_blankline").setup {
@@ -66,7 +112,11 @@ require 'packer'.startup(function(use)
   end }
 
   use { 'j-hui/fidget.nvim', config = function()
-    require('fidget').setup {}
+    require('fidget').setup {
+      window = {
+        blend = 0,
+      },
+    }
   end }
 
   -- treesitter
@@ -122,7 +172,9 @@ require 'packer'.startup(function(use)
 
   use { 'neovim/nvim-lspconfig' }
 
-  use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
+  use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig", config = function()
+    require("nvim-navic").setup({ highlight = true, separator = "  " })
+  end }
 
   use { 'folke/lsp-colors.nvim' }
 
@@ -162,7 +214,7 @@ require 'packer'.startup(function(use)
     config = function()
       local navic = require("nvim-navic")
       local options = {
-        theme = 'codedark',
+        theme = 'catppuccin',
         section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' }
       }
