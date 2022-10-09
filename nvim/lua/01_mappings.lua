@@ -55,7 +55,7 @@ vnoremap j gj
 vnoremap k gk
 
 " 保存のマップ
-nnoremap <Leader>w :w<CR>
+nnoremap <silent> <Leader>w :w<CR>
 
 " quit map
 nnoremap <Leader>q :q<CR>

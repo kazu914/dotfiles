@@ -33,6 +33,7 @@ set winblend=10
 set foldmethod=syntax
 set nofoldenable
 set signcolumn=yes:2
+set cmdheight=0
 
 hi Comment ctermfg=gray
 
