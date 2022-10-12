@@ -1,30 +1,26 @@
 local navic = require("nvim-navic")
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
-
   navic.attach(client, bufnr)
 
-  local opts = { noremap = true, silent = true }
+  local opts = { noremap = true, silent = true, buffer = bufnr }
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<space>D',
+  vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  vim.keymap.set('n', '<space>D',
     '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'F', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+  vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  vim.keymap.set('n', 'F', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 
-  buf_set_keymap('n', '<space>rn', ':Lspsaga rename<CR>', opts)
-  buf_set_keymap('n', '<C-k>', ':Lspsaga signature_help<CR>', opts)
-  buf_set_keymap('n', 'K', ':Lspsaga hover_doc<CR>', opts)
-  buf_set_keymap('n', '[g', ':Lspsaga diagnostic_jump_next<CR>', opts)
-  buf_set_keymap('n', ']g', ':Lspsaga diagnostic_jump_prev<CR>', opts)
-  buf_set_keymap('v', '<space>ca', ':<C-U>Lspsaga code_action<CR>', opts)
-  buf_set_keymap('n', 'gh', ':Lspsaga lsp_finder<CR>', opts)
-  buf_set_keymap('n', '<leader>o', '<cmd>LSoutlineToggle<CR>', opts)
+  vim.keymap.set('n', '<space>rn', ':Lspsaga rename<CR>', opts)
+  vim.keymap.set('n', '<C-k>', ':Lspsaga signature_help<CR>', opts)
+  vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>', opts)
+  vim.keymap.set('n', '[g', ':Lspsaga diagnostic_jump_next<CR>', opts)
+  vim.keymap.set('n', ']g', ':Lspsaga diagnostic_jump_prev<CR>', opts)
+  vim.keymap.set('v', '<space>ca', ':<C-U>Lspsaga code_action<CR>', opts)
+  vim.keymap.set('n', 'gh', ':Lspsaga lsp_finder<CR>', opts)
+  vim.keymap.set('n', '<leader>o', '<cmd>LSoutlineToggle<CR>', opts)
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
