@@ -251,6 +251,13 @@ require 'packer'.startup(function(use)
   use { 'tamago324/lir.nvim', config = function()
     require("plugins_config/lir-nvim")
   end }
+  use { "mfussenegger/nvim-jdtls",
+    ft = { "java" },
+    config = function()
+      require('plugins_config/nvim-jdtls')
+    end
+  }
+
   -- lua development
   use { "folke/lua-dev.nvim" }
 

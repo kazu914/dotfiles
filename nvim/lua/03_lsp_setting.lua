@@ -1,3 +1,4 @@
+local M = {}
 local navic = require("nvim-navic")
 local on_attach = function(client, bufnr)
   navic.attach(client, bufnr)
@@ -23,10 +24,13 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>o', '<cmd>LSoutlineToggle<CR>', opts)
 end
 
+M.on_attach = on_attach
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
   .protocol
   .make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities = capabilities
 
 local lspconfig = require("lspconfig")
 
@@ -62,13 +66,6 @@ lspconfig.tsserver.setup {
   capabilities = capabilities,
   on_attach = ts_on_attach,
   settings = { format = { enable = true } }
-}
-
--- for java
-lspconfig.jdtls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  use_lombok_agent = true
 }
 
 -- for rust
@@ -131,3 +128,4 @@ for type, icon in pairs(diagnostic_icons) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl })
 end
+return M
