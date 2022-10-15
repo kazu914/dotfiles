@@ -254,7 +254,10 @@ require 'packer'.startup(function(use)
   use { "mfussenegger/nvim-jdtls",
     ft = { "java" },
     config = function()
-      require('plugins_config/nvim-jdtls')
+      vim.api.nvim_create_augroup('jdtls_lsp', {})
+      vim.api.nvim_create_autocmd('FileType java', { group = 'jdtls_lsp', callback = function()
+        require('plugins_config/nvim-jdtls').setup()
+      end })
     end
   }
 
