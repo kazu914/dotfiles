@@ -26,7 +26,7 @@ end
 
 M.on_attach = on_attach
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp
   .protocol
   .make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -35,15 +35,7 @@ M.capabilities = capabilities
 local lspconfig = require("lspconfig")
 
 -- for lua
-local luadev = require("lua-dev").setup({
-  lspconfig = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = { Lua = { diagnostics = { globals = { 'vim', 'hs' } } } }
-  }
-})
-
-lspconfig.sumneko_lua.setup(luadev)
+require("neodev").setup({})
 
 -- for typescript
 local ts_on_attach = function(client, bufnr)
@@ -86,7 +78,7 @@ require('lspconfig').rust_analyzer.setup {
 }
 
 -- for other servers
-for _, server in ipairs { "cssls", "eslint", "graphql" } do
+for _, server in ipairs { "cssls", "eslint", "graphql", "sumneko_lua" } do
   lspconfig[server].setup { capabilities = capabilities, on_attach = on_attach }
 end
 

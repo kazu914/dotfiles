@@ -262,7 +262,7 @@ require 'packer'.startup(function(use)
   }
 
   -- lua development
-  use { "folke/lua-dev.nvim" }
+  use { "folke/neodev.nvim" }
 
   -- completion
   use { 'hrsh7th/cmp-nvim-lsp' }
