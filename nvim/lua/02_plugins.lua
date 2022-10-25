@@ -82,7 +82,7 @@ require 'packer'.startup(function(use)
 
   use { 'mhinz/vim-sayonara',
     config = function()
-      vim.keymap.set('n', '<leader>q', ':Sayonara<CR>', {})
+      vim.keymap.set('n', '<leader>q', ':Sayonara<CR>', { noremap = true, silent = true })
     end
   }
 
