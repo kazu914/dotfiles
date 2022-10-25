@@ -43,7 +43,7 @@ nnoremap <silent> p p`]
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
 
 " jjでノーマルモードに戻って保存
-inoremap jj <Esc>:w<CR>
+inoremap <silent> jj <Esc>:w<CR>
 
 " Esc2回押しでハイライト削除
 nnoremap <Esc><Esc> :nohlsearch<CR>
