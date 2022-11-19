@@ -15,6 +15,7 @@ alias cat="bat"
 alias ls="lsd"
 alias ll="lsd -la"
 alias tree='lsd --tree'
+alias gbs='git branch -u origin/$(git rev-parse --abbrev-ref HEAD)'
 
 delombok () {
   java -jar ~/.local/share/nvim/lsp_servers/jdtls/lombok.jar delombok -f pretty -p $1| bat -l java
