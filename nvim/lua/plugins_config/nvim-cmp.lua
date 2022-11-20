@@ -34,7 +34,7 @@ cmp.setup({
   mapping = mapping,
   preselect = cmp.PreselectMode.None,
   sources = cmp.config.sources({
-    { name = 'vsnip' }, { name = 'buffer' }, { name = 'nvim_lsp' },
+    { name = 'vsnip' }, { name = 'nvim_lsp' }, { name = 'buffer' },
     { name = 'path' }
   })
 })
