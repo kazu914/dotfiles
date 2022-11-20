@@ -276,7 +276,6 @@ require 'packer'.startup(function(use)
       require("plugins_config/nvim-cmp")
     end
   }
-
   use({
     "folke/noice.nvim",
     event = "VimEnter",
@@ -299,11 +298,20 @@ require 'packer'.startup(function(use)
             filter = {
               event = "msg_show",
               kind = "",
+              find = "written",
+            },
+            opts = { skip = true },
+          },
+          {
+            filter = {
+              event = "msg_show",
+              kind = "",
               find = "yanked",
             },
             opts = { skip = true },
           },
         },
+        lsp = { signature = { enabled = false } }
       })
       require("telescope").load_extension("noice")
     end,
@@ -312,5 +320,4 @@ require 'packer'.startup(function(use)
       "rcarriga/nvim-notify",
     }
   })
-
 end)
