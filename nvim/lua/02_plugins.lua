@@ -66,10 +66,6 @@ require 'packer'.startup(function(use)
     vim.g.highlightedyank_highlight_duration = -1
   end }
 
-  require("indent_blankline").setup {
-    space_char_blankline = " ",
-  }
-
   use { "lukas-reineke/indent-blankline.nvim", config = function()
     require("indent_blankline").setup {
       space_char_blankline = " ",
