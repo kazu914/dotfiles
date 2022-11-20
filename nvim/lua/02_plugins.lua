@@ -130,10 +130,6 @@ require 'packer'.startup(function(use)
     end
   }
 
-  use { 'rcarriga/nvim-notify',
-    config = function() vim.notify = require('notify') end
-  }
-
   use { 'kevinhwang91/nvim-hlslens',
     config = function()
       local kopts = { noremap = true, silent = true }
@@ -284,4 +280,41 @@ require 'packer'.startup(function(use)
       require("plugins_config/nvim-cmp")
     end
   }
+
+  use({
+    "folke/noice.nvim",
+    event = "VimEnter",
+    config = function()
+      require("noice").setup({
+        routes = {
+          {
+            filter = { event = "msg_show", kind = "search_count" },
+            opts = { skip = true },
+          },
+          {
+            filter = {
+              event = "msg_show",
+              kind = "",
+              find = "書込み",
+            },
+            opts = { skip = true },
+          },
+          {
+            filter = {
+              event = "msg_show",
+              kind = "",
+              find = "yanked",
+            },
+            opts = { skip = true },
+          },
+        },
+      })
+      require("telescope").load_extension("noice")
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  })
+
 end)
