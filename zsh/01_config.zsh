@@ -33,6 +33,12 @@ setopt hist_reduce_blanks
 setopt hist_ignore_space
 
 #################################  COMPLEMENT  #################################
+# brew completion
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
 # enable completion
 autoload -Uz compinit && compinit
 
