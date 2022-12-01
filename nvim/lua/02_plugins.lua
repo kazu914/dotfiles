@@ -288,6 +288,20 @@ require 'packer'.startup(function(use)
             opts = { skip = true },
           },
           {
+            filter = { event = "msg_show",
+              kind = "emsg",
+              find = "E486"
+            },
+            opts = { skip = true },
+          },
+          {
+            filter = { event = "msg_show",
+              kind = "wmsg",
+              find = "search"
+            },
+            opts = { skip = true },
+          },
+          {
             filter = {
               event = "msg_show",
               kind = "",
