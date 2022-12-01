@@ -77,6 +77,18 @@ require('lspconfig').rust_analyzer.setup {
   }
 }
 
+-- for vue
+local TYPESCRIPT_PATH = vim.fn.stdpath "data" .. "/mason/packages/vue-language-server/node_modules/typescript/lib"
+require 'lspconfig'.volar.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  init_options = {
+    typescript = {
+      tsdk = TYPESCRIPT_PATH
+    }
+  }
+}
+
 -- for other servers
 for _, server in ipairs { "cssls", "eslint", "graphql", "sumneko_lua" } do
   lspconfig[server].setup { capabilities = capabilities, on_attach = on_attach }
