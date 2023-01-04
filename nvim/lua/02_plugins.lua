@@ -277,64 +277,6 @@ require 'packer'.startup(function(use)
       require("plugins_config/nvim-cmp")
     end
   }
-  use({
-    "folke/noice.nvim",
-    event = "VimEnter",
-    config = function()
-      require("noice").setup({
-        routes = {
-          {
-            filter = { event = "msg_show", kind = "search_count" },
-            opts = { skip = true },
-          },
-          {
-            filter = { event = "msg_show",
-              kind = "emsg",
-              find = "E486"
-            },
-            opts = { skip = true },
-          },
-          {
-            filter = { event = "msg_show",
-              kind = "wmsg",
-              find = "search"
-            },
-            opts = { skip = true },
-          },
-          {
-            filter = {
-              event = "msg_show",
-              kind = "",
-              find = "書込み",
-            },
-            opts = { skip = true },
-          },
-          {
-            filter = {
-              event = "msg_show",
-              kind = "",
-              find = "written",
-            },
-            opts = { skip = true },
-          },
-          {
-            filter = {
-              event = "msg_show",
-              kind = "",
-              find = "yanked",
-            },
-            opts = { skip = true },
-          },
-        },
-        lsp = { signature = { enabled = false } }
-      })
-      require("telescope").load_extension("noice")
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    }
-  })
 
   use {
     'stevearc/aerial.nvim',
