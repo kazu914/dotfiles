@@ -276,15 +276,4 @@ require 'packer'.startup(function(use)
     end
   }
 
-  use {
-    'stevearc/aerial.nvim',
-    config = function()
-      require('aerial').setup({
-        layout = {
-          default_direction = "left"
-        }
-      })
-      vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
-    end
-  }
 end)
