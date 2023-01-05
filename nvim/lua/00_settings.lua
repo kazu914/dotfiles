@@ -29,3 +29,5 @@ vim.opt.signcolumn="yes:2"
 vim.opt.cmdheight=0
 vim.opt.undodir="~/.config/nvim.undo"
 vim.opt.undofile=true
+vim.opt.listchars="tab:>-"
+vim.opt.list=true
