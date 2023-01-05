@@ -252,6 +252,10 @@ require 'packer'.startup(function(use)
     end
   }
 
+  use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim', config = function()
+    require("flutter-tools").setup{}
+  end }
+
   -- lua development
   use { "folke/neodev.nvim" }
 
