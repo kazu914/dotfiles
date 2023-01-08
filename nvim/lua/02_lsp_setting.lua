@@ -34,32 +34,6 @@ M.capabilities = capabilities
 
 local lspconfig = require("lspconfig")
 
--- for lua
-require("neodev").setup({})
-
--- for typescript
-local ts_on_attach = function(client, bufnr)
-  client.server_capabilities.documentFormattingProvider = false
-  client.server_capabilities.documentRangeFormattingProvider = false
-
-  local ts_utils = require("nvim-lsp-ts-utils")
-  ts_utils.setup {
-    enable_import_on_completion = true,
-    eslint_enable_diagnostics = true,
-    enable_formatting = true
-  }
-
-  ts_utils.setup_client(client)
-
-  on_attach(client, bufnr)
-end
-
-lspconfig.tsserver.setup {
-  capabilities = capabilities,
-  on_attach = ts_on_attach,
-  settings = { format = { enable = true } }
-}
-
 -- for rust
 require('lspconfig').rust_analyzer.setup {
   capabilities = capabilities,
@@ -90,7 +64,7 @@ require 'lspconfig'.volar.setup {
 }
 
 -- for other servers
-for _, server in ipairs { "cssls", "eslint", "graphql", "sumneko_lua" } do
+for _, server in ipairs { "cssls", "eslint", "graphql", "sumneko_lua", "tsserver" } do
   lspconfig[server].setup { capabilities = capabilities, on_attach = on_attach }
 end
 
