@@ -42,7 +42,7 @@ return {
       }
       cmp.setup({
         completion = {
-          completeopt = "menu,menuone,noinsert",
+          completeopt = "menu,menuone,noselect,noinsert",
         },
         snippet = { expand = function(args) vim.fn["vsnip#anonymous"](args.body) end },
         mapping = mapping,
