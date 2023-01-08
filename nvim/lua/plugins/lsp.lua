@@ -1,7 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
   'glepnir/lspsaga.nvim',
-  'jose-elias-alvarez/null-ls.nvim',
   {
     "williamboman/mason.nvim",
     config = true

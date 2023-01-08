@@ -35,7 +35,7 @@ M.capabilities = capabilities
 local lspconfig = require("lspconfig")
 
 -- for rust
-require('lspconfig').rust_analyzer.setup {
+lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
@@ -53,7 +53,7 @@ require('lspconfig').rust_analyzer.setup {
 
 -- for vue
 local TYPESCRIPT_PATH = vim.fn.stdpath "data" .. "/mason/packages/vue-language-server/node_modules/typescript/lib"
-require 'lspconfig'.volar.setup {
+lspconfig.volar.setup {
   capabilities = capabilities,
   on_attach = on_attach,
   init_options = {
@@ -63,23 +63,22 @@ require 'lspconfig'.volar.setup {
   }
 }
 
--- for other servers
-for _, server in ipairs { "cssls", "eslint", "graphql", "sumneko_lua", "tsserver" } do
-  lspconfig[server].setup { capabilities = capabilities, on_attach = on_attach }
+local function has_value(tab, val)
+  for _, value in ipairs(tab) do
+    if value == val then
+      return true
+    end
+  end
+  return false
 end
 
--- other lsp-related plugins settings
+local configured_server = { 'rust_analyzer', 'volar' }
 
--- for null-ls setting
-require("null-ls").setup({
-  sources = {
-    require("null-ls").builtins.formatting.prettier,
-    require("null-ls").builtins.formatting.eslint_d,
-    require("null-ls").builtins.formatting.fixjson,
-    require("null-ls").builtins.diagnostics.write_good,
-    require("null-ls").builtins.diagnostics.misspell
-  }
-})
+require('mason-lspconfig').setup_handlers({ function(server)
+  if not has_value(configured_server, server) then
+    lspconfig[server].setup { capabilities = capabilities, on_attach = on_attach }
+  end
+end })
 
 -- for luasaga
 local lspsaga = require 'lspsaga'
