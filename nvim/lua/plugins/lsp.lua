@@ -12,7 +12,7 @@ return {
   {
     "SmiteshP/nvim-navic",
     dependencies = "neovim/nvim-lspconfig",
-    config = { highlight = true, separator = "  " }
+    config = { separator = " > " }
   },
   {
     'ray-x/lsp_signature.nvim',
