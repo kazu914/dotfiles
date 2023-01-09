@@ -24,7 +24,6 @@
   "mason.nvim": { "branch": "main", "commit": "369d520350b4c1af40630f90c3703444c40c065a" },
   "modes.nvim": { "branch": "main", "commit": "2cd194d1033ba391d87d386735e15963adbc5f51" },
   "neodev.nvim": { "branch": "main", "commit": "258b83f48405c6b530c09dd96950693664dc6bc0" },
-  "null-ls.nvim": { "branch": "main", "commit": "915558963709ea17c5aa246ca1c9786bfee6ddb4" },
   "nvim-cmp": { "branch": "main", "commit": "11a95792a5be0f5a40bab5fc5b670e5b1399a939" },
   "nvim-hlslens": { "branch": "main", "commit": "9234f0fd7ec6042e8b4c70d41d25478a6cbf3a8e" },
   "nvim-jdtls": { "branch": "master", "commit": "e64f05e950e748824bb8b67e89fa4398807a81b4" },
