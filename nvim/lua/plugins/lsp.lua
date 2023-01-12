@@ -12,20 +12,24 @@ return {
   {
     "SmiteshP/nvim-navic",
     dependencies = "neovim/nvim-lspconfig",
-    config = { separator = " > " }
+    config = function ()
+      require('nvim-navic').setup { separator = " > " }
+    end
   },
   {
     'ray-x/lsp_signature.nvim',
-    config = {
-      floating_window = true,
-      use_lspsaga = false,
-      hint_prefix = "🐰 ",
-      transpancy = nil,
-      zindex = 49,
-      handler_opts = {
-        border = "rounded"
+    config = function ()
+      require('lsp_signature').setup {
+        floating_window = true,
+        use_lspsaga = false,
+        hint_prefix = "🐰 ",
+        transpancy = nil,
+        zindex = 49,
+        handler_opts = {
+          border = "rounded"
+        }
       }
-    }
+    end
   },
   {
     'j-hui/fidget.nvim', config = function()
