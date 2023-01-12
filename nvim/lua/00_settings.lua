@@ -31,3 +31,4 @@ vim.opt.undodir=vim.fn.expand("~/.config/nvim.undo")
 vim.opt.undofile=true
 vim.opt.listchars="tab:>-"
 vim.opt.list=true
+vim.opt.mouse = nil
