@@ -80,20 +80,6 @@ require('mason-lspconfig').setup_handlers({ function(server)
   end
 end })
 
--- for luasaga
-local lspsaga = require 'lspsaga'
-lspsaga.init_lsp_saga({
-  border_style = "rounded",
-  finder_action_keys = {
-    open = "<CR>",
-    vsplit = "s",
-    split = "i",
-    tabe = "t",
-    quit = "q",
-  },
-  diagnostic_header = { "🤬 ", "🥺", "💡", "🤔" },
-})
-
 -- Set icons for sidebar.
 local diagnostic_icons = {
   Error = "🤬",

@@ -1,6 +1,23 @@
 return {
   'neovim/nvim-lspconfig',
-  'glepnir/lspsaga.nvim',
+  {
+    'glepnir/lspsaga.nvim',
+    event = 'BufRead',
+    config = function()
+      require('lspsaga').setup({
+        finder = {
+          edit = "<CR>",
+          vsplit = "s",
+          split = "i",
+          tabe = "t",
+          quit = {"q", '<ESC>'},
+        },
+        ui = {
+          border = 'rounded'
+        }
+      })
+    end
+  },
   {
     "williamboman/mason.nvim",
     config = true
@@ -12,13 +29,13 @@ return {
   {
     "SmiteshP/nvim-navic",
     dependencies = "neovim/nvim-lspconfig",
-    config = function ()
+    config = function()
       require('nvim-navic').setup { separator = " > " }
     end
   },
   {
     'ray-x/lsp_signature.nvim',
-    config = function ()
+    config = function()
       require('lsp_signature').setup {
         floating_window = true,
         use_lspsaga = false,
