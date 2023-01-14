@@ -12,6 +12,9 @@ return {
           tabe = "t",
           quit = {"q", '<ESC>'},
         },
+        symbol_in_winbar = {
+          enable = false
+        },
         ui = {
           border = 'rounded'
         }
