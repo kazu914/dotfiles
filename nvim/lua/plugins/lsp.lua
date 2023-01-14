@@ -27,13 +27,6 @@ return {
     config = true
   },
   {
-    "SmiteshP/nvim-navic",
-    dependencies = "neovim/nvim-lspconfig",
-    config = function()
-      require('nvim-navic').setup { separator = " > " }
-    end
-  },
-  {
     'ray-x/lsp_signature.nvim',
     config = function()
       require('lsp_signature').setup {

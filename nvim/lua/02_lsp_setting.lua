@@ -1,7 +1,5 @@
 local M = {}
-local navic = require("nvim-navic")
-local on_attach = function(client, bufnr)
-  navic.attach(client, bufnr)
+local on_attach = function(_, bufnr)
 
   local opts = { noremap = true, silent = true, buffer = bufnr }
   -- See `:help vim.lsp.*` for documentation on any of the below functions
