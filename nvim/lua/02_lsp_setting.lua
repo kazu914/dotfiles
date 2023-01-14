@@ -20,6 +20,7 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('v', '<space>ca', ':<C-U>Lspsaga code_action<CR>', opts)
   vim.keymap.set('n', 'gh', ':Lspsaga lsp_finder<CR>', opts)
   vim.keymap.set('n', '<leader>o', '<cmd>LSoutlineToggle<CR>', opts)
+  vim.keymap.set("n","<leader>o", "<cmd>Lspsaga outline<CR>", opts)
 end
 
 M.on_attach = on_attach
