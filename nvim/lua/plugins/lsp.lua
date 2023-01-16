@@ -17,6 +17,10 @@ return {
         },
         ui = {
           border = 'rounded'
+        },
+        rename = {
+          in_select = false,
+          whole_project = false
         }
       })
     end
