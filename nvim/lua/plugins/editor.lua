@@ -218,5 +218,11 @@ return {
         [[g#<Cmd>lua require('hlslens').start()<CR>]],
         opts)
     end
+  },
+  {
+    'rcarriga/nvim-notify',
+    config = function ()
+      vim.notify = require("notify")
+    end
   }
 }
