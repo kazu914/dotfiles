@@ -35,3 +35,17 @@ end)
 hs.hotkey.bind({"ctrl"}, "m", function()
     hs.eventtap.keyStroke(nil, hs.keycodes.map["return"], 0)
 end)
+
+local function file_exists(name)
+  local f = io.open(name, "r")
+  if f ~= nil then
+    io.close(f)
+    return true
+  else
+    return false
+  end
+end
+
+if file_exists("local.lua") then
+  dofile("local.lua")
+end
