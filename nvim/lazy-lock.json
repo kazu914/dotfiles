@@ -6,6 +6,7 @@
   "cmp-cmdline": { "branch": "main", "commit": "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "0e6b2ed705ddcff9738ec4ea838141654f12eeef" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
+  "denops-silicon.vim": { "branch": "main", "commit": "de75b46e1aeedf7d40a4baaa2d215006c14c54c6" },
   "denops.vim": { "branch": "main", "commit": "8f3899de3d3add07105221262dca90a31c4c2d4c" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "fidget.nvim": { "branch": "main", "commit": "9dc6d15fdb877b2fb09ea0ba2dfde9beccb5965a" },
