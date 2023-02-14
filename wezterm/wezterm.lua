@@ -206,7 +206,7 @@ return {
     window_padding = {left = 0, right = 0, top = 0, bottom = 0},
     -- Bindings
     disable_default_key_bindings = true,
-    disable_default_mouse_bindings = true,
+    disable_default_mouse_bindings = false,
     leader = {key = "s", mods = "CTRL", timeout_milliseconds = 1000},
     keys = key_bindings,
     mouse_bindings = mouse_bindings,
