@@ -10,6 +10,10 @@ return {
       'hrsh7th/cmp-path',
       'onsails/lspkind-nvim'
     },
+    event = 'VeryLazy',
+    cond = function ()
+      return vim.bo.filetype ~= 'java'
+    end,
     config = function()
       local cmp = require('cmp')
       local lspkind = require('lspkind')

@@ -1,0 +1,10 @@
+{
+  "suggest.noselect": true,
+  "diagnostic.infoSign": "🤔",
+  "diagnostic.warningSign": "🥺",
+  "diagnostic.errorSign": "🤬",
+  "diagnostic.hintSign": "💡",
+
+  "java.format.settings.url": "~/develop/java/formatter.xml",
+  "java.format.settings.profile": "Style",
+}

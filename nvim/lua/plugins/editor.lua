@@ -221,8 +221,21 @@ return {
   },
   {
     'rcarriga/nvim-notify',
-    config = function ()
+    config = function()
       vim.notify = require("notify")
+    end
+  },
+  {
+    'neoclide/coc.nvim',
+    ft = 'java',
+    dependencies = {
+      'fannheyward/telescope-coc.nvim'
+    },
+    config = function()
+      vim.api.nvim_create_augroup('java_coc', {})
+      vim.api.nvim_create_autocmd('FileType java', { group = 'java_coc', callback = function()
+        require('plugins_config/coc_settings').setup()
+      end })
     end
   }
 }
