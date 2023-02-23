@@ -38,7 +38,7 @@ function M.setup()
   keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
   -- Use <c-j> to trigger snippets
-  keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
+  -- keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
   -- Use <c-space> to trigger completion
   keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 
@@ -83,8 +83,8 @@ function M.setup()
 
 
   -- Formatting selected code
-  keyset("x", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
-  keyset("n", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
+  keyset("x", "<leader>F", "<Plug>(coc-format-selected)", { silent = true })
+  keyset("n", "<leader>F", ":call CocActionAsync('format')<CR>", { silent = true })
 
 
   -- Setup formatexpr specified filetype(s)
