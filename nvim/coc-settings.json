@@ -1,17 +1,13 @@
 {
   "colors.enable": true,
+  "coc.preferences.formatOnSave": false,
   "suggest.noselect": true,
   "suggest.floatConfig": {
     "border": true,
-    "rounded": true,
+    "rounded": true
   },
   "suggest.virtualText": true,
-  "suggest.formatItems": [
-    "kind",
-    "abbr",
-    "menu",
-    "shortcut"
-  ],
+  "suggest.formatItems": ["kind", "abbr", "menu", "shortcut"],
   "suggest.completionItemKindLabels": {
     "text": "Text",
     "method": "Method",
@@ -53,10 +49,10 @@
   "diagnostic.errorSign": "🤬",
   "diagnostic.hintSign": "💡",
   "diagnostic.format": "%message [%source]",
-  "diagnostic.virtualTextPrefix":"■ ",
+  "diagnostic.virtualTextPrefix": "■ ",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "diagnostic.enableMessage":"never",
+  "diagnostic.enableMessage": "never",
   "java.format.settings.url": "~/develop/java/formatter.xml",
   "java.format.settings.profile": "Style",
   "java.compile.nullAnalysis.mode": "automatic"

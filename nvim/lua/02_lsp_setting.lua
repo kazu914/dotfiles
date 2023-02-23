@@ -10,7 +10,7 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<space>D',
     '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.keymap.set('n', 'F', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+  vim.keymap.set('n', '<leader>F', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 
   vim.keymap.set('n', '<space>rn', ':Lspsaga rename<CR>', opts)
   vim.keymap.set('n', '<C-k>', ':Lspsaga signature_help<CR>', opts)
@@ -20,7 +20,7 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('v', '<space>ca', ':<C-U>Lspsaga code_action<CR>', opts)
   vim.keymap.set('n', 'gh', ':Lspsaga lsp_finder<CR>', opts)
   vim.keymap.set('n', '<leader>o', '<cmd>LSoutlineToggle<CR>', opts)
-  vim.keymap.set("n","<leader>o", "<cmd>Lspsaga outline<CR>", opts)
+  vim.keymap.set('n', '<leader>o', '<cmd>Lspsaga outline<CR>', opts)
 end
 
 M.on_attach = on_attach
@@ -31,7 +31,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = capabilities
 
-local lspconfig = require("lspconfig")
+local lspconfig = require('lspconfig')
 
 -- for rust
 lspconfig.rust_analyzer.setup {
@@ -51,7 +51,7 @@ lspconfig.rust_analyzer.setup {
 }
 
 -- for vue
-local TYPESCRIPT_PATH = vim.fn.stdpath "data" .. "/mason/packages/vue-language-server/node_modules/typescript/lib"
+local TYPESCRIPT_PATH = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/typescript/lib'
 lspconfig.volar.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -81,21 +81,21 @@ end })
 
 -- Set icons for sidebar.
 local diagnostic_icons = {
-  Error = "🤬",
-  Warn = "🥺",
-  Hint = "💡",
-  Info = "🤔",
+  Error = '🤬',
+  Warn = '🥺',
+  Hint = '💡',
+  Info = '🤔',
 }
 for type, icon in pairs(diagnostic_icons) do
-  local hl = "DiagnosticSign" .. type
+  local hl = 'DiagnosticSign' .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl })
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   update_in_insert = false,
   virtual_text = {
     format = function(diagnostic)
-      return string.format("%s 【%s: %s】", diagnostic.message, diagnostic.source, diagnostic.code)
+      return string.format('%s 【%s: %s】', diagnostic.message, diagnostic.source, diagnostic.code)
     end,
   },
 })
