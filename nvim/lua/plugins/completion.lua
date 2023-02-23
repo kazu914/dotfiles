@@ -10,10 +10,6 @@ return {
       'hrsh7th/cmp-path',
       'onsails/lspkind-nvim'
     },
-    event = 'VeryLazy',
-    cond = function ()
-      return vim.bo.filetype ~= 'java'
-    end,
     config = function()
       local cmp = require('cmp')
       local lspkind = require('lspkind')
@@ -80,6 +76,8 @@ return {
           end
         }
       })
+
+      cmp.setup.filetype('java', { enabled = false })
 
       -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline('/', {
