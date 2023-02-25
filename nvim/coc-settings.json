@@ -6,7 +6,7 @@
     "border": true,
     "rounded": true
   },
-  "suggest.virtualText": true,
+  "suggest.virtualText": false,
   "suggest.formatItems": ["kind", "abbr", "menu", "shortcut"],
   "suggest.completionItemKindLabels": {
     "text": "Text",
@@ -52,7 +52,11 @@
   "diagnostic.virtualTextPrefix": "■ ",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "diagnostic.enableMessage": "never",
+  "diagnostic.enableMessage": "jump",
+  "diagnostic.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
   "java.format.settings.url": "~/develop/java/formatter.xml",
   "java.format.settings.profile": "Style",
   "java.compile.nullAnalysis.mode": "automatic"
