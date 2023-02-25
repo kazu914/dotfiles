@@ -21,6 +21,7 @@ return {
           treesitter = true,
           treesitter_context = true,
           telescope = true,
+          coc_nvim = true,
           native_lsp = {
             enabled = true,
             virtual_text = {
