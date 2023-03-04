@@ -227,7 +227,7 @@ return {
   },
   {
     'neoclide/coc.nvim',
-    ft = 'java',
+    ft = {'java', 'typescript', 'xml'},
     dependencies = {
       'fannheyward/telescope-coc.nvim'
     },
