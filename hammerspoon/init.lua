@@ -13,10 +13,10 @@ local function openApp(app, path)
 end
 
 -- [[
--- open alacritty
+-- open terminal
 -- ]]
 hs.hotkey.bind({"cmd"}, "space",
-               function() openApp('alacritty', '/Applications/Alacritty.app') end)
+               function() openApp('wezterm', '/Applications/wezterm.app') end)
 
 -- [[
 -- open teams
