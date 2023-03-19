@@ -12,7 +12,6 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 SCRIPT_DIR=$HOME/dotfiles
-eval "$(zoxide init zsh)"
 
 for file in $SCRIPT_DIR/zsh/enabled/*.zsh; do
   source "$file"

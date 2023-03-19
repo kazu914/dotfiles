@@ -20,6 +20,10 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # jdtls
 export JDTLS_HOME=$HOME/.local/share/nvim/lsp_servers/jdtls
+
+# OTHERS
+export PATH=$HOME/.local/bin:$PATH
+
 #################################  HISTORY  #################################
 # history
 HISTFILE=$HOME/.zsh_history
