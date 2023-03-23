@@ -22,8 +22,8 @@ map('n', 's', '"_s')
 map('v', 'y', 'y`]')
 map({ 'n', 'v' }, 'p', 'p`]')
 
--- jjでノーマルモードに戻って保存
-map('i', 'jj', '<Esc>:w<CR>')
+-- jjでノーマルモードに戻る
+map('i', 'jj', '<Esc>')
 
 -- Esc2回押しでハイライト削除
 map('n','<Esc><Esc>', ':nohlsearch<CR>')
