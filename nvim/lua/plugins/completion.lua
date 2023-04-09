@@ -80,6 +80,7 @@ return {
       cmp.setup.filetype('java', { enabled = false })
       cmp.setup.filetype('typescript', { enabled = false })
       cmp.setup.filetype('json', { enabled = false })
+      cmp.setup.filetype('text', { enabled = false })
 
       -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline('/', {
