@@ -198,5 +198,10 @@
         "key": "shift+cmd+[",
         "command": "-workbench.action.terminal.focusPrevious",
         "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+    },
+    {
+        "key": "g h",
+        "command": "editor.action.referenceSearch.trigger",
+        "when": "neovim.mode == normal",
     }
 ]
