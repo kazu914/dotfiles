@@ -18,5 +18,6 @@
   "editor.fontFamily": "'HackGen35 Console NF'",
   "update.showReleaseNotes": false,
   "editor.renderWhitespace": "all",
-  "editor.cursorStyle": "block"
+  "editor.cursorStyle": "block",
+  "git.openRepositoryInParentFolders": "always"
 }
