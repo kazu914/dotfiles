@@ -1,0 +1,22 @@
+{
+  "workbench.colorTheme": "Monokai Dimmed",
+  "editor.suggestSelection": "first",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/dotfiles/nvim/init.lua",
+  "vscode-neovim.logOutputToConsole": true,
+  "vscode-neovim.logLevel": "debug",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "workbench.startupEditor": "none",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "editor.fontFamily": "'HackGen35 Console NF'",
+  "update.showReleaseNotes": false,
+  "editor.renderWhitespace": "all",
+  "editor.cursorStyle": "block"
+}
