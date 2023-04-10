@@ -1,7 +1,6 @@
 {
-  "workbench.colorTheme": "Monokai Dimmed",
   "editor.suggestSelection": "first",
-  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/dotfiles/nvim/init.lua",
   "vscode-neovim.logOutputToConsole": true,
   "vscode-neovim.logLevel": "debug",
@@ -19,5 +18,21 @@
   "update.showReleaseNotes": false,
   "editor.renderWhitespace": "all",
   "editor.cursorStyle": "block",
-  "git.openRepositoryInParentFolders": "always"
+  "git.openRepositoryInParentFolders": "always",
+  "boot-java.rewrite.reconcile": true,
+  "git.autofetch": true,
+  "editor.acceptSuggestionOnEnter": "off",
+  "security.workspace.trust.untrustedFiles": "open",
+  "java.format.settings.url": "~/develop/java/formatter.xml",
+  "java.format.settings.profile": "Style",
+  "editor.formatOnSave": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "GitHub Dark Default",
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true
+  },
+  "editor.fontSize": 13,
+  "editor.inlayHints.enabled": "off",
+  "editor.lightbulb.enabled": false,
+  "editor.renderFinalNewline": "off"
 }
