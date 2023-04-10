@@ -225,5 +225,21 @@
         "key": "shift+alt+f8",
         "command": "-editor.action.marker.prev",
         "when": "editorFocus"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "cmd+1",
+        "command": "-workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "ctrl+s ,",
+        "command": "workbench.action.terminal.rename"
     }
 ]
