@@ -41,101 +41,6 @@
         "command": "-workbench.action.quickOpen"
     },
     {
-        "key": "space 1",
-        "command": "workbench.action.openEditorAtIndex1",
-        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
-    },
-    {
-        "key": "ctrl+1",
-        "command": "-workbench.action.openEditorAtIndex1"
-    },
-    {
-        "key": "space 2",
-        "command": "workbench.action.openEditorAtIndex2",
-        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
-    },
-    {
-        "key": "ctrl+2",
-        "command": "-workbench.action.openEditorAtIndex2"
-    },
-    {
-        "key": "space 3",
-        "command": "workbench.action.openEditorAtIndex3",
-        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
-    },
-    {
-        "key": "ctrl+3",
-        "command": "-workbench.action.openEditorAtIndex3"
-    },
-    {
-        "key": "space 4",
-        "command": "workbench.action.openEditorAtIndex4",
-        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
-    },
-    {
-        "key": "ctrl+4",
-        "command": "-workbench.action.openEditorAtIndex4"
-    },
-    {
-        "key": "space 5",
-        "command": "workbench.action.openEditorAtIndex5",
-        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
-    },
-    {
-        "key": "ctrl+5",
-        "command": "-workbench.action.openEditorAtIndex5"
-    },
-    {
-        "key": "space 6",
-        "command": "workbench.action.openEditorAtIndex6",
-        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
-    },
-    {
-        "key": "ctrl+6",
-        "command": "-workbench.action.openEditorAtIndex6"
-    },
-    {
-        "key": "space 7",
-        "command": "workbench.action.openEditorAtIndex7",
-        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
-    },
-    {
-        "key": "ctrl+7",
-        "command": "-workbench.action.openEditorAtIndex7"
-    },
-    {
-        "key": "space 8",
-        "command": "workbench.action.openEditorAtIndex8",
-        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
-    },
-    {
-        "key": "ctrl+8",
-        "command": "-workbench.action.openEditorAtIndex8"
-    },
-    {
-        "key": "space 9",
-        "command": "workbench.action.openEditorAtIndex9",
-        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
-    },
-    {
-        "key": "ctrl+9",
-        "command": "-workbench.action.openEditorAtIndex9"
-    },
-    {
-        "key": "space q",
-        "command": "workbench.action.closeActiveEditor",
-        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
-    },
-    {
-        "key": "cmd+w",
-        "command": "-workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "space w",
-        "command": "workbench.action.files.save",
-        "when": "neovim.mode == normal && editorFocus"
-    },
-    {
         "key": "cmd+s",
         "command": "-workbench.action.files.save"
     },
@@ -182,11 +87,6 @@
         "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
     },
     {
-        "key": "g h",
-        "command": "editor.action.referenceSearch.trigger",
-        "when": "neovim.mode == normal && editorFocus"
-    },
-    {
         "key": "] g",
         "command": "editor.action.marker.next",
         "when": "neovim.mode == normal && editorFocus"
@@ -211,11 +111,6 @@
         "command": "workbench.action.terminal.rename"
     },
     {
-        "key": "g g",
-        "command": "cursorTop",
-        "when": "textInputFocus && neovim.mode == 'normal'"
-    },
-    {
         "key": "cmd+up",
         "command": "-cursorTop",
         "when": "textInputFocus"
@@ -235,5 +130,14 @@
     {
         "key": "shift+cmd+]",
         "command": "-workbench.action.nextEditor"
+    },
+    {
+        "key": "space q",
+        "command": "workbench.action.closeActiveEditor",
+        "when": "!inputFocus && editorLangId == ''"
+    },
+    {
+        "key": "cmd+w",
+        "command": "-workbench.action.closeActiveEditor"
     }
 ]
