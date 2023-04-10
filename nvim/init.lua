@@ -10,9 +10,9 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+require '00_settings'
 
 if not vim.g.vscode then
-  require '00_settings'
   require '01_mappings'
   require("lazy").setup("plugins")
   require '02_lsp_setting'

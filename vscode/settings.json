@@ -27,7 +27,7 @@
   "java.format.settings.profile": "Style",
   "editor.formatOnSave": true,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "Default Dark+ Experimental",
   "editor.semanticTokenColorCustomizations": {
     "enabled": true
   },
@@ -35,5 +35,7 @@
   "editor.inlayHints.enabled": "off",
   "editor.lightbulb.enabled": false,
   "editor.renderFinalNewline": "off",
-  "terminal.integrated.defaultLocation": "editor"
+  "terminal.integrated.defaultLocation": "editor",
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on"
 }
