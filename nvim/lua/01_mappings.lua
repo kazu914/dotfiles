@@ -26,10 +26,10 @@ map({ 'n', 'v' }, 'p', 'p`]')
 map('i', 'jj', '<Esc>')
 
 -- Esc2回押しでハイライト削除
-map('n','<Esc><Esc>', ':nohlsearch<CR>')
+map('n', '<Esc><Esc>', ':nohlsearch<CR>')
 -- 折り返し行移動
-map({'n','v'}, 'j', 'gj')
-map({'n','v'}, 'k', 'gk')
+map({ 'n', 'v' }, 'j', 'gj')
+map({ 'n', 'v' }, 'k', 'gk')
 
 -- 保存のマップ
 map('n', '<Leader>w', ':w<CR>')
@@ -45,4 +45,4 @@ map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
 -- <C-j> で文末にジャンプ，すでに文末なら改行
-map('i', '<C-j>', 'col(".") == col("$") ? \'<C-j>\' : \'<ESC>A\'', {noremap = true, silent = true, expr = true})
+map('i', '<C-j>', 'col(".") == col("$") ? \'<C-j>\' : \'<ESC>A\'', { noremap = true, silent = true, expr = true })
