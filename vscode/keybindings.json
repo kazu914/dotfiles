@@ -241,5 +241,15 @@
     {
         "key": "ctrl+s ,",
         "command": "workbench.action.terminal.rename"
+    },
+    {
+        "key": "g g",
+        "command": "cursorTop",
+        "when": "textInputFocus && neovim.mode == 'normal'"
+    },
+    {
+        "key": "cmd+up",
+        "command": "-cursorTop",
+        "when": "textInputFocus"
     }
 ]
