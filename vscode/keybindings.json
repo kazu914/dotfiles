@@ -43,7 +43,7 @@
     {
         "key": "space 1",
         "command": "workbench.action.openEditorAtIndex1",
-        "when": "!inputFocus"
+        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
     },
     {
         "key": "ctrl+1",
@@ -52,7 +52,7 @@
     {
         "key": "space 2",
         "command": "workbench.action.openEditorAtIndex2",
-        "when": "!inputFocus"
+        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
     },
     {
         "key": "ctrl+2",
@@ -61,7 +61,7 @@
     {
         "key": "space 3",
         "command": "workbench.action.openEditorAtIndex3",
-        "when": "!inputFocus"
+        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
     },
     {
         "key": "ctrl+3",
@@ -70,7 +70,7 @@
     {
         "key": "space 4",
         "command": "workbench.action.openEditorAtIndex4",
-        "when": "!inputFocus"
+        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
     },
     {
         "key": "ctrl+4",
@@ -79,7 +79,7 @@
     {
         "key": "space 5",
         "command": "workbench.action.openEditorAtIndex5",
-        "when": "!inputFocus"
+        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
     },
     {
         "key": "ctrl+5",
@@ -88,7 +88,7 @@
     {
         "key": "space 6",
         "command": "workbench.action.openEditorAtIndex6",
-        "when": "!inputFocus"
+        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
     },
     {
         "key": "ctrl+6",
@@ -97,7 +97,7 @@
     {
         "key": "space 7",
         "command": "workbench.action.openEditorAtIndex7",
-        "when": "!inputFocus"
+        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
     },
     {
         "key": "ctrl+7",
@@ -106,7 +106,7 @@
     {
         "key": "space 8",
         "command": "workbench.action.openEditorAtIndex8",
-        "when": "!inputFocus"
+        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
     },
     {
         "key": "ctrl+8",
@@ -115,7 +115,7 @@
     {
         "key": "space 9",
         "command": "workbench.action.openEditorAtIndex9",
-        "when": "!inputFocus"
+        "when": "!inputFocus || (editorFocus && neovim.mode == normal)"
     },
     {
         "key": "ctrl+9",
@@ -165,7 +165,7 @@
     {
         "key": "ctrl+h",
         "command": "workbench.action.focusLeftGroup",
-        "when":"neovim.mode != insert"
+        "when": "neovim.mode != insert"
     },
     {
         "key": "cmd+k cmd+left",
