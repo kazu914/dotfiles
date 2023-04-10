@@ -34,5 +34,6 @@
   "editor.fontSize": 13,
   "editor.inlayHints.enabled": "off",
   "editor.lightbulb.enabled": false,
-  "editor.renderFinalNewline": "off"
+  "editor.renderFinalNewline": "off",
+  "terminal.integrated.defaultLocation": "editor"
 }
