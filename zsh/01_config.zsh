@@ -68,8 +68,13 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
-export EDITOR=nvim
-export VISUAL=nvim
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+    export EDITOR=code
+    export VISUAL=code
+else
+  export EDITOR=nvim
+  export VISUAL=nvim
+fi
 
 set -o vi
 bindkey "jj" vi-cmd-mode

@@ -21,11 +21,11 @@ fvim (){
 
   if [ -n "$selected" ];then
     if [ "$selected" = "$empty" ];then
-      print -s "vim ./"
-      nvim ./
+      print -s "${EDITOR} ./"
+      ${EDITOR} ./
     else
-      print -s "vim $basedir$selected"
-      nvim $basedir$selected
+      print -s "${EDITOR} $basedir$selected"
+      ${EDITOR} $basedir$selected
     fi
   else
     echo "No file is selected"
