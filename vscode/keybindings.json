@@ -139,5 +139,25 @@
     {
         "key": "cmd+w",
         "command": "-workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "] c",
+        "command": "workbench.action.editor.nextChange",
+        "when": "editorTextFocus && !textCompareEditorActive"
+    },
+    {
+        "key": "alt+f5",
+        "command": "-workbench.action.editor.nextChange",
+        "when": "editorTextFocus && !textCompareEditorActive"
+    },
+    {
+        "key": "[ c",
+        "command": "workbench.action.editor.previousChange",
+        "when": "editorTextFocus && !textCompareEditorActive"
+    },
+    {
+        "key": "shift+alt+f5",
+        "command": "-workbench.action.editor.previousChange",
+        "when": "editorTextFocus && !textCompareEditorActive"
     }
 ]
