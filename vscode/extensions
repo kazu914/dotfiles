@@ -1,10 +1,16 @@
+astro-build.astro-vscode
 asvetliakov.vscode-neovim
+eamodio.gitlens
 evgeniypeshkov.syntax-highlighter
 GitHub.github-vscode-theme
+mohd-akram.vscode-html-format
+ms-vscode.makefile-tools
 PKief.material-icon-theme
 redhat.java
 rust-lang.rust-analyzer
 shardulm94.trailing-spaces
+streetsidesoftware.code-spell-checker
+sumneko.lua
 usernamehw.errorlens
 vscjava.vscode-java-debug
 vscjava.vscode-java-dependency
