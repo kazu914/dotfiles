@@ -37,5 +37,6 @@
   "editor.renderFinalNewline": "off",
   "terminal.integrated.defaultLocation": "editor",
   "editor.minimap.enabled": false,
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "redhat.telemetry.enabled": false
 }
