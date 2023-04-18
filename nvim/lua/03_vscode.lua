@@ -16,3 +16,5 @@ vim.keymap.set("n", "k",
 
 vim.keymap.set("n", "j",
     ":<C-u>call rpcrequest(g:vscode_channel, 'vscode-command', 'cursorMove', { 'to': 'down', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>")
+
+vim.keymap.set("n", "<Space>f", "<Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>")
