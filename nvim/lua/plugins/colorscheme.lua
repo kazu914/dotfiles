@@ -1,3 +1,6 @@
+if vim.g.vscode then
+  return {}
+end
 return {
   {
     "catppuccin/nvim",
@@ -41,7 +44,6 @@ return {
             enabled = true,
             custom_bg = "NONE",
           },
-
         }
       })
       vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha

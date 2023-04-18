@@ -3,7 +3,7 @@ return {
   'tpope/vim-commentary',
   'simeji/winresizer',
   'ntpeters/vim-better-whitespace',
-  {'kylechui/nvim-surround', config = true},
+  { 'kylechui/nvim-surround', config = true },
   {
     'machakann/vim-highlightedyank',
     event = 'TextYankPost',
@@ -21,7 +21,7 @@ return {
   },
   {
     "skanehira/denops-silicon.vim",
-    config = function ()
+    config = function()
       vim.g['silicon_options'] = {
         font = 'Cica',
         no_line_number = true,

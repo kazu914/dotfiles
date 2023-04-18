@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return {}
+end
+
 return {
   'neovim/nvim-lspconfig',
   {
@@ -10,7 +14,7 @@ return {
           vsplit = "s",
           split = "i",
           tabe = "t",
-          quit = {"q", '<ESC>'},
+          quit = { "q", '<ESC>' },
         },
         symbol_in_winbar = {
           enable = false
@@ -49,7 +53,8 @@ return {
     end
   },
   {
-    'j-hui/fidget.nvim', config = function()
+    'j-hui/fidget.nvim',
+    config = function()
       require('fidget').setup {
         window = {
           blend = 0,

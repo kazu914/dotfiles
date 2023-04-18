@@ -1,3 +1,6 @@
+if vim.g.vscode then
+  return {}
+end
 return {
   {
     'nvim-telescope/telescope.nvim',
@@ -31,10 +34,10 @@ return {
         },
         extensions = {
           fzf = {
-            fuzzy = true, -- false will only do exact matching
+            fuzzy = true,                    -- false will only do exact matching
             override_generic_sorter = false, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case" -- or "ignore_case" or "respect_case"
+            override_file_sorter = true,     -- override the file sorter
+            case_mode = "smart_case"         -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
           }
         }
@@ -110,10 +113,8 @@ return {
           ['<C-s>'] = actions.split,
           ['<C-v>'] = actions.vsplit,
           ['<C-t>'] = actions.tabedit,
-
           ['h'] = actions.up,
           ['q'] = actions.quit,
-
           ['K'] = actions.mkdir,
           ['N'] = actions.newfile,
           ['R'] = actions.rename,
@@ -121,7 +122,6 @@ return {
           ['Y'] = actions.yank_path,
           ['.'] = actions.toggle_show_hidden,
           ['D'] = actions.delete,
-
           ['i'] = function()
             mark_actions.toggle_mark()
             vim.cmd('normal! j')
@@ -140,7 +140,6 @@ return {
       require 'nvim-web-devicons'.set_icon({
         lir_folder_icon = { icon = "", color = "#7ebae4", name = "LirFolderNode" }
       })
-
     end
   },
   {
@@ -179,7 +178,8 @@ return {
     end
   },
   {
-    'airblade/vim-rooter', config = function()
+    'airblade/vim-rooter',
+    config = function()
       vim.cmd([[
       let g:rooter_change_directory_for_non_project_files = 'current'
       let g:rooter_patterns = ['.git', '_darcs', '.hg', '.bzr', '.svn', 'package.json']
@@ -227,15 +227,18 @@ return {
   },
   {
     'neoclide/coc.nvim',
-    ft = {'java', 'typescript', 'xml', 'text', 'json', 'sql'},
+    ft = { 'java', 'typescript', 'xml', 'text', 'json', 'sql' },
     dependencies = {
       'fannheyward/telescope-coc.nvim'
     },
     config = function()
       vim.api.nvim_create_augroup('java_coc', {})
-      vim.api.nvim_create_autocmd('FileType java', { group = 'java_coc', callback = function()
-        require('plugins_config/coc_settings').setup()
-      end })
+      vim.api.nvim_create_autocmd('FileType java', {
+        group = 'java_coc',
+        callback = function()
+          require('plugins_config/coc_settings').setup()
+        end
+      })
     end
   }
 }
