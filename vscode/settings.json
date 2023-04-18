@@ -38,5 +38,6 @@
   "terminal.integrated.defaultLocation": "editor",
   "editor.minimap.enabled": false,
   "editor.wordWrap": "on",
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "editor.suggest.selectionMode": "whenTriggerCharacter"
 }
