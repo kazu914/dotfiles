@@ -87,26 +87,6 @@
         "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
     },
     {
-        "key": "] g",
-        "command": "editor.action.marker.next",
-        "when": "neovim.mode == normal && editorFocus"
-    },
-    {
-        "key": "alt+f8",
-        "command": "-editor.action.marker.next",
-        "when": "editorFocus"
-    },
-    {
-        "key": "[ g",
-        "command": "editor.action.marker.prev",
-        "when": "neovim.mode == normal && editorFocus"
-    },
-    {
-        "key": "shift+alt+f8",
-        "command": "-editor.action.marker.prev",
-        "when": "editorFocus"
-    },
-    {
         "key": "ctrl+s ,",
         "command": "workbench.action.terminal.rename"
     },
@@ -139,26 +119,6 @@
     {
         "key": "cmd+w",
         "command": "-workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "] c",
-        "command": "workbench.action.editor.nextChange",
-        "when": "editorTextFocus && !textCompareEditorActive"
-    },
-    {
-        "key": "alt+f5",
-        "command": "-workbench.action.editor.nextChange",
-        "when": "editorTextFocus && !textCompareEditorActive"
-    },
-    {
-        "key": "[ c",
-        "command": "workbench.action.editor.previousChange",
-        "when": "editorTextFocus && !textCompareEditorActive"
-    },
-    {
-        "key": "shift+alt+f5",
-        "command": "-workbench.action.editor.previousChange",
-        "when": "editorTextFocus && !textCompareEditorActive"
     },
     {
         "key": "ctrl+j",

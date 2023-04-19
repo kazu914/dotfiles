@@ -1,6 +1,5 @@
-vim.g.mapleader = ' '
-vim.keymap.set("n", "<leader>w", "<Cmd>call VSCodeNotify('workbench.action.files.save')<CR>")
-vim.keymap.set("n", "<leader>q", "<Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>")
+vim.keymap.set("n", "<Space>w", "<Cmd>call VSCodeNotify('workbench.action.files.save')<CR>")
+vim.keymap.set("n", "<Space>q", "<Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>")
 
 -- カーソル下の単語ハイライト
 vim.keymap.set('n', '<Space><Space>', '"zyiw:let @/ = @z <CR>:set hlsearch<CR>')
@@ -18,3 +17,12 @@ vim.keymap.set("n", "j",
     ":<C-u>call rpcrequest(g:vscode_channel, 'vscode-command', 'cursorMove', { 'to': 'down', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>")
 
 vim.keymap.set("n", "<Space>f", "<Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>")
+
+vim.keymap.set("n", "[g", "<Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>")
+
+vim.keymap.set("n", "]g", "<Cmd>call VSCodeNotify('editor.action.marker.next')<CR>")
+
+
+vim.keymap.set("n", "[c", "<Cmd>call VSCodeNotify('workbench.action.editor.previousChange')<CR>")
+
+vim.keymap.set("n", "]c", "<Cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>")
