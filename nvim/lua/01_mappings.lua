@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 vim.g.mapleader = ' '
 
 local function map(mode, lhs, rhs, opts)
