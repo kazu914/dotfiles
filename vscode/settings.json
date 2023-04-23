@@ -41,5 +41,11 @@
   "redhat.telemetry.enabled": false,
   "editor.suggest.selectionMode": "whenTriggerCharacter",
   "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.enableMultiLinePasteWarning": false
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "window.restoreWindows": "none",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.persistentSessionScrollback": 10000,
+  "workbench.localHistory.enabled": false,
+  "workbench.editor.restoreViewState": false,
+  "files.hotExit": "off"
 }
