@@ -1,0 +1,19 @@
+return {
+    {
+        'phaazon/hop.nvim',
+        config = function()
+            vim.keymap.set('n', "<Leader>l", ':HopWord<CR>', {})
+            vim.keymap.set('n', "<Leader>j", ':HopLine<CR>', {})
+            require 'hop'.setup()
+        end
+    },
+    {
+        'yuki-yano/fuzzy-motion.vim',
+        dependencies = {
+            'vim-denops/denops.vim'
+        },
+        config = function()
+            vim.keymap.set('n', '<leader>s', ':FuzzyMotion<CR>', {})
+        end
+    }
+}
