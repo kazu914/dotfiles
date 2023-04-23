@@ -39,5 +39,7 @@
   "editor.minimap.enabled": false,
   "editor.wordWrap": "on",
   "redhat.telemetry.enabled": false,
-  "editor.suggest.selectionMode": "whenTriggerCharacter"
+  "editor.suggest.selectionMode": "whenTriggerCharacter",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false
 }
