@@ -13,10 +13,11 @@ local function openApp(app, path)
 end
 
 -- [[
--- open terminal
+-- open vscode
 -- ]]
 hs.hotkey.bind({ "cmd" }, "space",
-  function() openApp('wezterm', '/Applications/wezterm.app') end)
+  function() openApp('code', '/Applications/Visual Studio Code.app') end)
+
 
 -- [[
 -- open teams
