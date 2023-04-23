@@ -34,7 +34,7 @@
     {
         "key": ", f",
         "command": "workbench.action.quickOpen",
-        "when": "neovim.mode != insert"
+        "when": "neovim.mode != insert && !terminalFocus"
     },
     {
         "key": "cmd+p",
