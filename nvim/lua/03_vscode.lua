@@ -28,3 +28,5 @@ vim.keymap.set("n", "[c", "<Cmd>call VSCodeNotify('workbench.action.editor.previ
 vim.keymap.set("n", "]c", "<Cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>")
 
 vim.keymap.set("n", "<Space>ca", "<Cmd>call VSCodeNotify('editor.action.quickFix')<CR>")
+
+vim.keymap.set("n", "<Space>rn", "<Cmd>call VSCodeNotify('editor.action.rename')<CR>")
