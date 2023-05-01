@@ -21,7 +21,7 @@
   "git.openRepositoryInParentFolders": "always",
   "boot-java.rewrite.reconcile": true,
   "git.autofetch": true,
-  "editor.acceptSuggestionOnEnter": "off",
+  "editor.acceptSuggestionOnEnter": "smart",
   "security.workspace.trust.untrustedFiles": "open",
   "java.format.settings.url": "~/develop/java/formatter.xml",
   "java.format.settings.profile": "Style",
@@ -39,7 +39,6 @@
   "editor.minimap.enabled": false,
   "editor.wordWrap": "on",
   "redhat.telemetry.enabled": false,
-  "editor.suggest.selectionMode": "whenTriggerCharacter",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "window.restoreWindows": "none",
@@ -47,5 +46,8 @@
   "terminal.integrated.persistentSessionScrollback": 10000,
   "workbench.localHistory.enabled": false,
   "workbench.editor.restoreViewState": false,
-  "files.hotExit": "off"
+  "files.hotExit": "off",
+  "terminal.integrated.shellIntegration.suggestEnabled": true,
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.suggest.preview": true
 }
