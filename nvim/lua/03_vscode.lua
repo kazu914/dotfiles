@@ -4,6 +4,10 @@ vim.keymap.set("n", "<Space>q", "<Cmd>call VSCodeNotify('workbench.action.closeA
 -- カーソル下の単語ハイライト
 vim.keymap.set('n', '<Space><Space>', '"zyiw:let @/ = @z <CR>:set hlsearch<CR>')
 
+
+vim.keymap.set('i', '<C-j>', 'col(".") == col("$") ? \'<C-j>\' : \'<ESC>A\'',
+    { noremap = true, silent = true, expr = true })
+
 -- open referenceSearch
 vim.keymap.set('n', "gh", "<Cmd>call VSCodeNotify('editor.action.referenceSearch.trigger')<CR>")
 
