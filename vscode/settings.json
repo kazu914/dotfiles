@@ -49,5 +49,14 @@
   "files.hotExit": "off",
   "terminal.integrated.shellIntegration.suggestEnabled": true,
   "editor.suggestOnTriggerCharacters": false,
-  "editor.suggest.preview": true
+  "editor.suggest.preview": true,
+  "explorer.confirmDelete": false,
+  "eslint.format.enable": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.confirmDragAndDrop": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }
