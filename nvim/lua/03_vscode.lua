@@ -8,6 +8,10 @@ vim.keymap.set('n', '<Space><Space>', '"zyiw:let @/ = @z <CR>:set hlsearch<CR>')
 vim.keymap.set('i', '<C-j>', 'col(".") == col("$") ? \'<C-j>\' : \'<ESC>A\'',
     { noremap = true, silent = true, expr = true })
 
+-- コピペのときに自動で対象の末尾に移動
+vim.keymap.set('v', 'y', 'y`]')
+vim.keymap.set({ 'n', 'v' }, 'p', 'p`]')
+
 -- open referenceSearch
 vim.keymap.set('n', "gh", "<Cmd>call VSCodeNotify('editor.action.referenceSearch.trigger')<CR>")
 

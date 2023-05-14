@@ -58,5 +58,15 @@
   "explorer.confirmDragAndDrop": false,
   "[typescriptreact]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "mohd-akram.vscode-html-format"
+  },
+  "workbench.editor.untitled.hint": "hidden",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
   }
 }
