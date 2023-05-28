@@ -28,7 +28,7 @@ fswitch() {
   if [ $# != 0 ]; then
     selected=$@
   else 
-    selected=`git for-each-ref refs/heads/ refs/remotes/ --format='%(refname:short)' | fzf --preview "git log --graph --color --pretty=format:'%>|(20,trunc)%C(red)%h%C(reset) (%><(13,trunc)%C(blue)%cr%C(reset))  %<(50,trunc)%C(yellow)%s%C(reset)  %C(cyan)<%an>%C(reset)' --abbrev-commit {}"`
+    selected=`git for-each-ref refs/heads/ refs/remotes/ --format='%(refname:short)' --sort='-committerdate' | fzf --preview "git log --graph --color --pretty=format:'%>|(20,trunc)%C(red)%h%C(reset) (%><(13,trunc)%C(blue)%cr%C(reset))  %<(50,trunc)%C(yellow)%s%C(reset)  %C(cyan)<%an>%C(reset)' --abbrev-commit {}"`
   fi
   if [ -n "$selected" ]; then
     if [ "`echo $selected | grep 'origin'`" ]; then
