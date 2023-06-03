@@ -3,10 +3,6 @@ if vim.g.vscode then
 end
 return {
   {
-    'folke/neodev.nvim',
-    config = true
-  },
-  {
     'akinsho/flutter-tools.nvim',
     ft = 'dart',
     dependencies = 'nvim-lua/plenary.nvim',

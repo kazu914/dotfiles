@@ -206,22 +206,16 @@ return {
     'rcarriga/nvim-notify',
     config = function()
       vim.notify = require("notify")
+
     end
   },
   {
     'neoclide/coc.nvim',
-    ft = { 'java', 'typescript', 'xml', 'text', 'json', 'sql' },
     dependencies = {
       'fannheyward/telescope-coc.nvim'
     },
     config = function()
-      vim.api.nvim_create_augroup('java_coc', {})
-      vim.api.nvim_create_autocmd('FileType java,typescript,xml,text,json,sql', {
-        group = 'java_coc',
-        callback = function()
-          require('plugins_config/coc_settings').setup()
-        end
-      })
+          require('plugins_config/coc_settings')
     end
   },
   {

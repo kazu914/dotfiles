@@ -14,8 +14,6 @@ require '00_settings'
 require '01_mappings'
 require("lazy").setup("plugins")
 
-if not vim.g.vscode then
-  require '02_lsp_setting'
-else
+if vim.g.vscode then
   require '03_vscode'
 end
