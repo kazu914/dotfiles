@@ -34,10 +34,10 @@ return {
         },
         extensions = {
           fzf = {
-            fuzzy = true, -- false will only do exact matching
+            fuzzy = true,                    -- false will only do exact matching
             override_generic_sorter = false, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case" -- or "ignore_case" or "respect_case"
+            override_file_sorter = true,     -- override the file sorter
+            case_mode = "smart_case"         -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
           }
         }
@@ -206,7 +206,6 @@ return {
     'rcarriga/nvim-notify',
     config = function()
       vim.notify = require("notify")
-
     end
   },
   {
@@ -215,7 +214,7 @@ return {
       'fannheyward/telescope-coc.nvim'
     },
     config = function()
-          require('plugins_config/coc_settings')
+      require('plugins_config/coc_settings')
     end
   },
   {
@@ -253,19 +252,20 @@ return {
       }
       local sections = {
         lualine_a = { { 'branch', colored = false } },
-        lualine_b = { { 'diff', colored = false }, { 'diagnostics', colored = false, always_visible = true }, { 'g:coc_status', colored = false, always_visible = true } },
+        lualine_b = { { 'diff', colored = false }, { 'diagnostics', colored = false, always_visible = true },
+          { 'g:coc_status', colored = false, always_visible = true } },
         lualine_c = { { 'filename', path = 1 },
-        { navic.get_location, cond = navic.is_available }
-      },
-      lualine_x = {},
-      lualine_y = { 'filetype', 'encoding', 'fileformat' },
-      lualine_z = { 'mode' }
-    }
-    local inactive_sections = {
-      lualine_c = { { 'filename', path = 1 } }
-    }
+          { navic.get_location, cond = navic.is_available }
+        },
+        lualine_x = {},
+        lualine_y = { 'filetype', 'encoding', 'fileformat' },
+        lualine_z = { 'mode' }
+      }
+      local inactive_sections = {
+        lualine_c = { { 'filename', path = 1 } }
+      }
 
-    require('lualine').setup { options = options, sections = sections, inactive_sections = inactive_sections }
-  end
-},
+      require('lualine').setup { options = options, sections = sections, inactive_sections = inactive_sections }
+    end
+  },
 }
