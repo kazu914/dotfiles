@@ -32,4 +32,3 @@ vim.opt.undofile=true
 vim.opt.listchars="tab:>-"
 vim.opt.list=true
 vim.opt.mouse = nil
-vim.opt.laststatus=0
