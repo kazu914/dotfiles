@@ -268,4 +268,16 @@ return {
       require('lualine').setup { options = options, sections = sections, inactive_sections = inactive_sections }
     end
   },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('nvim-treesitter.configs').setup(
+        {
+          highlight = {
+            enable = true
+          }
+        }
+      )
+    end
+  }
 }
