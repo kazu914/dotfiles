@@ -14,6 +14,8 @@
   "lir.nvim": { "branch": "master", "commit": "959ac31dae906fb71181c2e75ace62ffb1fff8c8" },
   "lualine.nvim": { "branch": "master", "commit": "05d78e9fd0cdfb4545974a5aa14b1be95a86e9c9" },
   "modes.nvim": { "branch": "main", "commit": "4d97a51ebbdb649b85f6d79da0009fddd7081a6b" },
+  "noice.nvim": { "branch": "main", "commit": "a3318600bc1eba2cca84e879048c1ab8d4a0262d" },
+  "nui.nvim": { "branch": "main", "commit": "e319f2554d14a521f4271576ebff2685105d7628" },
   "nvim-hlslens": { "branch": "main", "commit": "5e3e9088fba7508cee3612ee50b14dfdd3ab19af" },
   "nvim-navic": { "branch": "master", "commit": "15704c607569d6c5cfeab486d3ef9459645a70ce" },
   "nvim-notify": { "branch": "master", "commit": "ea9c8ce7a37f2238f934e087c255758659948e0f" },
