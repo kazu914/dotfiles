@@ -290,5 +290,11 @@ return {
     config = function()
       require("noice").setup({})
     end
+  },
+  {
+    "HampusHauffman/block.nvim",
+    config = function()
+      require("block").setup({})
+    end
   }
 }
