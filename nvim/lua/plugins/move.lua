@@ -7,13 +7,4 @@ return {
             require 'hop'.setup()
         end
     },
-    {
-        'yuki-yano/fuzzy-motion.vim',
-        dependencies = {
-            'vim-denops/denops.vim'
-        },
-        config = function()
-            vim.keymap.set('n', '<leader>s', ':FuzzyMotion<CR>', {})
-        end
-    }
 }
