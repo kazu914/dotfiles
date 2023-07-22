@@ -17,7 +17,7 @@ wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
   }
 end)
 
-wezterm.on("update-right-status", function(window, pane)
+wezterm.on("update-status", function(window, pane)
   if pane:get_user_vars().color_scheme ~= nil then
     window:set_config_overrides({
       value = { color_scheme = pane:get_user_vars().color_scheme }
@@ -43,7 +43,7 @@ wezterm.on("update-right-status", function(window, pane)
 
     local clipboard = {
       { Foreground = { AnsiColor = "Red" } },
-      { Text = wezterm.nerdfonts.mdi_clipboard_outline .. " " .. text }
+      { Text = wezterm.nerdfonts.md_clipboard_outline .. " " .. text }
     }
     local lines = {
       { Foreground = { AnsiColor = #line == 1 and "Red" or "Yellow" } },
@@ -56,7 +56,7 @@ wezterm.on("update-right-status", function(window, pane)
   -- Date
   local date = {
     { Foreground = { AnsiColor = "Red" } }, {
-    Text = wezterm.nerdfonts.mdi_clock .. " " ..
+    Text = wezterm.nerdfonts.md_clock .. " " ..
         wezterm.strftime("%Y-%m-%d (%a) %H:%M:%S")
   }
   }
