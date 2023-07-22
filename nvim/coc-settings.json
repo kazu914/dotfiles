@@ -7,7 +7,12 @@
     "rounded": true
   },
   "suggest.virtualText": false,
-  "suggest.formatItems": ["kind", "abbr", "menu", "shortcut"],
+  "suggest.formatItems": [
+    "kind",
+    "abbr",
+    "menu",
+    "shortcut"
+  ],
   "suggest.completionItemKindLabels": {
     "text": "Text",
     "method": "Method",
