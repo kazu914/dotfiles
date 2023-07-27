@@ -10,7 +10,6 @@ vim.opt.number = true
 vim.opt.title = true
 vim.opt.backspace = "indent,eol,start"
 vim.opt.inccommand = "split"
-vim.opt.imdisable = true
 vim.opt.hidden = true
 vim.opt.termguicolors = true
 vim.opt.ignorecase = true
