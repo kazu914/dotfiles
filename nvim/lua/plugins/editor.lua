@@ -348,6 +348,9 @@ return {
           },
         }
       })
+
+      vim.keymap.set('n', '<Esc><Esc>', ':nohlsearch<CR>:lua require("notify").dismiss()<CR>',
+        { noremap = true, silent = true })
     end
   },
   {
