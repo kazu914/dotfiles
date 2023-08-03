@@ -23,7 +23,7 @@ delombok () {
 
 # cd -> auto ls
 cd (){
-  z "$@" && pwd && lsd --tree -a --depth=1
+  __zoxide_z "$@" && pwd && lsd --tree -a --depth=1
 }
 
 alias tmp='kakisute'
