@@ -9,6 +9,31 @@ wezterm.on("format-window-title", function(_, pane)
   return title
 end)
 
+local function tab_title(tab_info)
+  local title = tab_info.tab_title
+  -- if the tab title is explicitly set, take that
+  if title and #title > 0 then
+    return title
+  end
+  -- Otherwise, use the title from the active pane
+  -- in that tab
+  return tab_info.active_pane.title
+end
+
+wezterm.on(
+  'format-tab-title',
+  function(tab, _, _, _, _, max_width)
+    local title = wezterm.truncate_right(tab_title(tab), max_width - 2)
+    title = utils.padding_with_spaces(title, max_width)
+    if tab.is_active then
+      return {
+        { Text = ' ' .. title .. ' ' },
+      }
+    end
+    return title
+  end
+)
+
 wezterm.on("update-status", function(window, pane)
   if pane:get_user_vars().color_scheme ~= nil then
     window:set_config_overrides({
