@@ -65,5 +65,6 @@
   "java.format.settings.url": "~/develop/java/formatter.xml",
   "java.format.settings.profile": "Style",
   "java.compile.nullAnalysis.mode": "automatic",
-  "inlayHint.enable": false
+  "inlayHint.enable": false,
+  "deno.enable": true
 }
