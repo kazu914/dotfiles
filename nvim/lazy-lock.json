@@ -4,6 +4,7 @@
   "buftabline.nvim": { "branch": "main", "commit": "d86b08c558eb587159b549e9a9ef77f0c21b5426" },
   "catppuccin": { "branch": "main", "commit": "371430f32f2637d2dd5796399b3982d4cada61d8" },
   "coc.nvim": { "branch": "master", "commit": "eba04ac7df3a24902a689ad5710cd156bdd963b8" },
+  "copilot.vim": { "branch": "release", "commit": "97a9f1af97627b6aebeef864c981539ac1776b69" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "flash.nvim": { "branch": "main", "commit": "967117690bd677cb7b6a87f0bc0077d2c0be3a27" },
   "flutter-tools.nvim": { "branch": "main", "commit": "561d85b16d8ca2938820a9c26b2fe74096d89c81" },

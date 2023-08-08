@@ -394,5 +394,11 @@ return {
         }
       })
     end
+  },
+  {
+    'github/copilot.vim',
+    config = function()
+      vim.g.copilot_enabled=false
+    end
   }
 }
