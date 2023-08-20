@@ -67,5 +67,6 @@
   "java.format.settings.profile": "Style",
   "java.compile.nullAnalysis.mode": "automatic",
   "inlayHint.enable": false,
-  "deno.enable": true
+  "deno.enable": true,
+  "sumneko-lua.enableNvimLuaDev": true
 }
