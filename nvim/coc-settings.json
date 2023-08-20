@@ -56,6 +56,7 @@
   "diagnostic.format": "%message [%source]",
   "diagnostic.virtualTextPrefix": "■ ",
   "diagnostic.virtualText": true,
+  "diagnostic.virtualTextFormat": "%message [%source]",
   "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic.enableMessage": "jump",
   "diagnostic.floatConfig": {
