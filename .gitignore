@@ -5,3 +5,4 @@ nvim/enabled
 nvim/plugin
 
 zsh/enabled
+.vim
