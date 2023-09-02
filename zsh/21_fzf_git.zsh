@@ -4,7 +4,7 @@
 fadd() {
   local out q n addfiles
   while out=$(
-      git status --short |
+      git status -u --short |
       awk '{if (substr($0,2,1) !~ / /) print $2}' |
       fzf --multi --exit-0 --expect=ctrl-d --preview "if git ls-files --error-unmatch {} > /dev/null 2>&1; then git diff --color {}; else bat  --color=always --style=header --line-range :100 {}; fi"); do
     q=$(head -1 <<< "$out")
