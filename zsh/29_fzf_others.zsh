@@ -10,7 +10,7 @@ fvim (){
   local -a candidate
   empty="(Empty)"
   basedir=`git rev-parse --show-superproject-working-tree --show-toplevel | head -1`
-  candidate=`fd -t f . $basedir | sed "s|^$basedir||g"`
+  candidate=`fd -E "*.jar" -t f . $basedir | sed "s|^$basedir||g"`
   candidate=($empty"\n"${candidate[@]})
 
   if [ $# = 0 ];then
