@@ -26,7 +26,7 @@ cd (){
   __zoxide_z "$@" && pwd && lsd --tree -a --depth=1
 }
 
-alias tmp='kakisute'
+alias kk='kakisute interact'
 
 if builtin command -v gsed > /dev/null; then
   alias sed='gsed'
