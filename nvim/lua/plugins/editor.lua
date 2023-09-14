@@ -290,5 +290,18 @@ return {
     config = function()
       vim.g.copilot_enabled = false
     end
+  },
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = function()
+      require('colorful-winsep').setup(
+      {
+        highlight = {
+          fg = "#0E9CEF"
+        }
+      }
+      )
+    end,
+    event = { "WinNew" },
   }
 }

@@ -4,6 +4,7 @@
   "buftabline.nvim": { "branch": "main", "commit": "d86b08c558eb587159b549e9a9ef77f0c21b5426" },
   "catppuccin": { "branch": "main", "commit": "85e93601e0f0b48aa2c6bbfae4d0e9d7a1898280" },
   "coc.nvim": { "branch": "master", "commit": "eded814de3209548172b3a919f3d9e6f3ea35a3c" },
+  "colorful-winsep.nvim": { "branch": "main", "commit": "e1b72c498f25c1fc37a7e9913332c137f753a90a" },
   "copilot.vim": { "branch": "release", "commit": "719dd8d0beab993dbad47a9e86ecb0dbd4a99da5" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "flash.nvim": { "branch": "main", "commit": "8a8e74922a383c253b7f92e042b749150140c8d1" },
