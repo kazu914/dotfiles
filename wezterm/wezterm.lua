@@ -230,8 +230,7 @@ return {
       style = "Normal"
     })
   },
-  -- colors = {foreground = "#FFFFFF", background = "#000000"},
-  color_scheme = "Monokai (terminal.sexy)",
+  color_scheme = "Catppuccin Macchiato",
   window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
   -- Bindings
   disable_default_key_bindings = true,
@@ -242,5 +241,6 @@ return {
   -- Others
   use_ime = true,
   skip_close_confirmation_for_processes_named = { '' },
-  exit_behavior = 'Close'
+  exit_behavior = 'Close',
+  use_fancy_tab_bar = false,
 }
