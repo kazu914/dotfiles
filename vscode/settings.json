@@ -68,5 +68,12 @@
   },
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
-  }
+  },
+  "github.copilot.editor.enableAutoCompletions": false,
+  "github.copilot.inlineSuggest.enable": false,
+  "github.copilot.enable": {
+    "*": false
+  },
+  "github.copilot.editor.enableCodeActions": false,
+  "github.copilot.editor.iterativeFixing": false
 }
