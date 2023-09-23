@@ -20,17 +20,37 @@ local function tab_title(tab_info)
   return tab_info.active_pane.title
 end
 
+local DIVIDER_LEFT = wezterm.nerdfonts.ple_pixelated_squares_big_mirrored .. ' '
+local DIVIDER_RIGHT = wezterm.nerdfonts.ple_pixelated_squares_big
 wezterm.on(
   'format-tab-title',
-  function(tab, _, _, _, _, max_width)
-    local title = wezterm.truncate_right(tab_title(tab), max_width - 2)
-    title = utils.padding_with_spaces(title, max_width)
+  function(tab, _, _, _, hover, max_width)
+    local title = wezterm.truncate_right(tab_title(tab), max_width - 5)
+    title = utils.padding_with_spaces(title, max_width - 5)
+    local edge_background = '#0b0022'
+    local background = '#00394a'
+    local foreground = '#f3f3f3'
+
     if tab.is_active then
-      return {
-        { Text = ' ' .. title .. ' ' },
-      }
+      background = '#32b9ff'
+      foreground = '#383a42'
+    elseif hover then
+      background = '#005c78'
+      foreground = '#909090'
     end
-    return title
+
+    local edge_foreground = background
+    return {
+      { Background = { Color = edge_background } },
+      { Foreground = { Color = edge_foreground } },
+      { Text = DIVIDER_LEFT },
+      { Background = { Color = background } },
+      { Foreground = { Color = foreground } },
+      { Text = ' ' .. title .. ' '},
+      { Background = { Color = edge_background } },
+      { Foreground = { Color = edge_foreground } },
+      { Text = DIVIDER_RIGHT },
+    }
   end
 )
 
