@@ -20,6 +20,18 @@ local function tab_title(tab_info)
   return tab_info.active_pane.title
 end
 
+local color = {
+  blue = '#32b9ff',
+  black = '#383a42',
+  white = '#f3f3f3',
+  yellow = '#ffea00',
+  red = '#D2042D',
+  dark_purple = '#0b0022',
+  green_blue = '#005c78',
+  dark_green_blue = '#00394a',
+  gray = '#909090'
+}
+
 local DIVIDER_LEFT = wezterm.nerdfonts.ple_pixelated_squares_big_mirrored .. ' '
 local DIVIDER_RIGHT = wezterm.nerdfonts.ple_pixelated_squares_big
 wezterm.on(
@@ -27,16 +39,16 @@ wezterm.on(
   function(tab, _, _, _, hover, max_width)
     local title = wezterm.truncate_right(tab_title(tab), max_width - 5)
     title = utils.padding_with_spaces(title, max_width - 5)
-    local edge_background = '#0b0022'
-    local background = '#00394a'
-    local foreground = '#f3f3f3'
+    local edge_background = color.dark_purple
+    local background = color.dark_green_blue
+    local foreground = color.white
 
     if tab.is_active then
-      background = '#32b9ff'
-      foreground = '#383a42'
+      background = color.blue
+      foreground = color.black
     elseif hover then
-      background = '#005c78'
-      foreground = '#909090'
+      background = color.green_blue
+      foreground = color.gray
     end
 
     local edge_foreground = background
@@ -46,7 +58,7 @@ wezterm.on(
       { Text = DIVIDER_LEFT },
       { Background = { Color = background } },
       { Foreground = { Color = foreground } },
-      { Text = ' ' .. title .. ' '},
+      { Text = ' ' .. title .. ' ' },
       { Background = { Color = edge_background } },
       { Foreground = { Color = edge_foreground } },
       { Text = DIVIDER_RIGHT },
@@ -64,10 +76,11 @@ wezterm.on("update-status", function(window, pane)
   local cells = {}
 
   -- divider
-  local divider = { { Foreground = { AnsiColor = "White" } }, { Text = " | " } }
+  local divider = { { Foreground = { Color = color.white } },
+    { Text = ' ' .. wezterm.nerdfonts.md_drag_vertical .. ' ' } }
 
   -- trailing space
-  local ts = { { Foreground = { AnsiColor = "Red" } }, { Text = " " } }
+  local ts = { { Foreground = { Color = color.blue } }, { Text = " " } }
 
   -- Get Clipboard
   local success, stdout = wezterm.run_child_process({ "pbpaste" })
@@ -79,11 +92,11 @@ wezterm.on("update-status", function(window, pane)
     if #text == 50 then text = text .. " .." end
 
     local clipboard = {
-      { Foreground = { AnsiColor = "Red" } },
+      { Foreground = { Color = color.blue } },
       { Text = wezterm.nerdfonts.md_clipboard_outline .. " " .. text }
     }
     local lines = {
-      { Foreground = { AnsiColor = #line == 1 and "Red" or "Yellow" } },
+      { Foreground = { Color = #line == 1 and color.blue or color.yellow } },
       { Text = tostring(#line) }
     }
     table.insert(cells, clipboard)
@@ -92,9 +105,9 @@ wezterm.on("update-status", function(window, pane)
 
   -- Date
   local date = {
-    { Foreground = { AnsiColor = "Red" } }, {
+    { Foreground = { Color = color.blue } }, {
     Text = wezterm.nerdfonts.md_clock .. " " ..
-        wezterm.strftime("%Y-%m-%d (%a) %H:%M:%S")
+        wezterm.strftime("%Y-%m-%d (%A) %H:%M:%S")
   }
   }
 
@@ -102,10 +115,10 @@ wezterm.on("update-status", function(window, pane)
 
   -- Leader
   if window:leader_is_active() then
-    local leader = { { Foreground = { AnsiColor = "Blue" } }, { Text = "LEADER" } }
+    local leader = { { Foreground = { Color = color.red } }, { Text = "LEADER" } }
     table.insert(cells, leader)
   else
-    local leader = { { Foreground = { AnsiColor = "Red" } }, { Text = "NORMAL" } }
+    local leader = { { Foreground = { Color = color.blue } }, { Text = "NORMAL" } }
     table.insert(cells, leader)
   end
 
