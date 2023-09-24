@@ -295,13 +295,28 @@ return {
     "nvim-zh/colorful-winsep.nvim",
     config = function()
       require('colorful-winsep').setup(
-      {
-        highlight = {
-          fg = "#0E9CEF"
+        {
+          highlight = {
+            fg = "#0E9CEF"
+          }
         }
-      }
       )
     end,
     event = { "WinNew" },
+  },
+  {
+    'stevearc/conform.nvim',
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          python = { "isort", "black" },
+          json = { "jq" },
+          markdown = { "mdformat" },
+          toml = { "taplo" },
+          ["*"] = { "trim_whitespace" }
+        }
+
+      })
+    end
   }
 }

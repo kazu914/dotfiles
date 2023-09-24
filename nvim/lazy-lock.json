@@ -6,6 +6,7 @@
   "coc.nvim": { "branch": "master", "commit": "2a73b9dc7e3e8bcd47285e8245bd2dfd41911ac7" },
   "colorful-winsep.nvim": { "branch": "main", "commit": "e1b72c498f25c1fc37a7e9913332c137f753a90a" },
   "copilot.vim": { "branch": "release", "commit": "998cf5ab1b85e844c7e8edb864a997e590df7182" },
+  "conform.nvim": { "branch": "master", "commit": "bb247ae8cec898d24f0fbe90ae85f497010bc0c5" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "flash.nvim": { "branch": "main", "commit": "cc8c7e03987134997d74ee87e55a5717279f2d05" },
   "flutter-tools.nvim": { "branch": "main", "commit": "0b01c71ecf05a2edd955b5b53d808bc64f143069" },
