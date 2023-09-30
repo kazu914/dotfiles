@@ -1,5 +1,15 @@
 theme = "catppuccin_macchiato"
 
+[editor]
+color-modes = true
+cursorline = true
+bufferline = "always"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
 [keys.insert]
 j = { j = "normal_mode" }
 
