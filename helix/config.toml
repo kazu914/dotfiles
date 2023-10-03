@@ -31,7 +31,10 @@ j = { j = "normal_mode" }
 [keys.normal]
 "C-l" = "jump_view_right"
 "C-h" = "jump_view_left"
+"C" = ["select_mode", "goto_line_end", "change_selection_noyank"]
+"D" = ["select_mode", "goto_line_end", "delete_selection_noyank"]
 
 [keys.normal.space]
 w = ":write"
 q = ":quit"
+"space" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection"]
