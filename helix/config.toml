@@ -33,6 +33,7 @@ j = { j = "normal_mode" }
 "C-h" = "jump_view_left"
 "C" = ["select_mode", "goto_line_end", "change_selection_noyank"]
 "D" = ["select_mode", "goto_line_end", "delete_selection_noyank"]
+"V" = ["select_mode", "extend_to_line_bounds"]
 
 [keys.normal.space]
 w = ":write"
