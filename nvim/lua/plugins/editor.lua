@@ -119,7 +119,7 @@ return {
     event = 'InsertEnter',
     config = function()
       vim.opt.cursorline = true
-      require('modes').setup()
+      require('modes').setup({})
     end
   },
   {
