@@ -3,6 +3,7 @@
   ignorecase = false
   filemode = false
   pager = delta -n -s
+  quotepath = false
 [push]
   default = current
 [color]
