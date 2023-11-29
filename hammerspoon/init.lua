@@ -36,6 +36,10 @@ hs.hotkey.bind({ "ctrl" }, "m", function()
   hs.eventtap.keyStroke(nil, hs.keycodes.map["return"], 0)
 end)
 
+hs.hotkey.bind({ "cmd" }, "p", function()
+  openApp("cgom", "/Applications/cgom.app")
+end)
+
 local function file_exists(name)
   local f = io.open(name, "r")
   if f ~= nil then
