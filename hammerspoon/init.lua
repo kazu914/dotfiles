@@ -22,7 +22,7 @@ hs.hotkey.bind({ "cmd" }, "space",
 -- open teams
 -- ]]
 hs.hotkey.bind({ "cmd" }, "t", function()
-  openApp('teams', '/Applications/Microsoft Teams.app')
+  openApp('teams', '/Applications/Microsoft Teams classic.app')
 end)
 
 -- [[
