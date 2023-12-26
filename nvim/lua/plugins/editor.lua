@@ -2,11 +2,13 @@ if vim.g.vscode then
   return {}
 end
 return {
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope-ui-select.nvim'
+      'nvim-telescope/telescope-ui-select.nvim',
+      'nvim-telescope/telescope-fzf-native.nvim'
     },
     config = function()
       vim.keymap.set('n', ',f', require('telescope.builtin').find_files)
@@ -44,6 +46,7 @@ return {
       }
 
       require("telescope").load_extension("ui-select")
+      require('telescope').load_extension('fzf')
     end
   },
   {
