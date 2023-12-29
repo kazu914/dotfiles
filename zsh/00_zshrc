@@ -21,4 +21,4 @@ if [ -e $HOME/.zshrc.local ]; then
   source $HOME/.zshrc.local 
 fi
 
-eval "$($HOME/.local/share/zinit/plugins/starship---starship/starship init zsh)"
+eval "$(/opt/homebrew/bin/starship init zsh)"
