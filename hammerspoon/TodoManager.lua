@@ -1,5 +1,5 @@
 local FuzzyMatcher = require("FuzzyMatcher")
-local todo_cli = "~/.local/share/zinit/plugins/kazu914---todo_txt_cli/todo";
+local todo_cli = "/usr/local/bin/todo";
 -- [[
 -- Create task
 -- ]]
