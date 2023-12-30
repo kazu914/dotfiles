@@ -2,7 +2,6 @@
   editor = nvim -c \"set fenc=utf-8\"
   ignorecase = false
   filemode = false
-  pager = delta -n -s
   quotepath = false
 [push]
   default = current
@@ -13,11 +12,9 @@
   changed = red
   untracked = blue
   unmerged = yellow
-[interactive]
-    diffFilter = delta --color-only
 [alias]
   st = status --short --branch
-  df = diff
+  df = difftool
   co = commit
   br = branch
   ps = push
@@ -25,11 +22,11 @@
   ck = checkout
   sw = switch
   tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
-[delta]
-    features = side-by-side line-numbers decorations
-    whitespace-error-style = 22 reverse
-
-[delta "decorations"]
-    commit-decoration-style = bold yellow box ul
-    file-style = bold yellow ul
-    file-decoration-style = none
+[diff]
+        tool = difftastic
+[difftool]
+        prompt = false
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+        difftool = true
