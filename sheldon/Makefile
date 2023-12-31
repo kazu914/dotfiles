@@ -1,7 +1,7 @@
 .PHONY: init
 init:
-	ln -svf ${PWD}/plugins.toml ${HOME}/.local/share/sheldon/plugins.toml
+	ln -svf ${PWD}/plugins.toml ${HOME}/.config/sheldon/plugins.toml
 
 .PHONY: clean
 clean:
-	unlink ${HOME}/.local/share/sheldon/plugins.toml || true
+	unlink ${HOME}/.config/sheldon/plugins.toml || true
