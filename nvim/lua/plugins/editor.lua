@@ -330,5 +330,29 @@ return {
       local opts = { noremap = true, silent = true }
       vim.api.nvim_set_keymap("n", "<Leader>ng", ":lua require('neogen').generate()<CR>", opts)
     end
-  }
+  },
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "UIEnter" },
+    config = function()
+      require("hlchunk").setup({
+        chunk = {
+          chars = {
+            horizontal_line = "━",
+            vertical_line = "┃",
+            left_top = "┏",
+            left_bottom = "┗",
+            right_arrow = "▶",
+          },
+          style = {
+            { fg = "#32b9ff", bold = true },
+            { fg = "#c21f30" }, -- this fg is used to highlight wrong chunk
+          },
+        },
+        line_num = {
+          style = "#32b9ff",
+        },
+      })
+    end
+  },
 }

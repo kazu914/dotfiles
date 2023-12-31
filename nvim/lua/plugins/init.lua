@@ -10,11 +10,5 @@ return {
     config = function()
       vim.g.highlightedyank_highlight_duration = -1
     end
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require("ibl").setup {}
-    end
-  },
+  }
 }
