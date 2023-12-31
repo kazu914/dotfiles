@@ -6,3 +6,5 @@ nvim/plugin
 
 zsh/enabled
 .vim
+
+homebrew/Brewfile.lock.json
