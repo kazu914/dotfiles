@@ -53,6 +53,7 @@ symbol = ' '
 [package]
 format = '| [$version]($style) '
 version_format = '${raw}'
+style='underline 208'
 
 [time]
 disabled = false
