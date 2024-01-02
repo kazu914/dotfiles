@@ -276,4 +276,10 @@ return {
   skip_close_confirmation_for_processes_named = { '' },
   exit_behavior = 'Close',
   use_fancy_tab_bar = false,
+  visual_bell = {
+    fade_in_function = 'EaseIn',
+    fade_in_duration_ms = 20,
+    fade_out_function = 'EaseOut',
+    fade_out_duration_ms = 20,
+  },
 }
