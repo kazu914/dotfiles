@@ -5,6 +5,7 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
+$package\
 $custom\
 $fill\
 $cmd_duration\
@@ -15,8 +16,6 @@ $status\
 $line_break\
 $character"""
 
-[fill]
-symbol = ' '
 
 [directory]
 home_symbol = "${HOME}"
@@ -47,6 +46,13 @@ style = 'underline red'
 command = "git config user.email"
 when = "[ -d .git ] && echo .git || git rev-parse --git-dir > /dev/null 2>&1"
 format = "| [$output](underline fg:blue) "
+
+[fill]
+symbol = ' '
+
+[package]
+format = '| [$version]($style) '
+version_format = '${raw}'
 
 [time]
 disabled = false
