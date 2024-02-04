@@ -1,6 +1,7 @@
 if vim.g.vscode then
   return {}
 end
+
 return {
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
@@ -11,12 +12,21 @@ return {
       'nvim-telescope/telescope-fzf-native.nvim'
     },
     config = function()
+      require("telescope").load_extension("ui-select")
+      require('telescope').load_extension('fzf')
       vim.keymap.set('n', ',f', require('telescope.builtin').find_files)
       vim.keymap.set('n', ',g', require('telescope.builtin').git_files)
       vim.keymap.set('n', ',b', require('telescope.builtin').buffers)
       vim.keymap.set('n', ',r', require('telescope.builtin').live_grep)
       vim.keymap.set('n', '<leader>d', function() require('telescope.builtin').diagnostics { bufnr = 0 } end)
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
+
+      -- For lsp
+      vim.keymap.set('n', 'gh', require('telescope.builtin').lsp_definitions)
+      vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references)
+
+      -- For TreeSitter
+      vim.keymap.set('n', 'gt', require('telescope.builtin').treesitter)
 
       local actions = require "telescope.actions"
       require('telescope').setup {
@@ -44,9 +54,6 @@ return {
           }
         }
       }
-
-      require("telescope").load_extension("ui-select")
-      require('telescope').load_extension('fzf')
     end
   },
   {
@@ -220,7 +227,6 @@ return {
       local inactive_sections = {
         lualine_c = { { 'filename', path = 1 } }
       }
-
       require('lualine').setup { options = options, sections = sections, inactive_sections = inactive_sections }
     end
   },
@@ -345,4 +351,51 @@ return {
       })
     end
   },
+  -- nvim-cmp
+  {
+    'hrsh7th/nvim-cmp',
+    event = "InsertEnter",
+    config = function()
+      require('plugins_config/cmp_settings')
+    end
+  },
+  {
+    'onsails/lspkind.nvim'
+  },
+  {
+    'hrsh7th/cmp-nvim-lsp',
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+  },
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup({
+        ui = {
+          border = 'double'
+        }
+      })
+    end
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup_handlers {
+        function(server_name)
+          require('lspconfig')[server_name].setup {}
+        end
+      }
+    end
+  },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require('plugins_config/lsp_settings')
+    end
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip"
+  }
 }

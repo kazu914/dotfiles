@@ -16,4 +16,7 @@ return {
     'mattn/emmet-vim',
     ft = 'vue'
   },
+  {
+    "mfussenegger/nvim-jdtls"
+  }
 }
