@@ -1,5 +1,10 @@
 return {
-  'jiangmiao/auto-pairs',
+  {
+    'windwp/nvim-autopairs',
+    config = function()
+      require("nvim-autopairs").setup()
+    end
+  },
   'tpope/vim-commentary',
   'simeji/winresizer',
   'ntpeters/vim-better-whitespace',
