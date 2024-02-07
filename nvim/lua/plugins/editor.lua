@@ -397,5 +397,25 @@ return {
   {
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip"
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    config = function()
+      local null_ls = require('null-ls')
+      local sources = {
+        null_ls.builtins.diagnostics.cspell.with({
+          diagnostics_postprocess = function(diagnostic)
+            diagnostic.severity = vim.diagnostic.severity["WARN"]
+          end,
+          condition = function()
+            return vim.fn.executable('cspell') > 0
+          end,
+          extra_args = { '--config', vim.fn.expand('$HOME/.config/cspell/cspell.json') }
+        })
+      }
+      null_ls.setup({
+        sources = sources
+      })
+    end
   }
 }
