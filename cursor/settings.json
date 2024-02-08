@@ -1,0 +1,114 @@
+{
+    "editor.suggestSelection": "first",
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.suggest.preview": true,
+    "window.commandCenter": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<Space>",
+                "w"
+            ],
+            "commands": [
+                ":w"
+            ]
+        },
+        {
+            "before": [
+                "<Space>",
+                "q"
+            ],
+            "commands": [
+                ":q"
+            ]
+        },
+        {
+            "before": [
+                "<Space>",
+                "l"
+            ],
+            "commands": [
+                "jumpy2.toggle"
+            ]
+        },
+        {
+            "before": [
+                ",",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "<S-k>"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "g"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "g"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ]
+        },
+        {
+            "before": [
+                "u"
+            ],
+            "commands": [
+                "undo"
+            ]
+        },
+        {
+            "before": [
+                "<C-r>"
+            ],
+            "commands": [
+                "redo"
+            ]
+        },
+        {
+            "before": [
+                "<Space>",
+                "<S-F>"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<ESC>"
+            ]
+        }
+    ],
+    "vim.useSystemClipboard": true,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.defaultLocation": "editor",
+    "editor.fontFamily": "'HackGen35 Console NF'",
+    "editor.renderWhitespace": "all",
+    "editor.fontSize": 12,
+    "editor.renderFinalNewline": "off",
+    "git.openRepositoryInParentFolders": "always",
+}
