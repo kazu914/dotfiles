@@ -91,7 +91,26 @@
                 "editor.action.formatDocument"
             ]
         },
-    ],
+        {
+            "before": [
+                "<Space>",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        },
+        {
+            "before": [
+                "<Space>",
+                "r",
+                "n"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+     ],
     "vim.insertModeKeyBindingsNonRecursive": [
         {
             "before": [
