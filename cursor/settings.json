@@ -118,6 +118,16 @@
             "commands": [
                 ":nohl"
             ]
+        },
+        {
+            "before": [
+                "<Space>",
+                "<Space>"
+            ],
+            "after": [
+                "*",
+                "N"
+            ]
         }
     ],
     "vim.insertModeKeyBindingsNonRecursive": [
