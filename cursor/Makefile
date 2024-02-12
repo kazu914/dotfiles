@@ -12,3 +12,7 @@ init:
 clean:
 	unlink "${CURSOR_SETTING_DIR}/settings.json" || true && \
 	unlink "${CURSOR_SETTING_DIR}/keybindings.json" || true
+
+.PHONY: sync
+sync:
+	cursor --list-extensions > extensions
