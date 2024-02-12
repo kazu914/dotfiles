@@ -159,7 +159,6 @@
     "editor.fontSize": 12,
     "editor.renderFinalNewline": "off",
     "git.openRepositoryInParentFolders": "always",
-    "search.showHighlights": true,
     "vim.hlsearch": true,
     "workbench.colorTheme": "Default Dark+",
     "workbench.colorCustomizations": {
