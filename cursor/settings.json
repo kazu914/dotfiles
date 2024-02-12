@@ -173,5 +173,7 @@
             "scope": "user",
             "addWords": true
         }
-    }
+    },
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 2000
 }
