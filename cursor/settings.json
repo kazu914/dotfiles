@@ -175,5 +175,8 @@
         }
     },
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.duration": 2000
+    "vim.highlightedyank.duration": 2000,
+    "github.copilot.enable": {
+        "*": "false"
+    }
 }
