@@ -156,5 +156,13 @@
         "jumpy2.labelFontColor": "#ffa500",
         "jumpy2.labelBackgroundColor": "#505050",
         "jumpy2.labelBorderColor": "#a0a0a0"
+    },
+    "cSpell.customDictionaries": {
+        "customWords": {
+            "name": "customWords",
+            "path": "~/.cspell/custom-words.txt",
+            "scope": "user",
+            "addWords": true
+        }
     }
 }
