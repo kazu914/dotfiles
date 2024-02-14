@@ -1,6 +1,6 @@
 dofile("WindowManager.lua")
 dofile("ApplicationLaucher.lua")
-dofile("BookmarkOpener.lua")
+-- dofile("BookmarkOpener.lua")
 dofile("TodoManager.lua")
 
 local function openApp(app, path)
