@@ -160,7 +160,7 @@
     "editor.renderFinalNewline": "off",
     "git.openRepositoryInParentFolders": "always",
     "vim.hlsearch": true,
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.colorCustomizations": {
         "jumpy2.labelFontColor": "#ffa500",
         "jumpy2.labelBackgroundColor": "#505050",
@@ -178,5 +178,6 @@
     "vim.highlightedyank.duration": 2000,
     "github.copilot.enable": {
         "*": "false"
-    }
+    },
+    "workbench.iconTheme": "catppuccin-frappe"
 }
