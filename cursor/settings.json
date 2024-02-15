@@ -179,5 +179,5 @@
     "github.copilot.enable": {
         "*": "false"
     },
-    "workbench.iconTheme": "catppuccin-frappe"
+    "workbench.iconTheme": "catppuccin-mocha",
 }
