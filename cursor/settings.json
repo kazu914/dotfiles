@@ -176,8 +176,9 @@
     },
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.duration": 2000,
+    "editor.inlineSuggest.enabled": false,
     "github.copilot.enable": {
-        "*": "false"
+        "*": false
     },
     "workbench.iconTheme": "catppuccin-mocha",
     "indentRainbow.indicatorStyle": "light",
