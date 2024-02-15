@@ -189,5 +189,13 @@
         "rgba(255,127,255,0.3)",
         "rgba(79,236,236,0.3)"
     ],
-    "redhat.telemetry.enabled": false
+    "redhat.telemetry.enabled": false,
+    "errorLens.gutterIconsEnabled": true,
+    "errorLens.gutterIconSet": "emoji",
+    "errorLens.gutterEmoji": {
+        "error": "🤬",
+        "warning": "🥺",
+        "info": "🤔",
+        "hint": "💡"
+    }
 }
