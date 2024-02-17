@@ -15,7 +15,7 @@ end
 -- [[
 -- open wezterm
 -- ]]
-hs.hotkey.bind({ "cmd" }, "space",
+hs.hotkey.bind({ "cmd", "shift" }, "space",
   function() openApp('wezterm', '/Applications/WezTerm.app') end)
 
 -- [[
@@ -35,7 +35,7 @@ end)
 -- [[
 -- open Cursor
 -- ]]
-hs.hotkey.bind({ "cmd" }, "j", function()
+hs.hotkey.bind({ "cmd" }, "space", function()
   openApp("cursor", "/Applications/Cursor.app")
 end)
 
