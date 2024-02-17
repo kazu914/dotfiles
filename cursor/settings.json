@@ -2,6 +2,7 @@
     "editor.suggestSelection": "first",
     "editor.suggestOnTriggerCharacters": false,
     "editor.suggest.preview": true,
+    "editor.wordWrap": "on",
     "window.commandCenter": true,
     "vim.normalModeKeyBindings": [
         {
