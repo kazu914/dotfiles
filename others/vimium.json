@@ -1,0 +1,14 @@
+{
+  "keyMappings": "# Insert your preferred key mappings here.\nmap h goBack\nmap l goForward\nmap <a-˙> previousTab\nmap <a-¬> nextTab\nmap i LinkHints.activateMode\nmap I LinkHints.activateModeToOpenInNewTab\nmap q removeTab",
+  "settingsVersion": "2.0.5",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://leetcode.com/*"
+    }
+  ]
+}
