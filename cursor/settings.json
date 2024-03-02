@@ -149,6 +149,22 @@
             "commands": [
                 "editor.action.revealDefinition"
             ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "commands": [
+                "workbench.action.focusNextGroup"
+            ]
+        },
+        {
+            "before": [
+                "<C-h>"
+            ],
+            "commands": [
+                "workbench.action.focusPreviousGroup"
+            ]
         }
     ],
     "vim.insertModeKeyBindingsNonRecursive": [
