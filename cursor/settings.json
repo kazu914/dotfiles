@@ -176,6 +176,15 @@
             "after": [
                 "<ESC>"
             ]
+        },
+        {
+            "before": [
+                "<C-j>"
+            ],
+            "after": [
+                "<ESC>",
+                "A",
+            ]
         }
     ],
     "vim.useSystemClipboard": true,
