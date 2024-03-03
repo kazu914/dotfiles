@@ -5,7 +5,7 @@
     "editor.wordWrap": "on",
     "files.insertFinalNewline": true,
     "window.commandCenter": true,
-    "vim.normalModeKeyBindings": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "<Space>",
@@ -165,6 +165,24 @@
             "commands": [
                 "workbench.action.focusPreviousGroup"
             ]
+        },
+        {
+            "before": [
+                "j"
+            ],
+            "after": [
+                "g",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "after": [
+                "g",
+                "k"
+            ]
         }
     ],
     "vim.insertModeKeyBindingsNonRecursive": [
@@ -183,7 +201,7 @@
             ],
             "after": [
                 "<ESC>",
-                "A",
+                "A"
             ]
         }
     ],
