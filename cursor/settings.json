@@ -118,7 +118,8 @@
                 "<ESC>"
             ],
             "commands": [
-                ":nohl"
+                ":nohl",
+                "closeMarkersNavigation"
             ]
         },
         {
