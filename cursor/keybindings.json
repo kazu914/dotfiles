@@ -1,4 +1,3 @@
-// Place your key bindings in this file to override the defaults
 [
     {
         "key": "tab",
@@ -40,6 +39,14 @@
     {
         "key": "shift+cmd+]",
         "command": "-workbench.action.nextEditor"
+    },
+    {
+        "key": "shift+alt+h",
+        "command": "workbench.action.moveEditorLeftInGroup"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.action.moveEditorRightInGroup"
     },
     {
         "key": "ctrl+s c",
