@@ -7,203 +7,94 @@
     "window.commandCenter": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": [
-                "<Space>",
-                "w"
-            ],
-            "commands": [
-                ":w"
-            ]
+            "before": ["<Space>", "w"],
+            "commands": [":w"]
         },
         {
-            "before": [
-                "<Space>",
-                "q"
-            ],
-            "commands": [
-                ":q"
-            ]
+            "before": ["<Space>", "q"],
+            "commands": [":q"]
         },
         {
-            "before": [
-                "<Space>",
-                "l"
-            ],
-            "commands": [
-                "jumpy2.toggle"
-            ]
+            "before": ["<Space>", "l"],
+            "commands": ["jumpy2.toggle"]
         },
         {
-            "before": [
-                ",",
-                "f"
-            ],
-            "commands": [
-                "workbench.action.quickOpen"
-            ]
+            "before": [",", "f"],
+            "commands": ["workbench.action.quickOpen"]
         },
         {
-            "before": [
-                "<S-k>"
-            ],
-            "commands": [
-                "editor.action.showHover"
-            ]
+            "before": ["<S-k>"],
+            "commands": ["editor.action.showHover"]
         },
         {
-            "before": [
-                "]",
-                "g"
-            ],
-            "commands": [
-                "editor.action.marker.next"
-            ]
+            "before": ["]", "g"],
+            "commands": ["editor.action.marker.next"]
         },
         {
-            "before": [
-                "[",
-                "g"
-            ],
-            "commands": [
-                "editor.action.marker.prev"
-            ]
+            "before": ["[", "g"],
+            "commands": ["editor.action.marker.prev"]
         },
         {
-            "before": [
-                "u"
-            ],
-            "commands": [
-                "undo"
-            ]
+            "before": ["u"],
+            "commands": ["undo"]
         },
         {
-            "before": [
-                "<C-r>"
-            ],
-            "commands": [
-                "redo"
-            ]
+            "before": ["<C-r>"],
+            "commands": ["redo"]
         },
         {
-            "before": [
-                "<Space>",
-                "<S-F>"
-            ],
-            "commands": [
-                "editor.action.formatDocument"
-            ]
+            "before": ["<Space>", "<S-F>"],
+            "commands": ["editor.action.formatDocument"]
         },
         {
-            "before": [
-                "<Space>",
-                "f"
-            ],
-            "commands": [
-                "workbench.action.toggleSidebarVisibility"
-            ]
+            "before": ["<Space>", "f"],
+            "commands": ["workbench.action.toggleSidebarVisibility"]
         },
         {
-            "before": [
-                "<Space>",
-                "r",
-                "n"
-            ],
-            "commands": [
-                "editor.action.rename"
-            ]
+            "before": ["<Space>", "r", "n"],
+            "commands": ["editor.action.rename"]
         },
         {
-            "before": [
-                "<ESC>",
-                "<ESC>"
-            ],
-            "commands": [
-                ":nohl",
-                "closeMarkersNavigation"
-            ]
+            "before": ["<ESC>", "<ESC>"],
+            "commands": [":nohl", "closeMarkersNavigation"]
         },
         {
-            "before": [
-                "<Space>",
-                "<Space>"
-            ],
-            "after": [
-                "*",
-                "N"
-            ]
+            "before": ["<Space>", "<Space>"],
+            "after": ["*", "N"]
         },
         {
-            "before": [
-                "<Space>",
-                "c",
-                "a"
-            ],
-            "commands": [
-                "editor.action.quickFix"
-            ]
+            "before": ["<Space>", "c", "a"],
+            "commands": ["editor.action.quickFix"]
         },
         {
-            "before": [
-                "g",
-                "h"
-            ],
-            "commands": [
-                "editor.action.revealDefinition"
-            ]
+            "before": ["g", "h"],
+            "commands": ["editor.action.revealDefinition"]
         },
         {
-            "before": [
-                "<C-l>"
-            ],
-            "commands": [
-                "workbench.action.focusNextGroup"
-            ]
+            "before": ["<C-l>"],
+            "commands": ["workbench.action.focusNextGroup"]
         },
         {
-            "before": [
-                "<C-h>"
-            ],
-            "commands": [
-                "workbench.action.focusPreviousGroup"
-            ]
+            "before": ["<C-h>"],
+            "commands": ["workbench.action.focusPreviousGroup"]
         },
         {
-            "before": [
-                "j"
-            ],
-            "after": [
-                "g",
-                "j"
-            ]
+            "before": ["j"],
+            "after": ["g", "j"]
         },
         {
-            "before": [
-                "k"
-            ],
-            "after": [
-                "g",
-                "k"
-            ]
+            "before": ["k"],
+            "after": ["g", "k"]
         }
     ],
     "vim.insertModeKeyBindingsNonRecursive": [
         {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<ESC>"
-            ]
+            "before": ["j", "j"],
+            "after": ["<ESC>"]
         },
         {
-            "before": [
-                "<C-j>"
-            ],
-            "after": [
-                "<ESC>",
-                "A"
-            ]
+            "before": ["<C-j>"],
+            "after": ["<ESC>", "A"]
         }
     ],
     "vim.useSystemClipboard": true,
@@ -238,12 +129,7 @@
     "workbench.iconTheme": "catppuccin-mocha",
     "indentRainbow.indicatorStyle": "light",
     "indentRainbow.lightIndicatorStyleLineWidth": 1,
-    "indentRainbow.colors": [
-        "rgba(255,255,64,0.3)",
-        "rgba(127,255,127,0.3)",
-        "rgba(255,127,255,0.3)",
-        "rgba(79,236,236,0.3)"
-    ],
+    "indentRainbow.colors": ["rgba(255,255,64,0.3)", "rgba(127,255,127,0.3)", "rgba(255,127,255,0.3)", "rgba(79,236,236,0.3)"],
     "redhat.telemetry.enabled": false,
     "errorLens.gutterIconsEnabled": true,
     "errorLens.gutterIconSet": "emoji",
@@ -255,5 +141,10 @@
     },
     "terminal.integrated.env.osx": {
         "FIG_NEW_SESSION": "1"
-    }
+    },
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false
 }
