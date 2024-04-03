@@ -1,79 +1,150 @@
 {
-  "editor.suggestSelection": "first",
-  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/dotfiles/nvim/init.lua",
-  "vscode-neovim.logOutputToConsole": true,
-  "vscode-neovim.logLevel": "debug",
-  "files.exclude": {
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true
-  },
-  "workbench.startupEditor": "none",
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
-  "editor.fontFamily": "'HackGen35 Console NF'",
-  "update.showReleaseNotes": false,
-  "editor.renderWhitespace": "all",
-  "editor.cursorStyle": "block",
-  "git.openRepositoryInParentFolders": "always",
-  "boot-java.rewrite.reconcile": true,
-  "git.autofetch": true,
-  "editor.acceptSuggestionOnEnter": "smart",
-  "security.workspace.trust.untrustedFiles": "open",
-  "java.format.settings.url": "~/develop/java/formatter.xml",
-  "java.format.settings.profile": "Style",
-  "editor.formatOnSave": true,
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Default Dark+ Experimental",
-  "editor.semanticTokenColorCustomizations": {
-    "enabled": true
-  },
-  "editor.fontSize": 13,
-  "editor.inlayHints.enabled": "off",
-  "editor.lightbulb.enabled": false,
-  "editor.renderFinalNewline": "off",
-  "terminal.integrated.defaultLocation": "editor",
-  "editor.minimap.enabled": false,
-  "editor.wordWrap": "on",
-  "redhat.telemetry.enabled": false,
-  "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.enableMultiLinePasteWarning": false,
-  "window.restoreWindows": "none",
-  "terminal.integrated.persistentSessionReviveProcess": "never",
-  "terminal.integrated.persistentSessionScrollback": 10000,
-  "workbench.localHistory.enabled": false,
-  "workbench.editor.restoreViewState": false,
-  "files.hotExit": "off",
-  "terminal.integrated.shellIntegration.suggestEnabled": true,
-  "editor.suggestOnTriggerCharacters": false,
-  "editor.suggest.preview": true,
-  "explorer.confirmDelete": false,
-  "eslint.format.enable": true,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "explorer.confirmDragAndDrop": false,
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "mohd-akram.vscode-html-format"
-  },
-  "workbench.editor.untitled.hint": "hidden",
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
-  },
-  "github.copilot.editor.enableAutoCompletions": false,
-  "github.copilot.inlineSuggest.enable": false,
-  "github.copilot.enable": {
-    "*": false
-  },
-  "github.copilot.editor.enableCodeActions": false,
-  "github.copilot.editor.iterativeFixing": false
+    "editor.suggestSelection": "first",
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.suggest.preview": true,
+    "editor.wordWrap": "on",
+    "files.insertFinalNewline": true,
+    "window.commandCenter": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<Space>", "w"],
+            "commands": [":w"]
+        },
+        {
+            "before": ["<Space>", "q"],
+            "commands": [":q"]
+        },
+        {
+            "before": ["<Space>", "l"],
+            "commands": ["jumpy2.toggle"]
+        },
+        {
+            "before": [",", "f"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<S-k>"],
+            "commands": ["editor.action.showHover"]
+        },
+        {
+            "before": ["]", "g"],
+            "commands": ["editor.action.marker.next"]
+        },
+        {
+            "before": ["[", "g"],
+            "commands": ["editor.action.marker.prev"]
+        },
+        {
+            "before": ["u"],
+            "commands": ["undo"]
+        },
+        {
+            "before": ["<C-r>"],
+            "commands": ["redo"]
+        },
+        {
+            "before": ["<Space>", "<S-F>"],
+            "commands": ["editor.action.formatDocument"]
+        },
+        {
+            "before": ["<Space>", "f"],
+            "commands": ["workbench.action.toggleSidebarVisibility"]
+        },
+        {
+            "before": ["<Space>", "r", "n"],
+            "commands": ["editor.action.rename"]
+        },
+        {
+            "before": ["<ESC>", "<ESC>"],
+            "commands": [":nohl", "closeMarkersNavigation"]
+        },
+        {
+            "before": ["<Space>", "<Space>"],
+            "after": ["*", "N"]
+        },
+        {
+            "before": ["<Space>", "c", "a"],
+            "commands": ["editor.action.quickFix"]
+        },
+        {
+            "before": ["g", "h"],
+            "commands": ["editor.action.revealDefinition"]
+        },
+        {
+            "before": ["<C-l>"],
+            "commands": ["workbench.action.focusNextGroup"]
+        },
+        {
+            "before": ["<C-h>"],
+            "commands": ["workbench.action.focusPreviousGroup"]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        }
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": ["j", "j"],
+            "after": ["<ESC>"]
+        },
+        {
+            "before": ["<C-j>"],
+            "after": ["<ESC>", "A"]
+        }
+    ],
+    "vim.useSystemClipboard": true,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.defaultLocation": "editor",
+    "editor.fontFamily": "'HackGen35 Console NF'",
+    "editor.renderWhitespace": "all",
+    "editor.fontSize": 12,
+    "editor.renderFinalNewline": "off",
+    "git.openRepositoryInParentFolders": "always",
+    "vim.hlsearch": true,
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.colorCustomizations": {
+        "jumpy2.labelFontColor": "#ffa500",
+        "jumpy2.labelBackgroundColor": "#505050",
+        "jumpy2.labelBorderColor": "#a0a0a0"
+    },
+    "cSpell.customDictionaries": {
+        "customWords": {
+            "name": "customWords",
+            "path": "~/.cspell/custom-words.txt",
+            "scope": "user",
+            "addWords": true
+        }
+    },
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 2000,
+    "editor.inlineSuggest.enabled": false,
+    "github.copilot.enable": {
+        "*": false
+    },
+    "workbench.iconTheme": "catppuccin-mocha",
+    "indentRainbow.indicatorStyle": "light",
+    "indentRainbow.lightIndicatorStyleLineWidth": 1,
+    "indentRainbow.colors": ["rgba(255,255,64,0.3)", "rgba(127,255,127,0.3)", "rgba(255,127,255,0.3)", "rgba(79,236,236,0.3)"],
+    "redhat.telemetry.enabled": false,
+    "errorLens.gutterIconsEnabled": true,
+    "errorLens.gutterIconSet": "emoji",
+    "errorLens.gutterEmoji": {
+        "error": "🤬",
+        "warning": "🥺",
+        "info": "🤔",
+        "hint": "💡"
+    },
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    },
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false
 }
