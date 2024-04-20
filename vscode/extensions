@@ -13,13 +13,16 @@ github.copilot
 github.copilot-chat
 github.github-vscode-theme
 janjoerke.jenkins-pipeline-linter-connector
+kevinrose.vsc-python-indent
 linhmtran168.mac-ca-vscode
 mechatroner.rainbow-csv
 mohd-akram.vscode-html-format
 ms-azuretools.vscode-docker
+ms-python.black-formatter
 ms-python.debugpy
 ms-python.python
 ms-python.vscode-pylance
+ms-vscode-remote.remote-containers
 ms-vscode.makefile-tools
 ms-vsliveshare.vsliveshare
 msfukui.eof-mark
