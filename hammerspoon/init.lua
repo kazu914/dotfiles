@@ -2,6 +2,7 @@ dofile("WindowManager.lua")
 dofile("ApplicationLaucher.lua")
 -- dofile("BookmarkOpener.lua")
 dofile("TodoManager.lua")
+dofile("VSCodeWorkspaceManager.lua")
 
 local function openApp(app, path)
   local application = hs.application.find(app)
@@ -11,12 +12,6 @@ local function openApp(app, path)
     hs.application.launchOrFocus(path)
   end
 end
-
--- [[
--- open wezterm
--- ]]
-hs.hotkey.bind({ "cmd", "shift" }, "space",
-  function() openApp('wezterm', '/Applications/WezTerm.app') end)
 
 -- [[
 -- open teams
@@ -33,10 +28,10 @@ hs.hotkey.bind({ "cmd" }, "g", function()
 end)
 
 -- [[
--- open Cursor
+-- open VSCode
 -- ]]
 hs.hotkey.bind({ "cmd" }, "space", function()
-  openApp("cursor", "/Applications/Cursor.app")
+  openApp("code", "/Applications/Visual Studio Code.app")
 end)
 
 hs.hotkey.bind({ "ctrl" }, "m", function()
