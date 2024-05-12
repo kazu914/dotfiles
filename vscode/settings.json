@@ -157,5 +157,6 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
-    "update.showReleaseNotes": false
+    "update.showReleaseNotes": false,
+    "editor.stickyScroll.enabled": false
 }
