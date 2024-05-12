@@ -158,5 +158,9 @@
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "update.showReleaseNotes": false,
-    "editor.stickyScroll.enabled": false
+    "editor.stickyScroll.enabled": false,
+    "editor.inlayHints.enabled": "off",
+    "editor.tokenColorCustomizations": {
+        "comments": "#ff5496"
+    }
 }
