@@ -3,6 +3,7 @@
     "editor.suggestOnTriggerCharacters": false,
     "editor.suggest.preview": true,
     "editor.wordWrap": "on",
+    "files.autoGuessEncoding": true,
     "files.insertFinalNewline": true,
     "window.commandCenter": true,
     "vim.normalModeKeyBindingsNonRecursive": [
