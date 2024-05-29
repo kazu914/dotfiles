@@ -123,6 +123,9 @@
     },
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.duration": 2000,
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.insert": "#6C0000",
+    "vim.statusBarColors.normal": "#00346F",
     "editor.inlineSuggest.enabled": false,
     "github.copilot.enable": {
         "*": false
