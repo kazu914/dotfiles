@@ -48,7 +48,7 @@
                 "<S-k>"
             ],
             "commands": [
-                "editor.action.showHover"
+                "editor.action.showDefinitionPreviewHover"
             ]
         },
         {
@@ -221,9 +221,9 @@
         "jumpy2.labelFontColor": "#ffa500",
         "jumpy2.labelBackgroundColor": "#505050",
         "jumpy2.labelBorderColor": "#a0a0a0",
-        "statusBar.background": "#005f87",
-        "statusBar.noFolderBackground": "#005f87",
-        "statusBar.debuggingBackground": "#005f87",
+        "statusBar.background": "#00346F",
+        "statusBar.noFolderBackground": "#00346F",
+        "statusBar.debuggingBackground": "#00346F",
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
