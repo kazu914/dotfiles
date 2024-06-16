@@ -285,5 +285,8 @@
     "editor.inlayHints.enabled": "off",
     "editor.tokenColorCustomizations": {
         "comments": "#ff5496"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "biomejs.biome"
     }
 }
