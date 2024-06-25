@@ -288,5 +288,6 @@
     },
     "[json]": {
         "editor.defaultFormatter": "biomejs.biome"
-    }
+    },
+    "workbench.tree.enableStickyScroll": false
 }
