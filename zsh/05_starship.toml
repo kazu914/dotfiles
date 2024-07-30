@@ -7,6 +7,7 @@ $git_metrics\
 $git_status\
 $package\
 $custom\
+$kubernetes\
 $fill\
 $cmd_duration\
 $jobs\
@@ -47,6 +48,10 @@ command = "git config user.email"
 when = "[ -d .git ] && echo .git || git rev-parse --git-dir > /dev/null 2>&1"
 format = "| [$output](underline fg:blue) "
 
+[kubernetes]
+format = '| [$context](underline fg:green)'
+disabled = false
+
 [fill]
 symbol = ' '
 
@@ -63,4 +68,3 @@ style='underline blue'
 
 [character]
 success_symbol = "[>](bold green)"
-
