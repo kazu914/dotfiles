@@ -221,9 +221,9 @@
         "jumpy2.labelFontColor": "#ffa500",
         "jumpy2.labelBackgroundColor": "#505050",
         "jumpy2.labelBorderColor": "#a0a0a0",
-        "statusBar.background": "#00346F",
-        "statusBar.noFolderBackground": "#00346F",
-        "statusBar.debuggingBackground": "#00346F",
+        "statusBar.background": "#005f87",
+        "statusBar.noFolderBackground": "#005f87",
+        "statusBar.debuggingBackground": "#005f87",
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
@@ -289,5 +289,6 @@
     "[json]": {
         "editor.defaultFormatter": "biomejs.biome"
     },
-    "workbench.tree.enableStickyScroll": false
+    "workbench.tree.enableStickyScroll": false,
+    "editor.suggestFontSize": 10
 }
