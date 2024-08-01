@@ -1,11 +1,105 @@
 {
-    "editor.suggestSelection": "first",
-    "editor.suggestOnTriggerCharacters": false,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "blockman.n04Sub05MinDistanceBetweenRightSideEdges": 40,
+    "blockman.n21BorderRadius": 4,
+    "blockman.n24AnalyzeRoundBrackets": true,
+    "blockman.n26AnalyzeIndentDedentTokens": false,
+    "blockman.n27AlsoRenderBlocksInsideSingleLineAreas": true,
+    "blockman.n33A01B1FromDepth0ToInwardForAllBorders": "",
+    "blockman.n33A01B2FromDepth0ToInwardForAllBackgrounds": "45,0,0,2; none",
+    "blockman.n33A03B1FromDepth0ToInwardForFocusTreeBorders": "30,1,0,2; neutral > linear-gradient(to right, rgb(144, 54, 8), rgb(48, 36, 116))",
+    "blockman.n35A01DisableRecommendationDialog": true,
+    "cSpell.customDictionaries": {
+        "customWords": {
+            "addWords": true,
+            "name": "customWords",
+            "path": "~/.cspell/custom-words.txt",
+            "scope": "user"
+        }
+    },
+    "editor.fontFamily": "'HackGen35 Console NF'",
+    "editor.fontSize": 12,
+    "editor.guides.indentation": false,
+    "editor.inlayHints.enabled": "off",
+    "editor.inlineSuggest.enabled": false,
+    "editor.minimap.enabled": false,
+    "editor.renderFinalNewline": "off",
+    "editor.renderWhitespace": "none",
+    "editor.stickyScroll.enabled": false,
     "editor.suggest.preview": true,
+    "editor.suggestFontSize": 10,
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.suggestSelection": "first",
+    "editor.tokenColorCustomizations": {
+        "comments": "#ff5496"
+    },
     "editor.wordWrap": "on",
+    "errorLens.gutterEmoji": {
+        "error": "🤬",
+        "hint": "💡",
+        "info": "🤔",
+        "warning": "🥺"
+    },
+    "errorLens.gutterIconSet": "emoji",
+    "errorLens.gutterIconsEnabled": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
     "files.autoGuessEncoding": true,
     "files.insertFinalNewline": true,
-    "window.commandCenter": true,
+    "git.openRepositoryInParentFolders": "always",
+    "github.copilot.enable": {
+        "*": false
+    },
+    "http.proxyStrictSSL": false,
+    "indentRainbow.colors": [
+        "rgba(255,255,64,0.3)",
+        "rgba(127,255,127,0.3)",
+        "rgba(255,127,255,0.3)",
+        "rgba(79,236,236,0.3)"
+    ],
+    "indentRainbow.indicatorStyle": "light",
+    "indentRainbow.lightIndicatorStyleLineWidth": 1,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "redhat.telemetry.enabled": false,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.defaultLocation": "editor",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "update.showReleaseNotes": false,
+    "vim.highlightedyank.duration": 2000,
+    "vim.highlightedyank.enable": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "after": [
+                "<ESC>"
+            ],
+            "before": [
+                "j",
+                "j"
+            ]
+        },
+        {
+            "after": [
+                "<ESC>",
+                "A"
+            ],
+            "before": [
+                "<C-j>"
+            ]
+        }
+    ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -124,13 +218,13 @@
             ]
         },
         {
-            "before": [
-                "<Space>",
-                "<Space>"
-            ],
             "after": [
                 "*",
                 "N"
+            ],
+            "before": [
+                "<Space>",
+                "<Space>"
             ]
         },
         {
@@ -169,136 +263,42 @@
             ]
         },
         {
-            "before": [
-                "j"
-            ],
             "after": [
                 "g",
+                "j"
+            ],
+            "before": [
                 "j"
             ]
         },
         {
-            "before": [
-                "k"
-            ],
             "after": [
                 "g",
                 "k"
+            ],
+            "before": [
+                "k"
             ]
         }
     ],
-    "vim.insertModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<ESC>"
-            ]
-        },
-        {
-            "before": [
-                "<C-j>"
-            ],
-            "after": [
-                "<ESC>",
-                "A"
-            ]
-        }
-    ],
-    "vim.useSystemClipboard": true,
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.defaultLocation": "editor",
-    "editor.fontFamily": "'HackGen35 Console NF'",
-    "editor.renderWhitespace": "none",
-    "editor.fontSize": 12,
-    "editor.renderFinalNewline": "off",
-    "git.openRepositoryInParentFolders": "always",
-    "vim.hlsearch": true,
-    "workbench.colorTheme": "Catppuccin Mocha",
-    "workbench.colorCustomizations": {
-        "jumpy2.labelFontColor": "#ffa500",
-        "jumpy2.labelBackgroundColor": "#505050",
-        "jumpy2.labelBorderColor": "#a0a0a0",
-        "statusBar.background": "#00346F",
-        "statusBar.noFolderBackground": "#00346F",
-        "statusBar.debuggingBackground": "#00346F",
-        "statusBar.foreground": "#ffffff",
-        "statusBar.debuggingForeground": "#ffffff"
-    },
-    "cSpell.customDictionaries": {
-        "customWords": {
-            "name": "customWords",
-            "path": "~/.cspell/custom-words.txt",
-            "scope": "user",
-            "addWords": true
-        }
-    },
-    "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.duration": 2000,
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.insert": "#6C0000",
     "vim.statusBarColors.normal": "#00346F",
-    "editor.inlineSuggest.enabled": false,
-    "github.copilot.enable": {
-        "*": false
-    },
-    "workbench.iconTheme": "catppuccin-mocha",
-    "indentRainbow.indicatorStyle": "light",
-    "indentRainbow.lightIndicatorStyleLineWidth": 1,
-    "indentRainbow.colors": [
-        "rgba(255,255,64,0.3)",
-        "rgba(127,255,127,0.3)",
-        "rgba(255,127,255,0.3)",
-        "rgba(79,236,236,0.3)"
-    ],
-    "redhat.telemetry.enabled": false,
-    "errorLens.gutterIconsEnabled": true,
-    "errorLens.gutterIconSet": "emoji",
-    "errorLens.gutterEmoji": {
-        "error": "🤬",
-        "warning": "🥺",
-        "info": "🤔",
-        "hint": "💡"
-    },
-    "terminal.integrated.env.osx": {
-        "FIG_NEW_SESSION": "1"
-    },
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "workbench.startupEditor": "none",
-    "http.proxyStrictSSL": false,
-    "editor.minimap.enabled": false,
+    "vim.useSystemClipboard": true,
+    "window.commandCenter": true,
     "workbench.activityBar.location": "top",
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
+    "workbench.colorCustomizations": {
+        "jumpy2.labelBackgroundColor": "#505050",
+        "jumpy2.labelBorderColor": "#a0a0a0",
+        "jumpy2.labelFontColor": "#ffa500",
+        "statusBar.background": "#00346F",
+        "statusBar.debuggingBackground": "#00346F",
+        "statusBar.debuggingForeground": "#ffffff",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.noFolderBackground": "#00346F"
     },
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
-    },
-    "update.showReleaseNotes": false,
-    "editor.stickyScroll.enabled": false,
-    "editor.inlayHints.enabled": "off",
-    "editor.tokenColorCustomizations": {
-        "comments": "#ff5496"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "biomejs.biome"
-    },
-    "workbench.tree.enableStickyScroll": false,
-    "editor.suggestFontSize": 10,
-    "blockman.n33A01B1FromDepth0ToInwardForAllBorders": "",
-    "blockman.n35A01DisableRecommendationDialog": true,
-    "blockman.n21BorderRadius": 4,
-    "editor.guides.indentation": false,
-    "blockman.n24AnalyzeRoundBrackets": true,
-    "blockman.n26AnalyzeIndentDedentTokens": false,
-    "blockman.n33A01B2FromDepth0ToInwardForAllBackgrounds": "45,0,0,2; none",
-    "blockman.n33A03B1FromDepth0ToInwardForFocusTreeBorders": "30,1,0,2; neutral > linear-gradient(to right, rgb(144, 54, 8), rgb(48, 36, 116))",
-    "blockman.n04Sub05MinDistanceBetweenRightSideEdges": 40,
-    "blockman.n27AlsoRenderBlocksInsideSingleLineAreas": true
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.startupEditor": "none",
+    "workbench.tree.enableStickyScroll": false
 }
