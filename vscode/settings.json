@@ -211,7 +211,7 @@
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.defaultLocation": "editor",
     "editor.fontFamily": "'HackGen35 Console NF'",
-    "editor.renderWhitespace": "all",
+    "editor.renderWhitespace": "none",
     "editor.fontSize": 12,
     "editor.renderFinalNewline": "off",
     "git.openRepositoryInParentFolders": "always",
@@ -221,9 +221,9 @@
         "jumpy2.labelFontColor": "#ffa500",
         "jumpy2.labelBackgroundColor": "#505050",
         "jumpy2.labelBorderColor": "#a0a0a0",
-        "statusBar.background": "#005f87",
-        "statusBar.noFolderBackground": "#005f87",
-        "statusBar.debuggingBackground": "#005f87",
+        "statusBar.background": "#00346F",
+        "statusBar.noFolderBackground": "#00346F",
+        "statusBar.debuggingBackground": "#00346F",
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
@@ -290,5 +290,15 @@
         "editor.defaultFormatter": "biomejs.biome"
     },
     "workbench.tree.enableStickyScroll": false,
-    "editor.suggestFontSize": 10
+    "editor.suggestFontSize": 10,
+    "blockman.n33A01B1FromDepth0ToInwardForAllBorders": "",
+    "blockman.n35A01DisableRecommendationDialog": true,
+    "blockman.n21BorderRadius": 4,
+    "editor.guides.indentation": false,
+    "blockman.n24AnalyzeRoundBrackets": true,
+    "blockman.n26AnalyzeIndentDedentTokens": false,
+    "blockman.n33A01B2FromDepth0ToInwardForAllBackgrounds": "45,0,0,2; none",
+    "blockman.n33A03B1FromDepth0ToInwardForFocusTreeBorders": "30,1,0,2; neutral > linear-gradient(to right, rgb(144, 54, 8), rgb(48, 36, 116))",
+    "blockman.n04Sub05MinDistanceBetweenRightSideEdges": 40,
+    "blockman.n27AlsoRenderBlocksInsideSingleLineAreas": true
 }
