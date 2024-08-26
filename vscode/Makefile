@@ -12,3 +12,7 @@ init:
 clean:
 	unlink "${VSCODE_SETTING_DIR}/settings.json" || true && \
 	unlink "${VSCODE_SETTING_DIR}/keybindings.json" || true
+
+.PHONY: format
+format:
+	bunx @biomejs/biome check --write settings.json

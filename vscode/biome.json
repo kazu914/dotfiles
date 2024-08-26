@@ -1,0 +1,12 @@
+{
+	"formatter": {
+		"indentStyle": "space",
+		"lineWidth": 100,
+		"indentWidth": 4
+	},
+	"json": {
+		"formatter": {
+			"enabled": true
+		}
+	}
+}
