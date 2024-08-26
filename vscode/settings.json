@@ -53,6 +53,11 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "files.autoGuessEncoding": true,
+    "files.exclude": {
+        "node_modules/": true,
+        ".next/": true,
+        ".vscode/": true
+    },
     "files.insertFinalNewline": true,
     "git.openRepositoryInParentFolders": "always",
     "github.copilot.enable": {
