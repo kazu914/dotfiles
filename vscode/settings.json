@@ -54,12 +54,13 @@
     "explorer.confirmDragAndDrop": false,
     "files.autoGuessEncoding": true,
     "files.exclude": {
-        "node_modules/": true,
         ".next/": true,
-        ".vscode/": true
+        ".vscode/": true,
+        "node_modules/": true
     },
     "files.insertFinalNewline": true,
     "git.openRepositoryInParentFolders": "always",
+    "github.copilot.chat.localeOverride": "ja",
     "github.copilot.enable": {
         "*": false
     },
