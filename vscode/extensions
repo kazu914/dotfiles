@@ -32,11 +32,14 @@ msfukui.eof-mark
 naco-siren.gradle-language
 nicolasvuillamy.vscode-groovy-lint
 oderwat.indent-rainbow
+oven.bun-vscode
 pkief.material-icon-theme
+postman.postman-for-vscode
 redhat.fabric8-analytics
 redhat.java
 redhat.vscode-yaml
 richardwillis.vscode-spotless-gradle
+richie5um2.vscode-sort-json
 rust-lang.rust-analyzer
 secanis.jenkinsfile-support
 shardulm94.trailing-spaces
@@ -61,3 +64,4 @@ vscjava.vscode-spring-initializr
 vscodevim.vim
 vue.volar
 yandeu.five-server
+yzane.markdown-pdf
