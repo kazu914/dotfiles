@@ -19,7 +19,7 @@ hs.hotkey.bind({ "cmd", "shift" }, "space", function()
     local tasks = {}
 
     for task in string.gmatch(task_list, "[^\n]+") do
-        table.insert(tasks, { text = hs.styledtext.new(task), subText = "aaaa" })
+        table.insert(tasks, { text = hs.styledtext.new(task), subText = "" })
     end
 
     local chooser = hs.chooser.new(function(task)
