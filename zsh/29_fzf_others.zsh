@@ -108,6 +108,30 @@ fcd() {
   fi
 }
 
+#############################################################################################
+#################################### fuzzy bun ###############################################
+#############################################################################################
+fb() {
+  # package.jsonの存在確認
+  if [[ ! -f package.json ]]; then
+    echo "package.jsonが見つかりません"
+    return 1
+  fi
+
+  # jqでスクリプト名を取得し、fzfで選択
+  local script
+  script=$(jq -r '.scripts | keys[]' package.json | fzf --preview="jq --arg key {} -r '.scripts[\$key]' package.json" )
+
+  # スクリプトが選択されなかった場合
+  if [[ -z "$script" ]]; then
+    echo "スクリプトが選択されませんでした"
+    return 1
+  fi
+
+  # 選択されたスクリプトを実行
+  bun run "$script"
+}
+
 switch_session() {
   local candidate selected
   candidate=`tmux ls`
