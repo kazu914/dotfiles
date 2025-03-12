@@ -19,6 +19,7 @@
   br = branch
   ps = push
   pl = pull
+  pul = pull
   ck = checkout
   sw = switch
   pul = pull
