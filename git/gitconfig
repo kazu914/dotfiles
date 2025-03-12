@@ -21,6 +21,8 @@
   pl = pull
   ck = checkout
   sw = switch
+  pul = pull
+  pus = push
   tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
 [diff]
         tool = difftastic
