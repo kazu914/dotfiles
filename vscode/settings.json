@@ -198,5 +198,6 @@
     "workbench.iconTheme": "catppuccin-mocha",
     "workbench.startupEditor": "none",
     "workbench.tree.enableStickyScroll": false,
-    "npm.packageManager": "bun"
+    "npm.packageManager": "bun",
+    "chat.agent.enabled": true
 }
