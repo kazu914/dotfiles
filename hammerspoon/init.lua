@@ -31,7 +31,7 @@ end)
 -- open VSCode
 -- ]]
 hs.hotkey.bind({ "cmd" }, "space", function()
-  openApp("code", "/Applications/Visual Studio Code.app")
+  openApp("code", "/Applications/Visual Studio Code - Insiders.app")
 end)
 
 hs.hotkey.bind({ "ctrl" }, "m", function()
