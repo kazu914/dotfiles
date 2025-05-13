@@ -25,7 +25,7 @@ hs.hotkey.bind({ "cmd", "shift" }, "space", function()
     local chooser = hs.chooser.new(function(task)
         if task == nil then return end
         killVSCode()
-        hs.execute("/opt/homebrew/bin/code " .. task.text:getString())
+        hs.execute("/usr/local/bin/code-insiders " .. task.text:getString())
     end)
 
     FuzzyMatcher.setChoices(tasks, chooser, true, nil)
