@@ -31,7 +31,9 @@ end)
 -- open VSCode
 -- ]]
 hs.hotkey.bind({ "cmd" }, "space", function()
-  openApp("code", "/Applications/Visual Studio Code.app")
+  -- 英数に切り替えてからeditorを起動する
+  hs.eventtap.keyStroke({}, 0x66, 0)
+  openApp("code", "/Applications/Visual Studio Code - Insiders.app")
 end)
 
 hs.hotkey.bind({ "ctrl" }, "m", function()

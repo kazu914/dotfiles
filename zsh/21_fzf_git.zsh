@@ -32,9 +32,9 @@ fswitch() {
   fi
   if [ -n "$selected" ]; then
     if [ "`echo $selected | grep 'origin'`" ]; then
-      git switch $selected -c ${selected#origin/}
+      git switch ${selected#origin/}
     else
-      git switch $selected 
+      git switch $selected
     fi
   else
     echo "No bransh is selected"
