@@ -180,7 +180,9 @@ return {
     },
     config = function()
       require('plugins_config/coc_settings')
-    end
+    end,
+    -- native lspキャッチアップの為, 一時的に無効化しておく
+    enabled = false
   },
   {
     'nvim-lualine/lualine.nvim',
