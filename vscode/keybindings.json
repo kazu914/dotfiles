@@ -117,5 +117,13 @@
         "key": "shift+cmd+i",
         "command": "workbench.panel.chat",
         "when": "workbench.panel.chat.view.copilot.active"
+    },
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\\\r\n"
+        },
+        "when": "terminalFocus"
     }
 ]

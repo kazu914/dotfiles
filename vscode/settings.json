@@ -3,7 +3,7 @@
         "editor.defaultFormatter": "vscode.html-language-features"
     },
     "[json]": {
-        "editor.defaultFormatter": "biomejs.biome"
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
@@ -55,7 +55,6 @@
     "files.autoGuessEncoding": true,
     "files.exclude": {
         ".next/": true,
-        ".vscode/": true,
         "node_modules/": true
     },
     "files.insertFinalNewline": true,
@@ -178,7 +177,6 @@
             "before": ["k"]
         }
     ],
-    "vim.statusBarColorControl": true,
     "vim.statusBarColors.insert": "#6C0000",
     "vim.statusBarColors.normal": "#00346F",
     "vim.useSystemClipboard": true,
@@ -194,10 +192,18 @@
         "statusBar.foreground": "#ffffff",
         "statusBar.noFolderBackground": "#00346F"
     },
-    "workbench.colorTheme": "Catppuccin Mocha",
-    "workbench.iconTheme": "catppuccin-mocha",
     "workbench.startupEditor": "none",
     "workbench.tree.enableStickyScroll": false,
     "npm.packageManager": "bun",
-    "chat.agent.enabled": true
+    "chat.agent.enabled": true,
+    "[swift]": {
+        "editor.defaultFormatter": "swiftlang.swift-vscode"
+    },
+    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "terminal.integrated.suggest.enabled": false,
+    "diffEditor.ignoreTrimWhitespace": false
 }
