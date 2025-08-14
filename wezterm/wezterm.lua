@@ -192,6 +192,49 @@ local key_bindings = {
       end),
     },
   },
+  {
+  key = "n",
+  mods = "LEADER",
+  action = wezterm.action_callback(function(window, pane)
+    local cwd = pane:get_current_working_dir()
+    local cwd_path = nil
+    if cwd then
+      cwd_path = cwd.file_path or cwd.windows_path
+    end
+    local workspace = cwd_path or "cwd-unknown"
+    local mux = wezterm.mux
+    mux.spawn_window{ workspace = workspace, cwd = cwd }
+    mux.set_active_workspace(workspace)
+    end),
+  },
+  {
+    mods = 'LEADER',
+    key = 's',
+    action = wezterm.action_callback (function (win, pane)
+      -- workspace のリストを作成
+      local workspaces = {}
+      for i, name in ipairs(wezterm.mux.get_workspace_names()) do
+        table.insert(workspaces, {
+          id = name,
+          label = string.format("%d. %s", i, name),
+        })
+      end
+      local current = wezterm.mux.get_active_workspace()
+      -- 選択メニューを起動
+      win:perform_action(wezterm.action.InputSelector {
+        action = wezterm.action_callback(function (_, _, id, label)
+          if not id and not label then
+            wezterm.log_info "Workspace selection canceled"  -- 入力が空ならキャンセル
+          else
+            win:perform_action(wezterm.action.SwitchToWorkspace { name = id }, pane)  -- workspace を移動
+          end
+        end),
+        title = "Select workspace",
+        choices = workspaces,
+        fuzzy = true,
+      }, pane)
+    end),
+  },
 }
 
 local mouse_bindings = {
