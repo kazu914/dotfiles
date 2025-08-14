@@ -1,6 +1,7 @@
 if vim.g.vscode then
   return {}
 end
+
 return {
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
@@ -172,17 +173,6 @@ return {
     config = function()
       vim.notify = require("notify")
     end
-  },
-  {
-    'neoclide/coc.nvim',
-    dependencies = {
-      'fannheyward/telescope-coc.nvim'
-    },
-    config = function()
-      require('plugins_config/coc_settings')
-    end,
-    -- native lspキャッチアップの為, 一時的に無効化しておく
-    enabled = false
   },
   {
     'nvim-lualine/lualine.nvim',
