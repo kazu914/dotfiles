@@ -35,10 +35,35 @@ return {
     ---@type blink.cmp.Config
     opts = {
       keymap = {
-        preset = 'super-tab',
-        ['<CR>'] = { 'accept', 'fallback' },
+        preset = "none",
+        ["<CR>"] = { "accept", "fallback" },
+        ["<Tab>"] = {
+          function(cmp)
+            if cmp.snippet_active() then
+              return cmp.snippet_forward()
+            else
+              return cmp.select_next()
+            end
+          end,
+          "snippet_forward",
+          "fallback"
+        },
+        ["<S-Tab>"] = {
+          function(cmp)
+            if cmp.snippet_active() then
+              return cmp.snippet_backward()
+            else
+              return cmp.select_prev()
+            end
+          end,
+          "snippet_backward",
+          "fallback"
+        },
+        ["<C-j>"] = { "select_next", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback" },
+        ["<S-C-j>"] = { "scroll_documentation_down", "fallback" },
+        ["<S-C-k>"] = { "scroll_documentation_up", "fallback" },
       },
-
 
       appearance = {
         nerd_font_variant = 'mono'
