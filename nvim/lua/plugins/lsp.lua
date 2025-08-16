@@ -96,7 +96,15 @@ return {
       { "neovim/nvim-lspconfig" },
     },
     event = { "BufReadPre", "BufNewFile" },
-    config = true,
+    config = function()
+      require("mason").setup()
+
+      require("lspconfig").sourcekit.setup({
+        cmd = { "sourcekit-lsp" },
+        filetypes = { "swift", "objective-c", "objective-cpp" },
+        root_dir = require("lspconfig.util").root_pattern("Package.swift", ".git"),
+      })
+    end,
   },
   {
     'saghen/blink.cmp',
