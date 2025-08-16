@@ -3,6 +3,7 @@ dofile("ApplicationLaucher.lua")
 -- dofile("BookmarkOpener.lua")
 dofile("TodoManager.lua")
 dofile("VSCodeWorkspaceManager.lua")
+dofile("Audio.lua")
 
 local function openApp(app, path)
   local application = hs.application.find(app)
