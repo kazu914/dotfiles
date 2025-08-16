@@ -1,16 +1,62 @@
--- based `:h lsp-attach`
+-- =====================================
+-- LSP LspAttach 設定
+-- =====================================
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("my.lsp", {}),
   callback = function(args)
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
     local bufnr = args.buf
 
+    -- =====================================
+    -- keymap 設定
+    -- =====================================
     local bufopts = { buffer = bufnr, silent = true }
     vim.keymap.set("n", "<leader>F", function()
       vim.lsp.buf.format({ bufnr = bufnr, async = true })
     end, bufopts)
   end,
 })
+
+-- =====================================
+-- Diagnostics 設定
+-- =====================================
+local diag_icons = {
+  [vim.diagnostic.severity.ERROR] = "😡",
+  [vim.diagnostic.severity.WARN]  = "😵‍💫",
+  [vim.diagnostic.severity.INFO]  = "🤖",
+  [vim.diagnostic.severity.HINT]  = "💬",
+}
+
+vim.diagnostic.config({
+  signs = {
+    text = diag_icons,
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+      [vim.diagnostic.severity.WARN]  = "WarningMsg",
+      [vim.diagnostic.severity.INFO]  = "DiagnosticInfo",
+      [vim.diagnostic.severity.HINT]  = "DiagnosticHint",
+    },
+  },
+
+  virtual_text = {
+    prefix = "",
+    spacing = 0,
+    format = function(d)
+      return string.format("%s %s [%s]",
+        diag_icons[d.severity] or "●",
+        d.message,
+        d.source or "LSP"
+      )
+    end,
+  },
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
+-- =====================================
+-- 依存 設定
+-- =====================================
 return {
   {
     "mason-org/mason.nvim",
