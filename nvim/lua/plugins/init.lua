@@ -1,5 +1,4 @@
 return {
-  'jiangmiao/auto-pairs',
   'tpope/vim-commentary',
   'simeji/winresizer',
   'ntpeters/vim-better-whitespace',
@@ -10,5 +9,10 @@ return {
     config = function()
       vim.g.highlightedyank_highlight_duration = -1
     end
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = true
   }
 }
