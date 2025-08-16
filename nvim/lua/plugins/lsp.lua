@@ -54,6 +54,31 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
+-- ---------------------------
+-- Keymaps
+-- ---------------------------
+local lsp = vim.lsp.buf
+local builtin = require("telescope.builtin")
+local opts = { silent = true, noremap = true }
+
+-- Diagnostics jump
+vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, opts)
+vim.keymap.set("n", "]g", vim.diagnostic.goto_next, opts)
+
+-- Code navigation (Telescope integration)
+vim.keymap.set("n", "gh", builtin.lsp_definitions, opts)
+vim.keymap.set("n", "gy", builtin.lsp_type_definitions, opts)
+vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
+vim.keymap.set("n", "gr", builtin.lsp_references, opts)
+
+-- Hover / signature
+vim.keymap.set("n", "K", lsp.hover, opts)
+vim.keymap.set("n", "<C-k>", lsp.signature_help, opts)
+
+-- Code actions / rename
+vim.keymap.set("n", "<leader>ca", lsp.code_action, opts)
+vim.keymap.set("n", "<leader>rn", lsp.rename, opts)
+
 -- =====================================
 -- 依存 設定
 -- =====================================
