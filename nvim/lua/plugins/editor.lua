@@ -281,12 +281,6 @@ return {
     end
   },
   {
-    'github/copilot.vim',
-    config = function()
-      vim.g.copilot_enabled = false
-    end
-  },
-  {
     "nvim-zh/colorful-winsep.nvim",
     config = function()
       require('colorful-winsep').setup(

@@ -5,7 +5,6 @@
   "catppuccin": { "branch": "main", "commit": "211dc3649f775c5a390e9fae07bf20d985f8dcf2" },
   "colorful-winsep.nvim": { "branch": "main", "commit": "794a64425c0b622d2274ea5975b689bad6f7682b" },
   "conform.nvim": { "branch": "master", "commit": "973f3cb73887d510321653044791d7937c7ec0fa" },
-  "copilot.vim": { "branch": "release", "commit": "f3d66c148aa60ad04c0a21d3e0a776459de09eb2" },
   "emmet-vim": { "branch": "master", "commit": "e98397144982d1e75b20d94d55a82de3ec8f648d" },
   "flash.nvim": { "branch": "main", "commit": "3c942666f115e2811e959eabbdd361a025db8b63" },
   "flutter-tools.nvim": { "branch": "main", "commit": "65b7399804315a1160933b64292d3c5330aa4e9f" },
