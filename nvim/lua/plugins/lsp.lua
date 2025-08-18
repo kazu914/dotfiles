@@ -98,7 +98,13 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("mason").setup()
-
+      require("mason-lspconfig").setup({
+        automatic_enable = true,
+        ensure_installed = {
+          "lua_ls",
+          "biome",
+        }
+      })
       require("lspconfig").sourcekit.setup({
         cmd = { "sourcekit-lsp" },
         filetypes = { "swift", "objective-c", "objective-cpp" },
