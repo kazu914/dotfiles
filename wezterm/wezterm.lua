@@ -167,14 +167,37 @@ local key_bindings = {
     key = "x",
     mods = "LEADER",
     action = wezterm.action { CloseCurrentTab = { confirm = true } }
-  }, { key = "[", mods = "LEADER", action = "ActivateCopyMode" },
-  { key = "l", mods = "ALT",    action = wezterm.action { ActivateTabRelative = 1 } },
+  },
+  {
+    key = "[",
+    mods = "LEADER",
+    action = "ActivateCopyMode"
+  },
+  {
+    key = "l",
+    mods = "ALT",
+    action = wezterm.action { ActivateTabRelative = 1 }
+  },
   {
     key = "h",
     mods = "ALT",
     action = wezterm.action { ActivateTabRelative = -1 }
   },
-  { key = "c", mods = "SUPER", action = wezterm.action { CopyTo = "Clipboard" } },
+  {
+    key = "l",
+    mods = "ALT | SHIFT",
+    action = wezterm.action { MoveTabRelative = 1 }
+  },
+  {
+    key = "h",
+    mods = "ALT | SHIFT",
+    action = wezterm.action { MoveTabRelative = -1 }
+  },
+  {
+    key = "c",
+    mods = "SUPER",
+    action = wezterm.action { CopyTo = "Clipboard" }
+  },
   {
     key = "v",
     mods = "SUPER",
@@ -193,24 +216,24 @@ local key_bindings = {
     },
   },
   {
-  key = "n",
-  mods = "LEADER",
-  action = wezterm.action_callback(function(window, pane)
-    local cwd = pane:get_current_working_dir()
-    local cwd_path = nil
-    if cwd then
-      cwd_path = cwd.file_path or cwd.windows_path
-    end
-    local workspace = cwd_path or "cwd-unknown"
-    local mux = wezterm.mux
-    mux.spawn_window{ workspace = workspace, cwd = cwd }
-    mux.set_active_workspace(workspace)
+    key = "n",
+    mods = "LEADER",
+    action = wezterm.action_callback(function(window, pane)
+      local cwd = pane:get_current_working_dir()
+      local cwd_path = nil
+      if cwd then
+        cwd_path = cwd.file_path or cwd.windows_path
+      end
+      local workspace = cwd_path or "cwd-unknown"
+      local mux = wezterm.mux
+      mux.spawn_window { workspace = workspace, cwd = cwd }
+      mux.set_active_workspace(workspace)
     end),
   },
   {
     mods = 'LEADER',
     key = 's',
-    action = wezterm.action_callback (function (win, pane)
+    action = wezterm.action_callback(function(win, pane)
       -- workspace のリストを作成
       local workspaces = {}
       for i, name in ipairs(wezterm.mux.get_workspace_names()) do
@@ -222,11 +245,11 @@ local key_bindings = {
       local current = wezterm.mux.get_active_workspace()
       -- 選択メニューを起動
       win:perform_action(wezterm.action.InputSelector {
-        action = wezterm.action_callback(function (_, _, id, label)
+        action = wezterm.action_callback(function(_, _, id, label)
           if not id and not label then
-            wezterm.log_info "Workspace selection canceled"  -- 入力が空ならキャンセル
+            wezterm.log_info "Workspace selection canceled"                          -- 入力が空ならキャンセル
           else
-            win:perform_action(wezterm.action.SwitchToWorkspace { name = id }, pane)  -- workspace を移動
+            win:perform_action(wezterm.action.SwitchToWorkspace { name = id }, pane) -- workspace を移動
           end
         end),
         title = "Select workspace",
