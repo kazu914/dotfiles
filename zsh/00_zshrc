@@ -8,7 +8,7 @@ if [ -e $HOME/.zshrc.local ]; then
   source $HOME/.zshrc.local
 fi
 
-eval "$(/opt/homebrew/bin/starship init zsh)"
+eval "$(starship init zsh)"
 eval "$(sheldon source)"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
