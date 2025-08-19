@@ -2,6 +2,11 @@ local wezterm = require 'wezterm'
 local utils = require 'utils'
 
 wezterm.on("format-window-title", function(_, pane)
+  local is_linux = string.find(wezterm.target_triple, "linux") ~= nil
+  if is_linux then
+    return "WezTerm"
+  end
+
   local title = pane.title
   if pane.domain_name then
     title = title .. ' - (' .. pane.domain_name .. ')'
