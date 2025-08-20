@@ -1,8 +1,9 @@
 local wezterm = require 'wezterm'
 local utils = require 'utils'
 
+local is_linux = string.find(wezterm.target_triple, "linux") ~= nil
+
 wezterm.on("format-window-title", function(_, pane)
-  local is_linux = string.find(wezterm.target_triple, "linux") ~= nil
   if is_linux then
     return "WezTerm"
   end
@@ -88,7 +89,13 @@ wezterm.on("update-status", function(window, pane)
   local ts = { { Foreground = { Color = color.blue } }, { Text = " " } }
 
   -- Get Clipboard
-  local success, stdout = wezterm.run_child_process({ "pbpaste" })
+  local success
+  local stdout
+  if (is_linux) then
+    -- pbpasteがないので何もしない
+  else
+    success, stdout = wezterm.run_child_process({ "pbpaste" })
+  end
 
   if (success) then
     local line = wezterm.split_by_newlines(stdout)
