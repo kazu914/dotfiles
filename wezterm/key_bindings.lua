@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local is_linux = string.find(wezterm.target_triple, "linux") ~= nil
 
 local key_bindings = {
   {
@@ -116,6 +117,13 @@ local key_bindings = {
     end),
   },
 }
+
+if is_linux then
+  table.insert(key_bindings,
+    { key = 'v', mods = 'CTRL', action = wezterm.action.PasteFrom 'Clipboard' }
+  )
+end
+
 
 return {
   key_bindings = key_bindings
