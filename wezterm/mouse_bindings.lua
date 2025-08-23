@@ -50,7 +50,7 @@ local mouse_bindings = {
   },
   {
     event = { Up = { streak = 1, button = "Left" } },
-    mods = "SUPER",
+    mods = "ALT",
     action = wezterm.action {
       CompleteSelectionOrOpenLinkAtMouseCursor = "ClipboardAndPrimarySelection"
     }
