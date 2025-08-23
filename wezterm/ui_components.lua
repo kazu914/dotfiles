@@ -5,7 +5,8 @@ local is_linux = string.find(wezterm.target_triple, "linux") ~= nil
 local function setup()
   wezterm.on("format-window-title", function(_, pane)
     if is_linux then
-      return "WezTerm"
+      local active_ws = wezterm.mux.get_active_workspace()
+      return "WezTerm - (" .. active_ws .. ")"
     end
 
     local title = pane.title
