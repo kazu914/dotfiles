@@ -78,15 +78,35 @@ local key_bindings = {
     key = "n",
     mods = "LEADER",
     action = wezterm.action_callback(function(_, pane)
+      -- 現在の作業ディレクトリを取得
       local cwd = pane:get_current_working_dir()
       local cwd_path = nil
       if cwd then
         cwd_path = cwd.file_path or cwd.windows_path
       end
+
+      -- ワークスペース名を決定（unknown なら "cwd-unknown"）
       local workspace = cwd_path or "cwd-unknown"
+
       local mux = wezterm.mux
-      mux.spawn_window { workspace = workspace, cwd = cwd }
-      mux.set_active_workspace(workspace)
+
+      -- 既に同名のワークスペースがあるか確認
+      local exists = false
+      for _, name in ipairs(mux.get_workspace_names()) do
+        if name == workspace then
+          exists = true
+          break
+        end
+      end
+
+      if exists then
+        -- 既存ワークスペースへ切り替え
+        mux.set_active_workspace(workspace)
+      else
+        -- ワークスペースを作成し、ウィンドウを起動
+        mux.spawn_window { workspace = workspace, cwd = cwd_path }
+        mux.set_active_workspace(workspace)
+      end
     end),
   },
   {
