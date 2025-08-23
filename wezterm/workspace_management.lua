@@ -8,56 +8,36 @@ local function load_local_workspaces()
   return {}
 end
 
-M.create_or_switch_new = function(_, pane)
+M.create_or_switch_new = function(win, pane)
   -- 現在の作業ディレクトリを取得
   local cwd = pane:get_current_working_dir()
-  local cwd_path = nil
-  if cwd then
-    cwd_path = cwd.file_path or cwd.windows_path
-  end
+  local workspace_name = cwd.file_path
 
-  -- ワークスペース名を決定（unknown なら "cwd-unknown"）
-  local workspace = cwd_path or "cwd-unknown"
-
-  local mux = wezterm.mux
-
-  -- 既に同名のワークスペースがあるか確認
-  local exists = false
-  for _, name in ipairs(mux.get_workspace_names()) do
-    if name == workspace then
-      exists = true
-      break
-    end
-  end
-
-  if exists then
-    -- 既存ワークスペースへ切り替え
-    mux.set_active_workspace(workspace)
-  else
-    -- ワークスペースを作成し、ウィンドウを起動
-    mux.spawn_window { workspace = workspace, cwd = cwd_path }
-    mux.set_active_workspace(workspace)
-  end
+  win:perform_action(wezterm.action.SwitchToWorkspace { name = workspace_name,
+    spawn = {
+      cwd = workspace_name
+    }
+  }, pane)
 end
 
 M.switch_to_workspace = function(win, pane)
-  local active_ws  = wezterm.mux.get_active_workspace()
+  local current_workspace = wezterm.mux.get_active_workspace()
   -- workspace のリストを作成
-  local workspaces = {}
+  local workspaces        = {}
 
-  if active_ws ~= "" then
+  if current_workspace ~= "" then
     table.insert(workspaces, {
-      id    = active_ws,
+      id    = current_workspace,
       label = wezterm.format {
         { Background = { Color = "#80d4ff" } },
         { Foreground = { Color = '#383a42' } },
         { Text = "current: " },
-        { Text = active_ws }
+        { Text = current_workspace }
       },
     })
   end
 
-  if active_ws ~= 'default' then
+  if current_workspace ~= 'default' then
     table.insert(workspaces, {
       id = "default",
       label = wezterm.format {
@@ -72,7 +52,7 @@ M.switch_to_workspace = function(win, pane)
   local count = 1;
   local workspace_names = wezterm.mux.get_workspace_names()
   for _, name in pairs(workspace_names) do
-    if name == active_ws or name == "default" then
+    if name == current_workspace or name == "default" then
       goto continue
     end
     table.insert(workspaces, {
@@ -84,7 +64,6 @@ M.switch_to_workspace = function(win, pane)
   end
 
   local local_workspaces = load_local_workspaces()
-  wezterm.log_info(local_workspaces)
 
   for _, workspace in pairs(local_workspaces) do
     if not utils.table_contains(workspace_names, workspace) then
@@ -106,14 +85,9 @@ M.switch_to_workspace = function(win, pane)
       if not id and not label then
         wezterm.log_info "Workspace selection canceled" -- 入力が空ならキャンセル
       else
-        if utils.table_contains(workspace_names, id) then
-          -- すでに存在するworkspaceならそのまま移動
-          win:perform_action(wezterm.action.SwitchToWorkspace { name = id }, pane) -- workspace を移動
-        else
-          -- ワークスペースを作成し、ウィンドウを起動
-          wezterm.mux.spawn_window { workspace = id, cwd = id }
-          win:perform_action(wezterm.action.SwitchToWorkspace { name = id }, pane) -- workspace を移動
-        end
+        win:perform_action(wezterm.action.SwitchToWorkspace { name = id,
+          spawn = { cwd = id }
+        }, pane)
       end
     end),
     title = "Select workspace",
