@@ -113,14 +113,48 @@ local key_bindings = {
     mods = 'LEADER',
     key = 's',
     action = wezterm.action_callback(function(win, pane)
+      local active_ws  = wezterm.mux.get_active_workspace()
       -- workspace のリストを作成
       local workspaces = {}
-      for i, name in ipairs(wezterm.mux.get_workspace_names()) do
+
+      if active_ws ~= "" then
         table.insert(workspaces, {
-          id = name,
-          label = string.format("%d. %s", i, name),
+          id    = active_ws,
+          label = wezterm.format {
+            { Background = { Color = "#80d4ff" } },
+            { Foreground = { Color = '#383a42' } },
+            { Text = "current: " },
+            { Text = active_ws }
+          },
         })
       end
+
+      if active_ws ~= 'default' then
+        table.insert(workspaces, {
+          id = "default",
+          label = wezterm.format {
+            { Background = { Color = "#ffff99" } },
+            { Foreground = { Color = '#383a42' } },
+            { Text = "default: " },
+            { Text = wezterm.home_dir }
+          },
+        })
+      end
+
+      local count = 1;
+      local workspace_names = wezterm.mux.get_workspace_names()
+      for _, name in pairs(workspace_names) do
+        if name == active_ws or name == "default" then
+          goto continue
+        end
+        table.insert(workspaces, {
+          id = name,
+          label = string.format("%7d: %s", count, name),
+        })
+        count = count + 1
+        ::continue::
+      end
+
       -- 選択メニューを起動
       win:perform_action(wezterm.action.InputSelector {
         action = wezterm.action_callback(function(_, _, id, label)
