@@ -89,7 +89,17 @@ local key_bindings = {
 
 if is_linux then
   table.insert(key_bindings,
-    { key = 'v', mods = 'CTRL', action = wezterm.action.PasteFrom 'Clipboard' }
+    {
+      key = 'v',
+      mods = 'CTRL',
+      action = wezterm.action_callback(function(window, pane)
+        if pane:is_alt_screen_active() then
+          window:perform_action(wezterm.action.SendKey { key = 'v', mods = 'CTRL' }, pane)
+        else
+          wezterm.action.PasteFrom 'Clipboard'
+        end
+      end)
+    }
   )
 end
 
