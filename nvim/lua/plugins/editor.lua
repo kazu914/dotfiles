@@ -285,9 +285,7 @@ return {
     config = function()
       require('colorful-winsep').setup(
         {
-          highlight = {
-            fg = "#0E9CEF"
-          }
+          highlight = "#0E9CEF"
         }
       )
     end,
