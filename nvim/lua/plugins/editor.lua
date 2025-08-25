@@ -227,8 +227,7 @@ return {
       }
       local sections = {
         lualine_a = { { 'branch', colored = false } },
-        lualine_b = { { 'diff', colored = false }, { 'diagnostics', colored = false, always_visible = true },
-          { 'g:coc_status', colored = false, always_visible = true } },
+        lualine_b = { { 'diff', colored = false }, { 'diagnostics', colored = false, always_visible = true } },
         lualine_c = { { 'filename', path = 1 },
           { navic.get_location, cond = navic.is_available }
         },
