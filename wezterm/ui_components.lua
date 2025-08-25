@@ -3,17 +3,9 @@ local utils = require 'utils'
 local is_linux = string.find(wezterm.target_triple, "linux") ~= nil
 
 local function setup()
-  wezterm.on("format-window-title", function(_, pane)
-    if is_linux then
-      local active_ws = wezterm.mux.get_active_workspace()
-      return "WezTerm - (" .. active_ws .. ")"
-    end
-
-    local title = pane.title
-    if pane.domain_name then
-      title = title .. ' - (' .. pane.domain_name .. ')'
-    end
-    return title
+  wezterm.on("format-window-title", function(_, _)
+    local active_ws = wezterm.mux.get_active_workspace()
+    return "WezTerm - (" .. active_ws .. ")"
   end)
 
   local function tab_title(tab_info)
