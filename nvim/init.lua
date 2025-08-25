@@ -13,7 +13,3 @@ vim.opt.rtp:prepend(lazypath)
 require '00_settings'
 require '01_mappings'
 require("lazy").setup("plugins")
-
-if vim.g.vscode then
-  require '03_vscode'
-end

@@ -1,7 +1,3 @@
-if vim.g.vscode then
-  return {}
-end
-
 vim.diagnostic.config {
   severity_sort = true,
   float = {

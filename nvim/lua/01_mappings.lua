@@ -1,7 +1,4 @@
 vim.g.mapleader = ' '
-if vim.g.vscode then
-  return
-end
 
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }

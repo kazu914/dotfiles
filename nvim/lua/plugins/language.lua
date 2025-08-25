@@ -1,6 +1,3 @@
-if vim.g.vscode then
-  return {}
-end
 return {
   {
     'akinsho/flutter-tools.nvim',
