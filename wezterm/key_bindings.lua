@@ -85,6 +85,21 @@ local key_bindings = {
     key = 's',
     action = wezterm.action_callback(workspace_management.switch_to_workspace),
   },
+  {
+    key = '+',
+    mods = 'SUPER',
+    action = wezterm.action.IncreaseFontSize
+  },
+  {
+    key = '-',
+    mods = 'SUPER',
+    action = wezterm.action.DecreaseFontSize
+  },
+  {
+    key = '=',
+    mods = 'SUPER',
+    action = wezterm.action.ResetFontSize
+  },
 }
 
 if is_linux then
