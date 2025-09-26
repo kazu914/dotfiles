@@ -46,3 +46,5 @@ map('n', '<C-l>', '<C-w>l')
 
 -- <C-j> で文末にジャンプ，すでに文末なら改行
 map('i', '<C-j>', 'col(".") == col("$") ? \'<C-j>\' : \'<ESC>A\'', { noremap = true, silent = true, expr = true })
+
+map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>')
