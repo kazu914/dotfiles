@@ -2,6 +2,7 @@ local wezterm = require 'wezterm'
 local key_bindings = require 'key_bindings'
 local mouse_bindings = require 'mouse_bindings'
 local ui_components = require 'ui_components'
+local utils = require 'utils'
 
 ui_components.setup()
 
@@ -48,9 +49,14 @@ local config = {
 }
 
 -- OSごとの設定分岐
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+if utils.is_windows then
   -- Windowsの場合: WSLをデフォルトで起動
   config.default_prog = { "wsl.exe", "--distribution", "Ubuntu" }
+  config.launch_menu = {
+    { label = "WSL (Ubuntu)", args = { "wsl.exe", "--distribution", "Ubuntu" } },
+    { label = "PowerShell", args = { "powershell.exe" } },
+    { label = "cmd", args = { "cmd.exe" } },
+  }
 end
 
 return config
