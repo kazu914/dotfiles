@@ -34,3 +34,6 @@
 {
     SendInput("^a")
 }
+
+; ===== Ctrl + E → 行末へ移動 =====
+^e::Send("{End}")
