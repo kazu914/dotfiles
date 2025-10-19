@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm'
 local utils = require 'utils'
-local is_linux = string.find(wezterm.target_triple, "linux") ~= nil
+local is_mac = string.find(wezterm.target_triple, "darwin") ~= nil
 
 local function setup()
   wezterm.on("format-window-title", function(_, _)
@@ -84,9 +84,7 @@ local function setup()
     -- Get Clipboard
     local success
     local stdout
-    if (is_linux) then
-      -- pbpasteがないので何もしない
-    else
+    if (is_mac) then
       success, stdout = wezterm.run_child_process({ "pbpaste" })
     end
 
