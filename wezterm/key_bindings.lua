@@ -120,6 +120,13 @@ if utils.is_windows then
       action = wezterm.action.ShowLauncher
     }
   )
+  table.insert(key_bindings,
+    { 
+      key = 'v',
+      mods = 'CTRL',
+      action = wezterm.action.PasteFrom 'Clipboard'
+    }
+  )
 end
 
 return {
