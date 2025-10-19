@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm'
-local is_linux = string.find(wezterm.target_triple, "linux") ~= nil
 local workspace_management = require("workspace_management")
+local utils = require 'utils'
 
 local key_bindings = {
   {
@@ -102,7 +102,7 @@ local key_bindings = {
   },
 }
 
-if is_linux then
+if utils.is_linux then
   table.insert(key_bindings,
     {
       key = 'V',
@@ -112,6 +112,15 @@ if is_linux then
   )
 end
 
+if utils.is_windows then
+  table.insert(key_bindings,
+    {
+      key = 'l',
+      mods = 'LEADER',
+      action = wezterm.action.ShowLauncher
+    }
+  )
+end
 
 return {
   key_bindings = key_bindings

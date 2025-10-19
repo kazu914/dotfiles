@@ -51,4 +51,8 @@ M.table_contains = function(table, element)
   return false
 end
 
+M.is_linux = string.find(wezterm.target_triple, "linux") ~= nil
+M.is_mac = string.find(wezterm.target_triple, "darwin") ~= nil
+M.is_windows = string.find(wezterm.target_triple, "windows") ~= nil
+
 return M
