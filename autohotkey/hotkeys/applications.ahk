@@ -20,14 +20,11 @@
 
 #Space::  ; Win + Space
 {
-    if !ProcessExist("WindowsTerminal.exe") {
-        Run("wt.exe")  ; Windows Terminal 起動
+    winTitle := "ahk_exe wezterm-gui.exe"
+    if WinExist(winTitle) {
+        WinActivate(winTitle)
     } else {
-        winTitle := "ahk_exe WindowsTerminal.exe"
-        if WinExist(winTitle) {
-            WinActivate(winTitle)
-        } else {
-            MsgBox "Windows Terminal のウィンドウが見つかりません。"
-        }
+        ; フルパスで wezterm.exe を直接起動
+        Run("C:\Program Files\WezTerm\wezterm-gui.exe")
     }
 }
