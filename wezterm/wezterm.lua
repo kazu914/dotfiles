@@ -5,7 +5,7 @@ local ui_components = require 'ui_components'
 
 ui_components.setup()
 
-return {
+local config = {
   -- UI
   font_size = 13.0,
   font = wezterm.font("HackGen35 Console NF", { style = "Normal" }),
@@ -46,3 +46,11 @@ return {
     fade_out_duration_ms = 20,
   },
 }
+
+-- OSごとの設定分岐
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  -- Windowsの場合: WSLをデフォルトで起動
+  config.default_prog = { "wsl.exe", "--distribution", "Ubuntu" }
+end
+
+return config
