@@ -5,9 +5,11 @@ SetWinDelay -1  ; WinMove の内部遅延を無効化して滑らかに
 ; =======================================
 ; Win + Shift + H → 左半分（アニメーション）
 ; Win + Shift + L → 右半分（アニメーション）
+; Win + Shift + F → 作業領域いっぱい（最大化はしない）
 ; =======================================
 #+h::MoveActiveWindowAnimated("left")
 #+l::MoveActiveWindowAnimated("right")
+#+f::MoveActiveWindowAnimated("full")
 
 ; ---- 設定（好みに応じて調整） ----
 ANI_DURATION_MS := 180   ; アニメーション時間（ミリ秒）
@@ -25,12 +27,18 @@ MoveActiveWindowAnimated(side) {
     if (mm = 1 || mm = -1)
         WinRestore("ahk_id " hwnd)
 
-    ; 目標矩形（作業領域の左／右半分）
+    ; 目標矩形（作業領域の左／右半分 or フル）
     wa := GetWorkAreaForWindow(hwnd)  ; {L,T,R,B}
-    tw := (wa.R - wa.L) // 2
-    th := (wa.B - wa.T)
-    tx := (side = "left") ? wa.L : wa.L + tw
-    ty := wa.T
+    fullW := wa.R - wa.L
+    fullH := wa.B - wa.T
+
+    if (side = "left") {
+        tw := fullW // 2, th := fullH, tx := wa.L,       ty := wa.T
+    } else if (side = "right") {
+        tw := fullW // 2, th := fullH, tx := wa.L + tw,  ty := wa.T
+    } else { ; "full"
+        tw := fullW,      th := fullH, tx := wa.L,       ty := wa.T
+    }
 
     ; 現在の位置サイズ
     WinGetPos &x0, &y0, &w0, &h0, "ahk_id " hwnd
@@ -61,6 +69,13 @@ MoveActiveWindowAnimated(side) {
     WinMove(tx, ty, tw, th, "ahk_id " hwnd)
 }
 
+#q::
+{
+    hwnd := WinExist("A")
+    if hwnd
+        WinClose("ahk_id " hwnd)
+}
+
 ; ---- ヘルパー：モニターの作業領域 ----
 GetWorkAreaForWindow(hwnd) {
     hMon := DllCall("MonitorFromWindow", "ptr", hwnd, "uint", 2, "ptr") ; 2 = MONITOR_DEFAULTTONEAREST
@@ -83,4 +98,3 @@ EaseOutCubic(t) {
     t := 1 - t
     return 1 - t*t*t
 }
-
