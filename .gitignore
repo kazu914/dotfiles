@@ -8,3 +8,5 @@ zsh/enabled
 .vim
 
 homebrew/Brewfile.lock.json
+
+wezterm/local_workspaces.lua
