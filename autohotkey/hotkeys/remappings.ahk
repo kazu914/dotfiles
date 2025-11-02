@@ -20,20 +20,23 @@
     Send("#v")  ; "#" = Winキー
 }
 
+; ==================================================
+; Chrome 上でのみ有効
+; ==================================================
+#HotIf IsChromeActive()
 
-; ===== Ctrl + A → 行頭へ移動 =====
 #InputLevel 1
-^a::
-{
-    Send("{Home}")
-}
-
-; ===== Win + A → 全選択（Ctrl + A） =====
+^a::Send("{Home}")   ; Ctrl + A → 行頭へ
 #InputLevel 0
-#a::
-{
-    SendInput("^a")
-}
+#a::Send("^a")       ; Win + A → 全選択
+^e::Send("{End}")    ; Ctrl + E → 行末へ
 
-; ===== Ctrl + E → 行末へ移動 =====
-^e::Send("{End}")
+#HotIf  ; 条件終了
+
+; ====== 関数定義 ======
+IsChromeActive() {
+    winClass := WinGetClass("A")
+    procName := WinGetProcessName("A")
+    ; Chrome のウィンドウクラスは "Chrome_WidgetWin_1"
+    return (winClass = "Chrome_WidgetWin_1") && (procName ~= "i)chrome\.exe")
+}
