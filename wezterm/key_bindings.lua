@@ -121,10 +121,18 @@ if utils.is_windows then
     }
   )
   table.insert(key_bindings,
-    { 
+    {
       key = 'v',
       mods = 'CTRL',
-      action = wezterm.action.PasteFrom 'Clipboard'
+      action = wezterm.action_callback(function(window, pane)
+        if pane:is_alt_screen_active() then
+          -- allow "full screen" TUI apps to receive and handle CTRL-V for themselves
+          window:perform_action(wezterm.action.SendKey { key = 'v', mods = 'CTRL' }, pane)
+        else
+          -- otherwise, treat it as a copy operation
+          window:perform_action(wezterm.action.PasteFrom 'Clipboard', pane)
+        end
+      end)
     }
   )
 end
