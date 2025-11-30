@@ -112,23 +112,35 @@ return {
     end
   },
   {
-    'stevearc/oil.nvim',
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    "nvim-neo-tree/neo-tree.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    lazy = false,
     config = function()
-      vim.keymap.set('n', '<leader>f',
-        function()
-          require("oil").open(vim.fn.getcwd())
-        end)
-      require("oil").setup(
-        {
-          view_options = {
-            show_hidden = true,
-            is_always_hidden = function(name, _)
-              return name == ".git"
-            end,
-          },
+      vim.keymap.set("n", "<leader>ff", "<Cmd>Neotree toggle position=float reveal=true<CR>")
+      vim.keymap.set("n", "<leader>fg", "<Cmd>Neotree git_status toggle position=float reveal=true<CR>")
+      vim.keymap.set("n", "<leader>fb", "<Cmd>Neotree buffers toggle position=float<CR>")
+      vim.keymap.set("n", "<leader>fl", "<Cmd>Neotree document_symbols toggle position=float<CR>")
+      require("neo-tree").setup({
+        sources = { "filesystem", "git_status", "buffers", "document_symbols" },
+        window = {
+          mappings = {
+            ["<space>"] = {
+              "toggle_node",
+              nowait = true
+            },
+            ["P"] = {
+              "toggle_preview",
+              config = {
+                use_float = true,
+              },
+            },
+          }
         }
-      )
+      })
     end
   },
   {
