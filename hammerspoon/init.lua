@@ -18,7 +18,7 @@ end
 -- open teams
 -- ]]
 hs.hotkey.bind({ "cmd" }, "t", function()
-  openApp('teams', '/Applications/Microsoft Teams (work or school).app')
+  openApp('teams', '/Applications/Microsoft Teams.app')
 end)
 
 -- [[
