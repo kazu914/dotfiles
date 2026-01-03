@@ -1,7 +1,7 @@
 SHELL=/bin/zsh
 
 .PHONY: minimal
-minimal: nvim_minimal zsh_minimal sheldon tmux alacritty
+minimal: nvim_minimal zsh_minimal sheldon tmux alacritty ghostty
 
 .PHONY: full
 full: nvim_full zsh_full sheldon git node
@@ -14,6 +14,7 @@ clean:
 	cd ../node && make clean && \
 	cd ../tmux && make clean && \
 	cd ../alacritty && make clean && \
+	cd ../ghostty && make clean && \
 	cd ../sheldon && make clean
 
 .PHONY: nvim_minimal
@@ -51,3 +52,7 @@ alacritty:
 .PHONY: sheldon
 sheldon:
 	cd sheldon && make
+
+.PHONY: ghostty
+ghostty:
+	cd ghostty && make init

@@ -1,0 +1,93 @@
+# Ghostty Configuration
+# Converted from WezTerm configuration
+
+# ================================================================================
+# Font Settings
+# ================================================================================
+font-family = HackGen35 Console NF
+font-size = 13
+
+# ================================================================================
+# Theme and Colors
+# ================================================================================
+# Catppuccin Macchiato theme (built-in)
+theme = Catppuccin Macchiato
+
+# ================================================================================
+# Window Settings
+# ================================================================================
+window-padding-x = 0
+window-padding-y = 0
+
+# Disable automatic resize when changing font size
+adjust-cell-height = 0
+adjust-cell-width = 0
+
+# ================================================================================
+# Clipboard Settings
+# ================================================================================
+# Enable copy on select to both selection and system clipboard
+copy-on-select = clipboard
+
+# ================================================================================
+# IME Support
+# ================================================================================
+# IME support is enabled by default in Ghostty
+
+# ================================================================================
+# Key Bindings
+# ================================================================================
+# Leader key bindings using sequence keybinds (Ctrl+s as leader, matching WezTerm)
+
+# Tab Management (LEADER + c/x)
+keybind = ctrl+s>c=new_tab
+keybind = ctrl+s>x=close_tab
+
+# Split Management (LEADER + | for right, LEADER + - for down)
+keybind = ctrl+s>shift+backslash=new_split:right
+keybind = ctrl+s>minus=new_split:down
+
+# Copy mode activation (LEADER + [)
+# Note: toggle_quick_terminal doesn't exist in ghostty
+# keybind = ctrl+s>bracketleft=toggle_quick_terminal
+
+# Tab navigation (ALT+l/h - preserved from WezTerm)
+keybind = alt+l=next_tab
+keybind = alt+h=previous_tab
+
+# Tab moving (ALT+SHIFT+l/h - preserved from WezTerm)
+keybind = alt+shift+l=move_tab:1
+keybind = alt+shift+h=move_tab:-1
+
+# Pane Navigation (ALT+j/k - preserved from WezTerm)
+keybind = alt+j=goto_split:left
+keybind = alt+k=goto_split:right
+
+# Toggle split zoom (maximize/minimize current pane)
+keybind = ctrl+shift+z=toggle_split_zoom
+
+# Copy/Paste (macOS style)
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+
+# Scrolling
+keybind = shift+page_up=scroll_page_up
+keybind = shift+page_down=scroll_page_down
+
+# Standard keybinds for convenience
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+w=close_tab
+keybind = ctrl+tab=next_tab
+keybind = ctrl+shift+tab=previous_tab
+
+# ================================================================================
+# Terminal Behavior
+# ================================================================================
+# Exit behavior - close immediately without confirmation
+quit-after-last-window-closed = true
+confirm-close-surface = false
+
+# ================================================================================
+# Shell Integration
+# ================================================================================
+shell-integration = detect

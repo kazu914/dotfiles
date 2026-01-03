@@ -35,7 +35,7 @@ hs.hotkey.bind({ "cmd" }, "space", function()
   -- 英数に切り替えてからeditorを起動する
   hs.eventtap.keyStroke({}, 0x66, 0)
   -- openApp("code", "/Applications/Visual Studio Code - Insiders.app")
-  openApp("wezterm", "/Applications/Wezterm.app")
+  openApp("ghostty", "/Applications/Ghostty.app")
 end)
 
 hs.hotkey.bind({ "ctrl" }, "m", function()
