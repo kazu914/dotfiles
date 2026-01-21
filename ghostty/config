@@ -91,3 +91,6 @@ confirm-close-surface = false
 # Shell Integration
 # ================================================================================
 shell-integration = detect
+
+auto-update-channel = tip
+
