@@ -8,9 +8,11 @@ alias tree='lsd --tree'
 alias gbs='git branch -u origin/$(git rev-parse --abbrev-ref HEAD)'
 
 # cd -> auto ls
-cd (){
-  __zoxide_z "$@" && pwd && lsd --tree -a --depth=1
-}
+if [[ "$CLAUDECODE" != "1" ]]; then
+  cd (){
+    __zoxide_z "$@" && pwd && lsd --tree -a --depth=1
+  }
+fi
 
 alias kk='kakisute interact'
 
