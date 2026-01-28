@@ -8,6 +8,7 @@ $git_status\
 $package\
 $custom\
 $kubernetes\
+$hostname\
 $fill\
 $cmd_duration\
 $jobs\
@@ -51,6 +52,11 @@ format = "| [$output](underline fg:blue) "
 [kubernetes]
 format = '| [$context](underline fg:green)'
 disabled = false
+
+[hostname]
+ssh_only = true
+format = '@ [$hostname]($style)'
+style='underline'
 
 [fill]
 symbol = ' '
