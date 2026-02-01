@@ -205,5 +205,13 @@
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "terminal.integrated.suggest.enabled": false,
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+    "leetcode.hint.configWebviewMarkdown": false,
+    "leetcode.workspaceFolder": "/Users/nomura/develop/leetcode",
+    "leetcode.showDescription": "Both",
+    "leetcode.defaultLanguage": "golang",
+    "leetcode.hint.commentDescription": false,
+    "leetcode.hint.commandShortcut": false,
+    "chat.tools.terminal.outputLocation": "chat"
 }
