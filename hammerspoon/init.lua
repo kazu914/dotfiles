@@ -1,7 +1,6 @@
 dofile("WindowManager.lua")
 dofile("ApplicationLaucher.lua")
 -- dofile("BookmarkOpener.lua")
-dofile("TodoManager.lua")
 dofile("VSCodeWorkspaceManager.lua")
 dofile("Audio.lua")
 
