@@ -1,0 +1,36 @@
+version: 1.0.0
+formatVersion: 1
+general:
+  language: ja
+  colorScheme: dark
+  themeColor: Sunset
+keyboardShortcuts:
+  global:
+    addTopTask: ''
+    showTagManagement: ''
+    completeTask: ''
+    showTaskList: cmd+.
+    addBottomTask: ''
+  taskListOverlay:
+    moveDown: j
+    complete: c
+    moveUp: k
+    moveToTop: return
+    delete: d
+    close: escape
+    rename: r
+    addTop: o
+    addBottom: a
+  tagSelection:
+    moveUp: ''
+    moveDown: ''
+    toggle: ''
+  tagManagementOverlay:
+    add: a
+    toggleActive: return
+    moveUp: k
+    delete: d
+    moveDown: j
+    close: escape
+    cycleColor: tab
+    rename: r
