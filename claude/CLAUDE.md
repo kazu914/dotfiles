@@ -28,6 +28,7 @@ When forming hypotheses:
 
 - Do not compromise on any work
 - Report any concerns or items deferred with reasons to the user
+- Always use task-auditor when you finish your tasks
 
 ## GitHub
 
