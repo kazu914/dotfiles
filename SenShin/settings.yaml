@@ -6,31 +6,31 @@ general:
   themeColor: Sunset
 keyboardShortcuts:
   global:
+    completeTask: ''
     addTopTask: ''
     showTagManagement: ''
-    completeTask: ''
-    showTaskList: cmd+.
     addBottomTask: ''
+    showTaskList: cmd+.
   taskListOverlay:
-    moveDown: j
-    complete: c
-    moveUp: k
-    moveToTop: return
-    delete: d
-    close: escape
-    rename: r
-    addTop: o
     addBottom: a
-  tagSelection:
-    moveUp: ''
-    moveDown: ''
-    toggle: ''
-  tagManagementOverlay:
-    add: a
-    toggleActive: return
-    moveUp: k
-    delete: d
     moveDown: j
+    delete: d
+    edit: e
+    complete: c
+    moveToTop: return
+    moveUp: k
     close: escape
+    addTop: o
+  tagSelection:
+    moveDown: ctrl+j
+    moveUp: ctrl+k
+    toggle: ctrl+i
+  tagManagementOverlay:
+    moveUp: k
     cycleColor: tab
     rename: r
+    delete: d
+    close: escape
+    moveDown: j
+    add: a
+    toggleActive: return
