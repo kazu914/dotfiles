@@ -29,7 +29,7 @@ Pre-completion verification needed. Task auditor identifies any gaps or compromi
 </commentary>
 </example>
 
-model: inherit
+model: sonnet
 color: red
 tools: ["Read", "Grep", "Glob", "Bash"]
 ---
