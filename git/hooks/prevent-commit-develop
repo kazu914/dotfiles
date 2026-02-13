@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Get current branch name
+current_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+# Check if current branch is develop
+if [ "$current_branch" = "develop" ]; then
+    echo "❌ Error: Direct commits to 'develop' branch are not allowed!"
+    echo ""
+    echo "If you really need to commit to develop, use one of these options:"
+    echo "  1. Temporarily disable this hook:"
+    echo "     git commit --no-verify"
+    echo ""
+    echo "  2. Disable all git hooks for this commit:"
+    echo "     SKIP_HOOKS=1 git commit"
+    echo ""
+    echo "  3. Create a feature branch instead:"
+    echo "     git checkout -b feature/your-feature-name"
+    echo ""
+    exit 1
+fi
+
+exit 0
