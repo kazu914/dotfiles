@@ -30,6 +30,8 @@ When forming hypotheses:
 - Report any concerns or items deferred with reasons to the user
 - Always use task-auditor when you finish your tasks
 
-## GitHub
+## Commands
 
 - Use `gh` command when accessing GitHub
+- Use `gsed` instead of `sed`
+- Use `agent-browser` to use browser
