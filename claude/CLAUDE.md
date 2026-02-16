@@ -35,3 +35,4 @@ When forming hypotheses:
 - Use `gh` command when accessing GitHub
 - Use `gsed` instead of `sed`
 - Use `agent-browser` to use browser
+    - Use /tmp to store screenshots
