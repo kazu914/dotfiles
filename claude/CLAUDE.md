@@ -30,6 +30,11 @@ When forming hypotheses:
 - Report any concerns or items deferred with reasons to the user
 - Always use task-auditor when you finish your tasks
 
+## Collaborate with codex
+
+- Utilize `codex-collaboration` skill as much as possible
+    - Codex can do complex research, get up-to-date information, and make good design choices better than you can.
+
 ## Commands
 
 - Use `gh` command when accessing GitHub
