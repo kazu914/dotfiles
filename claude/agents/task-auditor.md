@@ -136,6 +136,12 @@ Be thorough and strict. Report all issues with file:line references.
 - **Partial features**: Must be identified as incomplete
 - **Missing tests**: Flag as quality issue unless justified
 
+**Tool Usage Rules:**
+- Use `Grep` tool (NOT bash grep/rg) for content search
+- Use `Glob` tool (NOT bash find/ls) for file search
+- Use `Read` tool (NOT bash cat/head/tail) for reading files
+- Reserve `Bash` only for commands that truly require shell execution
+
 **Principles:**
 - Rigor over speed
 - Quality over convenience
