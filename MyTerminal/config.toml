@@ -1,0 +1,35 @@
+[font]
+family = "HackGen35 Console NF"
+size = 13.0
+line_height = 1.3
+
+[terminal]
+shell = "/bin/zsh"
+scrollback = 20000
+bracketed_paste = true
+
+[theme]
+background = "#24273a"
+foreground = "#cad3f5"
+accent = "#8aadf4"
+surface = "#1e2030"
+surface_active = "#363a4f"
+selection = "#5b6078"
+success = "#a6da95"
+warning = "#eed49f"
+error = "#ed8796"
+
+[window]
+width = 1440.0
+height = 900.0
+
+[keymap]
+sidebar_toggle = "Cmd-B"
+tab_next = "Alt-L"
+tab_prev = "Alt-H"
+tab_move_right = "Alt-Shift-L"
+tab_move_left = "Alt-Shift-H"
+terminal_copy = "Cmd-C"
+terminal_paste = "Cmd-V"
+tab_new = "Ctrl+S>C"
+tab_close = "Ctrl+S>X"
