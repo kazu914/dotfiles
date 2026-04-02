@@ -33,3 +33,14 @@ terminal_copy = "Cmd-C"
 terminal_paste = "Cmd-V"
 tab_new = "Ctrl+S>C"
 tab_close = "Ctrl+S>X"
+
+[file_handler]
+"*.java" = "/opt/homebrew/bin/nvim $path"
+"*.md" = "/opt/homebrew/bin/nvim $path"
+"*.yaml" = "/opt/homebrew/bin/nvim $path"
+"*.toml" = "/opt/homebrew/bin/nvim $path"
+
+
+[file_handler_shift]
+"*.md" = ":preview"
+"*.html" = ":preview"
