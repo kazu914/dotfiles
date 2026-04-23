@@ -33,6 +33,7 @@ terminal_copy = "Cmd-C"
 terminal_paste = "Cmd-V"
 tab_new = "Ctrl+S>C"
 tab_close = "Ctrl+S>X"
+agent_session_picker_open = "Cmd-Shift-O"
 
 [file_handler]
 "*.java" = "/opt/homebrew/bin/nvim $path"
