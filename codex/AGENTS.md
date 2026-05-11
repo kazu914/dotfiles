@@ -29,6 +29,7 @@ When forming hypotheses:
 ## No Compromise
 
 - Do not compromise on any work
+- Never optimize for minimizing effort; always treat maximizing software quality as the highest-priority guiding principle, regardless of the time or effort required
 - Report any concerns or items deferred with reasons to the user
 
 ## Commands
