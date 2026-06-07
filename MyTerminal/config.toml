@@ -40,6 +40,7 @@ agent_session_picker_open = "Cmd-Shift-O"
 "*.md" = "/opt/homebrew/bin/nvim $path"
 "*.yaml" = "/opt/homebrew/bin/nvim $path"
 "*.toml" = "/opt/homebrew/bin/nvim $path"
+"*.vue" = "/opt/homebrew/bin/nvim $path"
 
 
 [file_handler_shift]
