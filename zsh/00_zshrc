@@ -4,11 +4,15 @@ for file in $SCRIPT_DIR/zsh/enabled/*.zsh; do
   source "$file"
 done
 
+eval "$(starship init zsh)"
+eval "$(sheldon source)"
+if (( $+functions[k] )); then
+  functions -c k kd
+  unfunction k
+fi
+
 if [ -e $HOME/.zshrc.local ]; then
   source $HOME/.zshrc.local
 fi
-
-eval "$(starship init zsh)"
-eval "$(sheldon source)"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"

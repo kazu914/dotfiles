@@ -34,4 +34,3 @@ apply = ["defer"]
 
 [plugins.k]
 github = "supercrabtree/k"
-apply = ["defer"]
