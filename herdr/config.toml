@@ -1,0 +1,49 @@
+onboarding = false
+
+[theme]
+name = "catppuccin"
+
+[theme.custom]
+accent = "#8aadf4"
+blue = "#8aadf4"
+green = "#a6da95"
+yellow = "#eed49f"
+red = "#ed8796"
+
+[terminal]
+default_shell = "/bin/zsh"
+shell_mode = "auto"
+new_cwd = "follow"
+
+[keys]
+prefix = "ctrl+s"
+
+goto = ["cmd+shift+o"]
+
+toggle_sidebar = ["cmd+b"]
+new_tab = "prefix+c"
+new_workspace = "prefix+n"
+next_tab = "alt+l"
+previous_tab = "alt+h"
+rename_tab = "prefix+shift+t"
+
+close_tab = ["prefix+x"]
+
+close_pane = "prefix+alt+x"
+
+[[keys.command]]
+key = "alt+shift+l"
+type = "plugin_action"
+command = "kazu914.tab-actions.tab-move-right"
+description = "move current tab right"
+
+[[keys.command]]
+key = "alt+shift+h"
+type = "plugin_action"
+command = "kazu914.tab-actions.tab-move-left"
+description = "move current tab left"
+
+[ui]
+accent = "#8aadf4"
+mouse_capture = true
+prompt_new_tab_name = false

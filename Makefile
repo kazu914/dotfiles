@@ -56,3 +56,7 @@ sheldon:
 .PHONY: ghostty
 ghostty:
 	cd ghostty && make init
+
+.PHONY: herdr
+herdr:
+	cd herdr && make init

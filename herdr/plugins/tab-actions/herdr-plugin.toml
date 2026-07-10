@@ -1,0 +1,22 @@
+id = "kazu914.tab-actions"
+name = "Tab Actions"
+version = "0.2.0"
+min_herdr_version = "0.7.0"
+description = "Move the current tab inside its workspace."
+platforms = ["linux", "macos"]
+
+[[build]]
+command = ["cargo", "build", "--release"]
+platforms = ["linux", "macos"]
+
+[[actions]]
+id = "tab-move-right"
+title = "Move Tab Right"
+contexts = ["pane", "tab", "workspace"]
+command = ["./target/release/tab-move", "right"]
+
+[[actions]]
+id = "tab-move-left"
+title = "Move Tab Left"
+contexts = ["pane", "tab", "workspace"]
+command = ["./target/release/tab-move", "left"]
