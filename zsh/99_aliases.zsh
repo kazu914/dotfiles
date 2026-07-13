@@ -6,6 +6,7 @@ alias ls="lsd"
 alias ll="lsd -la"
 alias tree='lsd --tree'
 alias gbs='git branch -u origin/$(git rev-parse --abbrev-ref HEAD)'
+alias ms='bunx markserv'
 
 # cd -> auto ls
 if [[ "$CLAUDECODE" != "1" ]]; then
