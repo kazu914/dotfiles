@@ -11,6 +11,7 @@ const ENTRYPOINT_ID: &str = "workspace-picker";
 const ORIGIN_PANE_ID_ENV: &str = "TAB_ACTIONS_ORIGIN_PANE_ID";
 const ORIGIN_TAB_ID_ENV: &str = "TAB_ACTIONS_ORIGIN_TAB_ID";
 const ORIGIN_WORKSPACE_ID_ENV: &str = "TAB_ACTIONS_ORIGIN_WORKSPACE_ID";
+const MAX_OPEN_ATTEMPTS: usize = 50;
 
 fn main() {
     if let Err(error) = run() {
@@ -24,7 +25,7 @@ fn run() -> Result<(), String> {
     let reopen_env = reopen_env(&args);
     let mut last_error = None;
 
-    for _ in 0..20 {
+    for _ in 0..MAX_OPEN_ATTEMPTS {
         thread::sleep(Duration::from_millis(100));
         match plugin_pane_open_split(
             &args.socket_path,

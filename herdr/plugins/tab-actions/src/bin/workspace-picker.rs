@@ -8,6 +8,7 @@ use crossterm::terminal::{
 use crossterm::{execute, queue};
 use std::collections::BTreeMap;
 use std::io::{stdout, Stdout, Write};
+use std::os::unix::process::CommandExt;
 use std::process::{Command, Stdio};
 use tab_move::{
     env_nonempty, load_workspace_picker_bindings, pane_move_to_tab_split, pane_swap,
@@ -668,8 +669,8 @@ impl PickerApp {
             .map_err(|error| format!("failed to resolve current executable path: {error}"))?
             .with_file_name("workspace-picker-reopen");
 
-        Command::new("/usr/bin/nohup")
-            .arg(helper_path)
+        let mut command = Command::new(&helper_path);
+        command
             .arg("--socket-path")
             .arg(socket_path)
             .arg("--plugin-id")
@@ -684,10 +685,24 @@ impl PickerApp {
             .arg(&self.origin.workspace_id)
             .stdin(Stdio::null())
             .stdout(Stdio::null())
-            .stderr(Stdio::null())
+            .stderr(Stdio::null());
+
+        unsafe {
+            command.pre_exec(|| {
+                if libc::setsid() == -1 {
+                    return Err(std::io::Error::last_os_error());
+                }
+                if libc::signal(libc::SIGHUP, libc::SIG_IGN) == libc::SIG_ERR {
+                    return Err(std::io::Error::last_os_error());
+                }
+                Ok(())
+            });
+        }
+
+        command
             .spawn()
-            .map_err(|error| format!("failed to spawn workspace picker reopen helper: {error}"))?;
-        Ok(())
+            .map(|_| ())
+            .map_err(|error| format!("failed to spawn workspace picker reopen helper: {error}"))
     }
 
     fn rebuild_workspaces(&mut self, preferred_workspace_id: Option<&str>) {

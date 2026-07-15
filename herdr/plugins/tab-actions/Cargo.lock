@@ -296,6 +296,7 @@ name = "tab-move"
 version = "0.3.0"
 dependencies = [
  "crossterm",
+ "libc",
  "serde",
  "serde_json",
  "toml",
