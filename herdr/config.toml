@@ -19,8 +19,6 @@ new_cwd = "follow"
 prefix = "ctrl+s"
 
 goto = ["cmd+shift+o"]
-
-toggle_sidebar = ["cmd+b"]
 new_tab = "prefix+c"
 new_workspace = "prefix+n"
 next_tab = "alt+l"
@@ -42,6 +40,12 @@ key = "alt+shift+h"
 type = "plugin_action"
 command = "kazu914.tab-actions.tab-move-left"
 description = "move current tab left"
+
+[[keys.command]]
+key = "cmd+b"
+type = "plugin_action"
+command = "kazu914.tab-actions.open-workspace-picker"
+description = "open workspace picker"
 
 [ui]
 accent = "#8aadf4"

@@ -1,8 +1,8 @@
 id = "kazu914.tab-actions"
 name = "Tab Actions"
-version = "0.2.0"
+version = "0.3.0"
 min_herdr_version = "0.7.0"
-description = "Move the current tab inside its workspace."
+description = "Move tabs and open a keyboard workspace picker."
 platforms = ["linux", "macos"]
 
 [[build]]
@@ -20,3 +20,15 @@ id = "tab-move-left"
 title = "Move Tab Left"
 contexts = ["pane", "tab", "workspace"]
 command = ["./target/release/tab-move", "left"]
+
+[[actions]]
+id = "open-workspace-picker"
+title = "Open Workspace Picker"
+contexts = ["pane", "tab", "workspace"]
+command = ["./target/release/workspace-picker-open"]
+
+[[panes]]
+id = "workspace-picker"
+title = "Workspace Picker"
+placement = "overlay"
+command = ["./target/release/workspace-picker"]

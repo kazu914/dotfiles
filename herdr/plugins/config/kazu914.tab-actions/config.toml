@@ -1,0 +1,4 @@
+[workspace_picker]
+move_up = "ctrl+k"
+move_down = "ctrl+j"
+delete_workspace = "ctrl+d"

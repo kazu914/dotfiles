@@ -6,6 +6,8 @@ tab-actions-build:
 init: tab-actions-build
 	mkdir -p ${HOME}/.config/herdr
 	ln -svf ${CURDIR}/config.toml ${HOME}/.config/herdr/config.toml
+	mkdir -p ${HOME}/.config/herdr/plugins/config/kazu914.tab-actions
+	ln -svf ${CURDIR}/plugins/config/kazu914.tab-actions/config.toml ${HOME}/.config/herdr/plugins/config/kazu914.tab-actions/config.toml
 	if command -v herdr >/dev/null 2>&1; then \
 		herdr plugin link ${CURDIR}/plugins/tab-actions; \
 	else \
@@ -18,3 +20,4 @@ clean:
 		herdr plugin unlink kazu914.tab-actions || true; \
 	fi
 	unlink ${HOME}/.config/herdr/config.toml || true
+	unlink ${HOME}/.config/herdr/plugins/config/kazu914.tab-actions/config.toml || true
