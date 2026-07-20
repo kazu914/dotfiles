@@ -60,3 +60,7 @@ ghostty:
 .PHONY: herdr
 herdr:
 	cd herdr && make init
+
+.PHONY: local-file-server
+local-file-server:
+	cd local-file-server && make init
