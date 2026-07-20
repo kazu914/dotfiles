@@ -38,3 +38,7 @@ When forming hypotheses:
 - Use `gsed` instead of `sed`
 - Use `agent-browser` to use browser
     - Use /tmp to store screenshots `agent-browser screenshot -h`
+
+## Output Inspection
+
+- When repeatedly inspecting output from `curl` or any other command, first save the output to a file in `/tmp`, then inspect that file.
