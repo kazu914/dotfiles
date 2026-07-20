@@ -24,6 +24,7 @@ new_workspace = "prefix+n"
 next_tab = "alt+l"
 previous_tab = "alt+h"
 rename_tab = "prefix+shift+t"
+toggle_sidebar = "cmd+shift+b"
 
 close_tab = ["prefix+x"]
 
