@@ -1,41 +1,38 @@
-local JDTLS_LOCATION = vim.fn.expand "$MASON/packages/jdtls"
+-- jdtls (Java) の LSP 設定
+--
+-- Neovim 0.11+ の lsp-config 仕様により、lsp/*.lua および after/lsp/*.lua は
+-- 「設定テーブルを return」しなければならない (vim.lsp.config["jdtls"] への代入では
+-- なく、vim.lsp.enable() 時の設定解決でこの戻り値が使われる)。
+-- この設定は mason-lspconfig の automatic_enable から vim.lsp.enable("jdtls") される。
+--
+-- cmd には mason 同梱の公式ランチャー (bin/jdtls) を使う。
+-- ランチャー側で equinox launcher jar の解決・config ディレクトリ (config_mac) の
+-- 指定・共通 JVM 引数 (-Xms1G, --add-opens, --add-modules 等) が行われるため、
+-- ここではプロジェクト毎の -data と lombok だけを指定する。
 
--- Data directory - change it to your liking
-local HOME = os.getenv "HOME"
-local WORKSPACE_PATH = HOME .. "/workspace/java/"
+local workspace_root = vim.env.HOME .. "/workspace/java/"
+local mason = vim.env.MASON or (vim.fn.stdpath "data" .. "/mason")
+local jdtls_bin = mason .. "/bin/jdtls"
+local lombok_jar = mason .. "/packages/jdtls/lombok.jar"
 
--- Only for Linux and Mac
-local SYSTEM = "linux"
-if vim.fn.has "mac" == 1 then
-  SYSTEM = "mac"
-end
+return {
+  cmd = function(dispatchers, config)
+    -- プロジェクト (root_dir) 毎に -data のワークスペースを分ける
+    local project = config.root_dir and vim.fn.fnamemodify(config.root_dir, ":p:h:t")
+      or vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = WORKSPACE_PATH .. project_name
-
-local config = {
-  cmd = {
-    "java",
-    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-    "-Dosgi.bundles.defaultStartLevel=4",
-    "-Declipse.product=org.eclipse.jdt.ls.core.product",
-    "-Dlog.protocol=true",
-    "-Dlog.level=ALL",
-    '-javaagent:' .. JDTLS_LOCATION .. '/lombok.jar',
-    "-Xms1g",
-    "--add-modules=ALL-SYSTEM",
-    "--add-opens",
-    "java.base/java.util=ALL-UNNAMED",
-    "--add-opens",
-    "java.base/java.lang=ALL-UNNAMED",
-    "-jar",
-    vim.fn.glob(JDTLS_LOCATION .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
-    "-configuration",
-    JDTLS_LOCATION .. "/config_" .. SYSTEM,
-    "-data",
-    workspace_dir,
-  },
-
+    return vim.lsp.rpc.start({
+      jdtls_bin,
+      "-data",
+      workspace_root .. project,
+      "--jvm-arg=-javaagent:" .. lombok_jar,
+    }, dispatchers, {
+      cwd = config.cmd_cwd,
+      env = config.cmd_env,
+      detached = config.detached,
+    })
+  end,
+  filetypes = { "java" },
   settings = {
     java = {
       eclipse = {
@@ -63,31 +60,33 @@ local config = {
           profile = "Style",
         },
       },
-    },
-    signatureHelp = { enabled = true },
-    completion = {
-      favoriteStaticMembers = {
-        "org.hamcrest.MatcherAssert.assertThat",
-        "org.hamcrest.Matchers.*",
-        "org.hamcrest.CoreMatchers.*",
-        "org.junit.jupiter.api.Assertions.*",
-        "java.util.Objects.requireNonNull",
-        "java.util.Objects.requireNonNullElse",
-        "org.mockito.Mockito.*",
+      signatureHelp = {
+        enabled = true,
       },
-    },
-    contentProvider = { preferred = "fernflower" },
-    sources = {
-      organizeImports = {
-        starThreshold = 9999,
-        staticStarThreshold = 9999,
+      completion = {
+        favoriteStaticMembers = {
+          "org.hamcrest.MatcherAssert.assertThat",
+          "org.hamcrest.Matchers.*",
+          "org.hamcrest.CoreMatchers.*",
+          "org.junit.jupiter.api.Assertions.*",
+          "java.util.Objects.requireNonNull",
+          "java.util.Objects.requireNonNullElse",
+          "org.mockito.Mockito.*",
+        },
       },
-    },
-    codeGeneration = {
-      toString = {
-        template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+      contentProvider = { preferred = "fernflower" },
+      sources = {
+        organizeImports = {
+          starThreshold = 9999,
+          staticStarThreshold = 9999,
+        },
       },
-      useBlocks = true,
+      codeGeneration = {
+        toString = {
+          template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+        },
+        useBlocks = true,
+      },
     },
   },
 
@@ -98,5 +97,3 @@ local config = {
     bundles = {},
   },
 }
-
-vim.lsp.config["jdtls"] = config
