@@ -246,14 +246,18 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    lazy = false,
+    build = ':TSUpdate',
     config = function()
-      require('nvim-treesitter.configs').setup(
-        {
-          highlight = {
-            enable = true
-          }
-        }
-      )
+      -- Neovim bundled parsers: c, lua, vim, vimdoc, query, markdown, markdown_inline
+      require('nvim-treesitter').install({ 'bash', 'html', 'java', 'python', 'regex' })
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = '*',
+        callback = function(args)
+          pcall(vim.treesitter.start, args.buf)
+        end,
+      })
     end
   },
   {
