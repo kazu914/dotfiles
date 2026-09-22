@@ -1,0 +1,4 @@
+interface:
+  display_name: "出力監査"
+  short_description: "作業成果物の保守性・明瞭性・再利用性を包括的に監査します"
+  default_prompt: "$output-audit を使って、今回の作業成果物を監査してください。"
