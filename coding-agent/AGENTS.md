@@ -32,6 +32,10 @@ When forming hypotheses:
 - Never optimize for minimizing effort; always treat maximizing software quality as the highest-priority guiding principle, regardless of the time or effort required
 - Report any concerns or items deferred with reasons to the user
 
+## Completion Audit
+
+- Before declaring work complete, use the `task-audit` skill to audit completion.
+
 ## Commands
 
 - Use `gh` command when accessing GitHub
