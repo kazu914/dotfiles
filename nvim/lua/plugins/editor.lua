@@ -152,10 +152,6 @@ return {
     end
   },
   {
-    'jose-elias-alvarez/buftabline.nvim',
-    config = true
-  },
-  {
     'mhinz/vim-sayonara',
     config = function()
       vim.keymap.set('n', '<leader>q', ':Sayonara<CR>', { noremap = true, silent = true })
