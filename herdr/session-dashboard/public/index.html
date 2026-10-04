@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>セッション一覧</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#session-list">一覧へスキップ</a>
+    <div class="app-shell">
+      <header class="masthead">
+        <div class="brand"><span class="brand-mark" aria-hidden="true">▦</span><span>セッション管理</span></div>
+        <div class="masthead-right"><span class="local-indicator" aria-hidden="true"></span><span class="local-copy">ローカルで表示</span><span class="masthead-divider" aria-hidden="true"></span><span>会話は閲覧のみ</span></div>
+      </header>
+
+      <main>
+        <section class="overview" aria-labelledby="page-title">
+          <div class="overview-heading">
+            <div><h1 id="page-title">セッション一覧</h1></div>
+            <div class="sync-area"><span id="sync-indicator" class="sync-indicator" aria-hidden="true"></span><span id="sync-text" role="status" aria-live="polite">読み込み中…</span><button id="refresh-button" class="icon-button" type="button" aria-label="一覧を更新" title="一覧を更新">↻</button></div>
+          </div>
+          <div class="summary" role="group" aria-label="稼働ペインの概要">
+            <div class="summary-item"><span class="summary-label">稼働ペイン</span><strong id="count-all">—</strong></div>
+            <div class="summary-item"><span class="summary-label"><i class="status-dot blocked" aria-hidden="true"></i>応答待ち</span><strong id="count-blocked">—</strong></div>
+            <div class="summary-item"><span class="summary-label"><i class="status-dot idle" aria-hidden="true"></i>待機中</span><strong id="count-idle">—</strong></div>
+            <div class="summary-item"><span class="summary-label"><i class="status-dot working" aria-hidden="true"></i>作業中</span><strong id="count-working">—</strong></div>
+            <div class="summary-item"><span class="summary-label"><i class="status-dot unknown" aria-hidden="true"></i>状態不明</span><strong id="count-unknown">—</strong></div>
+          </div>
+        </section>
+
+        <section class="workspace" aria-label="セッションと会話の詳細">
+          <div class="list-pane">
+            <div class="toolbar">
+              <div class="toolbar-top"><div><h2 id="list-heading">稼働中のペイン <span id="visible-count" class="heading-count"></span></h2></div><div class="view-toggle" role="group" aria-label="表示対象"><button id="scope-live" class="view-button" type="button" aria-pressed="true">稼働中</button><button id="scope-history" class="view-button" type="button" aria-pressed="false">セッション履歴 <span id="history-count" class="history-count">—</span></button></div></div>
+              <div class="toolbar-bottom"><div id="status-filters" class="filters" role="group" aria-label="ステータスで絞り込み"><button class="filter-button" type="button" data-status="all" aria-pressed="true">すべて</button><button class="filter-button" type="button" data-status="blocked" aria-pressed="false">応答待ち</button><button class="filter-button" type="button" data-status="idle" aria-pressed="false">待機中</button><button class="filter-button" type="button" data-status="working" aria-pressed="false">作業中</button><button class="filter-button" type="button" data-status="unknown" aria-pressed="false">状態不明</button></div><div id="history-views" class="view-toggle" role="group" aria-label="履歴の表示方法" hidden><button id="view-compact" class="view-button" type="button" aria-pressed="true">コンパクト</button><button id="view-grouped" class="view-button" type="button" aria-pressed="false">プロジェクト別</button></div><label class="search-field"><span class="search-icon" aria-hidden="true">⌕</span><span class="sr-only">セッションを検索</span><input id="search-input" type="search" placeholder="名前・パスで検索" autocomplete="off"></label></div>
+            </div>
+            <div id="list-notice" class="notice" role="alert" hidden></div>
+            <div id="session-list" class="session-list" role="region" aria-label="セッション一覧" aria-busy="true" tabindex="-1"><div class="list-state"><span class="loading-glyph" aria-hidden="true"></span><p>セッションを読み込んでいます…</p></div></div>
+            <div class="list-footer"><span id="list-footnote">数秒ごとに自動更新</span><span>↑ ↓ で移動 · Enter で詳細</span></div>
+          </div>
+
+          <aside id="detail-pane" class="detail-pane" aria-labelledby="detail-heading">
+            <div class="detail-header"><h2 id="detail-heading">セッションの詳細</h2><button id="detail-close" class="detail-close" type="button" hidden aria-label="詳細を閉じる">×</button></div>
+            <div id="detail-content" class="detail-content"><div class="detail-empty"><h3>セッションを選択</h3><p>一覧から選択して、会話や端末の表示を確認できます。</p></div></div>
+          </aside>
+        </section>
+      </main>
+      <footer class="page-footer"><span>非稼働はHerdrにペインがない状態です。終了したかどうかは未確認です。</span></footer>
+    </div>
+  </body>
+</html>

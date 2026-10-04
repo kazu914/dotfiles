@@ -61,6 +61,10 @@ ghostty:
 herdr:
 	cd herdr && make init
 
+.PHONY: herdr-dashboard
+herdr-dashboard:
+	python3 herdr/session-dashboard/server.py --port 8765
+
 .PHONY: local-file-server
 local-file-server:
 	cd local-file-server && make init
