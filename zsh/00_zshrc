@@ -4,6 +4,7 @@ for file in $SCRIPT_DIR/zsh/enabled/*.zsh; do
   source "$file"
 done
 
+export STARSHIP_LOG=error
 eval "$(starship init zsh)"
 eval "$(sheldon source)"
 if (( $+functions[k] )); then
