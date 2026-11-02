@@ -272,10 +272,19 @@ export default class Picker extends View {
         if (k === "right" || (k === "l" && e.modifiers.control)) {
           if (this.side === "right" || treeTabs.length === 0) return;
           this.side = "right";
-          if (this.treeAt === null || this.treeAt >= treeTabs.length) this.treeAt = Math.max(0, treeTabs.findIndex((item) => item.w.active && item.c.active));
+          // Land on the active tab of the space selected on the left, every time.
+          const left = rows[this.at]?.kind === "space" ? rows[this.at].w : spaces().find((p) => p.active);
+          const tabId = left?.tabs.find((x) => x.active)?.id;
+          this.treeAt = Math.max(0, treeTabs.findIndex((item) => item.c.id === tabId));
         } else if (k === "left" || (k === "h" && e.modifiers.control)) {
           if (this.side === "left") return;
           this.side = "left";
+          // Keep both sides in step: follow the tree cursor back to its space.
+          const item = treeTabs[this.treeAt];
+          if (item) {
+            const at = rows.findIndex((r) => r.kind === "space" && r.w.id === item.w.id);
+            if (at >= 0) this.at = at;
+          }
         } else if (k === "down" || (k === "j" && e.modifiers.control)) {
           if (this.side === "right") this.treeAt = (this.treeAt + 1) % treeTabs.length;
           else this.at = (this.at + 1) % rows.length;
