@@ -33,7 +33,7 @@ end)
 hs.hotkey.bind({ "cmd" }, "space", function()
   -- 英数に切り替えてからeditorを起動する
   hs.eventtap.keyStroke({}, 0x66, 0)
-  openApp("Ghostty", "/Applications/Ghostty.app")
+  openApp("herdr", os.getenv("HOME") .. "/Applications/Herdr.app")
 end)
 
 hs.hotkey.bind({ "ctrl" }, "m", function()
