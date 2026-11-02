@@ -1,0 +1,31 @@
+{
+  "global": {
+    "cmd-q": "app.quit",
+    "cmd-h": "app.hide",
+    "cmd-alt-h": "app.hide_others",
+    "cmd-,": "app.settings",
+    "ctrl-s c": "tab.new",
+    "ctrl-s n": "space.new",
+    "ctrl-s shift-t": "tab.rename",
+    "ctrl-s x": "tab.close",
+    "ctrl-s alt-x": "pane.close",
+    "cmd-shift-o": "app.palette",
+    "alt-l": "tab.next",
+    "alt-h": "tab.prev",
+    "alt-shift-l": "tab-actions.move-right",
+    "alt-shift-h": "tab-actions.move-left",
+    "cmd-b": "mod.open:my-picker",
+    "cmd-shift-b": "layout.toggle:sidebar"
+  },
+  "terminal": {
+    "cmd-c": "terminal.copy",
+    "cmd-v": "terminal.paste",
+    "ctrl-v": "terminal.paste_image",
+    "alt-left": "send:\u001bb",
+    "alt-right": "send:\u001bf",
+    "alt-backspace": "send:\u0017",
+    "cmd-left": "send:\u0001",
+    "cmd-right": "send:\u0005",
+    "cmd-backspace": "send:\u0015"
+  }
+}

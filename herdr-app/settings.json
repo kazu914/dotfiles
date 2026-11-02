@@ -1,0 +1,16 @@
+{
+  "zoom": 1,
+  "sounds": {
+    "enabled": true
+  },
+  "minimum_contrast": 1,
+  "theme": "catppuccin",
+  "colors": {
+    "accent": "#8aadf4"
+  },
+  "option_as_alt": "on",
+  "telemetry": false,
+  "font": "HackGen35 Console NF",
+  "font_size": 13,
+  "ui_font": "HackGen35"
+}
