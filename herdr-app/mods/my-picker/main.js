@@ -5,7 +5,7 @@
 
 import { View, div, svg } from "gpui-kit";
 import { v_flex, h_flex, InputState, Input } from "gpui-base";
-import { spaces, run, hc, theme, settings, props, closeOverlay, shared, setShared } from "herdr";
+import { spaces, panes, run, hc, theme, settings, props, closeOverlay, shared, setShared } from "herdr";
 
 const MARK = { ansi6: "#22a99a", ansi3: "#e3814f", ansi4: "#5b8def", ansi5: "#8b7cf6", ansi2: "#3fae6a", ansi1: "#d9649a" };
 
@@ -159,6 +159,73 @@ export default class Picker extends View {
         .child(this.glyph(t, r.w.status));
     };
 
+    // The right half: every space's tabs and what runs in them, at a glance.
+    // A working agent spins, a blocked one says "needs you", and a tab without
+    // an agent shows the program that runs in it. Clicking goes there.
+    const chip = (w) => h_flex().size(16).rounded(4).bg(spaceColor(t, w)).items_center().justify_center().text_size(9.5).font_bold().text_color("#ffffff").child([...w.name][0]?.toUpperCase() ?? "?");
+    const treeRows = [];
+    let treeTotal = 0;
+    for (const w of spaces()) {
+      treeRows.push(
+        h_flex()
+          .id(`ag-s-${w.id}`)
+          .h(26)
+          .px(10)
+          .gap(7)
+          .items_center()
+          .text_size(11.5)
+          .font_semibold()
+          .text_color(w.active ? t.foreground : t.dim)
+          .cursor_pointer()
+          .hover((s) => s.bg(t.hover))
+          .on_click(() => this.go({ kind: "space", w }))
+          .child(chip(w))
+          .child(w.name)
+      );
+      treeTotal += 26;
+      for (const c of w.tabs) {
+        const st = c.status;
+        const pane = panes().find((p) => p.tab === c.id && p.program?.agent) ?? panes().find((p) => p.tab === c.id);
+        const program = pane?.program;
+        // A program that never set a title shows its terminal address ("t18") as it;
+        // shells rarely set one, and anything else shows the title it set.
+        const title = pane?.title && !/^t\d+$/.test(pane.title) ? pane.title : null;
+        const shown = c.named ? c.name
+          : pane?.program?.shell ? program?.name || title || String(c.index)
+          : title || program?.name || String(c.index);
+        const label = st === "blocked" ? "needs you" : st === "done" ? "finished" : program?.name && !shown.includes(program.name) ? program.name : "";
+        const here = w.active && c.active;
+        treeRows.push(
+          h_flex()
+            .id(`ag-t-${c.id}`)
+            .h(24)
+            .pl(33)
+            .pr(10)
+            .gap(8)
+            .items_center()
+            .cursor_pointer()
+            .hover((s) => s.bg(t.hover))
+            .on_click(() => {
+              this.confirmed = true;
+              this.close();
+              run("tab.select", { id: c.id });
+            })
+            .child(this.glyph(t, st))
+            .child(div().flex_1().min_w(0).truncate().text_size(12).text_color(here ? t.foreground : t.muted).when(here, (d) => d.font_semibold()).child(shown))
+            .child(div().flex_none().text_size(11).text_color(st === "blocked" ? t.blocked : st === "done" ? t.done : t.dim).child(label))
+        );
+        treeTotal += 24;
+      }
+    }
+    const agentsPane = v_flex()
+      .id("pk-agents")
+      .min_h(0)
+      .flex_1()
+      .border_l(1)
+      .border_color(t.border)
+      .child(div().px(10).pt(2).pb(4).text_size(11).font_semibold().text_color(t.dim).child("Agents"))
+      .child(v_flex().min_h(0).when(treeTotal > 318, (el) => el.overflow_y_scrollbar()).h(Math.min(318, treeTotal)).children(treeRows));
+
     return v_flex()
       .id("picker")
       .track_focus(this.handle)
@@ -185,25 +252,38 @@ export default class Picker extends View {
           .child(Input.new(this.input).flex_1().h_full().text_size(12.8).text_color(t.foreground)),
       )
       .child(
-        v_flex()
-          .id("pk-list")
-          .on_size_change((size, cx) => {
-            this.listHeight = size.height / settings().zoom;
-            cx.notify();
-          })
-          .h(Math.min(320, total))
+        h_flex()
+          .id("pk-split")
           .min_h(0)
-          .mb(6)
-          .when(fixed, (el) =>
-            el.overflow_hidden().on_scroll_wheel((e, cx) => {
-              this.scroll = Math.max(0, Math.min(this.scroll - e.delta.y, maxScroll));
-              // The selection follows the wheel, so the next frame doesn't scroll back to it.
-              while (this.at < rows.length - 1 && tops[this.at] < this.scroll) this.at++;
-              while (this.at > 0 && tops[this.at] + (H[rows[this.at].kind] ?? 32) > this.scroll + height) this.at--;
-              this.preview();
-              cx.notify();
-            }))
-          .children(rows.map((r, i) => (visible(i) ? place(row(r), i) : null)).filter(Boolean)),
+          .gap(14)
+          .child(
+            v_flex()
+              .id("pk-left")
+              .min_h(0)
+              .flex_1()
+              .child(
+                v_flex()
+                  .id("pk-list")
+                  .on_size_change((size, cx) => {
+                    this.listHeight = size.height / settings().zoom;
+                    cx.notify();
+                  })
+                  .h(Math.min(320, total))
+                  .min_h(0)
+                  .mb(6)
+                  .when(fixed, (el) =>
+                    el.overflow_hidden().on_scroll_wheel((e, cx) => {
+                      this.scroll = Math.max(0, Math.min(this.scroll - e.delta.y, maxScroll));
+                      // The selection follows the wheel, so the next frame doesn't scroll back to it.
+                      while (this.at < rows.length - 1 && tops[this.at] < this.scroll) this.at++;
+                      while (this.at > 0 && tops[this.at] + (H[rows[this.at].kind] ?? 32) > this.scroll + height) this.at--;
+                      this.preview();
+                      cx.notify();
+                    }))
+                  .children(rows.map((r, i) => (visible(i) ? place(row(r), i) : null)).filter(Boolean)),
+              ),
+          )
+          .child(agentsPane),
       );
   }
 }
