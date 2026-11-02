@@ -1,7 +1,9 @@
 // Switch spaces. All spaces in sidebar order; type to filter, ↑/↓ (ctrl+j/k)
-// and Enter to switch, Esc to leave. The shown space follows the selection
-// live; leaving without Enter comes back to where you were. Last rows: a new
-// space on this computer or on each connected machine.
+// and Enter to switch, Esc to leave. ctrl+h/ctrl+l (←/→) move between the
+// space list and the tab tree: in the tree ↑/↓ pick a single tab and Enter
+// switches to it. The shown space follows the selection live; leaving without
+// Enter comes back to where you were. Last rows: a new space on this computer
+// or on each connected machine.
 
 import { View, div, svg } from "gpui-kit";
 import { v_flex, h_flex, InputState, Input } from "gpui-base";
@@ -37,14 +39,28 @@ export default class Picker extends View {
   init(_props, cx) {
     this.filter = "";
     this.input = InputState.new({ placeholder: "Go to a space…" });
-    this.input.on("change", (_e, cx) => { this.filter = this.input.value(); this.at = 0; this.preview(); cx.notify(); });
-    this.input.on("submit", () => this.go(this.rows()[this.at]));
+    this.input.on("change", (_e, cx) => { this.filter = this.input.value(); this.at = 0; this.side = "left"; this.preview(); cx.notify(); });
+    this.input.on("submit", () => {
+      if (this.side === "right") {
+        const item = this.treeTabs?.[this.treeAt ?? 0];
+        if (item) {
+          this.confirmed = true;
+          this.close();
+          run("tab.select", { id: item.c.id });
+        }
+      } else this.go(this.rows()[this.at]);
+    });
     this.input.focus();
     cx.timer.after(600, () => this.input.focus());
     this.at = null;
+    this.side = "left";
+    this.treeAt = null;
+    this.treeTabs = [];
     this.scroll = 0;
     this.machines = [];
-    this.from = spaces().find((p) => p.active)?.id ?? null;
+    const where = spaces().find((p) => p.active);
+    this.from = where?.id ?? null;
+    this.fromTab = where?.tabs.find((x) => x.active)?.id ?? null;
     this.confirmed = false;
     this.handle = cx.focus_handle();
     cx.spawn(async (cx) => {
@@ -57,7 +73,10 @@ export default class Picker extends View {
   }
 
   close() {
-    if (!this.confirmed && this.from) run("space.select", { id: this.from });
+    if (!this.confirmed && this.from) {
+      if (this.fromTab) run("tab.select", { id: this.fromTab });
+      else run("space.select", { id: this.from });
+    }
     closeOverlay(props().overlay);
   }
 
@@ -66,6 +85,12 @@ export default class Picker extends View {
     const r = this.rows()[this.at];
     if (r?.kind !== "space" || r.w.active) return;
     run("space.select", { id: r.w.id });
+  }
+
+  // In the tab tree the preview follows at tab granularity.
+  previewTab(item) {
+    if (!item || (item.w.active && item.c.active)) return;
+    run("tab.select", { id: item.c.id });
   }
 
   rows() {
@@ -122,7 +147,7 @@ export default class Picker extends View {
     const visible = (i) => !fixed || (tops[i] + (H[rows[i].kind] ?? 32) > this.scroll && tops[i] < this.scroll + height);
 
     const row = (r) => {
-      const on = r === sel;
+      const on = r === sel && this.side !== "right";
       if (r.kind === "new") {
         const label = r.machine ? `new space on ${r.machine}` : "new space";
         return h_flex()
@@ -164,6 +189,7 @@ export default class Picker extends View {
     // an agent shows the program that runs in it. Clicking goes there.
     const chip = (w) => h_flex().size(16).rounded(4).bg(spaceColor(t, w)).items_center().justify_center().text_size(9.5).font_bold().text_color("#ffffff").child([...w.name][0]?.toUpperCase() ?? "?");
     const treeRows = [];
+    const treeTabs = [];
     let treeTotal = 0;
     for (const w of spaces()) {
       treeRows.push(
@@ -195,6 +221,9 @@ export default class Picker extends View {
           : title || program?.name || String(c.index);
         const label = st === "blocked" ? "needs you" : st === "done" ? "finished" : program?.name && !shown.includes(program.name) ? program.name : "";
         const here = w.active && c.active;
+        const ti = treeTabs.length;
+        const on2 = this.side === "right" && ti === (this.treeAt ?? -1);
+        treeTabs.push({ w, c });
         treeRows.push(
           h_flex()
             .id(`ag-t-${c.id}`)
@@ -204,6 +233,7 @@ export default class Picker extends View {
             .gap(8)
             .items_center()
             .cursor_pointer()
+            .when(on2, (el) => el.bg(t.hover))
             .hover((s) => s.bg(t.hover))
             .on_click(() => {
               this.confirmed = true;
@@ -217,6 +247,7 @@ export default class Picker extends View {
         treeTotal += 24;
       }
     }
+    this.treeTabs = treeTabs;
     const agentsPane = v_flex()
       .id("pk-agents")
       .min_h(0)
@@ -238,10 +269,22 @@ export default class Picker extends View {
       .on_key_down((e, cx) => {
         const k = e.key;
         if (k === "escape") return this.close();
-        if (k === "down" || (k === "j" && e.modifiers.control)) this.at = (this.at + 1) % rows.length;
-        else if (k === "up" || (k === "k" && e.modifiers.control)) this.at = (this.at + rows.length - 1) % rows.length;
-        else return;
-        this.preview();
+        if (k === "right" || (k === "l" && e.modifiers.control)) {
+          if (this.side === "right" || treeTabs.length === 0) return;
+          this.side = "right";
+          if (this.treeAt === null || this.treeAt >= treeTabs.length) this.treeAt = Math.max(0, treeTabs.findIndex((item) => item.w.active && item.c.active));
+        } else if (k === "left" || (k === "h" && e.modifiers.control)) {
+          if (this.side === "left") return;
+          this.side = "left";
+        } else if (k === "down" || (k === "j" && e.modifiers.control)) {
+          if (this.side === "right") this.treeAt = (this.treeAt + 1) % treeTabs.length;
+          else this.at = (this.at + 1) % rows.length;
+        } else if (k === "up" || (k === "k" && e.modifiers.control)) {
+          if (this.side === "right") this.treeAt = (this.treeAt + treeTabs.length - 1) % treeTabs.length;
+          else this.at = (this.at + rows.length - 1) % rows.length;
+        } else return;
+        if (this.side === "right") this.previewTab(treeTabs[this.treeAt]);
+        else this.preview();
         cx.stop_propagation();
         cx.notify();
       })
