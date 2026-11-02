@@ -3,14 +3,14 @@
   "sounds": {
     "enabled": true
   },
+  "font": "HackGen35 Console NF",
+  "font_size": 13,
+  "ui_font": "HackGen35 Console NF",
+  "telemetry": false,
   "minimum_contrast": 1,
+  "option_as_alt": "on",
   "theme": "catppuccin",
   "colors": {
     "accent": "#8aadf4"
-  },
-  "option_as_alt": "on",
-  "telemetry": false,
-  "font": "HackGen35 Console NF",
-  "font_size": 13,
-  "ui_font": "HackGen35"
+  }
 }
