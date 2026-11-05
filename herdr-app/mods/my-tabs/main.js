@@ -1,6 +1,6 @@
 import { View, div, svg, image } from "gpui-kit";
 import { h_flex } from "gpui-base";
-import { spaces, panes, run, openOverlay, theme, window, shared, layout, settings } from "herdr";
+import { spaces, panes, run, openOverlay, theme, window, shared, layout, settings, nextCommand } from "herdr";
 
 function find(node, id) {
   if (node?.id === id) return node;
@@ -12,9 +12,26 @@ function find(node, id) {
 }
 
 export default class Tabs extends View {
-  init() {
+  init(_props, cx) {
     this.pressed = null;
     this.panels = JSON.parse(localStorage.getItem("panels") ?? "{}");
+    cx.spawn(async (cx) => {
+      for (;;) {
+        const c = await nextCommand();
+        if (c === "move-left") this.moveTab(-1);
+        else if (c === "move-right") this.moveTab(1);
+        cx.notify();
+      }
+    });
+  }
+
+  // "my-tabs.move-left" / "my-tabs.move-right" in keys.json shift the active tab.
+  moveTab(by) {
+    const space = spaces().find((s) => s.active);
+    const tab = space?.tabs?.find((t) => t.active);
+    if (!tab) return;
+    const index = Math.min(Math.max(tab.index + by, 1), space.tabs.length);
+    if (index !== tab.index) run("tab.move", { id: tab.id, index });
   }
 
   // The side panel is remembered per space: switching shows that space's choice

@@ -69,16 +69,6 @@
               "size": {
                 "px": 69
               }
-            },
-            {
-              "id": "tab-actions",
-              "type": "block",
-              "content": {
-                "mod": "tab-actions"
-              },
-              "size": {
-                "px": 8
-              }
             }
           ],
           "size": {

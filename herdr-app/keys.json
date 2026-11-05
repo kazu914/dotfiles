@@ -12,8 +12,8 @@
     "cmd-shift-o": "app.palette",
     "alt-l": "tab.next",
     "alt-h": "tab.prev",
-    "alt-shift-l": "tab-actions.move-right",
-    "alt-shift-h": "tab-actions.move-left",
+    "alt-shift-l": "my-tabs.move-right",
+    "alt-shift-h": "my-tabs.move-left",
     "cmd-b": "mod.open:my-picker",
     "cmd-shift-b": "layout.toggle:sidebar"
   },
