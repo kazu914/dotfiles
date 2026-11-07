@@ -22,6 +22,12 @@ local function getApps()
     return apps
 end
 
+-- pickerを開く前に入力ソースをABC(半角英数)へ切り替える
+local function showAfterEisu(chooser)
+    hs.keycodes.currentSourceID("com.apple.keylayout.ABC")
+    chooser:show()
+end
+
 local function sorter(a, b)
     return (string.len(a.text:getString()) < string.len(b.text:getString()))
 end
@@ -40,7 +46,7 @@ hs.hotkey.bind({"cmd", "shift"}, "d", function()
     chooser:queryChangedCallback(function()
         FuzzyMatcher.setChoices(apps, chooser, true, sorter)
     end)
-    chooser:show()
+    showAfterEisu(chooser)
 end)
 
 -- [[
@@ -61,5 +67,5 @@ hs.hotkey.bind({"cmd"}, "d", function()
     chooser:queryChangedCallback(function()
         FuzzyMatcher.setChoices(choices, chooser, false, nil)
     end)
-    chooser:show()
+    showAfterEisu(chooser)
 end)
